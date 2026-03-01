@@ -137,6 +137,20 @@ plugins:
         color: "#80cbc4"
 
 extra:
+  analytics:
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/thumb-up
+          name: Yes, it helped
+          data: 1
+          note: Thanks for your feedback!
+        - icon: material/thumb-down
+          name: It could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback. You can also
+            <a href="mailto:claudeblattman+feedback@gmail.com">email us directly</a>.
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/chrisblattman/claudeblattman

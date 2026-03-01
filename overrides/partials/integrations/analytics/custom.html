@@ -1,0 +1,19 @@
+<script>
+  /* Forward page_rating events to GoatCounter */
+  document$.subscribe(function () {
+    var feedback = document.forms.feedback;
+    if (!feedback) return;
+    Array.from(feedback.elements).forEach(function (button) {
+      if (button.type !== "submit") return;
+      button.addEventListener("click", function () {
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({
+            path: "feedback/" + (button.value === "1" ? "helpful" : "not-helpful"),
+            title: "Feedback: " + document.title,
+            event: true
+          });
+        }
+      });
+    });
+  });
+</script>
