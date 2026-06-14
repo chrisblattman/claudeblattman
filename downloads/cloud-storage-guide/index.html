@@ -1,0 +1,3624 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems">
+      
+      
+        <meta name="author" content="Chris Blattman">
+      
+      
+        <link rel="canonical" href="https://claudeblattman.com/downloads/cloud-storage-guide/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Organizing Your Cloud Storage with Claude Code: A Practical Guide - Claude Blattman · AI for Professionals Who Don't Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Organizing Your Cloud Storage with Claude Code: A Practical Guide - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="og:description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems" />
+<meta property="og:image" content="https://claudeblattman.com/assets/images/social/downloads/cloud-storage-guide.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://claudeblattman.com/downloads/cloud-storage-guide/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Organizing Your Cloud Storage with Claude Code: A Practical Guide - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="twitter:description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems" />
+<meta property="twitter:image" content="https://claudeblattman.com/assets/images/social/downloads/cloud-storage-guide.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#organizing-your-cloud-storage-with-claude-code-a-practical-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <style>
+    .md-banner {
+      background: color-mix(in srgb, var(--md-accent-fg-color) 15%, var(--md-default-bg-color));
+      color: var(--md-default-fg-color--light);
+      font-size: 0.75rem;
+    }
+    .feedback-line {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--md-default-fg-color--lightest);
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .feedback-line:hover { opacity: 0.85; }
+  </style>
+  <span style="font-weight: 600; color: var(--md-accent-fg-color);">Power users:</span> <a href="../../setup/skill-reference/" style="font-weight: 600; color: var(--md-accent-fg-color);">Get Skills & Templates &rarr;</a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-header__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Blattman · AI for Professionals Who Don't Code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            <a href="../.." style="color: inherit; text-decoration: none;">
+              Home
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../starter-kit/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start Here
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  What's New
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../essentials/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Essentials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../setup/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../workflows/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflows
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../system/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Build Your Own
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-nav__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Blattman · AI for Professionals Who Don't Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../starter-kit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What's New
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../essentials/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essentials
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Essentials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/chatbots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chatbots Done Right
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cost Reality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/prompting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/voice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teaching AI Your Voice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/project-folders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Project Folders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/plan-review-browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stress-Test Any Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/session-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/wispr-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voice Dictation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/granola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting Transcription
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/notebooklm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NotebookLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/chatgpt-vs-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChatGPT vs Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../setup/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install (Mac)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install (Windows)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/vscode-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set Up VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/mcp-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/skill-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill Library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../workflows/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/first-session-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt, Plan, Review, Revise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/deep-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executive Assistant
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Executive Assistant
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/executive-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building an AI Executive Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/school-digest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Noise Canceling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/project-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/meeting-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/weekly-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly Review (Mechanics)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/sub-project-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sub-Project Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/examples/project-overview-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Project Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/examples/research-design-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Research Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/recall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    /recall (past sessions)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/council/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    /council (parallel critics)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tax-workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tax Season
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tax Season
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/before-you-start/privacy-and-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/case-study/the-workflow-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/case-study/document-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Document Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/case-study/compilation-and-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilation & Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/case-study/what-ai-got-wrong/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What AI Got Wrong
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/build-your-own/architecture-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/build-your-own/starter-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Starter Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/reference/academic-tax-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Academic Tax Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/reference/when-to-get-help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When to Get Help
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build Your Own
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build Your Own
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/building-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/dial-back-discipline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dial-Back Discipline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/agents-vs-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents vs Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/continuous-improvement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Improvement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/ai-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Integration (cross-vendor)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../real-claude-md-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Real CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-guide-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Guide Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-local-disk-audit-1-hour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Local Disk Audit (~1 hour)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Local Disk Audit (~1 hour)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youre-doing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Doing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-claude-code-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Claude Code Does
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-we-found-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What We Found (example)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-lesson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Lesson
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-cloud-storage-inventory-via-api-30-min-setup-scan-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Cloud Storage Inventory via API (~30 min setup + scan time)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Cloud Storage Inventory via API (~30 min setup + scan time)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youre-doing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Doing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-approach_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-we-found-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What We Found (example)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-lesson_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Lesson
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-selective-sync-optimization-30-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Selective Sync Optimization (~30 min)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Selective Sync Optimization (~30 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youre-doing_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Doing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-approach_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-we-accomplished-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What We Accomplished (example)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-google-drive-cleanup-1-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Google Drive Cleanup (~1-2 hours)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4: Google Drive Cleanup (~1-2 hours)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youre-doing_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Doing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-approach_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-we-found-example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What We Found (example)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-lesson_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Lesson
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-other-cloud-services-1-hour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5: Other Cloud Services (~1 hour)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 5: Other Cloud Services (~1 hour)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youre-doing_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Doing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Challenge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approaches-by-access-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approaches by Access Level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-lesson_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Lesson
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-cross-platform-awareness-30-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 6: Cross-Platform Awareness (~30 min)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 6: Cross-Platform Awareness (~30 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youre-doing_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Doing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Deliverables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-lesson_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Lesson
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-app-specific-deep-dives-as-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 7: App-Specific Deep Dives (as needed)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 7: App-Specific Deep Dives (as needed)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youre-doing_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Doing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-parental-monitoring-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Parental Monitoring App
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-lesson_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Lesson
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-what-worked-what-didnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary: What Worked, What Didn't
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary: What Worked, What Didn&#39;t">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-worked-well" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Worked Well
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-didnt-work-wasnt-worth-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Didn't Work / Wasn't Worth It
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools Used
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducible-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reproducible Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="organizing-your-cloud-storage-with-claude-code-a-practical-guide">Organizing Your Cloud Storage with Claude Code: A Practical Guide<a class="headerlink" href="#organizing-your-cloud-storage-with-claude-code-a-practical-guide" title="Permanent link">&para;</a></h1>
+<p><em>Based on a real multi-day workflow organizing files across Dropbox, Google Drive, Box, and local disk</em></p>
+<hr />
+<h2 id="what-this-guide-covers">What This Guide Covers<a class="headerlink" href="#what-this-guide-covers" title="Permanent link">&para;</a></h2>
+<p>If you're a professional or academic with files scattered across multiple cloud services — Dropbox, Google Drive, Box, iCloud — and your laptop's hard drive is running out of space, this guide walks you through using Claude Code to audit, clean up, and create lasting cross-platform awareness of where everything lives.</p>
+<p><strong>Total time investment:</strong> ~4-6 hours across several sessions, spread over 1-2 days.</p>
+<p><strong>What you'll accomplish:</strong>
+- Free significant disk space (in our case: from 19 GB free to 500+ GB free on a 1 TB drive)
+- Catalog everything across cloud services into a single inventory file
+- Clean up junk from Google Drive and other platforms
+- Create a cross-platform strategy so your AI assistant knows where to find things
+- Investigate integration options for services without existing API access</p>
+<hr />
+<h2 id="phase-1-local-disk-audit-1-hour">Phase 1: Local Disk Audit (~1 hour)<a class="headerlink" href="#phase-1-local-disk-audit-1-hour" title="Permanent link">&para;</a></h2>
+<h3 id="what-youre-doing">What You're Doing<a class="headerlink" href="#what-youre-doing" title="Permanent link">&para;</a></h3>
+<p>Before touching cloud services, figure out where space is going on your actual hard drive. Claude Code can scan your filesystem using shell commands — no API setup needed.</p>
+<h3 id="the-approach">The Approach<a class="headerlink" href="#the-approach" title="Permanent link">&para;</a></h3>
+<p>Create a working directory for the project. For example,
+<code>~/Documents/cloud-storage-audit/</code> works well and keeps results easy to find.</p>
+<p>Ask Claude Code to scan major directories outside your main cloud sync folder:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Scan my local filesystem to find where my non-Dropbox disk space is going.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Check ~/Library, /Applications, ~/Downloads, hidden directories, and
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>anything else that looks large. Find the top 50 largest files outside
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>my Dropbox folder. Present a ranked list of quick wins — things likely
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>safe to delete with estimated space recoverable.
+</code></pre></div>
+<h3 id="what-claude-code-does">What Claude Code Does<a class="headerlink" href="#what-claude-code-does" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Runs <code>du -sh</code> on major directories to build a size breakdown</li>
+<li>Checks macOS-specific space hogs: <code>~/Library/Caches/</code>, <code>~/Library/Application Support/</code>, iOS backups, Time Machine snapshots</li>
+<li>Finds the largest individual files outside your cloud sync folders</li>
+<li>Audits your Downloads folder for stale files</li>
+<li>Produces a ranked "quick wins" report with safe-to-delete items</li>
+</ul>
+<h3 id="what-we-found-example">What We Found (example)<a class="headerlink" href="#what-we-found-example" title="Permanent link">&para;</a></h3>
+<p>Our audit uncovered a parental monitoring app (Qustodio) silently storing 79 GB of iOS device backups, a 4 GB Chrome machine learning model, and various stale caches. The single biggest discovery — the hidden backup directory — would never have been found through normal browsing.</p>
+<h3 id="key-lesson">Key Lesson<a class="headerlink" href="#key-lesson" title="Permanent link">&para;</a></h3>
+<p><strong>Hidden directories are where the real bloat lives.</strong> Apps like backup tools, development environments, and messaging apps store data in dot-prefixed folders (<code>~/.app-name/</code>) that don't show up in Finder. Claude Code's filesystem access finds these instantly.</p>
+<hr />
+<h2 id="phase-2-cloud-storage-inventory-via-api-30-min-setup-scan-time">Phase 2: Cloud Storage Inventory via API (~30 min setup + scan time)<a class="headerlink" href="#phase-2-cloud-storage-inventory-via-api-30-min-setup-scan-time" title="Permanent link">&para;</a></h2>
+<h3 id="what-youre-doing_1">What You're Doing<a class="headerlink" href="#what-youre-doing_1" title="Permanent link">&para;</a></h3>
+<p>If you use Dropbox (or a similar service with API access), you can inventory your entire cloud storage programmatically — even files that aren't synced locally.</p>
+<h3 id="the-approach_1">The Approach<a class="headerlink" href="#the-approach_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Get an API token</strong> from your cloud provider's developer console (Dropbox: dropbox.com/developers/apps)</li>
+<li>Have Claude Code write and run a Python script that:</li>
+<li>Enumerates every file via the API (metadata only, not content)</li>
+<li>Captures path, size, and last-modified date</li>
+<li>
+<p>Saves raw results to a JSON file for reuse</p>
+</li>
+<li>
+<p>Generate summary reports:</p>
+</li>
+<li><strong>Top folders by size</strong> — where is the bulk?</li>
+<li><strong>Cold storage candidates</strong> — big folders untouched for 12+ months</li>
+<li><strong>Age distribution</strong> — what percentage is actively used vs. archive?</li>
+<li><strong>File type breakdown</strong> — are you storing massive data files locally that could live elsewhere?</li>
+</ol>
+<h3 id="what-we-found-example_1">What We Found (example)<a class="headerlink" href="#what-we-found-example_1" title="Permanent link">&para;</a></h3>
+<p>Our Dropbox had 630K files totaling 1,407 GB, but only 150 GB (10.6%) was actively used in the last 12 months. This meant a 2 TB drive was more than sufficient — no need for 4 TB.</p>
+<h3 id="key-lesson_1">Key Lesson<a class="headerlink" href="#key-lesson_1" title="Permanent link">&para;</a></h3>
+<p><strong>Most cloud storage is archive.</strong> Once you see the active-vs-archive split, selective sync decisions become obvious. You don't need all your published papers, old datasets, or historical camera uploads on your laptop.</p>
+<hr />
+<h2 id="phase-3-selective-sync-optimization-30-min">Phase 3: Selective Sync Optimization (~30 min)<a class="headerlink" href="#phase-3-selective-sync-optimization-30-min" title="Permanent link">&para;</a></h2>
+<h3 id="what-youre-doing_2">What You're Doing<a class="headerlink" href="#what-youre-doing_2" title="Permanent link">&para;</a></h3>
+<p>Using your inventory data, decide what to keep locally vs. cloud-only. Claude Code can't change Dropbox's selective sync settings (that's a desktop app function), but it can tell you exactly which folders to un-sync and how much space each will free.</p>
+<h3 id="the-approach_2">The Approach<a class="headerlink" href="#the-approach_2" title="Permanent link">&para;</a></h3>
+<p>Ask Claude Code to analyze the inventory and recommend:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Based on the Dropbox inventory, which folders should I make cloud-only
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>to free the most space? Prioritize: published/completed projects,
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>old datasets, media archives, and anything untouched for 12+ months.
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Keep active working files local.
+</code></pre></div></p>
+<h3 id="what-we-accomplished-example">What We Accomplished (example)<a class="headerlink" href="#what-we-accomplished-example" title="Permanent link">&para;</a></h3>
+<p>We un-synced ~533 GB of folders:
+- Published research paper datasets (250+ GB)
+- Dead/inactive projects (50 GB)
+- Large active project data managed by research assistants (231 GB)</p>
+<p>Result: laptop went from 19 GB free to 500+ GB free.</p>
+<h3 id="practical-notes">Practical Notes<a class="headerlink" href="#practical-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Selective sync takes hours for large folders.</strong> Dropbox deletes local copies one file at a time. For 500+ GB, expect 2-6 hours.</li>
+<li><strong>macOS "purgeable" space is confusing.</strong> After un-syncing, Finder may show space as "purgeable" rather than "free" — this is normal APFS behavior. The space is available.</li>
+<li><strong>There are multiple UI paths.</strong> If one method doesn't seem to work (Dropbox has changed its sync UI several times), try right-clicking folders in Finder &gt; Dropbox &gt; Make Online-Only.</li>
+</ul>
+<hr />
+<h2 id="phase-4-google-drive-cleanup-1-2-hours">Phase 4: Google Drive Cleanup (~1-2 hours)<a class="headerlink" href="#phase-4-google-drive-cleanup-1-2-hours" title="Permanent link">&para;</a></h2>
+<h3 id="what-youre-doing_3">What You're Doing<a class="headerlink" href="#what-youre-doing_3" title="Permanent link">&para;</a></h3>
+<p>Google Drive tends to accumulate junk: untitled documents, duplicate translations, old exports, and loose files with no folder structure. Claude Code can inventory and clean this up via MCP (Model Context Protocol) integration.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>You need a Google Workspace MCP server configured. The community <code>google_workspace_mcp</code> server gives Claude Code read/write access to Drive, Docs, Sheets, Gmail, and Calendar.</p>
+<h3 id="the-approach_3">The Approach<a class="headerlink" href="#the-approach_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Inventory root-level items</strong> — Have Claude list everything at the top level of your Drive. Categorize into: active docs, course materials, proposals, personal files, translations, junk.</p>
+</li>
+<li>
+<p><strong>Identify junk for deletion</strong> — Empty/untitled documents, duplicate files, old exports. Get approval before trashing.</p>
+</li>
+<li>
+<p><strong>Trash in batches</strong> — Claude Code can move items to trash via the Drive API. We trashed ~100 items across several rounds.</p>
+</li>
+<li>
+<p><strong>Build a master inventory</strong> — Save a comprehensive catalog of remaining files to a local markdown file. This becomes your AI's reference for "where is X?"</p>
+</li>
+<li>
+<p><strong>Create team review spreadsheets</strong> (optional) — If you need collaborators to help map files to projects, Claude Code can create Google Sheets with clickable links to each document.</p>
+</li>
+</ol>
+<h3 id="what-we-found-example_2">What We Found (example)<a class="headerlink" href="#what-we-found-example_2" title="Permanent link">&para;</a></h3>
+<p>Our Google Drive had ~400 root-level items including:
+- 60+ duplicate translated documents (same source, different dates)
+- 8 untitled/empty documents
+- Multiple PDF versions of the same paper
+- 15 legacy shortcuts to moved files</p>
+<h3 id="key-lesson_2">Key Lesson<a class="headerlink" href="#key-lesson_2" title="Permanent link">&para;</a></h3>
+<p><strong>Google Drive cleanup is more about cataloging than reorganizing.</strong> Moving files into folders provides minimal value if you have an AI that can search by content. The high-value action is creating an inventory file that gives Claude Code awareness of what exists and where it maps to your project structure.</p>
+<hr />
+<h2 id="phase-5-other-cloud-services-1-hour">Phase 5: Other Cloud Services (~1 hour)<a class="headerlink" href="#phase-5-other-cloud-services-1-hour" title="Permanent link">&para;</a></h2>
+<h3 id="what-youre-doing_4">What You're Doing<a class="headerlink" href="#what-youre-doing_4" title="Permanent link">&para;</a></h3>
+<p>Audit any remaining cloud services — Box, iCloud, OneDrive — to understand what's there and whether it's duplicated.</p>
+<h3 id="the-challenge">The Challenge<a class="headerlink" href="#the-challenge" title="Permanent link">&para;</a></h3>
+<p>Not all services have API or MCP access from Claude Code. For managed enterprise accounts (like university Box), programmatic access may require IT approval.</p>
+<h3 id="approaches-by-access-level">Approaches by Access Level<a class="headerlink" href="#approaches-by-access-level" title="Permanent link">&para;</a></h3>
+<p><strong>Full API access (e.g., Google Drive via MCP):</strong>
+Claude Code can inventory, search, and modify files directly.</p>
+<p><strong>Desktop sync app (e.g., Box Drive):</strong>
+If the sync app is installed, Claude Code may be able to read files through the local filesystem at <code>~/Library/CloudStorage/</code>. However, macOS may block access depending on Full Disk Access permissions. Fix: System Settings &gt; Privacy &amp; Security &gt; Full Disk Access &gt; enable your terminal app.</p>
+<p><strong>Web-only (no API, no sync):</strong>
+Take screenshots of the folder structure and have Claude Code read them. Claude is multimodal — it can catalog folders from screenshots and cross-reference with other services.</p>
+<p><strong>What We Did (example):</strong>
+- <strong>iCloud Drive:</strong> Confirmed no user files stored there (app data only). Dropped from scope.
+- <strong>Personal Box:</strong> Cataloged via screenshots. Found all content duplicated in university Box. Decision: close the personal account.
+- <strong>University Box:</strong> Cataloged ~60 folders via screenshots. Identified stale committee folders, empty folders, and duplicate content. Investigated 5 integration paths (Box Drive filesystem, rclone, Box MCP Server, Box CLI, official Box Remote MCP).</p>
+<h3 id="key-lesson_3">Key Lesson<a class="headerlink" href="#key-lesson_3" title="Permanent link">&para;</a></h3>
+<p><strong>Screenshots are a surprisingly effective workaround.</strong> When you can't get API access, 4-5 screenshots of a folder listing give Claude Code enough to build a complete catalog and cross-reference against other services.</p>
+<hr />
+<h2 id="phase-6-cross-platform-awareness-30-min">Phase 6: Cross-Platform Awareness (~30 min)<a class="headerlink" href="#phase-6-cross-platform-awareness-30-min" title="Permanent link">&para;</a></h2>
+<h3 id="what-youre-doing_5">What You're Doing<a class="headerlink" href="#what-youre-doing_5" title="Permanent link">&para;</a></h3>
+<p>Create persistent files that give Claude Code awareness of your full file landscape across every session.</p>
+<h3 id="the-deliverables">The Deliverables<a class="headerlink" href="#the-deliverables" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Master inventory file</strong> (e.g., <code>file-inventory.md</code>)</li>
+<li>Saved locally where Claude Code can read it on demand</li>
+<li>Contains: Google Drive catalog, Box catalog, cleanup log, cross-platform notes</li>
+<li>
+<p>NOT loaded into every session's system prompt — too large. Referenced when needed.</p>
+</li>
+<li>
+<p><strong>Updated system instructions</strong> (e.g., CLAUDE.md)</p>
+</li>
+<li>Add a "Technology Stack &amp; File Locations" table listing each service, what's stored, and access method</li>
+<li>Add cross-platform strategy: "Dropbox = home base; Google Docs linked via PROJECT_INDEX.md"</li>
+<li>
+<p>Keep it minimal — 5-10 lines, not a full inventory</p>
+</li>
+<li>
+<p><strong>Project index files</strong> (optional, per-project)</p>
+</li>
+<li>For your top 5 active projects, create a <code>PROJECT_INDEX.md</code> in each Dropbox project folder</li>
+<li>Links to: Google Docs, Sheets, Box folders, Overleaf repos</li>
+<li>Claude Code reads these to know where a project's assets live across platforms</li>
+</ol>
+<h3 id="key-lesson_4">Key Lesson<a class="headerlink" href="#key-lesson_4" title="Permanent link">&para;</a></h3>
+<p><strong>Don't over-organize.</strong> The inventory file and updated system instructions give Claude Code 90% of the awareness it needs. Only create per-project index files for projects you're actively working on — not for everything.</p>
+<hr />
+<h2 id="phase-7-app-specific-deep-dives-as-needed">Phase 7: App-Specific Deep Dives (as needed)<a class="headerlink" href="#phase-7-app-specific-deep-dives-as-needed" title="Permanent link">&para;</a></h2>
+<h3 id="what-youre-doing_6">What You're Doing<a class="headerlink" href="#what-youre-doing_6" title="Permanent link">&para;</a></h3>
+<p>Some disk audit findings require deeper investigation — troubleshooting apps, understanding backup behavior, or making keep/delete decisions.</p>
+<h3 id="example-parental-monitoring-app">Example: Parental Monitoring App<a class="headerlink" href="#example-parental-monitoring-app" title="Permanent link">&para;</a></h3>
+<p>Our disk audit found 79 GB of hidden iOS backups from a parental monitoring app. The subsequent deep dive involved:
+- Researching what the app actually does and what the backups contain
+- Determining which features require the desktop app vs. work from mobile alone
+- Making a keep/delete decision with full information
+- Troubleshooting the app when it broke after deleting old backups (Electron app crash, GPU rendering issue, admin permissions)
+- Setting up a cron job to manage unbounded log file growth
+- Creating Apple Reminders for follow-up tasks</p>
+<h3 id="key-lesson_5">Key Lesson<a class="headerlink" href="#key-lesson_5" title="Permanent link">&para;</a></h3>
+<p><strong>Claude Code excels at app troubleshooting.</strong> It can read log files, check process status, search for error messages, look up documentation, and suggest fixes in real time. This saved at least an hour of manual googling and trial-and-error.</p>
+<hr />
+<h2 id="summary-what-worked-what-didnt">Summary: What Worked, What Didn't<a class="headerlink" href="#summary-what-worked-what-didnt" title="Permanent link">&para;</a></h2>
+<h3 id="what-worked-well">What Worked Well<a class="headerlink" href="#what-worked-well" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Local disk scanning</strong> — instant, comprehensive, finds hidden bloat</li>
+<li><strong>Dropbox API inventory</strong> — definitive data on active vs. archive split</li>
+<li><strong>Google Drive cleanup via MCP</strong> — batch operations on hundreds of files</li>
+<li><strong>Screenshot-based cataloging</strong> — practical workaround for services without API access</li>
+<li><strong>Cross-platform inventory file</strong> — persistent AI awareness without over-engineering</li>
+<li><strong>Email integration</strong> — sending team emails about findings directly from the session</li>
+</ul>
+<h3 id="what-didnt-work-wasnt-worth-it">What Didn't Work / Wasn't Worth It<a class="headerlink" href="#what-didnt-work-wasnt-worth-it" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Elaborate folder reorganization in Google Drive</strong> — cataloging was high-value; moving files into folders was low-value</li>
+<li><strong>Building team review spreadsheets</strong> — for 30 files, an email is faster than a spreadsheet workflow</li>
+<li><strong>Box Drive filesystem access</strong> — macOS sandboxing blocked it; needed Full Disk Access fix</li>
+<li><strong>Complex MCP/API setup for services with low file counts</strong> — if a service has &lt;50 files, screenshots are faster than configuring an integration</li>
+</ul>
+<h3 id="tools-used">Tools Used<a class="headerlink" href="#tools-used" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What It Did</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Claude Code filesystem access</strong></td>
+<td>Local disk scanning, reading reports, editing config files</td>
+</tr>
+<tr>
+<td><strong>Shell commands</strong> (<code>du</code>, <code>df</code>, <code>ps</code>, <code>pkill</code>)</td>
+<td>Disk usage analysis, process management</td>
+</tr>
+<tr>
+<td><strong>Dropbox API</strong> (via Python SDK)</td>
+<td>Cloud storage inventory — 630K files enumerated</td>
+</tr>
+<tr>
+<td><strong>Google Workspace MCP</strong></td>
+<td>Drive file listing, trash operations, Sheets creation, Gmail</td>
+</tr>
+<tr>
+<td><strong>osascript</strong></td>
+<td>Apple Reminders creation, Notes search</td>
+</tr>
+<tr>
+<td><strong>Web search</strong></td>
+<td>Researching app behavior, integration options</td>
+</tr>
+<tr>
+<td><strong>Screenshot reading</strong></td>
+<td>Cataloging Box folders without API access</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reproducible-checklist">Reproducible Checklist<a class="headerlink" href="#reproducible-checklist" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] Create a working directory for the project</li>
+<li>[ ] Run local disk audit (no setup needed)</li>
+<li>[ ] Act on quick wins: delete caches, old downloads, hidden app bloat</li>
+<li>[ ] Set up cloud API access (Dropbox token, Google MCP, etc.)</li>
+<li>[ ] Run cloud storage inventory</li>
+<li>[ ] Optimize selective sync based on active-vs-archive data</li>
+<li>[ ] Inventory and clean Google Drive (or equivalent)</li>
+<li>[ ] Catalog remaining cloud services (screenshots if no API)</li>
+<li>[ ] Cross-reference for duplicates across services</li>
+<li>[ ] Create master inventory file for AI awareness</li>
+<li>[ ] Update system instructions with file location map</li>
+<li>[ ] Create project index files for top active projects</li>
+<li>[ ] Write cleanup instructions for other machines (if applicable)</li>
+<li>[ ] Investigate integration options for remaining services</li>
+</ul>
+<hr />
+<p><em>Guide created: February 12, 2026</em>
+<em>Based on file management sessions using Claude Code (Opus 4.6)</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  <p class="feedback-line">
+    Found this useful?
+    <a href="https://github.com/chrisblattman/claudeblattman" target="_blank">Star it on GitHub</a>
+    or share with a colleague.
+    Something broken or unclear?
+    <a href="mailto:claudeblattman+feedback@gmail.com?subject=Feedback%3A%20Organizing%20Your%20Cloud%20Storage%20with%20Claude%20Code%3A%20A%20Practical%20Guide">Send feedback</a>.
+  </p>
+
+  <!-- Email signup slide-in banner -->
+  <div id="email-banner" class="email-banner" style="display:none;">
+    <button class="email-banner__close" aria-label="Close">&times;</button>
+    <p class="email-banner__text">
+      New tools for researchers and managers every few weeks.
+      Email updates only &mdash; a few times a year.
+    </p>
+    <form class="email-banner__form"
+          action="https://buttondown.email/api/emails/embed-subscribe/claudeblattman"
+          method="post" target="popupwindow"
+          onsubmit="window.open('https://buttondown.email/claudeblattman','popupwindow')">
+      <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+      <!-- Honeypot — hidden from humans, bots fill it -->
+      <input type="text" name="url" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit">Subscribe</button>
+    </form>
+    <span class="email-banner__msg" style="display:none;"></span>
+    <a href="/privacy/" class="email-banner__privacy">Privacy policy</a>
+  </div>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Built by <a href="https://chrisblattman.com">Chris Blattman</a> &mdash; shared freely under MIT License
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/chrisblattman/claudeblattman" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/cblatts" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant", "navigation.instant.prefetch", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+
+  <!-- GoatCounter analytics — privacy-friendly, no cookies, free for non-commercial -->
+  <script>
+    window.goatcounter = { no_onload: true };
+  </script>
+  <script data-goatcounter="https://claudeblattman.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script>
+    /* Track page views on every navigation (including instant loading) */
+    document$.subscribe(function() {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({
+          path: location.pathname + location.search + location.hash
+        });
+      }
+    });
+  </script>
+
+  <script>
+    /* Make the site title text clickable — navigates home like the logo icon */
+    (function() {
+      var title = document.querySelector('.md-header__title');
+      if (title) {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function() {
+          var logo = document.querySelector('.md-header__button.md-logo');
+          if (logo) logo.click();
+        });
+      }
+    })();
+
+    /* Email signup slide-in banner */
+    (function() {
+      var BANNER_KEY = 'cb_email_banner_dismissed';
+      var THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+
+      /* Check if dismissed within last 30 days */
+      var dismissed = localStorage.getItem(BANNER_KEY);
+      if (dismissed && (Date.now() - parseInt(dismissed, 10)) < THIRTY_DAYS) return;
+
+      var banner = document.getElementById('email-banner');
+      if (!banner) return;
+
+      var shown = false;
+      function showBanner() {
+        if (shown) return;
+        shown = true;
+        banner.style.display = 'block';
+      }
+
+      /* Show after 45 seconds */
+      setTimeout(showBanner, 45000);
+
+      /* Show at 50% scroll — whichever comes first */
+      document.addEventListener('scroll', function() {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollable > 0 && (window.scrollY / scrollable) >= 0.5) {
+          showBanner();
+        }
+      }, { passive: true });
+
+      /* Dismiss button — hide and remember for 30 days */
+      banner.querySelector('.email-banner__close').addEventListener('click', function() {
+        banner.style.display = 'none';
+        localStorage.setItem(BANNER_KEY, Date.now().toString());
+      });
+    })();
+  </script>
+
+  </body>
+</html>

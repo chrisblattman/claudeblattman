@@ -1,0 +1,4087 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems">
+      
+      
+        <meta name="author" content="Chris Blattman">
+      
+      
+        <link rel="canonical" href="https://claudeblattman.com/downloads/claude-under-the-hood/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Claude Code Under the Hood - Claude Blattman · AI for Professionals Who Don't Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Claude Code Under the Hood - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="og:description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems" />
+<meta property="og:image" content="https://claudeblattman.com/assets/images/social/downloads/claude-under-the-hood.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://claudeblattman.com/downloads/claude-under-the-hood/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Claude Code Under the Hood - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="twitter:description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems" />
+<meta property="twitter:image" content="https://claudeblattman.com/assets/images/social/downloads/claude-under-the-hood.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#claude-code-under-the-hood" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <style>
+    .md-banner {
+      background: color-mix(in srgb, var(--md-accent-fg-color) 15%, var(--md-default-bg-color));
+      color: var(--md-default-fg-color--light);
+      font-size: 0.75rem;
+    }
+    .feedback-line {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--md-default-fg-color--lightest);
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .feedback-line:hover { opacity: 0.85; }
+  </style>
+  <span style="font-weight: 600; color: var(--md-accent-fg-color);">Power users:</span> <a href="../../setup/skill-reference/" style="font-weight: 600; color: var(--md-accent-fg-color);">Get Skills & Templates &rarr;</a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-header__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Blattman · AI for Professionals Who Don't Code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            <a href="../.." style="color: inherit; text-decoration: none;">
+              Home
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../starter-kit/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start Here
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  What's New
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../essentials/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Essentials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../setup/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../workflows/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflows
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../system/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Build Your Own
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-nav__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Blattman · AI for Professionals Who Don't Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../starter-kit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What's New
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../essentials/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essentials
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Essentials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/chatbots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chatbots Done Right
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cost Reality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/prompting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/voice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teaching AI Your Voice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/project-folders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Project Folders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/plan-review-browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stress-Test Any Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/session-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/wispr-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voice Dictation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/granola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting Transcription
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/notebooklm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NotebookLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/chatgpt-vs-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChatGPT vs Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../setup/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install (Mac)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install (Windows)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/vscode-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set Up VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/mcp-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/skill-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill Library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../workflows/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/first-session-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt, Plan, Review, Revise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/deep-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executive Assistant
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Executive Assistant
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/executive-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building an AI Executive Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/school-digest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Noise Canceling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/project-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/meeting-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/weekly-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly Review (Mechanics)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/sub-project-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sub-Project Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/examples/project-overview-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Project Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/examples/research-design-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Research Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/recall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    /recall (past sessions)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/council/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    /council (parallel critics)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tax-workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tax Season
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tax Season
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/before-you-start/privacy-and-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/case-study/the-workflow-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/case-study/document-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Document Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/case-study/compilation-and-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilation & Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/case-study/what-ai-got-wrong/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What AI Got Wrong
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/build-your-own/architecture-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/build-your-own/starter-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Starter Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/reference/academic-tax-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Academic Tax Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/reference/when-to-get-help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When to Get Help
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build Your Own
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build Your Own
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/building-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/dial-back-discipline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dial-Back Discipline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/agents-vs-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents vs Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/continuous-improvement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Improvement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/ai-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Integration (cross-vendor)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../real-claude-md-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Real CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-1-the-message-stack-how-claude-sees-your-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 1: The Message Stack — How Claude Sees Your Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 1: The Message Stack — How Claude Sees Your Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-in-the-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's in the stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-your-config-loads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How your config loads
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skills-are-prompts-not-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills are prompts, not code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-example-how-triage-inbox-becomes-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your example: How /triage-inbox becomes instructions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-common-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices / Common improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-2-the-agentic-loop-what-happens-when-a-skill-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 2: The Agentic Loop — What Happens When a Skill Runs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 2: The Agentic Loop — What Happens When a Skill Runs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-example-what-happens-step-by-step-when-triage-inbox-runs-phases-2-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your example: What happens step-by-step when /triage-inbox runs Phases 2-3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-skills-need-explicit-tool-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why skills need explicit tool names
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-common-improvements_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices / Common improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-3-context-windows-token-economics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 3: Context Windows &amp; Token Economics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 3: Context Windows &amp; Token Economics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-context-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The context window
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters-every-turn-re-sends-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters: every turn re-sends everything
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-selection-sonnet-vs-opus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model selection: Sonnet vs. Opus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-agents-protecting-the-main-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task agents: protecting the main context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-common-improvements_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices / Common improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-4-prompt-patterns-youre-already-using-and-their-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 4: Prompt Patterns You're Already Using (and Their Names)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 4: Prompt Patterns You&#39;re Already Using (and Their Names)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#role-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role prompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structured-output-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured output specification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chain-of-thought-decision-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain-of-thought / Decision trees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xmlsection-structure-with-clear-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        XML/section structure with clear headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-bookend-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The bookend pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#argument-parsing-conditional-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argument parsing / Conditional logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-common-improvements_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices / Common improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-5-patterns-youre-missing-highest-value-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 5: Patterns You're Missing (Highest-Value Gaps)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 5: Patterns You&#39;re Missing (Highest-Value Gaps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-few-shot-examples-in-classification-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Few-shot examples in classification skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-prompt-evaluation-eval-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Prompt evaluation (eval sets)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-prefilling-speaking-for-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Prefilling / Speaking for Claude
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-prompt-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Prompt versioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-temperature-awareness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Temperature awareness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-common-improvements_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices / Common improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-6-mcp-architecture-whats-behind-the-tool-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 6: MCP Architecture — What's Behind the Tool Calls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 6: MCP Architecture — What&#39;s Behind the Tool Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-mcp-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What MCP is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-lifecycle-of-a-tool-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The lifecycle of a tool call
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deferred-tools-and-toolsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deferred tools and ToolSearch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settingsjson-the-permission-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        settings.json: the permission layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-common-improvements_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices / Common improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-7-skill-design-review-three-archetypes-annotated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 7: Skill Design Review — Three Archetypes Annotated
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 7: Skill Design Review — Three Archetypes Annotated">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triage-skill-inbox-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triage skill (inbox classification)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weekly-review-skill-multi-source-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weekly review skill (multi-source synthesis)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proposal-writing-skill-long-form-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proposal writing skill (long-form generation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference Card
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="claude-code-under-the-hood">Claude Code Under the Hood<a class="headerlink" href="#claude-code-under-the-hood" title="Permanent link">&para;</a></h1>
+<p><em>A tutorial for power users who've built skills but want the conceptual framework.</em>
+<em>~30-40 minute read. Each module uses real production skills and config as examples.</em></p>
+<p><em>v1.0 — 2026-02-15</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Official companion</p>
+<p>Anthropic now publishes their own technical overview: <a href="https://code.claude.com/docs/en/how-claude-code-works">How Claude Code Works</a>. This tutorial covers the same ground from a practitioner's perspective — read both for the full picture.</p>
+</div>
+<hr />
+<h2 id="module-1-the-message-stack-how-claude-sees-your-setup">Module 1: The Message Stack — How Claude Sees Your Setup<a class="headerlink" href="#module-1-the-message-stack-how-claude-sees-your-setup" title="Permanent link">&para;</a></h2>
+<p>Every time you send a message in Claude Code, Claude doesn't "remember" the conversation the way a person does. It <strong>re-reads everything from scratch</strong>. The entire conversation—system instructions, every message you've sent, every tool result—is assembled into a single <strong>message stack</strong> and sent to Claude's API. Understanding this stack is the single most important concept for understanding why your setup works.</p>
+<h3 id="whats-in-the-stack">What's in the stack<a class="headerlink" href="#whats-in-the-stack" title="Permanent link">&para;</a></h3>
+<p>The message stack has three layers, assembled top to bottom:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What's in it</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>System prompt</strong></td>
+<td>CLAUDE.md + loaded rules + active skill content</td>
+<td>~200 lines of CLAUDE.md + rule files + skill text</td>
+</tr>
+<tr>
+<td><strong>Conversation history</strong></td>
+<td>Every user message and Claude response so far</td>
+<td>Grows with each turn</td>
+</tr>
+<tr>
+<td><strong>Tool results</strong></td>
+<td>Output from every tool call (Gmail searches, file reads, etc.)</td>
+<td>Can be enormous — a single Gmail fetch might return 2K tokens</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key insight:</strong> Your CLAUDE.md, rules files, and the active skill's markdown content are all injected into the <strong>system prompt</strong> at the top of the stack. They aren't "code" that runs — they're text that Claude reads as instructions before it sees your message.</p>
+<h3 id="how-your-config-loads">How your config loads<a class="headerlink" href="#how-your-config-loads" title="Permanent link">&para;</a></h3>
+<p>When you start Claude Code, the system assembles the system prompt like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. Read ~/.claude/CLAUDE.md (or symlinked from your config directory)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   → Your master config: role, preferences, tech stack, rules table
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2. Load rule files from Settings/rules/ as context becomes relevant
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   → email-voice.md, project-management.md, integration-notes.md, etc.
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>3. When you invoke a skill (e.g., /triage-inbox), inject that skill&#39;s
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>   full markdown content into the prompt
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   → The skill&#39;s full markdown — all of it becomes instructions
+</code></pre></div>
+<h3 id="skills-are-prompts-not-code">Skills are prompts, not code<a class="headerlink" href="#skills-are-prompts-not-code" title="Permanent link">&para;</a></h3>
+<p>This is the most important mental model shift: <strong>a skill is not a program that executes.</strong> It's a set of instructions that Claude reads and then tries to follow, using tool calls to take actions. When you run <code>/triage-inbox</code>, Claude doesn't "execute Phase 2" like running a function. It reads the Phase 2 instructions, decides it needs to call <code>mcp__google_workspace__search_gmail_messages</code>, and makes that call. The skill's markdown is a prompt — a very structured, very detailed prompt.</p>
+<p>This is why your skills are <code>.md</code> files, not <code>.py</code> or <code>.js</code> files. They're prompts injected into the system instructions.</p>
+<h3 id="your-example-how-triage-inbox-becomes-instructions">Your example: How <code>/triage-inbox</code> becomes instructions<a class="headerlink" href="#your-example-how-triage-inbox-becomes-instructions" title="Permanent link">&para;</a></h3>
+<p>When you type <code>/triage-inbox days:3</code>, here's what the system prompt looks like (simplified):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[CLAUDE.md — global config]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[rules/email-voice.md — loaded because email context]
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>[rules/integration-notes.md — loaded because MCP tools referenced]
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[Skill: triage-inbox.md — injected verbatim]
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>[User message: &quot;$ARGUMENTS = days:3&quot;]
+</code></pre></div>
+<p>Claude reads all of this, top to bottom, every single turn. The skill text tells Claude what tools to call, what order to work in, and what output format to produce. But Claude is making judgment calls at every step—it's following instructions, not executing code.</p>
+<h3 id="best-practices-common-improvements">Best practices / Common improvements<a class="headerlink" href="#best-practices-common-improvements" title="Permanent link">&para;</a></h3>
+<p><strong>Best practices:</strong>
+- A modular config (CLAUDE.md + separate rule files) is well-structured. Each file has a clear topic, and the main file has a table of contents. This is exactly how to manage a large system prompt — modular, not monolithic.
+- Inline triggers ("Sending email: Use send-email.py") put critical behavioral rules where Claude is guaranteed to see them early.</p>
+<p><strong>Could improve:</strong>
+- Watch for duplicate CLAUDE.md files (e.g., one in <code>~/.claude/CLAUDE.md</code> and one as a project-level file). Claude sees both. If they diverge, you get conflicting instructions. Keep one as the source of truth and symlink or remove the other.
+- Consider adding a one-line comment at the top of each skill: <code>&lt;!-- ~384 lines / ~2.5K tokens --&gt;</code>. This makes token cost visible when you're deciding whether a skill needs trimming.</p>
+<hr />
+<h2 id="module-2-the-agentic-loop-what-happens-when-a-skill-runs">Module 2: The Agentic Loop — What Happens When a Skill Runs<a class="headerlink" href="#module-2-the-agentic-loop-what-happens-when-a-skill-runs" title="Permanent link">&para;</a></h2>
+<p>Claude Code isn't a chatbot. It's an <strong>agent</strong> — a system that takes actions in a loop until the task is done. Understanding this loop explains why <code>/weekly-review</code> makes 20-30+ API calls and why skills need explicit tool names.</p>
+<h3 id="the-loop">The loop<a class="headerlink" href="#the-loop" title="Permanent link">&para;</a></h3>
+<p>Every turn follows this cycle:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1. Claude receives the full message stack (system prompt + conversation + tool results)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2. Claude generates a response, which may include one or more tool_use blocks
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>3. The system executes each tool call and collects the results
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>4. The tool results are appended to the conversation
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>5. Claude receives the updated stack and generates the next response
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>6. Repeat until Claude responds with only text (no tool calls) → task complete
+</code></pre></div>
+<p>Each trip through this loop is one <strong>agentic turn</strong>. A single turn can include multiple tool calls in parallel (e.g., fetching 10 emails simultaneously), but Claude only sees the results after all calls in that turn complete.</p>
+<h3 id="your-example-what-happens-step-by-step-when-triage-inbox-runs-phases-2-3">Your example: What happens step-by-step when <code>/triage-inbox</code> runs Phases 2-3<a class="headerlink" href="#your-example-what-happens-step-by-step-when-triage-inbox-runs-phases-2-3" title="Permanent link">&para;</a></h3>
+<p>Here's the actual sequence of agentic turns:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Turn 1: Claude reads the skill instructions + email-policy.md + triage-config.md
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>         (These were fetched in Phase 1, results already in the stack)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>         → Claude decides to search Gmail
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>         → Tool call: mcp__google_workspace__search_gmail_messages
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>            query: &quot;in:inbox is:unread newer_than:3d&quot;
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>         → Tool call: mcp__google_workspace__search_gmail_messages
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            query: &quot;in:inbox newer_than:3d (from:uber.com OR from:lyft.com OR ...)&quot;
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>         [Both searches run in PARALLEL — one agentic turn, two tool calls]
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Turn 2: Claude receives both search results (list of message IDs)
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>         → Deduplicates, checks against run state
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>         → Makes parallel tool calls to fetch each email:
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>         → Tool call: get_gmail_message_content (message 1)
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>         → Tool call: get_gmail_message_content (message 2)
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>         → Tool call: get_gmail_message_content (message 3)
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>         ... (up to ~10-15 parallel calls per turn)
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>Turn 3: Claude receives email contents
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>         → If more emails to fetch, continues fetching
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>         → Otherwise, starts classification (all in Claude&#39;s &quot;head&quot; — no tool call needed)
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>Turn 4: Claude generates the classification report (text output)
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>         → Then makes batch label calls:
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>         → Tool call: batch_modify_gmail_message_labels (ToRead batch)
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>         → Tool call: batch_modify_gmail_message_labels (Announcements batch)
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>         → Tool call: batch_modify_gmail_message_labels (Auto-Archive batch)
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>         [Multiple label operations in PARALLEL]
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>Turn 5: Claude receives label results
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>         → Writes run state file
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>         → Writes observation log
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>         → Generates final report (text only — loop ends)
+</code></pre></div>
+<p>A typical triage run is <strong>5-8 agentic turns</strong> and <strong>15-30 tool calls</strong>. The weekly review, with its WhatsApp + transcripts + Gmail + Google Doc writes, can hit <strong>25-40+ turns</strong>.</p>
+<h3 id="why-skills-need-explicit-tool-names">Why skills need explicit tool names<a class="headerlink" href="#why-skills-need-explicit-tool-names" title="Permanent link">&para;</a></h3>
+<p>Look at this block in your triage-inbox skill:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gu">## CRITICAL: No Permission Prompts</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="gs">**DO NOT use Task agents or ToolSearch for this skill.**</span> All required Gmail MCP tools
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>are pre-approved in settings.json. Call them directly:
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">-</span><span class="w"> </span><span class="sb">`mcp__google_workspace__search_gmail_messages`</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">-</span><span class="w"> </span><span class="sb">`mcp__google_workspace__get_gmail_message_content`</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>...
+</code></pre></div>
+<p>This pattern exists because of how Claude decides which tools to use. Claude has access to dozens of tools, and some tools (like MCP tools) require a discovery step via <code>ToolSearch</code> before they're available. But <code>ToolSearch</code> triggers a permission prompt if it's not pre-approved, which breaks the autonomous flow.</p>
+<p>By listing the exact tool names in the skill, you're doing two things:
+1. <strong>Telling Claude which tools to use</strong> — no ambiguity, no discovery needed
+2. <strong>Telling Claude what NOT to use</strong> — don't use Task agents (which would spin up sub-conversations and trigger prompts)</p>
+<p>Your <code>settings.json</code> already pre-approves these tools with wildcard patterns like <code>mcp__google_workspace__*</code>, so Claude can call them without asking permission. The skill's explicit list reinforces this and prevents Claude from reaching for indirect approaches.</p>
+<h3 id="best-practices-common-improvements_1">Best practices / Common improvements<a class="headerlink" href="#best-practices-common-improvements_1" title="Permanent link">&para;</a></h3>
+<p><strong>Best practices:</strong>
+- The "CRITICAL: No Permission Prompts" pattern is in all three major skills. This is essential for autonomous multi-turn execution.
+- Breaking work into named phases (Phase 1, Phase 2, etc.) helps Claude maintain orientation across many turns. Without this structure, Claude can lose track of where it is in a long workflow.</p>
+<p><strong>Could improve:</strong>
+- Consider adding <strong>turn budget hints</strong> to long skills. For example: <code>"This skill typically completes in 5-8 turns. If you're beyond 12 turns, something is wrong — report the issue and stop."</code> This prevents runaway loops when a tool call fails silently.
+- Late-stage phases (e.g., Apply Labels and Log Session) could be combined into fewer turns by batching file writes. Writing a run-state file and an observation log sequentially could be parallel.</p>
+<hr />
+<h2 id="module-3-context-windows-token-economics">Module 3: Context Windows &amp; Token Economics<a class="headerlink" href="#module-3-context-windows-token-economics" title="Permanent link">&para;</a></h2>
+<p>Every message stack has a hard limit: the <strong>context window</strong>. Understanding tokens and context economics explains why some skills are fast and cheap while others are slow and expensive.</p>
+<h3 id="the-context-window">The context window<a class="headerlink" href="#the-context-window" title="Permanent link">&para;</a></h3>
+<p>Claude's context window is <strong>200,000 tokens</strong> for both Opus and Sonnet. Think of it as a fixed-size container that holds the entire conversation — system prompt, all messages, all tool results, and Claude's responses.</p>
+<p><strong>Token math:</strong> 1 token ≈ 0.75 words (or roughly, 1 word ≈ 1.3 tokens). Some practical measurements:</p>
+<table>
+<thead>
+<tr>
+<th>Content</th>
+<th>Approximate tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A typical CLAUDE.md</td>
+<td>~1,500 tokens</td>
+</tr>
+<tr>
+<td>CLAUDE.md + rule files</td>
+<td>~4,000 tokens</td>
+</tr>
+<tr>
+<td>triage-inbox.md skill text</td>
+<td>~2,500 tokens</td>
+</tr>
+<tr>
+<td>A single Gmail message fetch (headers + body)</td>
+<td>~500-2,000 tokens</td>
+</tr>
+<tr>
+<td>30 Gmail messages fetched during triage</td>
+<td>~15,000-45,000 tokens</td>
+</tr>
+<tr>
+<td><strong>Total for a typical triage run</strong></td>
+<td><strong>~25,000-55,000 tokens</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Before anything happens — before you type a single word — your base config (CLAUDE.md + rules) costs ~4,000 tokens. Add a skill and you're at ~6,500 tokens. That's your "overhead" on every single turn.</p>
+<h3 id="why-this-matters-every-turn-re-sends-everything">Why this matters: every turn re-sends everything<a class="headerlink" href="#why-this-matters-every-turn-re-sends-everything" title="Permanent link">&para;</a></h3>
+<p>Remember Module 1: Claude re-reads the entire stack every turn. So if your triage run is 6 turns, Claude processes that ~55,000 tokens six times. Each processing costs money and time.</p>
+<p>This is why <strong>long tool results are expensive</strong>. When <code>/weekly-review</code> fetches 15 WhatsApp messages, 5 transcripts, and 20 Gmail threads, those results stay in the context window for every subsequent turn. By Turn 15, Claude might be processing 150,000+ tokens per turn.</p>
+<h3 id="model-selection-sonnet-vs-opus">Model selection: Sonnet vs. Opus<a class="headerlink" href="#model-selection-sonnet-vs-opus" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Sonnet</th>
+<th>Opus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Speed</strong></td>
+<td>~3x faster</td>
+<td>Baseline</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>~5x cheaper</td>
+<td>Baseline</td>
+</tr>
+<tr>
+<td><strong>Reasoning</strong></td>
+<td>Good for structured, rule-following tasks</td>
+<td>Best for complex judgment, nuanced writing</td>
+</tr>
+<tr>
+<td><strong>Context</strong></td>
+<td>200K tokens</td>
+<td>200K tokens</td>
+</tr>
+</tbody>
+</table>
+<p>A triage skill with <code>model: sonnet</code> is exactly the right call. Triage is a structured, rule-following task: read policy → search inbox → classify by decision tree → apply labels. It doesn't need deep reasoning. Sonnet handles this well and runs much faster.</p>
+<p>For <code>/proposal-write</code>, you don't specify a model (defaulting to whatever Claude Code is set to). This is fine — proposal writing benefits from Opus's stronger reasoning and writing quality.</p>
+<p><strong>Rule of thumb:</strong> Use Sonnet for classification, triage, data collection, and structured workflows. Use Opus for writing, strategic analysis, and tasks requiring judgment.</p>
+<h3 id="task-agents-protecting-the-main-context">Task agents: protecting the main context<a class="headerlink" href="#task-agents-protecting-the-main-context" title="Permanent link">&para;</a></h3>
+<p>The <code>Task</code> tool launches a <strong>sub-agent</strong> — a separate conversation with its own context window. The sub-agent does its work and returns a summary. Only that summary enters your main context window, not all the intermediate tool results.</p>
+<p>This matters when a sub-task would generate huge tool results. For example, if you needed to search 100 emails to answer a question, doing it in the main conversation would add ~100K tokens to your context. A Task agent would do all that searching in its own window and return a 500-token summary.</p>
+<p>Skills may explicitly say "DO NOT use Task agents" — and that's correct for autonomous skills, because Task agents trigger permission prompts and add latency. But for ad-hoc research tasks ("find all emails from Sarah about the budget decision"), a Task agent is the right call because it keeps the main window clean.</p>
+<h3 id="best-practices-common-improvements_2">Best practices / Common improvements<a class="headerlink" href="#best-practices-common-improvements_2" title="Permanent link">&para;</a></h3>
+<p><strong>Best practices:</strong>
+- <code>model: sonnet</code> on triage-inbox — correct cost/speed optimization for a structured task
+- Explicitly avoiding Task agents in autonomous skills
+- The modular config (separate rule files rather than one massive CLAUDE.md) keeps the base overhead reasonable</p>
+<p><strong>Could improve:</strong>
+- Add <code>model: sonnet</code> to other structured skills that don't need deep reasoning — any classification, routing, or data-collection skill benefits from the speed and cost savings.
+- For <code>/weekly-review</code>, consider whether the Gmail collection (Step 2c) could be a Task agent that returns a summary, rather than dumping raw email content into the main window. This would significantly reduce context pressure on the synthesis step (Step 3). You'd need to add Task to the allowed tools for that skill, but the context savings on large projects would be substantial.</p>
+<hr />
+<h2 id="module-4-prompt-patterns-youre-already-using-and-their-names">Module 4: Prompt Patterns You're Already Using (and Their Names)<a class="headerlink" href="#module-4-prompt-patterns-youre-already-using-and-their-names" title="Permanent link">&para;</a></h2>
+<p>You've built effective skills through intuition and iteration. Here are the formal names for the patterns you're using — knowing the names helps you apply them more deliberately and find resources to refine them.</p>
+<h3 id="role-prompting">Role prompting<a class="headerlink" href="#role-prompting" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Assigning Claude a persona or expertise to shape its behavior.</p>
+<p><strong>Where you'd use it:</strong> A prompt preferences file might define named roles (senior quantitative social scientist, research project manager, academic editor, executive assistant, senior developer). Voice packs (e.g., a proposal voice file, email voice rules) are specialized role prompts — they define how Claude should write, not just what to write.</p>
+<p><strong>Formal concept:</strong> Role prompting works because it activates relevant knowledge patterns in the model. "You are a senior quantitative social scientist" makes Claude more likely to use precise methodology language and less likely to oversimplify statistical concepts.</p>
+<h3 id="structured-output-specification">Structured output specification<a class="headerlink" href="#structured-output-specification" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Telling Claude exactly what the output should look like, including format, sections, and field names.</p>
+<p><strong>Example:</strong> Every major skill should have explicit output templates. A triage skill's report template might look like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>INBOX TRIAGE REPORT
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>====================
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Date: [date]
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Emails scanned: [N]
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>...
+</code></pre></div>
+<p>A weekly review skill might specify separate templates for a dashboard and detailed log, stored in reference files.</p>
+<p><strong>Why it works:</strong> Claude is significantly more reliable when you show it the exact output shape. Without a template, Claude will improvise a format — sometimes well, sometimes not. With a template, consistency across runs is nearly guaranteed.</p>
+<h3 id="chain-of-thought-decision-trees">Chain-of-thought / Decision trees<a class="headerlink" href="#chain-of-thought-decision-trees" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Forcing Claude to reason step-by-step rather than jumping to a conclusion.</p>
+<p><strong>Example:</strong> A triage skill's classification logic is a textbook decision tree:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>0. Check overrides FIRST → Use that classification directly
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>1. Check headers → Newsletter signal (+2), Automated signal (+1)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>2. Check content → Newsletter signal (+2), Announcement signal (+1)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>3. Check domain patterns → Immediate classification or scoring
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>4. Scoring → Thresholds determine category
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>5. Tiebreaking → Priority table
+</code></pre></div>
+<p><strong>Why it works:</strong> Without the decision tree, Claude would make holistic judgments ("this feels like a newsletter"). With it, Claude follows explicit criteria with explicit scores. This is more consistent and auditable. You can see <em>why</em> an email was classified a certain way and adjust the rules.</p>
+<h3 id="xmlsection-structure-with-clear-headers">XML/section structure with clear headers<a class="headerlink" href="#xmlsection-structure-with-clear-headers" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Using explicit section labels and hierarchical structure to organize complex instructions.</p>
+<p><strong>Example:</strong> Well-built skills use numbered phases with descriptive names (<code>### Phase 4: Safety Check (VIP Protection)</code>). This does two things: it tells Claude the order of operations, and it creates "landmarks" that Claude can reference when it needs to remember where it is in a long workflow.</p>
+<p><strong>Formal concept:</strong> This is sometimes called <strong>delimited sections</strong> or <strong>structured prompting</strong>. Research shows that Claude follows complex instructions more reliably when they're broken into labeled sections rather than presented as continuous prose.</p>
+<h3 id="the-bookend-pattern">The bookend pattern<a class="headerlink" href="#the-bookend-pattern" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Repeating the most critical constraint at both the beginning and end of a prompt, because models attend most strongly to content at the edges.</p>
+<p><strong>Example:</strong> A triage skill might have a mild version: the "CRITICAL: No Permission Prompts" block appears early, and the error handling section at the end reinforces it ("Permission prompt appears: A tool is missing from settings.json allow list").</p>
+<h3 id="argument-parsing-conditional-logic">Argument parsing / Conditional logic<a class="headerlink" href="#argument-parsing-conditional-logic" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Making skill behavior change based on runtime inputs.</p>
+<p><strong>Example:</strong> Major skills can parse <code>$ARGUMENTS</code>:
+- <code>/triage-inbox noapply days:3</code> → skip label application, search 3 days
+- <code>/weekly-review tab1only skipwhatsapp</code> → generate only dashboard, skip WhatsApp
+- <code>/proposal-write "Grant Name" resubmission budget:150000</code> → load previous submission, reviewer comments</p>
+<p><strong>Formal concept:</strong> This is <strong>parameterized prompting</strong> — the same prompt template produces different behaviors based on input variables. It's what makes a single skill useful across many scenarios.</p>
+<h3 id="best-practices-common-improvements_3">Best practices / Common improvements<a class="headerlink" href="#best-practices-common-improvements_3" title="Permanent link">&para;</a></h3>
+<p><strong>Best practices:</strong>
+- Decision trees in classification skills with explicit criteria + scoring + tiebreaking = consistent, auditable classification.
+- Voice packs as proper role prompts with concrete examples — much more effective than generic role assignments.
+- Argument parsing gives skills real flexibility without needing separate skills for each use case.</p>
+<p><strong>Could improve:</strong>
+- The bookend pattern is weak in most skills. Critical constraints (tool names, no Task agents) often appear only once. Repeating the 2-3 most important rules at the end of each skill — just before the Examples section — would reduce drift in long runs.</p>
+<hr />
+<h2 id="module-5-patterns-youre-missing-highest-value-gaps">Module 5: Patterns You're Missing (Highest-Value Gaps)<a class="headerlink" href="#module-5-patterns-youre-missing-highest-value-gaps" title="Permanent link">&para;</a></h2>
+<p>These are techniques that would meaningfully improve your skills. They're ordered by expected impact.</p>
+<h3 id="1-few-shot-examples-in-classification-skills">1. Few-shot examples in classification skills<a class="headerlink" href="#1-few-shot-examples-in-classification-skills" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Including 2-3 concrete input→output examples inside the skill, so Claude sees exactly what correct classification looks like.</p>
+<p><strong>Why it matters:</strong> A triage skill may have detailed rules and scoring, but no examples of borderline cases. Claude's classification of ambiguous emails would improve if the skill included:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gu">### Classification Examples</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Input:**</span> From: updates@linkedin.com | Subject: &quot;5 people viewed your profile&quot;
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  Has: List-Unsubscribe, noreply pattern, &quot;unsubscribe&quot; in body
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  <span class="gs">**Output:**</span> <span class="ni">@ToRead</span> (Newsletter score: 5) — newsletter platform + all signals
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Input:**</span> From: dept-communications@university.edu | Subject: &quot;Spring Quarter Events&quot;
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  Has: List-Unsubscribe, .edu domain, event keywords
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  <span class="gs">**Output:**</span> <span class="ni">@Announcements</span> (Announcement score: 3) — .edu + event keywords override newsletter signals
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Input:**</span> From: jsmith@university.edu | Subject: &quot;Quick question about the grant&quot;
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>  Has: .edu domain, no unsubscribe signals
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  <span class="gs">**Output:**</span> SKIP — personal email from colleague, no automation signals
+</code></pre></div>
+<p>Two or three examples of boundary cases would substantially reduce misclassification. This is the single highest-impact improvement for triage-inbox.</p>
+<h3 id="2-prompt-evaluation-eval-sets">2. Prompt evaluation (eval sets)<a class="headerlink" href="#2-prompt-evaluation-eval-sets" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> A small set of test cases (5-15) that you run periodically to verify a skill still produces correct output.</p>
+<p><strong>Why it matters:</strong> Skills evolve — you tweak classification rules over time. But without tests, you have no way to know if a change that fixed one problem broke something else. A simple eval would look like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gu">## Eval Set (run monthly or after rule changes)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>| Input email | Expected classification | Notes |
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>|------------|----------------------|-------|
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>| LinkedIn notification | <span class="ni">@ToRead</span> | Newsletter signals |
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>| University dean&#39;s office | <span class="ni">@School</span> | .edu + institutional |
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>| Amazon order confirmation | Auto-Archive | Receipt pattern |
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>| Colleague asking about data | SKIP | Personal, no signals |
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>| Uber receipt | Expenses-Personal | Vendor domain match |
+</code></pre></div>
+<p>After changing a rule, run the skill (with <code>noapply</code>) against these cases and verify the output. This takes 5 minutes and catches regressions that would otherwise take days to notice.</p>
+<p>If you've documented this principle in your prompt preferences file, you already know it matters — the gap is applying it in practice.</p>
+<h3 id="3-prefilling-speaking-for-claude">3. Prefilling / Speaking for Claude<a class="headerlink" href="#3-prefilling-speaking-for-claude" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Starting Claude's response with specific text to steer the format or prevent preamble.</p>
+<p><strong>Where it applies:</strong> This is an API-level technique used in the Claude API (via the <code>assistant</code> prefill in the messages API). In Claude Code, you can't directly prefill, but you can approximate it by adding output anchors in your skills:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Begin your response with exactly:
+</code></pre></div>
+INBOX TRIAGE REPORT
+====================
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Do not add any preamble before this line.
+</code></pre></div></p>
+<p>Skills may have output templates, but they don't always explicitly say "start your response with exactly this text." Adding that instruction eliminates the "Sure, I'll run the triage now..." preamble that sometimes appears.</p>
+<h3 id="4-prompt-versioning">4. Prompt versioning<a class="headerlink" href="#4-prompt-versioning" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Tracking which version of a skill is running, so you know what changed when behavior shifts.</p>
+<p><strong>Common gap:</strong> Many skills have no version markers. When you notice misclassification, you don't know whether it's a recent change or an old bug.</p>
+<p><strong>Simple fix:</strong> Add a version line to each skill's header:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>---
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="gu">model: sonnet</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="gu">---</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="gh"># Smart Inbox Triage</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="ge">*v2.4 — 2026-02-15 — Added calendar invitation detection (Phase 4.6)*</span>
+</code></pre></div>
+<p>One line. Updated when you change the skill. Priceless when debugging.</p>
+<h3 id="5-temperature-awareness">5. Temperature awareness<a class="headerlink" href="#5-temperature-awareness" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> The <code>temperature</code> parameter controls randomness in Claude's responses. Lower = more deterministic; higher = more creative.</p>
+<p><strong>Common gap:</strong> Most people never set temperature. Claude Code uses the default (typically 1.0).</p>
+<p><strong>Where it matters:</strong>
+- <strong>Classification tasks</strong> (triage-inbox): Would benefit from <code>temperature: 0</code> — you want consistent, deterministic classification, not creative interpretation.
+- <strong>Writing tasks</strong> (proposal-write): Default temperature is fine — you want some variation and creativity.
+- <strong>Data collection</strong> (weekly-review Step 2): Lower temperature would reduce inconsistency in how Claude summarizes similar content across runs.</p>
+<p>Note: Claude Code's skill headers currently support <code>model:</code> but not <code>temperature:</code>. This is a feature to watch for. In the meantime, you can add instructions like "Be deterministic in classification — when in doubt, apply the most conservative label" to approximate low-temperature behavior.</p>
+<h3 id="best-practices-common-improvements_4">Best practices / Common improvements<a class="headerlink" href="#best-practices-common-improvements_4" title="Permanent link">&para;</a></h3>
+<p><strong>Best practices:</strong>
+- Documenting prompt preferences is exactly right — the gap is usually between principle and practice.</p>
+<p><strong>Could improve:</strong>
+- Start with items 1 and 2 above: add 3 classification examples to your triage skill and create a 5-case eval set. These are the highest-ROI changes — maybe 20 minutes of work for measurably better output.
+- Add <code>*vN.N — date — change note*</code> to all active skills. Takes 2 minutes per skill.</p>
+<hr />
+<h2 id="module-6-mcp-architecture-whats-behind-the-tool-calls">Module 6: MCP Architecture — What's Behind the Tool Calls<a class="headerlink" href="#module-6-mcp-architecture-whats-behind-the-tool-calls" title="Permanent link">&para;</a></h2>
+<p>MCP (Model Context Protocol) is the plumbing that connects Claude to external services. Understanding it explains why some tools need discovery, why some calls fail, and how your <code>mcp-servers.json</code> works.</p>
+<h3 id="what-mcp-is">What MCP is<a class="headerlink" href="#what-mcp-is" title="Permanent link">&para;</a></h3>
+<p>MCP is a <strong>protocol</strong> — a standard way for Claude to talk to external tools. Each external service (Gmail, WhatsApp, Zotero) runs as a separate <strong>MCP server</strong> — a small program that:</p>
+<ol>
+<li><strong>Exposes tool definitions</strong> — tells Claude what tools are available and what parameters they accept</li>
+<li><strong>Handles requests</strong> — receives JSON-RPC calls from Claude and executes them</li>
+<li><strong>Returns results</strong> — sends structured data back to Claude</li>
+</ol>
+<p>A typical <code>mcp-servers.json</code> might configure servers like these:</p>
+<table>
+<thead>
+<tr>
+<th>Server</th>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>google_workspace</code></td>
+<td><code>uv run main.py --tools drive docs sheets gmail calendar tasks</code></td>
+<td>Google APIs (biggest server — 80+ tools)</td>
+</tr>
+<tr>
+<td><code>whatsapp</code></td>
+<td><code>node src/main.ts</code></td>
+<td>WhatsApp Web protocol</td>
+</tr>
+<tr>
+<td><code>zotero</code></td>
+<td><code>npx mcp-zotero</code></td>
+<td>Zotero cloud API</td>
+</tr>
+<tr>
+<td><code>overleaf</code></td>
+<td><code>node overleaf-mcp-server.js</code></td>
+<td>Overleaf project access</td>
+</tr>
+<tr>
+<td><code>apple-mcp</code></td>
+<td><code>bunx apple-mcp@latest</code></td>
+<td>Apple apps via osascript (archived — <a href="../../toolkit/mcp-setup/#apple-apps-mac-only">see limitations</a>)</td>
+</tr>
+<tr>
+<td><code>granola</code></td>
+<td><code>granola-mcp-server</code></td>
+<td>Meeting summaries</td>
+</tr>
+</tbody>
+</table>
+<p>Each server is a separate process running on your machine. When Claude Code starts, it launches all configured servers and collects their tool definitions.</p>
+<h3 id="the-lifecycle-of-a-tool-call">The lifecycle of a tool call<a class="headerlink" href="#the-lifecycle-of-a-tool-call" title="Permanent link">&para;</a></h3>
+<p>When <code>/triage-inbox</code> searches Gmail, here's what actually happens:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>1. Claude generates a response containing:
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>   {
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>     &quot;type&quot;: &quot;tool_use&quot;,
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>     &quot;name&quot;: &quot;mcp__google_workspace__search_gmail_messages&quot;,
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>     &quot;input&quot;: {
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>       &quot;user_google_email&quot;: &quot;yourname@gmail.com&quot;,
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>       &quot;query&quot;: &quot;in:inbox is:unread newer_than:1d&quot;,
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>       &quot;max_results&quot;: 50
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>     }
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>   }
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>2. Claude Code sees the tool_use block and routes it:
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>   - Prefix &quot;mcp__google_workspace__&quot; → route to google_workspace server
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>   - Tool name: &quot;search_gmail_messages&quot;
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>   - Send JSON-RPC request to the server process
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>3. The google_workspace server:
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>   - Reads OAuth credentials from its credentials directory
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>   - Makes an authenticated HTTPS call to Gmail API
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>   - Receives the response from Google
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>   - Formats it as a tool result
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>4. Claude Code receives the result and adds it to the message stack
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>5. Claude sees the result on the next turn and continues
+</code></pre></div>
+<p>The tool name format <code>mcp__&lt;server&gt;__&lt;tool&gt;</code> is how Claude Code routes calls to the right server. <code>mcp__google_workspace__search_gmail_messages</code> goes to the <code>google_workspace</code> server. <code>mcp__whatsapp__list_messages</code> goes to the <code>whatsapp</code> server.</p>
+<h3 id="deferred-tools-and-toolsearch">Deferred tools and ToolSearch<a class="headerlink" href="#deferred-tools-and-toolsearch" title="Permanent link">&para;</a></h3>
+<p>A google_workspace server may expose 80+ tools (Drive, Docs, Sheets, Gmail, Calendar, Tasks). Loading all tool definitions into every conversation would waste tokens. So Claude Code uses <strong>deferred loading</strong>: most MCP tools are listed by name but their full definitions aren't loaded until needed.</p>
+<p><code>ToolSearch</code> is the discovery mechanism. When Claude needs a tool it hasn't loaded yet, it calls <code>ToolSearch</code> to find and load the tool definition. This is why your skills say "DO NOT use ToolSearch" — your commonly-used tools are already loaded (pre-approved in settings.json), so ToolSearch would add an unnecessary step and might trigger a permission prompt.</p>
+<h3 id="settingsjson-the-permission-layer">settings.json: the permission layer<a class="headerlink" href="#settingsjson-the-permission-layer" title="Permanent link">&para;</a></h3>
+<p>A well-configured <code>settings.json</code> has two key lists:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">&quot;permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nt">&quot;allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">      </span><span class="s2">&quot;mcp__google_workspace__*&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1">// ALL google workspace tools — pre-approved</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">      </span><span class="s2">&quot;mcp__whatsapp__*&quot;</span><span class="p">,</span><span class="w">            </span><span class="c1">// ALL whatsapp tools — pre-approved</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">      </span><span class="err">...</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="nt">&quot;deny&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">      </span><span class="s2">&quot;mcp__google_workspace__send_gmail_message&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// EXCEPT sending email</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">      </span><span class="s2">&quot;mcp__whatsapp__send_message&quot;</span><span class="p">,</span><span class="w">                 </span><span class="c1">// EXCEPT sending WhatsApp</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">      </span><span class="s2">&quot;mcp__google_workspace__delete_event&quot;</span><span class="p">,</span><span class="w">         </span><span class="c1">// EXCEPT deleting events</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">      </span><span class="err">...</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <code>allow</code> list uses wildcards (<code>*</code>) to pre-approve entire servers. The <code>deny</code> list carves out specific dangerous operations that always require confirmation. Deny rules override allow rules. This is why triage-inbox can search and label emails autonomously but can't accidentally send an email.</p>
+<h3 id="best-practices-common-improvements_5">Best practices / Common improvements<a class="headerlink" href="#best-practices-common-improvements_5" title="Permanent link">&para;</a></h3>
+<p><strong>Best practices:</strong>
+- The wildcard allow + specific deny pattern in settings.json is the ideal configuration. Maximum autonomy for safe operations, hard stops on dangerous ones.
+- An MCP server collection covering all major workflows (Gmail, Calendar, WhatsApp, Zotero, etc.) means Claude can handle most tasks without switching tools.</p>
+<p><strong>Could improve:</strong>
+- When MCP servers fail (WhatsApp session drops, API token expires), skills should degrade gracefully: "WhatsApp unavailable — skipped." But also consider a health-check step in your morning briefing skill: "Check all MCP connections at start" catches dead servers before you're mid-workflow.</p>
+<hr />
+<h2 id="module-7-skill-design-review-three-archetypes-annotated">Module 7: Skill Design Review — Three Archetypes Annotated<a class="headerlink" href="#module-7-skill-design-review-three-archetypes-annotated" title="Permanent link">&para;</a></h2>
+<h3 id="triage-skill-inbox-classification">Triage skill (inbox classification)<a class="headerlink" href="#triage-skill-inbox-classification" title="Permanent link">&para;</a></h3>
+<p><strong>What works well:</strong></p>
+<ol>
+<li>
+<p><strong>Decision tree with explicit scoring</strong> (Chain-of-thought pattern). Classification logic with explicit signals, numeric scores, configurable thresholds, and a tiebreaking table. This is how you build auditable, tuneable classification.</p>
+</li>
+<li>
+<p><strong>External config separation.</strong> Policy (VIP lists, archive rules) and config (label IDs, vendor domains, thresholds) live in separate files that the skill reads at runtime. This means you can change classification behavior by editing a config file without touching the skill itself. True separation of logic and data.</p>
+</li>
+<li>
+<p><strong>State management.</strong> A run-state file with deduplication, automatic window calculation, and pruning is sophisticated. It prevents double-processing on re-runs and auto-adjusts the search window based on last run time.</p>
+</li>
+</ol>
+<p><strong>What to improve:</strong></p>
+<ol>
+<li><strong>Add 3 classification examples</strong> (as described in Module 5). Place them after Phase 5, before Phase 6. Focus on boundary cases where the scoring system could go either way.</li>
+</ol>
+<p>Before:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gu">### Phase 5: Classification Logic</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>[... decision tree ...]
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="gu">### Phase 6: Classification Report</span>
+</code></pre></div></p>
+<p>After:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gu">### Phase 5: Classification Logic</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>[... decision tree ...]
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="gu">### Phase 5.5: Classification Examples (Boundary Cases)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">-</span><span class="w"> </span>From: notifications@github.com | Subject: &quot;[repo] New issue: bug in parser&quot;
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>  Signals: List-Unsubscribe (+2), noreply pattern (+1)
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>  BUT: Technical content from a service you actively use
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>  → SKIP (score 3, but GitHub is a tool, not a newsletter — add to overrides if recurring)
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="k">-</span><span class="w"> </span>From: dept-announcements@lists.university.edu | Subject: &quot;Campus dining hours&quot;
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>  Signals: List-Unsubscribe (+2), .edu domain, generic greeting (+1)
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>  → <span class="ni">@School</span> (score 3 + .edu domain = <span class="ni">@School</span>, not <span class="ni">@ToRead</span>)
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="gu">### Phase 6: Classification Report</span>
+</code></pre></div></p>
+<ol>
+<li><strong>Add a version line</strong> to the YAML header.</li>
+</ol>
+<p>Before:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nn">---</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sonnet</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nn">---</span>
+</code></pre></div></p>
+<p>After:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nn">---</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sonnet</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nn">---</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Smart Inbox Triage</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nv">*v3</span><span class="l l-Scalar l-Scalar-Plain">.1 — 2026-02-15 — Added Phase 4.6 (calendar detection), expense skip patterns*</span>
+</code></pre></div></p>
+<ol>
+<li><strong>Add an output anchor</strong> to eliminate preamble.</li>
+</ol>
+<p>Before Phase 6, add:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Begin your output with the report header directly. No preamble.
+</code></pre></div></p>
+<p><strong>Advanced technique: Eval-driven refinement.</strong> Create an eval file with 10 representative emails (5 clear, 5 borderline). After any rule change, run the triage skill with <code>noapply</code> and manually verify the 5 borderline cases match expected classifications. This takes 5 minutes and prevents regressions.</p>
+<hr />
+<h3 id="weekly-review-skill-multi-source-synthesis">Weekly review skill (multi-source synthesis)<a class="headerlink" href="#weekly-review-skill-multi-source-synthesis" title="Permanent link">&para;</a></h3>
+<p><strong>What works well:</strong></p>
+<ol>
+<li>
+<p><strong>Graceful degradation.</strong> Every data source (WhatsApp, transcripts, Gmail) has explicit fallback behavior: "If unavailable: note and continue." This means the skill never crashes — it adapts to whatever's working. This is excellent defensive design for a skill that depends on 3+ external services.</p>
+</li>
+<li>
+<p><strong>Living document pattern.</strong> Explicitly telling Claude the dashboard is a living document — preserve, modify, add, remove — not a blank-slate rebuild. This is a subtle but critical instruction. Without it, Claude would overwrite the entire dashboard every run, losing accumulated context.</p>
+</li>
+<li>
+<p><strong>Reference file architecture.</strong> Separate reference files (templates, format guides, insertion rules) keep the main skill file manageable while providing full detail when needed. This is the modular prompt pattern applied well.</p>
+</li>
+</ol>
+<p><strong>What to improve:</strong></p>
+<ol>
+<li>
+<p><strong>Add <code>model: sonnet</code> for data collection, default for synthesis.</strong> The data collection phases (Steps 1-2) are structured and routine. The synthesis (Step 3) benefits from Opus's reasoning. Currently the whole skill runs on whatever model is active. You can't switch models mid-skill in Claude Code today, but you can note this as a future optimization — or structure it as two skills (collect + synthesize) if context pressure becomes an issue.</p>
+</li>
+<li>
+<p><strong>Tighten the email collection.</strong> Broad filter criteria ("sender OR recipient matches any team member... OR subject/body contains project keywords") can pull in dozens of irrelevant threads. Add a volume cap:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Volume cap**</span>: Fetch up to 15 most relevant threads. If more match, prioritize:
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  (a) threads with 3+ messages, (b) threads from the last 3 days, (c) threads involving the project lead
+</code></pre></div>
+<ol>
+<li><strong>Add version tracking.</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="ge">*v2.1 — 2026-02-15 — Added transcript integration, archiving, qualitative template*</span>
+</code></pre></div>
+<p><strong>Advanced technique: Context budget allocation.</strong> Add a note: "Context budget: aim for no more than ~80K tokens of source material before synthesis. If WhatsApp + transcripts + Gmail exceeds this, summarize WhatsApp and Gmail in-line before proceeding to Step 3." This prevents the synthesis step from running with a nearly full context window, which degrades output quality.</p>
+<hr />
+<h3 id="proposal-writing-skill-long-form-generation">Proposal writing skill (long-form generation)<a class="headerlink" href="#proposal-writing-skill-long-form-generation" title="Permanent link">&para;</a></h3>
+<p><strong>What works well:</strong></p>
+<ol>
+<li>
+<p><strong>Input checklist pattern.</strong> Step 2's structured checklist (Required / Strongly Recommended / Auto-Loaded) is excellent UX design. It prevents the most common failure mode in proposal writing: starting a draft without the application template, then having to restructure everything. The checklist forces the right inputs before any writing begins.</p>
+</li>
+<li>
+<p><strong>Voice pack integration.</strong> Loading voice and example files before writing is proper role prompting with examples. A strong voice spec has concrete rules ("Short sentences. Short words. Active voice.") rather than vague guidance ("Write clearly").</p>
+</li>
+<li>
+<p><strong>Resubmission workflow.</strong> The reviewer comment analysis (MUST ADDRESS / SHOULD ADDRESS / DISAGREE) with a mandatory confirmation gate before drafting is sophisticated workflow design. It's the right place for a human-in-the-loop checkpoint — getting the strategy wrong wastes the entire draft.</p>
+</li>
+</ol>
+<p><strong>What to improve:</strong></p>
+<ol>
+<li><strong>Add a before/after example to the voice section.</strong> A voice pack may have rules, but no example of a bad paragraph transformed into a good one within the skill itself. Adding one example right after the voice pack reference primes Claude's calibration:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gu">## Voice Example (apply throughout)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>BEFORE (typical academic): &quot;This project will utilize a mixed-methods approach to
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>investigate the impact of the intervention on participant outcomes, drawing on both
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>quantitative survey instruments and qualitative interview data.&quot;
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>AFTER (proposal voice): &quot;We combine a 2,000-person RCT with 120 in-depth interviews.
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>The trial measures employment and earnings at 6 and 18 months. The interviews explain
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>why — what participants actually did with the training, and what got in the way.&quot;
+</code></pre></div>
+<ol>
+<li><strong>Add word count targets per section.</strong> A skill may specify word counts for the whole proposal (via funder guidelines) but not per section. Adding rough proportions prevents the common problem of a 3-page methodology section in a 5-page proposal:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gu">### Section Length Guide (for a 10-page proposal)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">-</span><span class="w"> </span>Introduction/Background: 1-1.5 pages (problem + gap + contribution)
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="k">-</span><span class="w"> </span>Methodology: 3-4 pages (the core — this is what reviewers scrutinize)
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="k">-</span><span class="w"> </span>Progress/Preliminary results: 1-1.5 pages
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="k">-</span><span class="w"> </span>Timeline: 0.5 page
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="k">-</span><span class="w"> </span>Budget justification: 1 page
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="k">-</span><span class="w"> </span>Team: 0.5-1 page
+</code></pre></div>
+<ol>
+<li><strong>Add version tracking and an eval note.</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="ge">*v1.2 — 2026-02-15 — Added resubmission workflow, voice variants*</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Eval: After generating a draft, spot-check 3 random paragraphs against your voice rules.
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>If 2+ paragraphs violate them, re-prompt with stricter voice instructions.
+</code></pre></div>
+<p><strong>Advanced technique: Contrastive examples in voice packs.</strong> Your examples file likely has good examples. Add 2-3 <em>bad</em> examples with annotations explaining what's wrong. Models learn voice more effectively from seeing both what to do and what <em>not</em> to do.</p>
+<hr />
+<h2 id="quick-reference-card">Quick Reference Card<a class="headerlink" href="#quick-reference-card" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>One-line definition</th>
+<th>Where you use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Message stack</strong></td>
+<td>Everything Claude reads each turn: system prompt + conversation + tool results</td>
+<td>The entire config architecture</td>
+</tr>
+<tr>
+<td><strong>Agentic loop</strong></td>
+<td>Claude responds → tool executes → results added → Claude responds again</td>
+<td>Every skill run</td>
+</tr>
+<tr>
+<td><strong>Context window</strong></td>
+<td>200K token limit on the message stack</td>
+<td>Why long skills get expensive</td>
+</tr>
+<tr>
+<td><strong>Tokens</strong></td>
+<td>~1.3 tokens per word; a typical base config = ~4K tokens</td>
+<td>Cost awareness</td>
+</tr>
+<tr>
+<td><strong>System prompt</strong></td>
+<td>Instructions loaded before the conversation; CLAUDE.md + rules + skill text</td>
+<td>CLAUDE.md, rules/, commands/</td>
+</tr>
+<tr>
+<td><strong>Role prompting</strong></td>
+<td>Assigning Claude a persona</td>
+<td>Voice packs, preference roles</td>
+</tr>
+<tr>
+<td><strong>Structured output</strong></td>
+<td>Specifying exact output format</td>
+<td>Report templates in every skill</td>
+</tr>
+<tr>
+<td><strong>Chain-of-thought</strong></td>
+<td>Step-by-step reasoning instructions</td>
+<td>Triage-inbox Phase 5 decision tree</td>
+</tr>
+<tr>
+<td><strong>Few-shot examples</strong></td>
+<td>Input→output examples in the prompt</td>
+<td><em>Often missing — add to classification skills</em></td>
+</tr>
+<tr>
+<td><strong>Bookend pattern</strong></td>
+<td>Repeat critical rules at start and end</td>
+<td>Often weak — strengthen in long skills</td>
+</tr>
+<tr>
+<td><strong>Eval set</strong></td>
+<td>Test cases to verify skill output quality</td>
+<td><em>Often missing — create for key skills</em></td>
+</tr>
+<tr>
+<td><strong>Prefilling</strong></td>
+<td>Anchoring Claude's response format</td>
+<td><em>Often missing — add output anchors</em></td>
+</tr>
+<tr>
+<td><strong>Prompt versioning</strong></td>
+<td>Version + date + change note on each skill</td>
+<td><em>Often missing — add to all skills</em></td>
+</tr>
+<tr>
+<td><strong>MCP</strong></td>
+<td>Protocol for Claude to call external tools (Gmail, WhatsApp, etc.)</td>
+<td>mcp-servers.json</td>
+</tr>
+<tr>
+<td><strong>Deferred tools</strong></td>
+<td>MCP tools loaded on demand via ToolSearch</td>
+<td>Why skills say "call tools directly"</td>
+</tr>
+<tr>
+<td><strong>Task agent</strong></td>
+<td>Sub-conversation with its own context window</td>
+<td>Used sparingly; good for research tasks</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>End of tutorial. Next steps: apply the Module 7 improvements to your most-used skill first, then add version lines to all active skills.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  <p class="feedback-line">
+    Found this useful?
+    <a href="https://github.com/chrisblattman/claudeblattman" target="_blank">Star it on GitHub</a>
+    or share with a colleague.
+    Something broken or unclear?
+    <a href="mailto:claudeblattman+feedback@gmail.com?subject=Feedback%3A%20Claude%20Code%20Under%20the%20Hood">Send feedback</a>.
+  </p>
+
+  <!-- Email signup slide-in banner -->
+  <div id="email-banner" class="email-banner" style="display:none;">
+    <button class="email-banner__close" aria-label="Close">&times;</button>
+    <p class="email-banner__text">
+      New tools for researchers and managers every few weeks.
+      Email updates only &mdash; a few times a year.
+    </p>
+    <form class="email-banner__form"
+          action="https://buttondown.email/api/emails/embed-subscribe/claudeblattman"
+          method="post" target="popupwindow"
+          onsubmit="window.open('https://buttondown.email/claudeblattman','popupwindow')">
+      <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+      <!-- Honeypot — hidden from humans, bots fill it -->
+      <input type="text" name="url" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit">Subscribe</button>
+    </form>
+    <span class="email-banner__msg" style="display:none;"></span>
+    <a href="/privacy/" class="email-banner__privacy">Privacy policy</a>
+  </div>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Built by <a href="https://chrisblattman.com">Chris Blattman</a> &mdash; shared freely under MIT License
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/chrisblattman/claudeblattman" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/cblatts" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant", "navigation.instant.prefetch", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+
+  <!-- GoatCounter analytics — privacy-friendly, no cookies, free for non-commercial -->
+  <script>
+    window.goatcounter = { no_onload: true };
+  </script>
+  <script data-goatcounter="https://claudeblattman.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script>
+    /* Track page views on every navigation (including instant loading) */
+    document$.subscribe(function() {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({
+          path: location.pathname + location.search + location.hash
+        });
+      }
+    });
+  </script>
+
+  <script>
+    /* Make the site title text clickable — navigates home like the logo icon */
+    (function() {
+      var title = document.querySelector('.md-header__title');
+      if (title) {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function() {
+          var logo = document.querySelector('.md-header__button.md-logo');
+          if (logo) logo.click();
+        });
+      }
+    })();
+
+    /* Email signup slide-in banner */
+    (function() {
+      var BANNER_KEY = 'cb_email_banner_dismissed';
+      var THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+
+      /* Check if dismissed within last 30 days */
+      var dismissed = localStorage.getItem(BANNER_KEY);
+      if (dismissed && (Date.now() - parseInt(dismissed, 10)) < THIRTY_DAYS) return;
+
+      var banner = document.getElementById('email-banner');
+      if (!banner) return;
+
+      var shown = false;
+      function showBanner() {
+        if (shown) return;
+        shown = true;
+        banner.style.display = 'block';
+      }
+
+      /* Show after 45 seconds */
+      setTimeout(showBanner, 45000);
+
+      /* Show at 50% scroll — whichever comes first */
+      document.addEventListener('scroll', function() {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollable > 0 && (window.scrollY / scrollable) >= 0.5) {
+          showBanner();
+        }
+      }, { passive: true });
+
+      /* Dismiss button — hide and remember for 30 days */
+      banner.querySelector('.email-banner__close').addEventListener('click', function() {
+        banner.style.display = 'none';
+        localStorage.setItem(BANNER_KEY, Date.now().toString());
+      });
+    })();
+  </script>
+
+  </body>
+</html>

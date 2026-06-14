@@ -1,0 +1,663 @@
+/* ============================
+   Fraunces display font for headings
+   ============================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap');
+
+/* Dark mode: warm teal-gray instead of cold gray */
+[data-md-color-scheme="slate"] {
+  --md-hue: 190;
+}
+
+/* ============================
+   Fraunces on display headings
+   ============================ */
+h1, h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Featured section headings — bigger and teal */
+.md-typeset .section-hero {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--md-accent-fg-color);
+  letter-spacing: -0.03em;
+  margin-top: 2rem;
+}
+
+/* Page titles in teal */
+.md-content__inner > h1:first-child {
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.03em;
+  color: var(--md-accent-fg-color);
+}
+
+/* Landing page: extra-large title */
+.md-content__inner > h1:first-child:is([id="claude-blattman"]) {
+  font-size: 3.5rem;
+}
+
+/* Hero pitch line — prominent value prop (high specificity to override md-typeset) */
+.md-typeset .hero-pitch {
+  font-size: 1.15rem !important;
+  font-weight: 400;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.55;
+  margin: 0.4rem 0 1.8rem;
+  max-width: 100%;
+}
+
+/* Hero buttons row: CTAs + social all on one line */
+.hero-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-buttons .md-button {
+  font-size: 0.72rem;
+  padding: 0.3rem 0.7rem;
+}
+
+/* Early access badge */
+.badge-preview {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-accent-fg-color);
+  border: 1px solid var(--md-accent-fg-color);
+  border-radius: 3px;
+  padding: 2px 6px;
+  margin-bottom: 0.75rem;
+  opacity: 0.85;
+}
+
+/* Teal inline badge for cards */
+.badge-teal {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-accent-fg-color);
+  border: 1.5px solid var(--md-accent-fg-color);
+  border-radius: 3px;
+  padding: 1px 6px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* "Start here" badge — visually distinct from Early access */
+.badge-start {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--md-accent-fg-color);
+  border: 1px solid var(--md-accent-fg-color);
+  border-radius: 3px;
+  padding: 2px 8px;
+  margin-bottom: 0.5rem;
+}
+
+/* Credibility strip with bottom rule */
+.credibility-strip {
+  font-size: 0.92rem;
+  color: var(--md-default-fg-color--light);
+  border-left: 3px solid var(--md-accent-fg-color);
+  border-bottom: 1px solid color-mix(in srgb, var(--md-accent-fg-color) 20%, transparent);
+  padding-left: 1rem;
+  padding-bottom: 1.5rem;
+  margin: 0 0 2.5rem;
+  line-height: 1.6;
+}
+
+/* ============================
+   Bento grid
+   ============================ */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.bento-cell {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  padding: 0.45rem 0.65rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Force compact text inside bento cells */
+.md-typeset .bento-cell p {
+  font-size: 0.68rem !important;
+  line-height: 1.35 !important;
+  margin-bottom: 0.15rem !important;
+  margin-top: 0 !important;
+}
+
+/* Make bento cell title link cover the entire cell */
+.bento-cell > p > strong > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.bento-cell:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+/* Featured bento cell: spans full width + tinted background */
+.bento-cell--featured {
+  grid-column: span 3;
+  background: color-mix(in srgb, var(--md-accent-fg-color) 8%, var(--md-default-bg-color));
+  border-color: color-mix(in srgb, var(--md-accent-fg-color) 35%, transparent);
+}
+
+[data-md-color-scheme="slate"] .bento-cell--featured {
+  background: color-mix(in srgb, var(--md-accent-fg-color) 12%, var(--md-default-bg-color));
+}
+
+/* Bento icon size */
+.bento-icon {
+  font-size: 0.85rem;
+  vertical-align: middle;
+  margin-right: 0.15rem;
+}
+
+/* Bento tags: Claude Code / No code needed */
+.bento-tag {
+  display: inline-block;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.bento-tag--nocode {
+  color: var(--md-accent-fg-color);
+  border-color: color-mix(in srgb, var(--md-accent-fg-color) 50%, transparent);
+}
+
+/* ============================
+   Social link buttons — same row as CTAs
+   ============================ */
+.social-links {
+  display: inline-flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.social-btn {
+  font-size: 0.72rem !important;
+  padding: 0.3rem 0.7rem !important;
+  opacity: 0.8;
+}
+
+.social-btn:hover {
+  opacity: 1;
+}
+
+/* ============================
+   Card grid
+   ============================ */
+.md-typeset .grid.cards > ul > li {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Make the arrow link cover the entire card */
+.md-typeset .grid.cards > ul > li > p:last-child > a {
+  position: static;
+}
+
+.md-typeset .grid.cards > ul > li > p:last-child > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Content images — fill text width by default */
+.md-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Narrow UI element images — keep constrained */
+.img-narrow {
+  max-width: 400px !important;
+}
+
+/* Softer admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* ============================
+   Tablet responsive
+   ============================ */
+@media (max-width: 960px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bento-cell--featured {
+    grid-column: span 2;
+  }
+}
+
+/* ============================
+   Mobile responsive
+   ============================ */
+@media (max-width: 600px) {
+  .md-content__inner > h1:first-child {
+    font-size: 2rem;
+  }
+
+  .hero-pitch {
+    font-size: 1.05rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-cell--featured {
+    grid-column: span 1;
+  }
+
+  .bento-cell {
+    font-size: 0.85rem;
+  }
+
+  .md-typeset .grid.cards > ul > li {
+    padding: 1rem 1rem;
+  }
+
+  .md-typeset .grid.cards > ul > li + li {
+    margin-top: 0.5rem;
+  }
+}
+
+/* ============================
+   Table of contents — right sidebar
+   ============================ */
+
+/* TOC title in teal */
+.md-nav--secondary > .md-nav__title {
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+}
+
+/* Bullet markers on TOC items */
+.md-nav--secondary .md-nav__item::before {
+  content: "•";
+  color: var(--md-default-fg-color--lightest);
+  margin-right: 0.4rem;
+  font-size: 0.7rem;
+}
+
+/* ============================
+   Blockquotes — compact
+   ============================ */
+.md-typeset blockquote {
+  padding: 0.4rem 0.8rem;
+  margin: 0.6rem 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.md-typeset blockquote p {
+  margin: 0.3rem 0;
+}
+
+/* ============================
+   Behind the Build — narrative blocks
+   ============================ */
+.narrative-block {
+  border-left: 3px solid var(--md-accent-fg-color);
+  background: color-mix(in srgb, var(--md-accent-fg-color) 4%, var(--md-default-bg-color));
+  border-radius: 0 8px 8px 0;
+  padding: 0.7rem 1.1rem;
+  margin: 1rem 0 1.2rem;
+}
+
+[data-md-color-scheme="slate"] .narrative-block {
+  background: color-mix(in srgb, var(--md-accent-fg-color) 6%, var(--md-default-bg-color));
+}
+
+/* Teaser line — always visible hook */
+.md-typeset .narrative-teaser {
+  font-size: 0.88rem !important;
+  font-style: italic;
+  color: var(--md-default-fg-color);
+  margin-bottom: 0.3rem !important;
+  line-height: 1.5;
+}
+
+.narrative-icon {
+  color: var(--md-accent-fg-color);
+  margin-right: 0.3rem;
+}
+
+/* Nested details inside narrative block */
+.narrative-block details {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+.narrative-block details summary {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--md-accent-fg-color);
+  padding: 0.4rem 0;
+}
+
+.narrative-block details[open] summary {
+  border-bottom: 1px solid color-mix(in srgb, var(--md-accent-fg-color) 20%, transparent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+}
+
+.md-typeset .narrative-block details p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Field notes — inline narrative at decision points */
+.md-typeset .admonition.field-note,
+.md-typeset details.field-note {
+  border-left-color: var(--md-accent-fg-color);
+  background: color-mix(in srgb, var(--md-accent-fg-color) 3%, var(--md-default-bg-color));
+  font-size: 0.88rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.field-note,
+[data-md-color-scheme="slate"] .md-typeset details.field-note {
+  background: color-mix(in srgb, var(--md-accent-fg-color) 5%, var(--md-default-bg-color));
+}
+
+/* What I Wish I'd Known — bottom summary */
+.md-typeset .admonition.lessons,
+.md-typeset details.lessons {
+  border-left-color: var(--md-accent-fg-color);
+}
+
+/* Keyboard nav accessibility for cards */
+.md-typeset .grid.cards > ul > li:focus-within {
+  border-color: var(--md-accent-fg-color);
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}
+
+/* ============================
+   "Ask Claude" custom admonition
+   ============================ */
+.md-typeset .admonition.ask-claude,
+.md-typeset details.ask-claude {
+  border-left-color: #009688;
+  background: color-mix(in srgb, #009688 6%, var(--md-default-bg-color));
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.ask-claude,
+[data-md-color-scheme="slate"] .md-typeset details.ask-claude {
+  background: color-mix(in srgb, #009688 8%, var(--md-default-bg-color));
+}
+
+.md-typeset .admonition.ask-claude > .admonition-title,
+.md-typeset details.ask-claude > summary {
+  background: color-mix(in srgb, #009688 12%, var(--md-default-bg-color));
+}
+
+.md-typeset .admonition.ask-claude > .admonition-title::before,
+.md-typeset details.ask-claude > summary::before {
+  -webkit-mask-image: var(--md-admonition-icon--question);
+  mask-image: var(--md-admonition-icon--question);
+  background-color: #009688;
+}
+
+/* ============================
+   Starter kit guide
+   ============================ */
+.starter-path,
+.starter-steps {
+  display: grid;
+  gap: 0.45rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0 1.4rem;
+  background: color-mix(in srgb, var(--md-accent-fg-color) 4%, var(--md-default-bg-color));
+}
+
+.starter-path label,
+.starter-steps label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.starter-path input,
+.starter-steps input {
+  margin-top: 0.2rem;
+  accent-color: var(--md-accent-fg-color);
+}
+
+.starter-progress {
+  border: 1px solid color-mix(in srgb, var(--md-accent-fg-color) 35%, transparent);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  margin: 0.8rem 0 1.6rem;
+}
+
+.starter-progress__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.starter-progress__bar {
+  height: 0.45rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--md-default-fg-color) 10%, transparent);
+  overflow: hidden;
+}
+
+.starter-progress__bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--md-accent-fg-color);
+  transition: width 0.2s ease;
+}
+
+.starter-progress__reset {
+  margin-top: 0.65rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.starter-progress__reset:hover {
+  border-color: var(--md-accent-fg-color);
+}
+
+.starter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.starter-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  background: color-mix(in srgb, var(--md-accent-fg-color) 3%, var(--md-default-bg-color));
+}
+
+.md-typeset .starter-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.md-typeset .starter-card ul {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .starter-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================
+   Email signup slide-in banner
+   ============================ */
+.email-banner {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  max-width: 320px;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  animation: bannerSlideIn 0.3s ease-out;
+}
+
+@keyframes bannerSlideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.email-banner__close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+  padding: 0.2rem;
+  line-height: 1;
+}
+
+.email-banner__close:hover {
+  color: var(--md-default-fg-color);
+}
+
+.email-banner__text {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--md-default-fg-color--light);
+  margin: 0 0 0.7rem;
+  padding-right: 1rem;
+}
+
+.email-banner__form {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.email-banner__form input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.78rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+}
+
+.email-banner__form button[type="submit"] {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--md-accent-fg-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.email-banner__form button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+.email-banner__privacy {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--md-default-fg-color--lighter);
+  margin-top: 0.4rem;
+  text-decoration: none;
+}
+
+.email-banner__privacy:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.email-banner__msg {
+  font-size: 0.72rem;
+  margin-top: 0.4rem;
+}
+
+/* Mobile: full-width bottom strip */
+@media (max-width: 600px) {
+  .email-banner {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    max-width: none;
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
+  }
+}
