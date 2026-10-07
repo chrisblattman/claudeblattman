@@ -231,9 +231,9 @@
       "sha256": "24f9d28d3210b836a336986b7f9036b98819c1af56cb4827f4a59e3248438849"
     },
     {
-      "bytes": 1181,
+      "bytes": 1300,
       "path": "scripts/build-staging.sh",
-      "sha256": "572acf192c31e21c3830145e003b10a760989e08b3487d299de8bb3f98057336"
+      "sha256": "d7e33bdcb53596ab03f34728303f4b502a1aa984f7de8eb89975f155526ef48f"
     },
     {
       "bytes": 3339,

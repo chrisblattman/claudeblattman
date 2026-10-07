@@ -12,6 +12,8 @@
 #      yet" stub pages.
 #   3. WRITES _headers so Cloudflare sends X-Robots-Tag: noindex, nofollow on
 #      every response — belt and braces, since robots.txt is advisory.
+#   On Cloudflare, pair this with requirements-staging.txt rather than
+#   requirements.txt — see that file for why.
 set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
