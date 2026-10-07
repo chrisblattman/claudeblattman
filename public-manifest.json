@@ -11,9 +11,9 @@
       "sha256": "9eca5360bb22542ad7baa51f5bb9c0c82941502eb3bcd4ec11be366e0274f6f0"
     },
     {
-      "bytes": 306,
+      "bytes": 1275,
       "path": ".github/workflows/public-release-check.yml",
-      "sha256": "9bead76ba194bd545c25df2984df314cfe7b2d1e89eb7fe621c2f6e054a42780"
+      "sha256": "e06450dd4deb3058d0470f2be7ac98dd038b5afe08e191461980f3975d2de9e4"
     },
     {
       "bytes": 327,
@@ -229,6 +229,11 @@
       "bytes": 7056,
       "path": "plugins/starter-kit/skills/review-plan/SKILL.md",
       "sha256": "24f9d28d3210b836a336986b7f9036b98819c1af56cb4827f4a59e3248438849"
+    },
+    {
+      "bytes": 1181,
+      "path": "scripts/build-staging.sh",
+      "sha256": "572acf192c31e21c3830145e003b10a760989e08b3487d299de8bb3f98057336"
     },
     {
       "bytes": 3339,

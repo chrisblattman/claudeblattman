@@ -1,0 +1,30 @@
+# Staging build — Cloudflare Pages preview of the redesign.
+#
+# Inherits everything from mkdocs.yml and changes only what must not leak
+# production identity onto a preview host. Run it with scripts/build-staging.sh,
+# which also handles the two things config alone cannot fix (CNAME, robots.txt).
+INHERIT: mkdocs.yml
+
+# Canonical tags, sitemap and og: URLs otherwise all claim claudeblattman.com,
+# so a preview page would advertise the production URL of a page that may not
+# exist there yet. Cloudflare sets CF_PAGES_URL on every build; the fallback is
+# only for running this locally.
+site_url: !ENV [CF_PAGES_URL, 'http://127.0.0.1:8000']
+
+site_name: Claude Blattman — PREVIEW
+
+# Same list as mkdocs.yml MINUS `social`. Two reasons: the Cloudflare build
+# image has no libcairo, so card generation fails there; and the cards it does
+# make embed absolute production URLs. A child `plugins:` list REPLACES the
+# parent's rather than merging, so this has to be spelled out in full — if you
+# add a plugin to mkdocs.yml, add it here too.
+plugins:
+  - search
+  - meta
+  - redirects:
+      redirect_maps:
+        quickstart.md: essentials/index.md
+        setup/modes.md: setup/index.md
+        toolkit/skills-guide.md: setup/skill-reference.md
+        workflows/tips-pipeline.md: system/continuous-improvement.md
+        workflows/index.md: workflows/best-practices.md

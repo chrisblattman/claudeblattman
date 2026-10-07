@@ -14,3 +14,24 @@ jobs:
       - uses: actions/checkout@v4
       - run: bash scripts/emit-public.sh --check
       - run: bash scripts/check-public-release.sh
+
+  # Until now a PR could break every internal link in the site and still pass:
+  # the checks above look for leaked names and ids, not for whether the site
+  # builds. Broken links were only discovered after merge, by which point
+  # deploy.yml had already pushed them to the live domain.
+  #
+  # Uses mkdocs-staging.yml rather than mkdocs.yml on purpose. The only
+  # difference that matters here is that it drops the `social` plugin, which
+  # needs libcairo — with it, --strict fails on ~85 "cairosvg crashed"
+  # warnings and the check would block every PR for a reason unrelated to the
+  # PR. Without it, --strict reports exactly what we want it to: bad links,
+  # bad anchors, bad nav entries.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: pip install -r requirements.txt
+      - run: mkdocs build --strict -f mkdocs-staging.yml
