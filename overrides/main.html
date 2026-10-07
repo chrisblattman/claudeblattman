@@ -1,53 +1,43 @@
 {% extends "base.html" %}
 
-{% block announce %}
+{# Site-wide "Power users: Get Skills & Templates" banner removed.
+   It advertised advanced content to every first-time visitor and consumed
+   ~40px of vertical chrome on every page. Recover from git if wanted. #}
+
+{% block extrahead %}
+  {{ super() }}
+  {#- Material emits one <link rel="icon"> from theme.favicon (the SVG). These
+     add the .ico fallback for Safari/older browsers and the iOS home-screen icon. #}
+  <link rel="alternate icon" href="{{ 'images/favicon.ico' | url }}" sizes="48x48">
+  <link rel="apple-touch-icon" href="{{ 'images/apple-touch-icon.png' | url }}">
+  {#- The left column shows only the current page's contents on every page —
+     see docs/stylesheets/extra.css. The old per-page `toc_only` hook is gone. #}
   <style>
-    .md-banner {
-      background: color-mix(in srgb, var(--md-accent-fg-color) 15%, var(--md-default-bg-color));
-      color: var(--md-default-fg-color--light);
-      font-size: 0.75rem;
-    }
+    /* No opacity. At 0.6 this measured 4.30:1 light / 4.10:1 dark for the text
+       and 2.82:1 / 3.18:1 for the links — failing AA in both schemes, on every
+       page. It is also now the only email-signup affordance on the site, so
+       making it the least legible element defeated the point. */
     .feedback-line {
       margin-top: 2.5rem;
       padding-top: 1rem;
       border-top: 1px solid var(--md-default-fg-color--lightest);
       font-size: 0.8rem;
-      opacity: 0.6;
+      color: var(--md-default-fg-color--light);
     }
-    .feedback-line:hover { opacity: 0.85; }
   </style>
-  <span style="font-weight: 600; color: var(--md-accent-fg-color);">Power users:</span> <a href="{{ 'setup/skill-reference/' | url }}" style="font-weight: 600; color: var(--md-accent-fg-color);">Get Skills & Templates &rarr;</a>
 {% endblock %}
 
 {% block content %}
   {{ super() }}
+  {# Timed email slide-in removed: it fired at 45s or 50% scroll, mid-task,
+     and became a full-width bottom strip over content on mobile. Signup is
+     now one static clause in the footer line that was already here. #}
   <p class="feedback-line">
-    Found this useful?
-    <a href="https://github.com/chrisblattman/claudeblattman" target="_blank">Star it on GitHub</a>
-    or share with a colleague.
+    <a href="https://buttondown.email/claudeblattman">Get email updates</a>
+    a few times a year, no spam.
     Something broken or unclear?
     <a href="mailto:claudeblattman+feedback@gmail.com?subject=Feedback%3A%20{{ page.title | urlencode }}">Send feedback</a>.
   </p>
-
-  <!-- Email signup slide-in banner -->
-  <div id="email-banner" class="email-banner" style="display:none;">
-    <button class="email-banner__close" aria-label="Close">&times;</button>
-    <p class="email-banner__text">
-      New tools for researchers and managers every few weeks.
-      Email updates only &mdash; a few times a year.
-    </p>
-    <form class="email-banner__form"
-          action="https://buttondown.email/api/emails/embed-subscribe/claudeblattman"
-          method="post" target="popupwindow"
-          onsubmit="window.open('https://buttondown.email/claudeblattman','popupwindow')">
-      <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
-      <!-- Honeypot — hidden from humans, bots fill it -->
-      <input type="text" name="url" style="display:none" tabindex="-1" autocomplete="off">
-      <button type="submit">Subscribe</button>
-    </form>
-    <span class="email-banner__msg" style="display:none;"></span>
-    <a href="/privacy/" class="email-banner__privacy">Privacy policy</a>
-  </div>
 {% endblock %}
 
 {% block scripts %}
@@ -83,41 +73,442 @@
       }
     })();
 
-    /* Email signup slide-in banner */
-    (function() {
-      var BANNER_KEY = 'cb_email_banner_dismissed';
-      var THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
 
-      /* Check if dismissed within last 30 days */
-      var dismissed = localStorage.getItem(BANNER_KEY);
-      if (dismissed && (Date.now() - parseInt(dismissed, 10)) < THIRTY_DAYS) return;
+    /* Tab dropdowns. Click-driven, not hover: hover menus are unreachable on
+       touch and were the reason the carets appeared dead. Re-bound on every
+       instant-navigation swap via document$. */
+    document$.subscribe(function() {
+      var toggles = [].slice.call(document.querySelectorAll('.md-tabs__toggle'));
+      if (!toggles.length) return;
 
-      var banner = document.getElementById('email-banner');
-      if (!banner) return;
-
-      var shown = false;
-      function showBanner() {
-        if (shown) return;
-        shown = true;
-        banner.style.display = 'block';
+      /* Never touch .hidden — it is display:none, which overrides the CSS
+         hover rule and was the reason hovering did nothing. Open/closed is
+         expressed only through aria-expanded, which the CSS keys off. */
+      function close(btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        var li = btn.closest('.md-tabs__item--nested');
+        if (li) li.classList.remove('md-tabs__item--open');
       }
 
-      /* Show after 45 seconds */
-      setTimeout(showBanner, 45000);
+      function closeAll(except) {
+        toggles.forEach(function(b) { if (b !== except) close(b); });
+      }
 
-      /* Show at 50% scroll — whichever comes first */
-      document.addEventListener('scroll', function() {
-        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
-        if (scrollable > 0 && (window.scrollY / scrollable) >= 0.5) {
-          showBanner();
-        }
-      }, { passive: true });
+      toggles.forEach(function(btn) {
+        var menu = document.getElementById(btn.getAttribute('aria-controls'));
+        if (!menu) return;
 
-      /* Dismiss button — hide and remember for 30 days */
-      banner.querySelector('.email-banner__close').addEventListener('click', function() {
-        banner.style.display = 'none';
-        localStorage.setItem(BANNER_KEY, Date.now().toString());
+        btn.addEventListener('click', function(ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          closeAll(btn);
+          btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+          var li = btn.closest('.md-tabs__item--nested');
+          if (li) li.classList.toggle('md-tabs__item--open', !open);
+        });
+
+        /* Escape closes and returns focus to the button that opened it. */
+        menu.addEventListener('keydown', function(ev) {
+          if (ev.key === 'Escape') { close(btn); btn.focus(); }
+        });
+        btn.addEventListener('keydown', function(ev) {
+          if (ev.key === 'Escape') { close(btn); }
+        });
       });
-    })();
+
+      /* A click anywhere else dismisses whatever is open. */
+      document.addEventListener('click', function(ev) {
+        if (!ev.target.closest('.md-tabs__item--nested')) closeAll(null);
+      });
+    });
+
+
+    /* ============================================================
+       PROGRESS: step checklists, page-done marks, and the sidebar
+       ============================================================
+       Two kinds of progress live on this site and they share one home in the
+       left column:
+
+         * the Start Here checklists, where each STEP has a checkbox
+         * Build Your Own, where each PAGE has one at its foot
+
+       Shay asked for the reset to sit at the bottom of the left column in both
+       cases, so the controls are injected into the sidebar rather than the
+       content column. The step COUNT stays in the content column on the
+       checklists, where it sits beside the thing it counts.
+
+       Re-bound on every instant-navigation swap via document$. ------------- */
+
+    /* Which sections show their PAGE LIST in the left column instead of the
+       current page's headings. Read from the active section's own label because
+       `md-nav--lifted` leaves EVERY tab's children in the DOM, so CSS alone
+       cannot tell which section is active. Rename a tab and these strings must
+       change with it.
+
+       Start Here is deliberately absent: Shay asked for that column to carry
+       the checklist's own contents, not links to the other two checklists. */
+    var CB_PAGE_LIST_SECTIONS = ['Build Your Own', 'Workflows'];
+
+    /* Of those, the ones where each page carries an "I did this" checkbox and
+       the column shows a tally. Build Your Own is a path you work through;
+       Workflows is a reference library you dip into, so it is not tracked. */
+    var CB_TRACKED_SECTIONS = ['Build Your Own'];
+
+    function cbStore(key) {
+      return {
+        read: function () {
+          try { return JSON.parse(localStorage.getItem(key)) || {}; }
+          catch (e) { return {}; }
+        },
+        write: function (v) {
+          try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) {}
+        }
+      };
+    }
+
+    /* Appends a count line and a reset button to the foot of the left column.
+       Neither carries a class the TOC-only rules hide, so both render even
+       though most of that nav is suppressed. */
+    function cbSidebarControls(onReset) {
+      var nav = document.querySelector('.md-sidebar--primary .md-nav--primary');
+      if (!nav) return null;
+      var count = nav.querySelector('.cb-sidebar-count');
+      var reset = nav.querySelector('.cb-sidebar-reset');
+      if (!count) {
+        count = document.createElement('span');
+        count.className = 'cb-sidebar-count';
+        count.setAttribute('aria-live', 'polite');
+        nav.appendChild(count);
+      }
+      if (!reset) {
+        reset = document.createElement('button');
+        reset.type = 'button';
+        reset.className = 'cb-sidebar-reset';
+        reset.textContent = 'Reset checklist';
+        nav.appendChild(reset);
+      }
+      reset.onclick = onReset;
+      return { count: count, reset: reset };
+    }
+
+    document$.subscribe(function () {
+      /* ---- which sidebar mode is this page in? ------------------------- */
+      var activeSection = document.querySelector(
+        '.md-sidebar--primary .md-nav__item--active.md-nav__item--section > .md-nav__link');
+      var sectionName = activeSection ? activeSection.textContent.trim() : '';
+      var showsPageList = CB_PAGE_LIST_SECTIONS.indexOf(sectionName) !== -1;
+      var isTracked = CB_TRACKED_SECTIONS.indexOf(sectionName) !== -1;
+      document.documentElement.setAttribute(
+        'data-cb-sidebar', showsPageList ? 'section' : 'page');
+
+      /* ---- A0. Category eyebrows become links -------------------------
+         In section mode each category renders as a dead <label>, which Shay
+         asked to make clickable: the capital-letter row should open that
+         category's own landing page. The landing page is the FIRST page listed
+         under the category in mkdocs.yml, so it is the first anchor in the
+         category's nested list.
+
+         Swapping the <label> for an <a> rather than wiring a click handler
+         onto it, so the row is a real link — focusable, middle-clickable, and
+         announced as a link rather than as a form control for a checkbox that
+         exists only to drive the mobile drawer.
+
+         The landing page's own row is then hidden: it would be the same
+         destination twice in a row, directly beneath itself. */
+      function cbCategoryLinks() {
+        var sec = document.querySelector(
+          '.md-sidebar--primary .md-nav--primary > .md-nav__list > ' +
+          '.md-nav__item--active.md-nav__item--section');
+        if (!sec) return;
+        [].slice.call(sec.querySelectorAll('.md-nav__item--nested')).forEach(function (cat) {
+          /* Direct children only, walked by hand rather than with `:scope >`.
+             The label has to be the category's OWN label, not one belonging to
+             something nested deeper inside it. */
+          var label = null;
+          [].slice.call(cat.children).forEach(function (ch) {
+            if (!label && ch.tagName === 'LABEL' &&
+                ch.classList.contains('md-nav__link')) { label = ch; }
+          });
+          if (!label) return;
+          var landing = cat.querySelector('.md-nav__list a.md-nav__link');
+          if (!landing) return;
+          var a = document.createElement('a');
+          a.className = 'md-nav__link cb-cat-link';
+          a.href = landing.getAttribute('href');
+          a.textContent = (label.textContent || '').trim();
+          label.parentNode.replaceChild(a, label);
+          var row = landing.closest('.md-nav__item');
+          if (row) { row.classList.add('cb-landing-row'); }
+        });
+      }
+      cbCategoryLinks();
+
+      /* ---- A. Tracked sections: checkbox(es) per page ------------------
+         A page may carry MORE THAN ONE control — "Connect your apps" has two,
+         the second an explicit "nothing more to connect for now" opt-out, so
+         the page can be completed without wiring up every service. Such a page
+         ticks in the sidebar only when ALL its controls are checked, the same
+         rule as step 9 on the Newcomers checklist.
+
+         State is therefore an ARRAY per path, not a flag. The array's length is
+         written by the page itself, which is how the sidebar tells a
+         half-finished page from a complete one without knowing how many
+         controls any other page has. */
+      var pageBoxes = [].slice.call(
+        document.querySelectorAll('.md-content .page-done input'));
+      if (isTracked) {
+        var store = cbStore('cb-pagedone:v2');
+        var done = store.read();
+
+        var pageComplete = function (path) {
+          var v = done[path];
+          return Array.isArray(v) && v.length > 0 && v.every(Boolean);
+        };
+
+        /* Every page row in the active section, keyed by its own pathname. */
+        var rows = [];
+        var holder = document.querySelector(
+          '.md-sidebar--primary .md-nav__item--active.md-nav__item--section > .md-nav');
+        if (holder) {
+          [].slice.call(holder.querySelectorAll('a.md-nav__link')).forEach(function (a) {
+            if (a.hash) return;                     /* skip the integrated TOC */
+            rows.push({ link: a, path: a.pathname });
+          });
+        }
+
+        var writeThisPage = function () {
+          if (!pageBoxes.length) return;
+          done[location.pathname] = pageBoxes.map(function (b) { return b.checked; });
+          store.write(done);
+        };
+
+        var sync = function () {
+          var n = 0;
+          rows.forEach(function (r) {
+            var on = pageComplete(r.path);
+            if (on) n++;
+            r.link.classList.toggle('md-nav__link--page-done', on);
+          });
+          /* Each label marks itself as soon as its own box is ticked, even if
+             the page as a whole is not finished. */
+          pageBoxes.forEach(function (b) {
+            var l = b.closest('.page-done');
+            if (l) { l.classList.toggle('page-done--done', b.checked); }
+          });
+          var c = cbSidebarControls(function () {
+            rows.forEach(function (r) { delete done[r.path]; });
+            pageBoxes.forEach(function (b) { b.checked = false; });
+            store.write(done);
+            sync();
+          });
+          if (c) {
+            c.count.textContent = n + ' of ' + rows.length + ' done';
+            c.count.hidden = false;
+            c.reset.textContent = 'Reset progress';
+            c.reset.hidden = false;
+          }
+        };
+
+        var saved = done[location.pathname];
+        pageBoxes.forEach(function (b, i) {
+          if (b.dataset.cbBound) return;
+          b.dataset.cbBound = '1';
+          b.checked = Array.isArray(saved) ? !!saved[i] : false;
+          b.addEventListener('change', function () {
+            writeThisPage();
+            sync();
+          });
+        });
+        sync();
+      }
+
+      /* ---- B. Start Here: one checkbox per step ------------------------ */
+      var root = document.querySelector('.md-content .checklist');
+      if (!root) return;
+
+      var allControls = [].slice.call(root.querySelectorAll('.step-done input'));
+      if (!allControls.length) return;
+
+      var store2 = cbStore('cb-checklist:v4:' + location.pathname);
+      var state = store2.read();
+
+      /* The two-month plan wraps each week in a `.week-card` div, so its H3 and
+         its control sit one level down. Flatten that level before the walk
+         rather than teaching the walk about cards: a card is a presentational
+         wrapper, not a new kind of step, and the walk below should keep working
+         on the three guides that have no cards at all.
+
+         Without this the walk finds no H3 among root.children, `steps` comes
+         back empty, and the function returns early — tracking dies silently on
+         the whole page. */
+      var blocks = [];
+      [].slice.call(root.children).forEach(function (el) {
+        if (el.classList && el.classList.contains('week-card')) {
+          [].slice.call(el.children).forEach(function (c) { blocks.push(c); });
+        } else {
+          blocks.push(el);
+        }
+      });
+
+      /* Walk the checklist's blocks in order, assigning each to the heading
+         above it. Forward is what makes multi-control steps work. */
+      var steps = [];
+      var cur = null;
+      blocks.forEach(function (el) {
+        if (el.tagName === 'H3') {
+          cur = { head: el, id: el.id, inputs: [], labels: [], body: [] };
+          steps.push(cur);
+          return;
+        }
+        if (el.tagName === 'H2') { cur = null; return; }
+        if (!cur) return;
+        var labels = [].slice.call(el.querySelectorAll('.step-done'));
+        if (el.classList.contains('step-done')) { labels.push(el); }
+        if (labels.length) {
+          labels.forEach(function (l) {
+            cur.labels.push(l);
+            var input = l.querySelector('input');
+            if (input) { cur.inputs.push(input); }
+          });
+        } else {
+          cur.body.push(el);
+        }
+      });
+      steps = steps.filter(function (st) { return st.inputs.length; });
+
+      /* A carded week dims as a whole, so the card joins its own body list.
+         Harmless on the uncarded guides — parentElement is the checklist. */
+      steps.forEach(function (st) {
+        var card = st.head.parentElement;
+        if (card && card.classList && card.classList.contains('week-card')) {
+          st.body.push(card);
+        }
+      });
+
+      var paired = steps.reduce(function (n, st) { return n + st.inputs.length; }, 0);
+      if (paired !== allControls.length) {
+        console.warn('checklist: paired ' + paired + ' of ' +
+                     allControls.length + ' controls to step headings');
+      }
+      if (!steps.length) return;
+
+      /* The tally now lives in the sidebar too, directly above the reset —
+         Shay, 7 Oct: "move the checklist number box to the left hand nav."
+         That makes the four starter guides match Build Your Own, where branch A
+         has always rendered count-then-reset in the same place.
+
+         cbSidebarControls appends count BEFORE reset, so DOM order gives the
+         requested stacking with no extra ordering code.
+
+         Any in-content bar from a cached page or an instant-navigation swap is
+         removed rather than left to show the same number twice. */
+      var staleBar = document.querySelector('.checklist-progress');
+      if (staleBar) { staleBar.remove(); }
+
+      /* Match TOC rows on the anchor's .hash, NOT an [href="#id"] selector:
+         navigation.instant rewrites every TOC anchor to an ABSOLUTE url at
+         runtime, so a selector matching the built HTML never matches the live
+         DOM. Rebuilt per sync() because instant navigation swaps the nav. */
+      function tocLinks() {
+        var map = {};
+        var nav = document.querySelector('.md-sidebar--primary .md-nav--secondary');
+        if (!nav) return map;
+        [].slice.call(nav.querySelectorAll('a')).forEach(function (a) {
+          if (a.hash) { map[a.hash.slice(1)] = a; }
+        });
+        return map;
+      }
+
+      function keyFor(st, i) { return st.id + '#' + i; }
+
+      function sync2() {
+        var n = 0;
+        var links = tocLinks();
+        steps.forEach(function (st) {
+          var complete = st.inputs.every(function (input) { return input.checked; });
+          if (complete) n++;
+          st.labels.forEach(function (l) {
+            var input = l.querySelector('input');
+            l.classList.toggle('step-done--done', !!(input && input.checked));
+          });
+          st.head.classList.toggle('step--done', complete);
+          st.body.forEach(function (el) {
+            el.classList.toggle('step-body--done', complete);
+          });
+          var link = links[st.id];
+          if (link) { link.classList.toggle('md-nav__link--done', complete); }
+        });
+        var c = cbSidebarControls(function () {
+          allControls.forEach(function (input) { input.checked = false; });
+          state = {};
+          store2.write(state);
+          sync2();
+        });
+        if (c) {
+          /* Counts TASKS, not steps — Shay, 7 Oct: "I want the checklist number
+             to be the number of tasks, not one for each week." The tally should
+             match the number of boxes a reader can see. `n` above stays
+             step-level because that is what ticks a TOC row: a heading is done
+             when everything under it is. */
+          var ticked = allControls.filter(function (i) { return i.checked; }).length;
+          c.count.textContent = ticked + ' of ' + allControls.length + ' done';
+          c.count.hidden = false;
+          c.reset.textContent = 'Reset checklist';
+          c.reset.hidden = false;
+        }
+      }
+
+      steps.forEach(function (st) {
+        st.inputs.forEach(function (input, i) {
+          if (input.dataset.cbBound) return;
+          input.dataset.cbBound = '1';
+          var k = keyFor(st, i);
+          input.checked = !!state[k];
+          input.addEventListener('change', function () {
+            if (input.checked) { state[k] = 1; } else { delete state[k]; }
+            store2.write(state);
+            sync2();
+          });
+        });
+      });
+
+      /* ---- B2. Sub-picks ----------------------------------------------
+         Week 8 offers "pick one or two of these and build them". Those rows
+         are `.sub-done`, deliberately NOT `.step-done`, so they stay out of
+         `allControls` — they must not count toward the task tally or hold the
+         week open, since choosing only a couple is the whole point.
+
+         Shay's rule, 7 Oct: ticking a sub-pick ticks its parent; ticking the
+         parent leaves the sub-picks alone. One-way, upward only. Unticking a
+         sub-pick also leaves the parent alone — you still did one. */
+      [].slice.call(root.querySelectorAll('.pick-group')).forEach(function (grp, g) {
+        var parent = grp.querySelector('.step-done input');
+        [].slice.call(grp.querySelectorAll('.sub-done input')).forEach(function (sub, i) {
+          if (sub.dataset.cbBound) return;
+          sub.dataset.cbBound = '1';
+          var k = 'sub#' + g + '#' + i;
+          sub.checked = !!state[k];
+          var mark = function () {
+            var l = sub.closest('.sub-done');
+            if (l) { l.classList.toggle('sub-done--done', sub.checked); }
+          };
+          mark();
+          sub.addEventListener('change', function () {
+            if (sub.checked) { state[k] = 1; } else { delete state[k]; }
+            store2.write(state);
+            mark();
+            if (sub.checked && parent && !parent.checked) {
+              parent.checked = true;
+              parent.dispatchEvent(new Event('change'));
+            } else {
+              sync2();
+            }
+          });
+        });
+      });
+
+      sync2();
+    });
   </script>
 {% endblock %}

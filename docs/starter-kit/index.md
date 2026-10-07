@@ -1,273 +1,269 @@
 ---
-description: First-run guide for the Claude Blattman starter kit. Pick one agent — Codex or Claude Code — learn one loop, add the second later.
+description: Your first session with an AI agent on the desktop app. Ten steps, no terminal, no coding. Install it, point it at a folder, and run one small task end to end.
 ---
 
-# Start Here: Desktop Agent Starter Kit
+# Newcomers
 
-This is a starter kit for doing real work with the **desktop AI apps** — Claude and Codex. Right now they are the most capable way to use AI: instead of copying and pasting into a chat window, the app works directly with the files on your computer — reading them, drafting, editing — while you approve every change.
+Ten steps. By the end you'll have run one real task end to end on a folder on your own computer —
+and you'll know whether this is worth more of your time.
 
-Thanks to [Aniket Panjwani](https://aieconomist.io/learn) for pointing me in this direction. He's an economist who makes videos and guides on agentic coding for researchers — if you want another take on all of this, his site is worth your time.
+You don't need to code. You won't open a terminal. If you've only ever typed into a chatbot, you're
+in the right place.
 
-The kit itself is one simple habit. Point the app at a real folder, make it show you its plan before it changes anything, approve one small piece of work, and leave a note so the next session picks up where you stopped. Learn that and you have the kit — connectors, second opinions, and the slash-command shortcuts are accelerants you add later.
+<div class="checklist" markdown>
 
-The first session has one job, and it is not a tour of features. It is one real, useful thing finished — a brief, a memo, a cleaned-up draft, something you would actually keep — done in a way you can repeat tomorrow without anyone sitting next to you.
+## Set up your tool
 
-This page assumes you are doing it alone, on a Mac or a Windows PC, and have never opened a terminal. Where a step differs by computer, you'll see **macOS** and **Windows** spelled out side by side — follow your own. Every step that usually trips people up has its own "if this happens" note. The work stays inside one folder you choose, and the agent shows you each change before it makes it — so the worst case is a messy file in your practice folder, not damage to your computer.
+### 1. Choose an agent
 
-## Pick one agent to start
+There are two of these and they do the same job. Which one depends on a single question: **do you
+already pay for Claude?**
 
-Two agents do this well. Start with one: learn the loop in a single app before you add the second.
+- **Yes** (Pro or above, about $20/month) → use **Claude**.
+- **No** → use **Codex**, from OpenAI. It runs on an ordinary ChatGPT account, including the free one.
 
-<div class="starter-card" markdown>
-### Codex — the easiest start
+Either is fine. The rest of this page works the same in both, and I'll say "the app" from here.
+You can read more about the pros and cons of each agent
+[here](../faq.md#should-i-use-codex-or-claude).
 
-Download the Codex app, sign in with your ChatGPT account, open a folder. No terminal, nothing else to install. Start here if you want the smoothest on-ramp, or if you don't have a paid Claude plan.
-</div>
+<label class="step-done"><input type="checkbox"> I've chosen whether to use Claude or Codex.</label>
 
-<div class="starter-card" markdown>
-### Claude Code — the most built-in shortcuts
+### 2. Install the app
 
-The Claude desktop app's **Code** tab gives you the kit's commands once you do a one-time setup. It needs a paid Claude plan (Pro or higher). Start here if you want the curated workflows and don't mind four pasted lines.
-</div>
+Download it, double-click, sign in. In Claude, click the **Code** tab (in the top left corner of
+the app window). In Codex, you're already there.
 
-The loop below is identical in both. Pick the one that fits, get it working, then add the other — they are better as a pair: one does the work and writes the handoff, the other opens the same folder and checks it.
+!!! warning "Ignore any instructions to install this through a terminal"
+    You may find instructions elsewhere — including older pages on this site — telling you to open
+    Terminal and install something called Node.js. **That route still exists and you don't need it.**
+    The desktop app is a normal application. Nothing to type into a black screen.
 
-<div class="starter-path" markdown>
-<label><input type="checkbox"> I picked one agent (Codex or Claude Code) and signed in.</label>
-<label><input type="checkbox"> I made one safe, local practice folder — something real but low-stakes.</label>
-<label><input type="checkbox"> I will keep private research, participant, medical, legal, school, and financial records out of this first run.</label>
-</div>
+<label class="step-done"><input type="checkbox"> I've installed the app and signed in.</label>
 
-<div class="starter-progress" markdown>
-<div class="starter-progress__label"><span data-starter-progress-label>0 of 10 steps complete</span></div>
-<div class="starter-progress__bar"><span data-starter-progress-fill></span></div>
-<button type="button" class="starter-progress__reset" data-starter-reset>Reset checklist</button>
-</div>
+### 3. Set permissions
 
-## The loop, in plain English
+The app asks your permission before it does things, and how often it asks is a setting you control.
+Thirty seconds now, because the wrong setting is the most common reason people give up in week one.
 
-The habit is the same whichever agent you chose:
+Find the **mode selector** near the bottom left of the message box. It shows one of these:
 
-1. Open the one folder you want to work in — not your whole computer.
-2. Ask the agent to read what's there before it proposes anything.
-3. Ask for a short plan, and read it before you approve.
-4. Let it do one small piece of work.
-5. Have it leave a `HANDOFF.md` — a note to yourself so the next session continues.
+| It says | What that means |
+|---|---|
+| **Manual** | Asks before every edit and every command. Safest, slowest |
+| **Accept edits** | Edits files without asking, still asks before running commands |
+| **Plan** | Works out an approach and shows it to you before changing anything |
+| **Auto** | Gets on with it. A second AI reviews each action instead of you, and stops to ask when something looks risky |
+| **Bypass permissions** | Asks about nothing and turns off secondary safety checks. Only for use within a sandboxed folder or in directories you know are version controlled |
 
-Plain English carries all of this. The kit's slash commands are shortcuts for these steps, not magic; if one isn't there yet, type the instruction yourself and the loop still works.
+For today, pick **Plan** — you'll see what it intends to do before it does any of it, which is what
+steps 7 and 8 depend on.
 
-## Set up the agent you picked
+To change it: click the selector, or press **Cmd+Shift+M** on a Mac, **Ctrl+Shift+M** on Windows.
 
-**Click the box for the agent you picked** to open its setup steps — the exact steps differ by app and by Mac vs. Windows, so follow the one that matches you.
+!!! danger "One mode to leave alone"
+    You may see a mode called **Bypass permissions**, or advice to turn checks off entirely. Don't.
+    Its own documentation says to use it only inside a sandboxed container or virtual machine. If you
+    work with human-subjects data, unpublished results or student records, it is not for you.
 
-??? note "Codex (easiest): download, sign in, open a folder"
-
-    1. Download the **Codex desktop app** from [OpenAI's official Codex app page](https://developers.openai.com/codex/app) and open it. **On a Mac:** pick **Apple Silicon** unless your Mac is from before 2020 (if unsure, Apple menu → About This Mac tells you which). **On Windows:** use the Microsoft Store link on that page. Either way you want the desktop **app** — a normal application you double-click — **not** the "Codex CLI"; if you come across command-line install instructions for Codex, ignore them for day one.
-    2. Sign in with your ChatGPT account — no API key, no terminal. Your browser may open and your computer may ask you to confirm or to store the login (macOS Keychain / Windows Credential Manager); that's normal, approve it.
-    3. Open or attach your project folder — **File → Open**, or drag the folder onto the app window. You are ready for the loop above.
-
-    The kit's Codex extras (`$prompt`, `$ask-agents`) are optional and come later. Plain English is enough for the first session.
-
-    One honest tradeoff, from setting both up for real: Codex is the smoother start, but its kit extras are lighter than the Claude side — `$prompt` is a simpler cousin of Claude's `/prompt`, and the Codex pack takes its own small install. Codex gets you moving fastest; Claude Code gives you the richer shortcuts. That gap is the real reason you end up wanting both.
-
-??? note "Claude Code (most shortcuts): get the app, then add the kit"
-
-    **First, the app.** Download and open the **Claude desktop app** (Mac or Windows), then sign in. First sign-in opens your browser, and your computer may ask to store the login (macOS Keychain / Windows Credential Manager) — that's normal; approve it. Then look for the **Code** tab in the app. **On Windows:** the Code tab's local sessions need **Git** installed first — get it from [git-scm.com](https://git-scm.com/downloads/win) and run the installer with its defaults (most Macs already have Git).
-
-    **Don't see a Code tab?** It needs a paid Claude plan (Pro or higher) — the free plan doesn't show it. If you've signed in and there's no Code tab, that's usually an account/plan issue, not a mistake you made. Either upgrade, or use **Codex** above for day one (it runs on a standard ChatGPT account). The Code tab *is* Claude Code; once you see it, you can run the whole loop in plain English right now.
-
-    **To get the kit's shortcuts, add the plugin.** On current app versions you can do this without the Terminal — try this first:
-
-    1. Open **Customize → Plugins**.
-    2. Under **Personal plugins**, click **"+" → Add marketplace → "Add from a repository"**, and enter `chrisblattman/claudeblattman`.
-    3. Click **Browse plugins**, find **starter-kit**, and **Install**.
-    4. In the Code tab, type `/kit-hello`. If it answers, you're done — you can stop here.
-
-    **Don't see those panels, or `/kit-hello` doesn't answer?** Some app versions don't have the in-app installer yet — that's fine, and not something you did wrong. Don't troubleshoot it; do it once in your computer's command line instead, where these commands always work. **On a Mac:** open **Terminal** (⌘-Space, type "Terminal", press Enter). **On Windows:** open **PowerShell** (press the Windows key, type "PowerShell", press Enter). A plain window opens — it's just a place to paste text, and these commands cannot harm your computer. Paste them **into that window, not into Claude**, one at a time:
-
-    **On a Mac**, paste:
-
-    ```bash
-    curl -fsSL https://claude.ai/install.sh | bash
-    ```
-
-    **On Windows** (into PowerShell), paste:
-
-    ```powershell
-    irm https://claude.ai/install.ps1 | iex
-    ```
-
-    Both are Anthropic's official installer — they install Claude's command-line helper into your account only, no admin password, nothing system-wide. (Want to see what the Mac one does first? Open <https://claude.ai/install.sh> in a browser and read it.) If that line makes you uneasy, skip Claude Code for day one and use the Codex path — nothing else here depends on it. The install can sit for up to a minute with little output; that's normal — wait for the prompt to come back before the next line.
-
-    Close Terminal, open a new window, and check it:
-
-    ```bash
-    claude --version
-    ```
-
-    "command not found" (Mac) or "not recognized" (Windows) is common and does **not** mean you broke anything. **On a Mac**, your PATH needs one line: run `echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc` (older Macs on bash: `~/.bash_profile`), then reopen Terminal. **On Windows**, the installer sets the PATH for you — just fully close PowerShell and reopen it (or restart the PC). Run `claude --version` again; once it prints a version, add the kit — the same two commands on both:
-
-    ```bash
-    claude plugin marketplace add chrisblattman/claudeblattman
-    claude plugin install starter-kit@claudeblattman
-    ```
-
-    Each line prints a short ✔ and may pause a few seconds — normal. Back in the Code tab, type `/kit-hello` to confirm; if it's missing, fully quit and reopen Claude, then try again. You won't need the command line after this. (macOS commands verified 2026-06-13 on a clean install, Claude Code v2.1.x; the Windows PowerShell installer and the in-app plugin steps follow Anthropic's current docs.)
-
-    Either way it's a one-time setup. Once the plugin is in, the kit's commands are native to the Code tab — `/prompt` to sharpen a rough request, `/review-plan` to pressure-test the plan, `/done` to write the handoff, `/council` for a panel of critics. They work cleanly because Claude Code is built to carry them.
-
-## Your first folder
-
-Make the folder in your file manager. **On a Mac:** open Finder, go to your **home folder**, and choose **File → New Folder**. **On Windows:** open File Explorer (Windows key + E), go to **This PC → Local Disk (C:) → Users → your name**, and click **New → Folder**. Name it `AI Practice` either way. Use a **local** folder — not one inside Dropbox, iCloud Drive, Google Drive, or (on Windows especially) **OneDrive**. Windows often syncs your Desktop and Documents into OneDrive by default, and that sync can corrupt files while the agent edits them. A synced folder shows a little cloud icon; a local one doesn't. If you're unsure, make the folder straight in your home/user folder — that's the safe bet.
-
-You don't have to create files by hand. Drop in a couple of rough notes if you have them, or just point the agent at the empty folder and say *"create a file called `notes.md` with a few rough notes about X,"* and let the loop start there. (Making a plain `.md` file by hand is fiddly — on a Mac, TextEdit and Word save the wrong format; on Windows, Notepad sneaks in a hidden `.txt` unless you set "Save as type: All Files" — so just let the agent create it.)
-
-The safest first task makes something *new* — turn a few rough notes into a one-page summary, a messy draft into a clean memo, or an empty folder into a project outline — so nothing you already have can be touched. Keep out of this first run: research-participant or human-subjects data, confidential transcripts, private contact lists, inbox exports, and school, medical, legal, or financial records. If a task is sensitive, it is not a first-session task.
+<label class="step-done"><input type="checkbox"> I've set the permissions mode that I'm comfortable with.</label>
 
 ## Run the loop
 
-**Opening the folder.** In Codex, use **File → Open** or drag the folder onto the window. In Claude Code's Code tab, use its **Open folder** control or drag the folder in. When the app asks permission, **approve only the `AI Practice` folder** — if it asks for anything wider (all of Documents, your home folder, Dropbox), decline and point it at the one folder.
+### 4. Pick a test folder and make a copy of it
 
-<div class="starter-steps" markdown>
+Something from a finished or stalled project. Messy, a bit embarrassing, the kind of folder where
+you're no longer sure what's in it. Then duplicate it and work on the duplicate — nothing you care
+about can be touched, and you'll stop holding your breath.
 
-<label><input type="checkbox"> Open your agent and attach the practice folder.</label>
-<label><input type="checkbox"> Confirm it can see the file list, nothing more.</label>
-<label><input type="checkbox"> Ask it to read the files and propose one small task.</label>
-<label><input type="checkbox"> Read the plan before you approve anything.</label>
-<label><input type="checkbox"> Let it finish one small piece of work.</label>
-<label><input type="checkbox"> Have it write `HANDOFF.md`, then open the file.</label>
-<label><input type="checkbox"> Stop. That is a complete first session.</label>
+Use a folder that lives locally on your own computer for now; avoid iCloud Drive, Google Drive,
+Dropbox, etc. for now.
 
+Keep out of this first run anything with participant data, student records, or medical or financial
+information. [Before you use this on real work](#before-you-use-this-on-real-work) explains why.
+
+!!! tip "No folder you'd want to experiment on?"
+    Make a new one, call it `AI Practice`, and put a couple of rough notes in it. You don't have to
+    create those files by hand — that's fiddlier than it sounds, because TextEdit and Word save the
+    wrong format and Notepad adds a hidden `.txt`. Point the agent at the empty folder (read about
+    "pointing the agent" below in [step 5](#5-point-the-agent-at-it)), and ask it to:
+
+    ```
+    Create a file called notes.md with a few rough notes about X
+    ```
+
+<label class="step-done"><input type="checkbox"> I have isolated a low-stakes folder for me to practice in.</label>
+
+### 5. Point the agent at it
+
+In Claude, use the project-folder selector. In Codex, open the folder. In both apps you'll find
+this button just above the message box.
+
+Alternatively, copy the file path into the message box and ask:
+
+```
+Read this folder 'file/path/here'
+```
+
+Don't send that message yet — you can send it in one go with step 6.
+
+When it asks permission, approve **that one folder** and nothing wider. If it asks for all of
+Documents, or your home folder, or Dropbox, decline and point it at the copy again.
+
+Don't agonise over this. The folder you pick now doesn't lock you in — next time you want to work
+somewhere wider, the agent will ask you again for that folder.
+
+This is the step that makes this different from a chatbot: the app can now read what's actually in
+there.
+
+<label class="step-done"><input type="checkbox"> The agent can see my folder, and I approved that one folder only.</label>
+
+### 6. Ask it to read the files and propose one small task
+
+Don't tell it what to do yet. Ask it what's worth doing:
+
+```
+Read the files in this folder first. Help me pick one small, useful thing we can finish in ten minutes. Before you change anything, show me a short plan and wait for my okay.
+```
+
+If it offers a one-page summary of what's in the folder, take it — that's a good first task,
+because you already know what's in there.
+
+Now wait. It will come back with a plan, or stop to ask permission. That's step 7.
+
+!!! tip "Three ways to get a plan before anything happens"
+    You don't have to be in Plan mode to be shown a plan first — that's one of the better things
+    about these tools. In rough order of how firmly they hold:
+
+    1. **Plan mode**, which you set in step 3. The strongest: it *prevents* changes until you
+       approve, rather than relying on the agent to offer.
+    2. **`/plan`**, typed as a command. Same mode, reached a different way.
+    3. **Just asking**, which is what the prompt above does — "show me a short plan and wait for my
+       okay."
+
+    One thing worth being precise about, because it matters: the third is a *request*, not a
+    setting. Writing the word "plan" in a message does not switch the app into Plan mode — the
+    agent will almost always honour a clear instruction to stop and show you its thinking, but
+    nothing is enforcing it. There is a small risk that on the *next* message you send, the agent
+    will not hold back: it will make the edit you asked for and then carry on executing on its own.
+
+<label class="step-done"><input type="checkbox"> The agent read my files and proposed a task.</label>
+
+### 7. Read the plan
+
+This is the step people skip, and it's the one that matters. Read what it intends to do **before**
+you approve it.
+
+You are allowed to say no, and the first plan is often not the best one.
+
+!!! tip "If the plan doesn't look right"
+    Don't edit it yourself and don't argue in detail — just ask for a better one, and say what
+    bothers you:
+
+    ```
+    Don't edit anything yet. What are the top risks in this plan, and what is the safest first step?
+    ```
+
+    Or name what you want done differently instead — the plan is a draft, not a verdict:
+
+    ```
+    The process sounds fine, but let's store the outputs in a second folder on Desktop called test_run_1
+    ```
+
+    Or, if something specific is wrong:
+
+    ```
+    Stop — you're about to change X, and I don't want that touched. Give me a version that leaves it alone.
+    ```
+
+    Then read the new plan the same way. There is no limit on how many times you can do this, and no
+    cost to doing it.
+
+<label class="step-done"><input type="checkbox"> I've read the plan and I'm comfortable with what it's suggesting.</label>
+
+### 8. Let it work
+
+Approve the plan and let it run. This is where the actual work happens, and it can take a few
+minutes — the agent reads files, writes, checks itself, and works through the steps in order.
+
+In **Plan** mode it stops and asks before each change. Approve the ones you understand. If a request
+doesn't make sense to you, deny it and ask what it was for — that question is always fair, and the
+answer is usually informative.
+
+!!! warning "The asking is relentless at first. It does get better"
+    Your first session will feel like being interrupted constantly, because the app starts out with
+    no standing permission to do anything. This is the single most common reason people give up in
+    week one, and it is worth knowing that it is a phase rather than the permanent condition.
+
+    It thins out two ways. When a prompt offers something like **"don't ask again"**, taking it
+    records that kind of action for that folder, so you aren't asked a second time — the
+    interruptions drop off as those build up. And once the asking has become tedious rather than
+    reassuring, **Auto** mode is the designed answer: a second model reviews each action against
+    your rules instead of you, and stops to ask when something looks risky. That is a real trade —
+    you get fewer interruptions and you are no longer the one checking each step.
+
+Nothing leaves your computer without your explicit yes.
+
+<label class="step-done"><input type="checkbox"> I approved the plan and let the agent finish one piece of work.</label>
+
+### 9. Review the work
+
+Two things to read, and they are not the same. The agent narrates what it did as it goes — that's
+how you find out what it decided and what it skipped. Then there's the thing it actually made.
+
+Check the output properly. You already know what was in that folder, which is exactly why this is a
+good first task — you'll be able to tell immediately where it's right and where it's guessing.
+
+A chatbot could have written you something from notes you pasted in. It could not have done this,
+because this required reading a dozen files it had never seen. That's the whole difference, and it's
+easier to feel once than to explain.
+
+<label class="step-done"><input type="checkbox"> I've read what the agent has told me in this session.</label>
+<label class="step-done"><input type="checkbox"> I've opened what it made and checked it against what I already knew.</label>
+
+### 10. Write a handoff
+
+The thing that makes this stick isn't the first session. It's the second one being easy.
+
+```
+Write HANDOFF.md in this folder: current status, what you changed, decisions, and the next step for a future session.
+```
+
+Open it — that file is the point of the exercise, because it proves the next session can pick up
+where this one stopped.
+
+Tomorrow, point the agent at the same folder and say **"read HANDOFF.md and pick up where we left
+off."** It will.
+
+That's the whole habit: **a folder, and a note to your future self.** Everything else on this site is
+a variation on it.
+
+<label class="step-done"><input type="checkbox"> I've checked that a handoff file now exists in my folder.</label>
 </div>
 
-Paste this to start — in Claude Code, `/prompt` does the same thing:
+## Before you use this on real work
 
-```text
-Read the files in this folder first. Help me pick one small, useful thing we can
-finish in fifteen minutes. Before you change anything, show me a short plan and
-wait for my okay.
-```
+The files stay on your computer. But **what the app reads from them is sent to the company that
+makes it** — Anthropic or OpenAI — in order to be processed. That's true of chatbots too; it's just
+easier to forget when the files never leave your screen.
 
-When it proposes a plan, push back before you approve:
+Practically: treat the folder you point it at the way you'd treat an email attachment to a colleague
+outside your institution. For human-subjects data, unpublished results, student records or anything
+under a data-use agreement, read [how the data actually
+flows](../tax-workflow/before-you-start/privacy-and-setup.md) first, and check your institution's
+policy. That page is written about tax documents, but the mechanics are the same for any sensitive
+folder.
 
-```text
-What are the top risks in this plan, and what is the safest first step? Don't edit yet.
-```
+Nothing in the ten steps above requires you to take that risk, which is why step 4 asks for an old,
+dull folder.
 
-When one small step is done, have it write the handoff. In Claude Code, `/done`:
+## What to try next
 
-```text
-Write HANDOFF.md in this folder: current status, what you changed, decisions, and
-the next step for a future session.
-```
+This is the first of three guides, and they go in order:
 
-You'll know it worked when a new file — `HANDOFF.md` — appears in your `AI Practice` folder. Open it: that file is the point of the exercise — it proves the next session can pick up where this one stopped. Next time, start by asking the agent to read it first.
+- **[Occasional Users](occasional.md)** — the loop for work where being wrong would cost you
+  something: you read a plan before anything happens, and so do three critics.
+- **[Regular Users](regular.md)** — a project that runs for months rather than an afternoon.
 
-## You are the stop button
-
-The agent pauses before it edits a file, runs a command, or sends anything outside your computer. That pause is the safety model, and it only works if you read it. The rule that matters most: nothing leaves your machine — no email, no message, no share — without your explicit yes. If the agent offers to send something, ask for the draft first.
-
-The rest is scope. Approve access to the one project folder, never your whole home folder, Dropbox, or email. Reading and drafting are safe; editing or deleting an existing file should stop for your okay — and if something precious might change, have the agent work on a copy.
-
-Here is what the agent actually puts in front of you. Reading files is free and silent — it never interrupts to read. Editing a file, running a command, or reaching outside the folder stops and shows you the change first. Approve the ones you understand; deny, or ask for a plan, when you don't.
-
-Two settings are worth knowing by name. **Default mode** asks before every change — leave it there. It is the safety, not a nuisance. There are faster modes that auto-approve edits, but they also auto-approve deletes and moves, so keep them off until the loop is second nature. And the first time you point the agent at a folder, it asks permission for *that folder* — grant the one project folder and nothing wider.
-
-And if something does go wrong: tell the agent plainly, *"undo your last change and show me what you restored."* Because you are working on new files in one folder, nothing important is at risk — but the undo is there, and it is exactly why the first task makes something new instead of editing what you already have.
-
-## What comes after the first session
-
-You learned the loop in one app. From here you add capability one piece at a time — never all at once, and each only when a real task needs it.
-
-**Add a connector.** Point the agent at the accounts you already work in. Gmail and Calendar connect instantly. Drive, Docs, and Sheets need a short one-time setup, which a helper can do with you. Start read-only — "find this and show me," not "send" — and keep the rule: nothing goes out without your yes.
-
-**Add the second agent.** This is the biggest step, and the reason the kit is built around two. Open the *same folder* in the other app and let it review the work — Claude Code writes the `HANDOFF.md`, Codex checks it, or the reverse. Two agents reading the same folder catch what one misses; that cross-check is the real payoff of running both. (Until you set up the second agent, the kit's review commands still help, but they are one model's opinion, not yet a true second-agent check.)
-
-**Then go deeper, as the work demands.** A routine you run every week. A multi-agent council for a decision that's worth a second and third opinion. Research across many sources at once. Add each when a real task calls for it, and write the new boundary into your `HANDOFF.md` as you go, so the next session knows what you've wired up.
-
-What not to rush: connectors, councils, and deep research are powerful, and none of them is day one. One tool, one loop, one real result first — then build out from there.
-
-## If something looks scary
-
-<details>
-<summary>Your computer pops up a security warning during install or sign-in</summary>
-
-During sign-in or install, your computer may ask to store a login (macOS Keychain / Windows Credential Manager), ask an app to access a folder, or warn about an unrecognized app. These are normal OS dialogs, not a sign anything is wrong. Allow the login prompt; for folder access, allow only your one practice folder. **On a Mac**, a "can't verify the developer" warning clears via **System Settings → Privacy & Security → Open Anyway**. **On Windows**, a blue "Windows protected your PC" (SmartScreen) box clears via **More info → Run anyway**. (Apps from the Microsoft Store usually skip this.)
-</details>
-
-<details>
-<summary>The Terminal or PowerShell window looks frozen after I pasted a command</summary>
-
-Installs can sit with little or no output for up to a minute. That is normal. Don't press anything or close the window — wait for the prompt to come back (it looks like `%` or `$` on a Mac, or `PS C:\Users\you>` on Windows), then run the next line.
-</details>
-
-<details>
-<summary>The agent asks for folder or account access</summary>
-
-Approve only the one practice folder. Don't approve your whole home folder, Dropbox root, email, or research-data folders in the first session. If the prompt asks for something wider than the one folder, decline and point it at that folder.
-</details>
-
-<details>
-<summary>A slash command isn't there</summary>
-
-Type the instruction in plain English instead. The shortcut may not be installed yet, or the app may need a restart. The workflow matters more than the shortcut.
-</details>
-
-<details>
-<summary>The agent changed something I didn't want</summary>
-
-Tell it plainly: *"undo your last change and restore the previous version."* It can put the file back. Because the first task works on new or copied files in one folder, nothing important is at risk — this is what the approval pause and the copy-first habit are for.
-</details>
-
-<details>
-<summary>The agent wants to send an email, message, or external request</summary>
-
-Stop and ask for a draft first. Nothing should leave your computer without your explicit approval.
-</details>
-
-<script>
-(function () {
-  var key = "starter-kit-first-run-v1";
-  var boxes = Array.prototype.slice.call(
-    document.querySelectorAll(".starter-path input[type='checkbox'], .starter-steps input[type='checkbox']")
-  );
-  var fill = document.querySelector("[data-starter-progress-fill]");
-  var label = document.querySelector("[data-starter-progress-label]");
-  var reset = document.querySelector("[data-starter-reset]");
-
-  function save() {
-    try {
-      localStorage.setItem(key, JSON.stringify(boxes.map(function (box) { return box.checked; })));
-    } catch (error) {}
-  }
-
-  function update() {
-    var done = boxes.filter(function (box) { return box.checked; }).length;
-    var total = boxes.length;
-    var pct = total ? Math.round((done / total) * 100) : 0;
-    if (fill) fill.style.width = pct + "%";
-    if (label) label.textContent = done + " of " + total + " steps complete";
-    save();
-  }
-
-  try {
-    var saved = JSON.parse(localStorage.getItem(key) || "[]");
-    saved.forEach(function (checked, index) {
-      if (boxes[index]) boxes[index].checked = Boolean(checked);
-    });
-  } catch (error) {}
-
-  boxes.forEach(function (box) {
-    box.addEventListener("change", update);
-  });
-
-  if (reset) {
-    reset.addEventListener("click", function () {
-      boxes.forEach(function (box) { box.checked = false; });
-      update();
-    });
-  }
-
-  update();
-})();
-</script>
+There's also a [two-month plan](two-month-plan.md) for working through the rest of Claude
+Blattman — one page and one thing to do with it, once a week for eight weeks. It starts with the
+page you just finished.

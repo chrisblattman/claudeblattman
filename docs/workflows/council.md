@@ -147,3 +147,5 @@ Prefer manual install or want individual `curl` commands for each file? See the 
 - **[AI integration](../system/ai-integration.md)** — cross-vendor critics (Codex, Gemini) as council members; setup, flags, manual paste-loop for tools without CLIs.
 - **[`/review-plan`](plan-review-browser.md)** — the browser-side single-pass version, useful before you reach for a five-critic council.
 - **[Prompt, plan, review, revise](first-session-skills.md)** — where `/council` fits in the broader loop.
+
+<label class="page-done"><input type="checkbox"> My council is convened and in session.</label>

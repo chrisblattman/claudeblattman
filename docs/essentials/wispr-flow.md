@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Voice Dictation
 
 <span class="badge-teal">No Claude Code required</span>

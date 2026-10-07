@@ -96,7 +96,7 @@ About 45 minutes per skill if you already know it well. For a library of six to 
 
 ## Related patterns
 
-**Positive examples beat negative rules.** "Write in flowing prose with no headers or bullets" beats "don't use markdown." When you have to forbid something, pair the ban with a concrete positive. (Covered more fully on the [Prompt Engineering](../essentials/prompting.md#common-anti-patterns) page.)
+**Positive examples beat negative rules.** "Write in flowing prose with no headers or bullets" beats "don't use markdown." When you have to forbid something, pair the ban with a concrete positive.
 
 **Action verbs, not vague adjectives.** "Be thorough" is empty. "Compare your approach against [named standard]" is specific. Depth comes from action verbs, not emphasis.
 
@@ -114,6 +114,5 @@ Two fixes: use markdown section headers (`##`, `###`) as structural navigation. 
 
 ## Related
 
-- **[Prompt Engineering](../essentials/prompting.md)** — the page this pattern lives next to; see "Common Anti-Patterns" for the shorter version.
 - **[Session management](../essentials/session-management.md)** — same spirit applied to running sessions.
 - **[What's new in April 2026](../changelog.md)**.

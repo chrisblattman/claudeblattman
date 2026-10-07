@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Nairobi Digital Futures — Project Overview & Meeting Log
 
 *This is a synthetic example showing what a `/weekly-review` produces over time. The project, team, and data are entirely fictional — names, institutions, and details do not correspond to any real study. The structure and level of detail are realistic.*

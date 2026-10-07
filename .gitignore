@@ -16,3 +16,6 @@ godaddy-setup.md
 .sanitize-names.local
 .sanitize-private-blocklist.local
 .cache/
+working-notes/
+preview-copies/
+preview.command

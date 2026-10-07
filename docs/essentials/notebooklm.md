@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # NotebookLM
 
 <span class="badge-teal">No Claude Code required</span>

@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Agents vs Skills: When to Use Each
 
 ## What Are They?

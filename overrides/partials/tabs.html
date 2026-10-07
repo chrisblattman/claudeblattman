@@ -1,0 +1,28 @@
+{#-
+  Overrides Material's partials/tabs.html.
+
+  Identical to the stock version except for the trailing `.md-tabs__meta`
+  group: Shay asked for the X link and the GitHub repo block to sit on the nav
+  row rather than beside the search field, right-aligned. They were removed
+  from partials/header.html to get here.
+-#}
+{% import "partials/tabs-item.html" as item with context %}
+<nav class="md-tabs" aria-label="{{ lang.t('tabs') }}" data-md-component="tabs">
+  <div class="md-grid md-tabs__grid">
+    <ul class="md-tabs__list">
+      {% for nav_item in nav.items %}
+        {{ item.render(nav_item) }}
+      {% endfor %}
+    </ul>
+
+    <div class="md-tabs__meta">
+      {#- The repo block, right-aligned to the content column and the same width
+          as the search field on the row above. X lives in the footer. -#}
+      {% if config.repo_url %}
+        <div class="md-tabs__source">
+          {% include "partials/source.html" %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>

@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # A Real CLAUDE.md — Annotated Example
 
 This is a sanitized version of my actual production CLAUDE.md — the file that runs my daily workflow. Personal details (email addresses, phone numbers, specific RA names) have been redacted, but the structure, logic, and scope are real.

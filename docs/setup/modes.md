@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # How Claude Code Thinks
 
 When you first launch Claude Code, you're in **Default mode** — the safest starting point. Claude proposes changes and waits for you to approve each one before it touches your files. As you get comfortable, you can change that.

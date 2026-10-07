@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Patterns
 
 Reusable design patterns for skills and workflows. These show up repeatedly in well-designed Claude Code tools.

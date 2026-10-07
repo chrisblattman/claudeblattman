@@ -1,7 +1,30 @@
 /* ============================
    Fraunces display font for headings
    ============================ */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap');
+/* One import for every face the site uses.
+
+   Material's own `theme.font` setting is switched OFF in mkdocs.yml, because
+   its legacy loader requests DM Sans at 300/400/700 ONLY — verified in the
+   served CSS. Any rule asking for 500 or 600 silently snapped to a neighbour,
+   which is exactly what the nav was doing. Loading the variable 400..700 range
+   here makes the intermediate weights real, and removes Material's duplicate
+   request at the same time.
+
+   Fraunces is roman-only at the two weights actually used (500, 600). The old
+   import pulled `ital` across 300..900, shipping a full italic family no rule
+   ever asks for — the first subset file alone halves, 22,128 -> 11,120 bytes.
+
+   Oswald is gone. All three reviewers independently reached the same verdict:
+   condensed uppercase letterspaced at 14px is the hardest setting for readers
+   over 45 in bright rooms, and it reads as a landing page rather than the calm,
+   plain thing this site is. Nav, menus, the repo name and the wordmark now use
+   the body face and the heading serif instead. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --md-text-font: "DM Sans";
+  --md-code-font: "JetBrains Mono";
+}
 
 /* Dark mode: warm teal-gray instead of cold gray */
 [data-md-color-scheme="slate"] {
@@ -9,68 +32,869 @@
 }
 
 /* ============================
-   Fraunces on display headings
+   ACCENT CONTRAST
+   ============================
+   The theme's teal accent is legible on the dark scheme but fails WCAG AA as
+   text on the light one — measured 2.38:1 for the accent-coloured h1 (needs 3:1
+   at that size) and 3.37:1 for body links (needs 4.5:1). Pre-existing, not
+   introduced by the type-scale rewrite.
+
+   `--cb-accent-text` is the accent wherever accent is used as TEXT. Borders,
+   buttons and rules keep the brighter --md-accent-fg-color, which is fine
+   against a background.
+
+   No single teal clears 4.5:1 against BOTH white and the slate background, so
+   this has to be per-scheme. Literal hex, not a var() chain: the scheme
+   attribute sits on <body> while `:root` is <html>, and resolving an accent
+   through two levels of custom property made the cascade unpredictable.
    ============================ */
-h1, h2 {
+[data-md-color-scheme="default"] {
+  --cb-accent-text: #00695f;   /* 6.59:1 on #ffffff */
+  /* Completed-step text. Shay asked for "a smidge lighter" than the .54 grey
+     this used to be (4.61:1). At .46 it is 3.46:1 on white — below the 4.5:1
+     AA line for body text, above the 3:1 line for large text. That is a
+     deliberate, user-directed trade; the mitigation is that a dimmed step
+     returns to full contrast on hover, and the state is self-inflicted and
+     reversible (untick it, or Clear checkmarks). */
+  --cb-done-fg: rgba(0, 0, 0, 0.46);
+}
+
+[data-md-color-scheme="slate"] {
+  --cb-accent-text: #4db6ac;   /* 6.10:1 on the slate background */
+  --cb-done-fg: rgba(255, 255, 255, 0.52);
+}
+
+/* Links. Set on the element rather than through --md-typeset-a-color: the
+   palette stylesheet sets that variable at equal specificity on the same
+   <body>, so overriding the variable is a source-order coin toss. The theme
+   default (#5e8bde) measured 3.37:1 on white — under the 4.5:1 body threshold. */
+.md-typeset a {
+  color: var(--cb-accent-text);
+}
+
+/* Colour is not the only carrier — hover and keyboard focus also underline.
+   These use --cb-accent-text too: the bright --md-accent-fg-color is 2.38:1 on
+   white, so the first version left links legible at rest and illegible the
+   moment you hovered or tabbed onto them. */
+.md-typeset a:hover,
+.md-typeset a:focus-visible {
+  color: var(--cb-accent-text);
+  text-decoration: underline;
+}
+
+/* Inline code inside a link: the theme's `.md-typeset a code` (0-2-1) beats a
+   bare `.md-typeset a`, so without this one phrase shows a teal link with an
+   indigo code span inside it. */
+.md-typeset a code {
+  color: var(--cb-accent-text);
+}
+
+/* ============================
+   TYPE SCALE
+   ============================
+   Material's root font-size is 125% (20px). Body is set once in `rem` below;
+   every heading is `em` against it, so the whole scale derives from one number
+   and the ratios hold at the wider breakpoints where the root grows.
+
+   Rendered at a 20px root:  body 17 · h1 30 (home 36) · h2 22 · h3 18 · h4 17
+   Hierarchy is carried by weight below h2, not by size.
+   ============================ */
+
+/* Body. The anchor the heading scale is relative to. Two other `rem` sizes
+   remain by design: the container reset below, and this one. */
+.md-typeset {
+  /* Stays 0.85rem ON PURPOSE even though body prose is 0.8rem (see BODY PROSE
+     SIZE below). Every heading on the site is sized in `em`, so this value is
+     the heading scale's reference point — dropping it to 0.8rem would shrink
+     every heading by 6% along with the prose. Shay asked for the prose to match
+     the live site and for headings to stay exactly as they are, so the two are
+     deliberately decoupled: this sets the heading baseline, the rule below
+     sets the prose. */
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* Display face on h1/h2 only. Scoped to .md-typeset so it beats Material's
+   own `.md-typeset h2 {font-weight:300}` — unscoped `h1, h2` loses that fight
+   and h2 rendered LIGHTER than body text for the whole life of the old sheet. */
+.md-typeset h1,
+.md-typeset h2 {
   font-family: 'Fraunces', Georgia, serif;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 
-/* Featured section headings — bigger and teal */
+.md-typeset h1 {
+  font-size: 1.75em;
+  line-height: 1.2;
+  color: var(--cb-accent-text);
+  margin: 0 0 0.5em;
+}
+
+.md-typeset h2 {
+  font-size: 1.3em;
+  line-height: 1.3;
+  /* Space above a heading exceeds space below, so it groups with what it
+     introduces rather than floating between sections. */
+  margin: 2em 0 0.6em;
+}
+
+.md-typeset h3 {
+  /* 1.06em put h3, h4 and body inside a 6% band. */
+  font-size: 1.12em;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 1.6em 0 0.5em;
+}
+
+.md-typeset h4 {
+  /* Body size — weight and tracking do the separating. */
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 1.4em 0 0.4em;
+}
+
+/* Homepage title. ~20% above the interior h1, not 2.2x it — the landing page
+   is three blocks, so the title does not need to dominate them.
+   Applied with `# Claude Blattman { .home-title }` via attr_list, NOT by
+   matching the heading's generated id, which broke silently on any retitle. */
+/* Still used in docs/about.md. An earlier cleanup pass deleted the rule and
+   left the markup, so the class rendered as unstyled text. */
 .md-typeset .section-hero {
-  font-size: 2.2rem;
+  font-size: 1.3em;
   font-weight: 700;
-  color: var(--md-accent-fg-color);
-  letter-spacing: -0.03em;
-  margin-top: 2rem;
+  color: var(--cb-accent-text);
+  letter-spacing: -0.02em;
+  margin-top: 2em;
 }
 
-/* Page titles in teal */
-.md-content__inner > h1:first-child {
+.md-typeset h1.home-title {
+  font-size: 2.1em;
+  margin-bottom: 0.3em;
+}
+
+/* Lede under the homepage title. Body size — the old 23px `!important` made
+   the least-specific sentence on the page outrank the content. */
+.md-typeset .home-lede {
+  /* One gentle step above the homepage's own body size. */
+  font-size: 1.14em;
+  color: var(--md-default-fg-color);
+  line-height: 1.6;
+  margin: 0 0 1.2em;
+}
+
+/* ============================
+   CONTAINER TYPE SIZE
+   ============================
+   Material sets `font-size: .64rem` on admonitions, details, bare tables and
+   tabbed labels — 12.8px at a 20px root, with inline code inside them at
+   10.88px. Raising body text to 17px without touching these WIDENED the gap
+   (12.8/16 = 0.80 before, 12.8/17 = 0.75 after).
+
+   That is ~23,000 words across 62 of 75 pages, and it is where the install
+   steps, the warnings and the command tables live. Resetting the container
+   lets the em-based code and heading sizes resolve correctly inside it.
+   ============================ */
+.md-typeset .admonition,
+.md-typeset details,
+.md-typeset table:not([class]),
+.md-typeset .tabbed-labels > label {
+  font-size: 0.85rem;
+}
+
+/* ============================
+   MEASURE
+   ============================
+   Prose capped at ~75 characters. `rem` not `px`/`ch`, so the cap scales with
+   the root alongside the body size and the character count stays constant.
+   Code, tables, tabbed blocks and diagrams are exempt — they are not prose.
+   .md-grid is deliberately untouched; narrowing it also shrinks the header.
+   ============================ */
+/* Cap the TEXT, never its container. Capping `.admonition`/`details` squeezed
+   31 blocks on 12 pages from 938px to 613px: a `pre` or `table` is exempt only
+   as a DIRECT child of .md-content__inner, so inside a capped container it
+   inherited the narrower width. Targeting text at any depth also catches prose
+   in .narrative-block and .starter-card, which escaped the cap entirely and
+   ran to 90 characters. */
+.md-content__inner :is(p, li, dl, blockquote, h2, h3, h4, h5, h6) {
+  max-width: 36rem;
+}
+
+/* ...except an admonition's own title bar, which is a <p> and was therefore
+   being capped at 36rem inside a box that runs to 44rem. The coloured strip
+   stopped 8rem short of the box's right edge on every callout on the site.
+   `summary` is the same element in a collapsible `???` block. */
+.md-content__inner :is(.admonition-title, summary) {
+  max-width: none;
+}
+
+/* ============================
+   SECTION SIDEBAR — a navigable page list, not just a page TOC
+   ============================
+   Everywhere else on this site the left column shows only the current page's
+   headings (see TOC-ONLY SIDEBAR below). Build Your Own is different: Shay
+   wants the section's pages listed there, tickable, with a reset at the foot.
+
+   Why this needs an html attribute rather than pure CSS. `md-nav--lifted`
+   does NOT prune the tree — every tab's children are present in the DOM, so a
+   rule like `.md-nav__item--active .md-nav__link { display:block }` would also
+   re-expose the three Start Here pages in that column, which Shay explicitly
+   removed earlier ("not hyperlinks to different Start Here pages, but the table
+   of contents of the checklist"). CSS cannot tell which section is active by
+   name, so the attribute is set in JS from the active section's own label.
+   See overrides/main.html.
+   ============================ */
+
+/* The section's own heading, and every page row inside it — at either depth.
+   Build Your Own is flat (section > pages). Workflows is nested
+   (section > category > pages), so the category's own label and its pages both
+   need showing. A descendant selector covers both shapes. */
+/* `> .md-nav > .md-nav__title` was NOT specific enough. A CATEGORY <li> carries
+   the same `md-nav__item--active md-nav__item--section` classes as the tab's
+   own <li>, so this matched the category's drawer title too and printed
+   "PROJECT MANAGEMENT AND RESEARCH" twice — once as the eyebrow label, once as
+   the title underneath it. Pinning to a direct child of the primary nav's list
+   restricts it to the top-level section. */
+html[data-cb-sidebar="section"] .md-sidebar--primary .md-nav--primary
+  > .md-nav__list > .md-nav__item--active.md-nav__item--section
+  > .md-nav > .md-nav__title,
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section a.md-nav__link,
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section
+  .md-nav__item--nested > label.md-nav__link {
+  display: block;
+}
+
+/* A category label. It USED to be a dead <label> — deliberately, so it read as
+   a group rather than a broken row. It is now swapped for an <a> in
+   overrides/main.html (cbCategoryLinks) pointing at that category's own landing
+   page, so the eyebrow itself is the way in. Both selectors are kept: the
+   <label> styling still applies for the moment before the swap runs, which
+   stops the row flashing at body size on load. */
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section
+  .md-nav__item--nested > label.md-nav__link {
+  display: block;
+  margin: 1rem 0 0.1rem;
+  font-family: var(--md-text-font-family);
+  font-size: 0.62rem;
   font-weight: 700;
-  margin-bottom: 0.2rem;
-  letter-spacing: -0.03em;
-  color: var(--md-accent-fg-color);
-}
-
-/* Landing page: extra-large title */
-.md-content__inner > h1:first-child:is([id="claude-blattman"]) {
-  font-size: 3.5rem;
-}
-
-/* Hero pitch line — prominent value prop (high specificity to override md-typeset) */
-.md-typeset .hero-pitch {
-  font-size: 1.15rem !important;
-  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--md-default-fg-color--light);
-  line-height: 1.55;
-  margin: 0.4rem 0 1.8rem;
-  max-width: 100%;
 }
 
-/* Hero buttons row: CTAs + social all on one line */
-.hero-buttons {
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section
+  .md-nav__item--nested > a.cb-cat-link {
+  display: block;
+  margin: 1rem 0 0.1rem;
+  font-family: var(--md-text-font-family);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  /* THE REASON THE LINK DID NOTHING WHEN CLICKED. Material, at desktop width:
+       @media (min-width:76.25em) {
+         .md-nav__item--section > .md-nav__link:not(.md-nav__container)
+           { pointer-events: none }
+       }
+     A category <li> carries `md-nav__item--section`, and this anchor is its
+     direct child, so clicks passed straight through it. Material does that on
+     purpose — a section's own label is not meant to be a link — but here it
+     is one. Restored explicitly; (0,6,2) beats Material's (0,3,0). */
+  pointer-events: auto;
+  /* TEAL, and set HERE rather than in a separate rule. A standalone
+       html[...] .md-sidebar--primary a.cb-cat-link { color: ... }
+     is only (0,3,2) and lost to this block's (0,6,2), so the link kept the
+     dead label's grey and looked exactly like the non-link it replaced. If
+     the colour ever needs changing, change it on this line. */
+  color: var(--cb-accent-text);
+}
+
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section
+  .md-nav__item--nested > a.cb-cat-link:hover,
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section
+  .md-nav__item--nested > a.cb-cat-link:focus-visible {
+  text-decoration: underline;
+}
+
+/* The category's own landing page is already the destination of the eyebrow
+   above it, so its row would be the same link twice in a row. */
+html[data-cb-sidebar="section"] .md-sidebar--primary .cb-landing-row {
+  display: none;
+}
+
+/* Pages sitting under a category indent one step. */
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section
+  .md-nav__item--nested .md-nav__list a.md-nav__link {
+  padding-left: 0.7rem;
+}
+
+/* The nested category nav is collapsed by Material until its item is active.
+   In this column every category should be open. */
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section .md-nav__item--nested > .md-nav {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* In section mode the left column is a NAVIGATOR, so the current page's own
+   headings come out of it entirely.
+
+   Not cosmetic. Material nests the integrated TOC inside the active page's row,
+   so on a long page — "Catch up on a project" has ten headings — it expanded in
+   the middle of the list and pushed the remaining categories off the bottom.
+   The whole point of this column is seeing every page in the section, which the
+   TOC was actively preventing. */
+html[data-cb-sidebar="section"] .md-sidebar--primary .md-nav--secondary,
+html[data-cb-sidebar="section"] .md-nav--integrated > .md-nav__list
+  > .md-nav__item--active .md-nav--secondary {
+  display: none;
+}
+
+/* The second selector above is not redundant. `toc.integrate` ships
+     .md-nav--integrated>.md-nav__list>.md-nav__item--active .md-nav--secondary
+       { display:block }
+   at (0,4,0) — four class-level parts — and the first selector here is only
+   (0,3,1), so on its own it LOSES and the TOC stayed visible. Matching
+   Material's own structure plus the attribute takes it to (0,5,1).
+   (Checked for a [dir=ltr] variant, which is the usual culprit in this file:
+   there isn't one here, and `dir` sits on <body>, not <html>.) */
+
+/* Material renders the ACTIVE page twice — a <label> that toggles its TOC and
+   an <a> that links to it. Showing both duplicates the title. Keep the link. */
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active > label.md-nav__link {
+  display: none;
+}
+
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section > .md-nav > .md-nav__title {
+  font-family: var(--md-text-font-family);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+  padding: 0 0 0.6rem 0.6rem;
+  margin: 0;
+}
+
+/* Rows. The current page is bold accent, matching how the TOC marks position. */
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  .md-nav__item--active.md-nav__item--section a.md-nav__link {
+  margin-top: 0.4rem;
+}
+
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  a.md-nav__link--active {
+  color: var(--cb-accent-text);
+  font-weight: 700;
+}
+
+/* A page the reader has ticked off. Glyph AND colour, never colour alone —
+   same rule as the checklist TOC rows. */
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  a.md-nav__link--page-done {
+  color: var(--cb-done-fg);
+}
+
+html[data-cb-sidebar="section"] .md-sidebar--primary
+  a.md-nav__link--page-done::before {
+  content: "\2713\00a0";
+  font-weight: 700;
+  color: var(--cb-accent-text);
+}
+
+/* ============================
+   THE PAGE-DONE CONTROL
+   ============================
+   One per Build Your Own page, at the foot, with its own wording. Same chip
+   vocabulary as the checklist steps so the two read as one system. */
+.md-typeset .page-done {
   display: flex;
-  gap: 0.5rem;
-  margin: 0 0 1.2rem;
-  flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
+  gap: 0.6rem;
+  max-width: 36rem;
+  margin: 2.2em 0 0;
+  padding-top: 0.8em;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  cursor: pointer;
 }
 
-.hero-buttons .md-button {
-  font-size: 0.72rem;
-  padding: 0.3rem 0.7rem;
+.md-typeset .page-done input {
+  flex: 0 0 auto;
+  width: 1.1em;
+  height: 1.1em;
+  margin: 0;
+  accent-color: var(--cb-accent-text);
+  cursor: pointer;
+}
+
+.md-typeset .page-done input:focus-visible {
+  outline: 3px solid var(--cb-accent-text);
+  outline-offset: 3px;
+}
+
+/* A page can carry more than one control ("Connect your apps" has two). The
+   divider belongs to the group, so only the first draws it. */
+.md-typeset .page-done + .page-done {
+  border-top: 0;
+  margin-top: 0.5em;
+  padding-top: 0;
+}
+
+.md-typeset .page-done--done {
+  color: var(--cb-done-fg);
+}
+
+/* ============================
+   SIDEBAR RESET
+   ============================
+   Shay: put the reset at the foot of the left column, and move the starter
+   guides' reset chips there too — so progress controls live in one place on
+   every page that has progress. */
+.cb-sidebar-reset {
+  display: block;
+  /* The count sits directly above and the two are one control group, so the
+     gap between them is small. 1.4rem here dated from when the reset stood
+     alone. The count supplies the breathing room above the pair. */
+  margin: 0.25rem 0 0.4rem 0.6rem;
+  padding: 0.2em 0.5em;
+  border: 0;
+  border-radius: 2px;
+  background: var(--md-code-bg-color);
+  font-family: var(--md-code-font-family);
+  font-size: 0.62rem;
+  line-height: 1.4;
+  color: var(--cb-accent-text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cb-sidebar-reset:hover {
+  background: color-mix(in srgb, var(--cb-accent-text) 12%, var(--md-code-bg-color));
+}
+
+.cb-sidebar-reset:focus-visible {
+  outline: 3px solid var(--cb-accent-text);
+  outline-offset: 2px;
+}
+
+/* `display: block` below beats the UA stylesheet's `[hidden] { display: none }`,
+   so the attribute needs honouring explicitly — otherwise the empty count still
+   reserves its margin on the checklist pages. */
+.cb-sidebar-count[hidden] {
+  display: none;
+}
+
+/* Aligned on the RESET'S LABEL, not its box. The reset is a chip with
+   `padding: 0.2em 0.5em`, so at a shared 0.62rem font-size its text starts
+   0.5em inside its own left edge. The count carries no chip, so matching only
+   the 0.6rem margin left the "0" under the chip's border rather than under the
+   "R". The padding-left below is that same 0.5em, and the two must stay in
+   step — change one, change the other. */
+.cb-sidebar-count {
+  display: block;
+  margin: 0.9rem 0 0 0.6rem;
+  padding-left: 0.5em;
+  font-family: var(--md-code-font-family);
+  font-size: 0.62rem;
+  line-height: 1.4;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ============================
+   PROMPT BOXES FLOW, THEY DON'T SCROLL
+   ============================
+   The code boxes on the checklist pages hold PROSE — things the reader copies
+   and sends to an agent — not source code. They were hard-wrapped in the
+   markdown, which broke sentences at arbitrary points mid-clause. Those breaks
+   are gone; each prompt is now one line in the source.
+
+   A one-line prompt of 170-odd characters would otherwise scroll sideways,
+   because Material sets `.md-typeset pre > code { word-break: normal;
+   overflow: auto }`. So these wrap at the box edge instead. Copying still
+   yields one clean line — soft wrapping adds no newline characters.
+
+   Scoped to `.checklist`, which is where every prompt box on these three pages
+   lives. Real code elsewhere on the site (bash, json, mermaid) keeps the
+   no-wrap/scroll behaviour, because wrapping a shell command misrepresents it.
+   ============================ */
+.md-typeset .checklist pre > code {
+  white-space: pre-wrap;
+  /* Lets a long file path or URL break rather than push the box wide. */
+  overflow-wrap: anywhere;
+}
+
+/* ============================
+   BODY PROSE SIZE — MATCHES THE LIVE SITE
+   ============================
+   Shay: "I want the actual prose and instructions font size to match whatever's
+   on the live claudeblattman website... not the subheadings and headings, those
+   are fine as they are."
+
+   The live site carries NO `.md-typeset { font-size }` override — checked
+   against 12e14d4's stylesheet — so its body text is Material's default
+   `.8rem`. The redesign had raised it to .85rem, i.e. 6.25% larger (17px vs
+   16px at a 20px root).
+
+   Set on the prose elements rather than on `.md-typeset`, because the headings
+   are all `em` multiples of `.md-typeset` and would have shrunk with it.
+   Scoped to `.md-content` so the sidebar, tabs and footer are untouched.
+   ============================ */
+.md-content :is(p, li, dd, dt, td, th, blockquote) {
+  font-size: 0.8rem;
+}
+
+/* ============================
+   BODY TEXT IS BLACK OR TEAL — NOTHING ELSE
+   ============================
+   Shay: "I don't like seeing gray text... any text that's in the main body
+   middle column should be either the teal or pure black."
+
+   The policy, site-wide:
+     BLACK  (--md-default-fg-color)  all prose in .md-content
+     TEAL   (--cb-accent-text)       links, and h1
+     GREY   permitted in exactly three places, all of them NOT body prose:
+              - the left TOC rail and its "On this page" label
+              - the footer signup / feedback line
+              - a checklist step the reader has ticked off (--cb-done-fg)
+
+   Overrides are targeted rather than a blanket `.md-content * { color: ... }`,
+   because a blanket rule would also flatten syntax highlighting inside code
+   blocks and the coloured admonition titles, neither of which is "grey text".
+   If you add a new component here, colour it from this list — don't reach for
+   --md-default-fg-color--light inside the content column.
+
+   These all sit at Material's own specificity and win by load order
+   (extra.css is last). None of the rules replaced here has a [dir=ltr]
+   variant — checked against the compiled stylesheet.
+   ============================ */
+
+/* --- Material's own grey text inside the content column --- */
+
+/* Material sets h5/h6 grey, which made them read as captions rather than
+   headings — they are the only headings on the site that were not full black. */
+.md-typeset h5,
+.md-typeset h6 {
+  color: var(--md-default-fg-color);
+}
+
+/* Blockquotes are quoted PROSE. Greying them said "less important" about the
+   one thing on a page that is usually someone else's exact words. */
+.md-typeset blockquote {
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset .footnote,
+.md-typeset .keys span,
+.md-typeset .tabbed-labels > label {
+  color: var(--md-default-fg-color);
+}
+
+/* --- Our own components --- */
+
+/* Homepage byline. It keeps its teal left border and smaller size; the grey
+   was a third signal doing the same job those two already do. */
+.md-typeset .home-byline {
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset .narrative-block details p {
+  color: var(--md-default-fg-color);
+}
+
+/* The checklist control sentence — body prose, so black. It still reads as
+   secondary through its size and the rule above it. */
+.md-typeset .checklist .step-done {
+  color: var(--md-default-fg-color);
+}
+
+/* Time estimate at the end of each plan row. Muted and a size down so the
+   row still reads as one action with a note, not two competing facts.
+   `white-space: nowrap` keeps "(35 min)" from breaking across lines when the
+   label wraps, which it does on most of them. */
+.md-typeset .checklist .est {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.88em;
+  white-space: nowrap;
+}
+
+/* Sub-picks inside a plan row — the "pick one or two" lists in week 8.
+   They are NOT .step-done: they must not count toward the week's completion
+   or the task tally, because the whole point is that you choose a couple.
+   Indented to sit under the parent's text, not under its checkbox. */
+.md-typeset .checklist .sub-list {
+  margin: 0.35em 0 0 1.7em;
+}
+
+.md-typeset .checklist .sub-done {
+  display: block;
+  max-width: 36rem;
+  margin: 0.25em 0 0;
+  padding-left: 1.6em;
+  text-indent: -1.6em;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+.md-typeset .checklist .sub-done input {
+  width: 1em;
+  height: 1em;
+  margin: 0 0.6em 0 0;
+  vertical-align: -0.17em;
+  accent-color: var(--cb-accent-text);
+  cursor: pointer;
+}
+
+.md-typeset .checklist .sub-done--done {
+  color: var(--cb-done-fg);
+}
+
+/* ============================
+   WEEK CARDS — THE TWO-MONTH PLAN
+   ============================
+   Shay: "I'd like each week to be its own box, and then drop a lot of the
+   writing and instead just have checkboxes and hyperlinks."
+
+   Deliberately NOT an admonition. Eight tip boxes on one page would blow the
+   budget below and, worse, say nothing — a box only means something when the
+   page uses few of them. These are structural containers, so they get a
+   neutral hairline and no icon.
+
+   The wrapper also moves each week's H3 one level down, which the checklist
+   JS in overrides/main.html flattens before its walk. If a card ever stops
+   ticking, check that flatten step first. */
+.md-typeset .checklist .week-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem 1rem;
+  margin: 0.7rem 0;
+}
+
+/* The card edge supplies the separation the heading margin used to. */
+.md-typeset .checklist .week-card > h3 {
+  margin-top: 0;
+  margin-bottom: 0.4em;
+}
+
+.md-typeset .checklist .week-card > p {
+  margin: 0;
+}
+
+/* The rule above each control is the divider between steps on the three
+   guides. Inside a card the card's own border already does that job, so the
+   rule reads as a stray line across the box. */
+.md-typeset .checklist .week-card .step-done {
+  margin-top: 0.8em;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* ============================
+   ADMONITION BUDGET
+   ============================
+   Shay: "we're using too many boxes... it's not inherently obvious that
+   because this is in a box, it means this." That is not a misreading — the
+   site carries 159 admonitions in 11 different types (31 tip, 23 warning,
+   21 ??? example, 20 note, 8 ask-claude, 7 info, 5 abstract, 5 ??? note,
+   4 each of tip/quote/info, 2 danger, ...). No reader can learn an
+   eleven-symbol vocabulary, so the colours currently carry no meaning.
+
+   The rule, for new work: a box is earned only if the reader could skip it and
+   still finish the step, AND skipping it would cost them something they could
+   not have guessed. At most one per step. Colour means severity, nothing else:
+     orange/warning  a wrong turn the reader is actively likely to take
+     red/danger      exposed data, or an action that cannot be undone
+     teal/tip        an alternative path when the main instruction does not fit
+                     ("no folder you'd want to practise on?", "if the plan
+                     doesn't look right") — never a mere aside
+     blue/note+info  not used. Motivation and rationale belong in prose.
+   Retrofitting the other 150 is a separate pass. */
+
+/* The column fills the space it has, left-aligned with the nav.
+
+   An earlier pass CENTRED this instead, which was the wrong read of the
+   complaint: it moved the text right without making it any wider. What Shay
+   wanted was more of the window used.
+
+   36rem prose / 44rem column at a 22px root is ~95 characters a line, past the
+   45-75 that is comfortable for long reading. That is a deliberate trade at
+   Shay's direction; dial the two values down together to reverse it. */
+.md-content__inner {
+  max-width: 44rem;
+}
+
+
+
+/* A title is scanned, not read in lines, so it may run slightly wider. */
+.md-content__inner > h1 {
+  max-width: 34rem;
+}
+
+/* Homepage runs a larger body size than interior pages. Widening the column
+   on its own would push past 90 characters a line; raising the size with it
+   keeps the count near 80 while the column grows 680px -> 760px.
+
+   `rem`, not `em`: this rule overrides `.md-typeset { font-size: .85rem }` on
+   the same element, so `em` would resolve against the PARENT — and Material
+   sets `body { font-size: .5rem }` (10px), which collapsed the whole page to
+   11px body text. */
+.md-content__inner:has(> h1.home-title) {
+  font-size: 0.94rem;
+}
+
+/* Centre the column on pages that hide both sidebars.
+   Without this the homepage put a 640px text column inside an 1188px
+   container and left-aligned it — 548px of dead space, all of it on the right,
+   which reads as a stranded ribbon rather than a measured column. The line
+   length was never the problem; the asymmetry was. */
+.md-content__inner:has(> h1.home-title) {
+  max-width: 38rem;
+  margin-inline: auto;
+}
+
+.md-content__inner:has(> h1.home-title) :is(p, li, dl, blockquote, h2, h3, h4, h5, h6) {
+  max-width: none;
+}
+
+/* On the homepage the text fills that column instead of stopping 40px short of
+   it, so the gutters are exactly equal. 680px at 17px is ~80 characters —
+   above the 75 I use for long-form pages, which is a deliberate trade: the
+   landing page is four short blocks, not sustained reading. */
+.md-content__inner:has(> h1.home-title) :is(p, li, dl, blockquote, h2, h3, h4, h5, h6) {
+  max-width: none;
+}
+
+/* The three essentials read as one line, not a bulleted list. */
+.md-typeset .essentials-line {
+  font-size: 1.05em;
+}
+
+.md-typeset .essentials-line a {
+  white-space: nowrap;
+}
+
+/* ============================
+   HEADING PERMALINKS
+   ============================
+   Nothing to style: `toc: permalink` is false in mkdocs.yml, so no ¶ anchor is
+   emitted on any heading anywhere. The two `.headerlink { display: none }`
+   rules that used to live here (h1, and the homepage h1) are gone with it.
+   Heading `id` attributes are unaffected — those come from the toc extension
+   itself, so every existing #deep-link still resolves.
+   ============================ */
+
+/* ============================
+   HOMEPAGE TITLE + TAGLINE LOCKUP
+   ============================
+   The second half of `site_name`, surfaced on the page. It is deliberately NOT
+   in Fraunces: the h1 already carries the display face, and two serif lines
+   competed.
+
+   IT USED TO SIT ON ITS OWN LINE UNDER THE H1, AT 1.3em, IN BLACK. Shay:
+   "I don't like the placement/font styling choice." Measured, the complaint was
+   exact — 1.3em rendered 22.1px against the lede's 19.4px in the same colour,
+   so it read as a second headline rather than a subtitle, and the page opened
+   with four stacked text blocks before any content.
+
+   Now it sits BESIDE the title on a shared baseline, styled as an eyebrow:
+   small, letterspaced, uppercase, accent. At 12.8px it cannot compete with a
+   35.7px h1, and the lockup removes one block from the top of the page.
+
+   `flex-wrap` is load-bearing, not decoration. "Claude Blattman" measures about
+   280px at 35.7px Fraunces, so below roughly 700px of content width the tagline
+   drops to its own line — which is the right phone layout and needs no media
+   query. The row gap only applies once wrapped. */
+.home-lockup {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.15em 0.85rem;
+  margin-bottom: 0.45em;
+}
+
+/* The h1 keeps its size; the lockup owns the spacing below the pair. */
+.md-typeset .home-lockup h1.home-title {
+  margin: 0;
+}
+
+/* 0.75em = 12.75px at the homepage's 17px base. Sentence case is gone with the
+   move — uppercase is what makes an eyebrow read as a label rather than a
+   clause, and at this size the caps cost no legibility.
+
+   Colour is --cb-accent-text, NOT --md-accent-fg-color: the bright accent is
+   2.38:1 on white and fails AA. This one is 6.59:1 light and 6.10:1 dark. */
+.md-typeset .home-tagline {
+  margin: 0;
+  font-family: var(--md-text-font-family);
+  font-size: 0.75em;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cb-accent-text);
+}
+
+/* ============================
+   PRIMARY CALL TO ACTION
+   ============================ */
+.home-cta {
+  margin: 0 0 1.4rem;
+}
+
+.home-cta .md-button {
+  font-weight: 700;
+}
+
+/* Keyboard users need to see where they are. :focus-visible only, so a mouse
+   click does not leave a ring behind. */
+.md-typeset .md-button:focus-visible,
+.md-typeset a:focus-visible {
+  outline: 3px solid var(--cb-accent-text);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ...but a button keeps its own label colour. `.md-typeset a:focus-visible`
+   (0-2-1) outranks `.md-button--primary` (0-2-0), which turned the homepage's
+   one primary CTA low-contrast exactly when a keyboard user landed on it. */
+.md-typeset .md-button:focus-visible {
+  color: inherit;
+}
+
+/* Honour a reduced-motion preference — the theme animates on nav and hover. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Early access badge */
 .badge-preview {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: 0.85em;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--md-accent-fg-color);
+  color: var(--cb-accent-text);
   border: 1px solid var(--md-accent-fg-color);
   border-radius: 3px;
   padding: 2px 6px;
@@ -81,11 +905,11 @@ h1, h2 {
 /* Teal inline badge for cards */
 .badge-teal {
   display: inline-block;
-  font-size: 0.6rem;
+  font-size: 0.85em;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--md-accent-fg-color);
+  color: var(--cb-accent-text);
   border: 1.5px solid var(--md-accent-fg-color);
   border-radius: 3px;
   padding: 1px 6px;
@@ -96,7 +920,7 @@ h1, h2 {
 /* "Start here" badge — visually distinct from Early access */
 .badge-start {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: 0.85em;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -108,115 +932,22 @@ h1, h2 {
   margin-bottom: 0.5rem;
 }
 
-/* Credibility strip with bottom rule */
-.credibility-strip {
-  font-size: 0.92rem;
-  color: var(--md-default-fg-color--light);
-  border-left: 3px solid var(--md-accent-fg-color);
-  border-bottom: 1px solid color-mix(in srgb, var(--md-accent-fg-color) 20%, transparent);
-  padding-left: 1rem;
-  padding-bottom: 1.5rem;
-  margin: 0 0 2.5rem;
-  line-height: 1.6;
+/* Byline. Was a 72-word, 18.4px "credibility strip" — bigger than the body
+   text it sat above. Now one sentence at 15px: the byline does the authority
+   work, the no-code clause does the permission work, and they only function
+   fused. Never ship one without the other. */
+.md-typeset .home-byline {
+  font-size: 0.9em;
+  border-left: 2px solid var(--md-accent-fg-color);
+  padding-left: 0.9rem;
+  margin: 0 0 2rem;
+  line-height: 1.55;
+  max-width: 28rem;
 }
 
-/* ============================
-   Bento grid
-   ============================ */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.7rem;
-  margin: 1.5rem 0 2.5rem;
-}
-
-.bento-cell {
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 6px;
-  padding: 0.45rem 0.65rem !important;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  position: relative;
-  cursor: pointer;
-}
-
-/* Force compact text inside bento cells */
-.md-typeset .bento-cell p {
-  font-size: 0.68rem !important;
-  line-height: 1.35 !important;
-  margin-bottom: 0.15rem !important;
-  margin-top: 0 !important;
-}
-
-/* Make bento cell title link cover the entire cell */
-.bento-cell > p > strong > a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-.bento-cell:hover {
-  border-color: var(--md-accent-fg-color);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
-}
-
-/* Featured bento cell: spans full width + tinted background */
-.bento-cell--featured {
-  grid-column: span 3;
-  background: color-mix(in srgb, var(--md-accent-fg-color) 8%, var(--md-default-bg-color));
-  border-color: color-mix(in srgb, var(--md-accent-fg-color) 35%, transparent);
-}
-
-[data-md-color-scheme="slate"] .bento-cell--featured {
-  background: color-mix(in srgb, var(--md-accent-fg-color) 12%, var(--md-default-bg-color));
-}
-
-/* Bento icon size */
-.bento-icon {
-  font-size: 0.85rem;
-  vertical-align: middle;
-  margin-right: 0.15rem;
-}
-
-/* Bento tags: Claude Code / No code needed */
-.bento-tag {
-  display: inline-block;
-  font-size: 0.55rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--md-default-fg-color--light);
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 3px;
-  padding: 1px 5px;
-  margin-left: 0.4rem;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.bento-tag--nocode {
-  color: var(--md-accent-fg-color);
-  border-color: color-mix(in srgb, var(--md-accent-fg-color) 50%, transparent);
-}
-
-/* ============================
-   Social link buttons — same row as CTAs
-   ============================ */
-.social-links {
-  display: inline-flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-}
-
-.social-btn {
-  font-size: 0.72rem !important;
-  padding: 0.3rem 0.7rem !important;
-  opacity: 0.8;
-}
-
-.social-btn:hover {
-  opacity: 1;
-}
+/* Bento grid rules removed — the classes were referenced nowhere in docs/
+   or overrides/. Dead since whatever page used them was rewritten.
+   Recover from git if a bento layout is ever wanted again. */
 
 /* ============================
    Card grid
@@ -253,10 +984,6 @@ h1, h2 {
 }
 
 /* Narrow UI element images — keep constrained */
-.img-narrow {
-  max-width: 400px !important;
-}
-
 /* Softer admonitions */
 .md-typeset .admonition,
 .md-typeset details {
@@ -267,38 +994,18 @@ h1, h2 {
 /* ============================
    Tablet responsive
    ============================ */
-@media (max-width: 960px) {
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
-  .bento-cell--featured {
-    grid-column: span 2;
-  }
-}
 
 /* ============================
    Mobile responsive
    ============================ */
 @media (max-width: 600px) {
-  .md-content__inner > h1:first-child {
-    font-size: 2rem;
-  }
+  /* No h1 override here. The old rule set 2rem (40px), which made the mobile
+     title LARGER than the 32px desktop interior h1. The em-based scale above
+     already sizes down correctly. */
 
-  .hero-pitch {
-    font-size: 1.05rem;
-  }
-
-  .bento-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bento-cell--featured {
-    grid-column: span 1;
-  }
-
-  .bento-cell {
-    font-size: 0.85rem;
+  .md-typeset h1.home-title {
+    font-size: 1.8em;
   }
 
   .md-typeset .grid.cards > ul > li {
@@ -308,6 +1015,12 @@ h1, h2 {
   .md-typeset .grid.cards > ul > li + li {
     margin-top: 0.5rem;
   }
+
+  /* Primary CTA goes full-width rather than shrinking to a thumb-missable pill */
+  .home-cta .md-button {
+    display: block;
+    text-align: center;
+  }
 }
 
 /* ============================
@@ -316,16 +1029,91 @@ h1, h2 {
 
 /* TOC title in teal */
 .md-nav--secondary > .md-nav__title {
-  color: var(--md-accent-fg-color);
+  color: var(--cb-accent-text);
   font-weight: 600;
 }
 
-/* Bullet markers on TOC items */
-.md-nav--secondary .md-nav__item::before {
-  content: "•";
-  color: var(--md-default-fg-color--lightest);
-  margin-right: 0.4rem;
+/* ============================
+   TOC COLUMN — THE "ON THIS PAGE" RAIL
+   ============================
+   Shay: "there's this vertical line, I'm not sure I like it, and even if we
+   keep it, it extends pretty far north of Checklist." Both halves of that had
+   separate causes.
+
+   THE OVERHANG WAS OURS. A `.md-nav--secondary .md-nav__item::before` rule
+   printed a bullet before every row. The bullet is inline; the link beside it
+   is display:flex. So each <li> got an anonymous line box of ~18px BEFORE its
+   link, the first one pushing "Checklist" down and the active item's border box
+   enclosing the empty space above it. That is the northward overhang, and the
+   stray dots above each row in the screenshot. The rule's own comment said
+   "right sidebar" — it predates toc.integrate moving the TOC to the left, so it
+   had been decorating the wrong column for a while. Deleted, not patched.
+
+   THE LINE IS MATERIAL'S:
+     [dir=ltr] .md-nav--integrated>.md-nav__list>.md-nav__item--active
+       .md-nav--secondary { border-left:.05rem solid var(--md-primary-fg-color) }
+   Note the [dir=ltr] prefix — an unprefixed override loses, which is the trap
+   this stylesheet has now hit five times. Keep the prefix.
+
+   Replacement cue is a net deletion: a label that says what the column IS,
+   plus a bold accent row for where you are. No line, no bullets. */
+
+[dir=ltr] .md-nav--integrated > .md-nav__list > .md-nav__item--active .md-nav--secondary {
+  border-left: 0;
+}
+
+/* The eyebrow is a ::before on the <ul>, so it already sits inside whatever
+   padding that <ul> carries — and it carries .6rem, from Material's
+     @media (min-width:60em) [dir=ltr] .md-nav--secondary .md-nav__list{padding-left:.6rem}
+   The house rule a few hundred lines down,
+     .md-sidebar--primary .md-nav__list { padding-left: 0 }
+   does NOT cancel it: (0,2,0) loses to (0,3,0). That is the [dir=ltr] trap
+   again — SIXTH occurrence. Do not "fix" this by adding padding here.
+
+   Net effect of giving the eyebrow its own padding-left was .6rem on the <ul>
+   plus .6rem of its own = 1.2rem, against 0.6rem for the rows beneath it. The
+   label hung 12px to the right of its own list. Left padding dropped to 0 so
+   label and rows share the <ul>'s one indent. Bottom padding stays. */
+.md-sidebar--primary .md-nav--secondary > .md-nav__list::before {
+  content: "On this page";
+  display: block;
+  padding: 0 0 0.6rem 0;
+  font-family: var(--md-text-font-family);
   font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  /* rgba(0,0,0,.54) => #757575 => 4.61:1 on white. Passes AA. */
+  color: var(--md-default-fg-color--light);
+}
+
+/* Where you are. Colour AND weight, so the cue does not rest on colour alone. */
+.md-sidebar--primary .md-nav--secondary .md-nav__link--active {
+  color: var(--cb-accent-text);
+  font-weight: 700;
+}
+
+/* Breathing room, now that there is no bullet creating accidental leading. */
+.md-sidebar--primary .md-nav--secondary .md-nav__link {
+  margin-top: 0.4rem;
+}
+
+/* Nested rows (the numbered steps under a group) indent instead of bulleting. */
+.md-sidebar--primary .md-nav--secondary .md-nav__item .md-nav__item > .md-nav__link {
+  padding-left: 0.8rem;
+}
+
+/* Ticked-off steps. A glyph plus a colour change, never colour alone, and kept
+   distinct from Material's own --passed class, which only means "scrolled by". */
+.md-sidebar--primary .md-nav--secondary .md-nav__link--done {
+  color: var(--cb-done-fg);
+}
+
+.md-sidebar--primary .md-nav--secondary .md-nav__link--done::before {
+  content: "\2713\00a0";
+  font-weight: 700;
+  color: var(--cb-accent-text);
 }
 
 /* ============================
@@ -334,7 +1122,7 @@ h1, h2 {
 .md-typeset blockquote {
   padding: 0.4rem 0.8rem;
   margin: 0.6rem 0;
-  font-size: 0.88rem;
+  font-size: 0.95em;
   line-height: 1.5;
 }
 
@@ -359,16 +1147,11 @@ h1, h2 {
 
 /* Teaser line — always visible hook */
 .md-typeset .narrative-teaser {
-  font-size: 0.88rem !important;
+  font-size: 0.95em;
   font-style: italic;
   color: var(--md-default-fg-color);
   margin-bottom: 0.3rem !important;
   line-height: 1.5;
-}
-
-.narrative-icon {
-  color: var(--md-accent-fg-color);
-  margin-right: 0.3rem;
 }
 
 /* Nested details inside narrative block */
@@ -382,9 +1165,9 @@ h1, h2 {
 
 .narrative-block details summary {
   font-family: 'Fraunces', Georgia, serif;
-  font-size: 0.85rem;
+  font-size: 1em;
   font-weight: 500;
-  color: var(--md-accent-fg-color);
+  color: var(--cb-accent-text);
   padding: 0.4rem 0;
 }
 
@@ -395,24 +1178,11 @@ h1, h2 {
 }
 
 .md-typeset .narrative-block details p {
-  font-size: 0.92rem;
+  font-size: 1em;
   line-height: 1.65;
-  color: var(--md-default-fg-color--light);
 }
 
 /* Field notes — inline narrative at decision points */
-.md-typeset .admonition.field-note,
-.md-typeset details.field-note {
-  border-left-color: var(--md-accent-fg-color);
-  background: color-mix(in srgb, var(--md-accent-fg-color) 3%, var(--md-default-bg-color));
-  font-size: 0.88rem;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition.field-note,
-[data-md-color-scheme="slate"] .md-typeset details.field-note {
-  background: color-mix(in srgb, var(--md-accent-fg-color) 5%, var(--md-default-bg-color));
-}
-
 /* What I Wish I'd Known — bottom summary */
 .md-typeset .admonition.lessons,
 .md-typeset details.lessons {
@@ -453,211 +1223,917 @@ h1, h2 {
 }
 
 /* ============================
-   Starter kit guide
+   CHECKLIST PAGES — HIERARCHY
+   ============================
+   Shay: "it's not visually obvious what's a category and what's notes."
+   The cause was measurable, not a matter of taste: the numbered step (h4)
+   rendered at 1em/700 — body size, and the same weight as inline **bold**
+   inside its own notes. Nothing separated a step from the prose under it.
+
+   The fix is NOT more boxes, which was the instinct. Both design critics
+   landed on the same objection independently: box every step and you get nine
+   identical panels, and a callout nested inside a step box signifies nothing.
+   So structure is carried by a rule-and-label for groups and by size-and-weight
+   for steps. Boxes are reserved for interruptions — see ADMONITION BUDGET.
+
+   Scoped to `<div class="checklist" markdown>` in the page, not applied to
+   h2/h3 site-wide. The same defect exists on other pages, but changing the
+   global scale is a separate decision.
+
+   Heading levels moved up one when the wrapping `## Checklist` heading was
+   dropped: groups are now h2 and steps h3. The group rule therefore has to
+   beat `.md-typeset h1, .md-typeset h2 { font-family: Fraunces }` — it wins on
+   specificity (2 classes + type vs 1 class + type) and restates font-family
+   explicitly rather than relying on that.
    ============================ */
-.starter-path,
-.starter-steps {
-  display: grid;
-  gap: 0.45rem;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 8px;
-  padding: 0.85rem 1rem;
-  margin: 1rem 0 1.4rem;
-  background: color-mix(in srgb, var(--md-accent-fg-color) 4%, var(--md-default-bg-color));
-}
 
-.starter-path label,
-.starter-steps label {
-  display: flex;
-  gap: 0.5rem;
-  align-items: flex-start;
-  font-size: 0.82rem;
-  line-height: 1.45;
-}
-
-.starter-path input,
-.starter-steps input {
-  margin-top: 0.2rem;
-  accent-color: var(--md-accent-fg-color);
-}
-
-.starter-progress {
-  border: 1px solid color-mix(in srgb, var(--md-accent-fg-color) 35%, transparent);
-  border-radius: 8px;
-  padding: 0.75rem 0.9rem;
-  margin: 0.8rem 0 1.6rem;
-}
-
-.starter-progress__label {
-  font-size: 0.78rem;
+/* Group label. An eyebrow above a hairline rule — it names the section without
+   competing with the steps inside it. Deliberately SMALLER than the steps it
+   introduces; the rule and the caps do the work, not the size. */
+.md-typeset .checklist h2 {
+  font-family: var(--md-text-font-family);
+  font-size: 0.85em;
   font-weight: 700;
-  margin-bottom: 0.45rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cb-accent-text);
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  padding-top: 0.9em;
+  margin: 3em 0 1.2em;
 }
 
-.starter-progress__bar {
-  height: 0.45rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--md-default-fg-color) 10%, transparent);
-  overflow: hidden;
+/* The step itself — now the largest, heaviest thing in its group, so the
+   "1. Choose an agent" line can no longer be mistaken for bolded prose. */
+.md-typeset .checklist h3 {
+  font-size: 1.18em;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+  margin: 1.9em 0 0.5em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
 }
 
-.starter-progress__bar span {
+/* The control sits at the FOOT of its step, not in the heading. Shay: "if
+   there was a particularly long section, it makes sense for the user to start
+   at the top, read, scroll down, and then get to the bottom and check off."
+   A checkbox in the heading asks you to confirm before you have read anything.
+
+   It is written into the markdown as a real <label>, the way Chris's original
+   page did it, so the sentence is CONTENT — first person, specific, and
+   reviewable in the diff — rather than a string generated in JavaScript. */
+/* NOT display:flex. It was, and that broke the moment a label contained a
+   link: flex makes EVERY inline child its own flex item, so
+   "Decide whether any of the <a>external tools</a> are worth it" laid out as
+   three side-by-side columns, each wrapping inside its own narrow box.
+
+   Hanging indent instead — padding-left reserves the gutter, the negative
+   text-indent pulls the first line (and therefore the checkbox) back out into
+   it. Wrapped lines align under the text, not under the box. Works with any
+   inline content: links, <code>, emphasis, the time estimate.
+
+   The 1.7em gutter is the checkbox's 1.1em plus its 0.6em right margin; the
+   three must stay in step. */
+.md-typeset .checklist .step-done {
   display: block;
-  height: 100%;
-  width: 0;
-  background: var(--md-accent-fg-color);
-  transition: width 0.2s ease;
-}
-
-.starter-progress__reset {
-  margin-top: 0.65rem;
-  padding: 0.25rem 0.55rem;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 4px;
-  background: var(--md-default-bg-color);
-  color: var(--md-default-fg-color);
-  font: inherit;
-  font-size: 0.72rem;
+  max-width: 36rem;
+  margin: 1.4em 0 0;
+  padding: 0.75em 0 0 1.7em;
+  text-indent: -1.7em;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 0.9em;
   cursor: pointer;
 }
 
-.starter-progress__reset:hover {
-  border-color: var(--md-accent-fg-color);
+.md-typeset .checklist .step-done input {
+  width: 1.1em;
+  height: 1.1em;
+  margin: 0 0.6em 0 0;
+  /* Centres the box on the first line's visual middle rather than its
+     baseline. A baseline-aligned box sits with its BOTTOM on the baseline, so
+     it rides high against the text. Cap height is ~0.7em, so the line's
+     optical centre is ~0.35em up; a 1.1em box centred there has its bottom at
+     0.35 - 0.55 = -0.2em. */
+  vertical-align: -0.2em;
+  accent-color: var(--cb-accent-text);
+  cursor: pointer;
 }
 
-.starter-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-  margin: 1.2rem 0 1.6rem;
+.md-typeset .checklist .step-done input:focus-visible {
+  outline: 3px solid var(--cb-accent-text);
+  outline-offset: 3px;
 }
 
-.starter-card {
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 8px;
-  padding: 0.85rem 1rem;
-  background: color-mix(in srgb, var(--md-accent-fg-color) 3%, var(--md-default-bg-color));
+/* A step can carry more than one control (step 9: read the session, then open
+   the output). They should read as one tight pair, not two separate controls:
+   the divider belongs to the group, so only the FIRST draws it, and the gap
+   between them is just enough to separate the lines. Shay: "put the two
+   checkboxes together, one right after the other."
+   0.5em here measured 8px, which still read as two things. */
+.md-typeset .checklist .step-done + .step-done {
+  border-top: 0;
+  margin-top: 0.15em;
+  padding-top: 0;
 }
 
-.md-typeset .starter-card h3 {
-  margin-top: 0;
-  font-size: 1rem;
+/* Each label marks itself as soon as its own box is ticked, even if the step as
+   a whole is not finished — so a half-done step still gives feedback. The
+   section only dims when every control in it is checked. */
+.md-typeset .checklist .step-done--done {
+  color: var(--cb-done-fg);
 }
 
-.md-typeset .starter-card ul {
-  margin-bottom: 0;
+/* Done state: the heading AND everything under it, through to the next step.
+   The earlier pass dimmed only the heading, on the contrast argument below.
+   Shay asked twice for the whole section, so it dims — notes, tables and
+   callouts included.
+
+   The accessibility cost is real and worth stating: body text at opacity .55
+   lands near 3:1, under the 4.5:1 AA line. Three things keep that acceptable
+   here. The state is self-inflicted, it is reversible from the same control
+   that set it, and any dimmed element returns to FULL contrast on hover or
+   keyboard focus — so re-reading a finished step (the Cmd+Shift+M shortcut
+   lives in step 3) still works.
+
+   Which elements get the class is decided in JS by walking forward from the
+   heading to the next one. CSS cannot express "every sibling until the next
+   h3", and the sibling selectors that come closest have failed to invalidate
+   in this stylesheet before. */
+.md-typeset .checklist h3.step--done {
+  color: var(--cb-done-fg);
 }
 
-@media (max-width: 700px) {
-  .starter-grid {
-    grid-template-columns: 1fr;
-  }
+.md-typeset .checklist .step-body--done {
+  opacity: 0.55;
+  transition: opacity 0.12s ease;
+}
+
+.md-typeset .checklist .step-body--done:hover,
+.md-typeset .checklist .step-body--done:focus-within {
+  opacity: 1;
+}
+
+/* No strikethrough and no weight change: both reflow the line and make the
+   list jump as you tick down it. */
+
+/* The progress tally and the reset BOTH live in the sidebar now (Shay, 7 Oct),
+   so the in-content `.checklist-progress` bar and its ~60 lines of code-chip
+   styling are gone. The chip look survives on `.cb-sidebar-count` and
+   `.cb-sidebar-reset` under SIDEBAR RESET above. Recover from git if the bar
+   is ever wanted back beside the checklist. */
+
+/* Breadcrumb ("Home > Start Here") from navigation.path. It renders INSIDE the
+   content column, so it was the last grey text left there. These are links, and
+   every other link on the site is teal, so they follow the same rule.
+   JUDGMENT CALL: the alternative reading is that a breadcrumb is navigation
+   chrome like the TOC, and chrome is allowed to stay grey. Flip this to
+   --md-default-fg-color--light if the teal reads as too loud above the h1. */
+.md-content .md-path__link {
+  color: var(--cb-accent-text);
+}
+
+/* Nothing hides any more. The reset was previously shown only once a box had
+   been ticked, which made it undiscoverable — the one control you could only
+   find by first doing the thing it undoes. Shay asked for it "always on". */
+
+/* Email slide-in banner rules removed with the markup in overrides/main.html.
+   Recover from git if the banner ever comes back. */
+
+
+/* Removed as provably dead — grepped against docs/ and overrides/, 0 hits:
+   .img-narrow · .narrative-icon · .field-note (+ slate variant) · .starter-grid
+   (+ its mobile block). Earlier in the same pass: .hero-buttons, .social-links,
+   .social-btn, the bento rules, .hero-pitch, .credibility-strip and
+   .email-banner*. Recover any of them from git. */
+
+/* Visually hidden but still read aloud, so the icon has a name. */
+.md-tabs__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ============================
-   Email signup slide-in banner
+   HEADER
+   ============================
+   The coloured bar stays, per Shay — "I didn't hate the blue bar." The type no
+   longer borrows from either reference site: Oswald was removed on the
+   unanimous verdict of three reviewers, and the header now uses the site's own
+   two faces — Fraunces for the wordmark, the body sans for everything else.
+
+   Alignment root cause: Material sets `.md-tabs__link { margin-top: .8rem }`,
+   which pushed the labels 16px below the bar's centre while the home icon and
+   the carets centred on the bar itself. Rather than offsetting each one to
+   match, the margin is zeroed and the row centres its items — one fix instead
+   of three, and nothing to re-tune if a tab's content changes.
    ============================ */
-.email-banner {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 100;
-  max-width: 320px;
-  background: var(--md-default-bg-color);
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-  animation: bannerSlideIn 0.3s ease-out;
+
+.md-header,
+.md-tabs {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
 }
 
-@keyframes bannerSlideIn {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.md-header {
+  box-shadow: none;
 }
 
-.email-banner__close {
-  position: absolute;
-  top: 0.4rem;
-  right: 0.6rem;
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  color: var(--md-default-fg-color--light);
-  cursor: pointer;
-  padding: 0.2rem;
-  line-height: 1;
+/* ---- row 1 ---- */
+.md-header__inner {
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.email-banner__close:hover {
-  color: var(--md-default-fg-color);
+/* Row 1 is constrained to the same grid as the nav row, so the wordmark's left
+   edge and the search field's right edge both line up with the tabs and the
+   repo block below them. Cheaper and more durable than nudging each one.
+   Material's own margin comes from a [dir=ltr] rule, which outranks an
+   unprefixed override — hence the matching selector. */
+.md-header__inner {
+  max-width: 61rem;
+  width: 100%;
+  margin: 0 auto;
+  /* Material's .2rem side padding left the search field 4px short of the repo
+     block's right edge. Zeroed here and given back to the title below. */
+  padding: 0;
 }
 
-.email-banner__text {
-  font-size: 0.82rem;
-  line-height: 1.45;
-  color: var(--md-default-fg-color--light);
-  margin: 0 0 0.7rem;
-  padding-right: 1rem;
-}
-
-.email-banner__form {
+.md-header__title,
+[dir="ltr"] .md-header__title {
   display: flex;
-  gap: 0.4rem;
-}
-
-.email-banner__form input[type="email"] {
-  flex: 1;
+  align-items: center;
+  margin-left: 0.8rem;
+  margin-right: 0.4rem;
+  flex: 1 1 auto;
   min-width: 0;
-  padding: 0.35rem 0.6rem;
-  font-size: 0.78rem;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 4px;
-  background: var(--md-default-bg-color);
-  color: var(--md-default-fg-color);
 }
 
-.email-banner__form button[type="submit"] {
-  padding: 0.35rem 0.7rem;
-  font-size: 0.78rem;
+/* The search field matches the repo block below it — same right edge, same
+   width. Measured: the GitHub icon + `chrisblattman/claudeblattman` + the star
+   and fork counts come to 213px, so 10.65rem at the 20px root. In `rem` so the
+   two stay matched if the root scales at wider breakpoints. */
+.md-header__option,
+.md-search {
+  flex: 0 0 auto;
+}
+
+/* `.md-search__inner` is the element Material sizes — 11.7rem (234px) by
+   default. 10.65rem is 213px, the measured width of the repo block below.
+   The expanded-on-focus width is left alone. */
+.md-search__inner {
+  width: 10.65rem;
+}
+
+.md-header__ellipsis,
+.md-header__title > .md-header__ellipsis {
+  display: flex;
+  align-items: center;
+}
+
+/* Keep the wordmark put while scrolling.
+
+   Stock Material runs two `.md-header__topic` elements and cross-fades them
+   once you scroll past the h1: topic 1 is the site name, topic 2 is the page
+   title. This site's header override had hardcoded topic 2 to the word "Home",
+   which is what replaced the wordmark partway down a page.
+
+   Deleting topic 2 was not enough on its own: Material still fades topic 1 out
+   via `.md-header__title--active .md-header__topic { opacity: 0 }`, so the
+   wordmark simply vanished instead. This pins it. */
+.md-header__title--active .md-header__topic {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  z-index: 0;
+}
+
+.md-header__wordmark {
+  font-family: 'Fraunces', Georgia, serif;
   font-weight: 600;
-  background: var(--md-accent-fg-color);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
-.email-banner__form button[type="submit"]:hover {
-  opacity: 0.9;
-}
-
-.email-banner__privacy {
-  display: block;
-  font-size: 0.65rem;
-  color: var(--md-default-fg-color--lighter);
-  margin-top: 0.4rem;
+.md-header__wordmark a {
+  color: var(--md-primary-bg-color);
   text-decoration: none;
 }
 
-.email-banner__privacy:hover {
-  color: var(--md-accent-fg-color);
+.md-header__wordmark a:hover {
+  opacity: 0.75;
 }
 
-.email-banner__msg {
+/* Neither reference has a logo mark — the wordmark is the identity. */
+.md-header__button.md-logo {
+  display: none;
+}
+
+/* Header icons: quiet, equal, and tight to each other. */
+.md-header__button {
+  color: var(--md-primary-bg-color);
+  opacity: 0.8;
+  margin: 0 0.1rem;
+  padding: 0.3rem;
+}
+
+.md-header__button:hover {
+  opacity: 1;
+}
+
+/* ---- search: pill-shaped and translucent, not a white slab ---- */
+.md-search__form {
+  height: 1.8rem;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--md-primary-bg-color) 16%, transparent);
+  box-shadow: none;
+  transition: background-color 0.2s;
+}
+
+.md-search__form:hover,
+.md-search__form:focus-within {
+  background-color: color-mix(in srgb, var(--md-primary-bg-color) 26%, transparent);
+}
+
+.md-search__input {
+  font-size: 0.68rem;
+  height: 1.8rem;
+  padding-left: 2.1rem;
+  color: var(--md-primary-bg-color);
+}
+
+/* The theme absolutely positions the magnifier at `top: .6rem`, which centres
+   it in a 2.4rem form. This one is 1.8rem, so it sat low. Centre it off its own
+   height instead of a hard-coded offset, so it stays centred at any form
+   height. */
+.md-search__icon[for="__search"] {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 0.85rem;
+  width: 0.85rem;
+}
+
+[dir="ltr"] .md-search__icon[for="__search"] {
+  left: 0.65rem;
+}
+
+.md-search__input::placeholder {
+  color: color-mix(in srgb, var(--md-primary-bg-color) 70%, transparent);
+}
+
+.md-search__icon {
+  color: var(--md-primary-bg-color);
+  opacity: 0.8;
+}
+
+.md-search__icon svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+[dir="ltr"] .md-search__output {
+  border-radius: 8px;
+}
+
+/* ---- repo block: name, stars, forks as one tidy unit ---- */
+/* One opacity on this block, not two. `.md-source__facts` used to add its own
+   0.72 on top of this 0.85, multiplying to 0.61 — which washed 11.8px white
+   text on the mid-blue bar out to near-invisible and read as the star and fork
+   counts having been dropped. Opacity multiplies down a tree; stacking it is
+   almost always a mistake. */
+.md-source {
+  font-size: 0.62rem;
+  color: var(--md-primary-bg-color);
+  opacity: 0.92;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.md-source:hover {
+  opacity: 1;
+}
+
+.md-source__icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.md-source__icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+}
+
+/* Material pads the name to clear the icon it no longer sits behind. */
+.md-source__repository {
+  margin-left: 0;
+  padding-left: 0;
+  max-width: none;
+  font-family: var(--md-text-font-family), sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+/* Stars and forks on their own line under the name, quieter than it. */
+/* Stars and forks.
+
+   Two separate reasons these were invisible:
+
+   1. Opacity stacking — this list carried its own 0.72 on top of .md-source's
+      0.85, multiplying to 0.61. Opacity multiplies down a tree; never stack it.
+
+   2. Height. Material reveals the list with
+      `@keyframes facts { 0% { height: 0 } to { height: .65rem } }` and no
+      `animation-fill-mode: forwards`, so once the animation finishes the
+      element falls back to its base rule — which declares no height at all,
+      collapsing it to 0. An explicit height removes the dependency on an
+      animation having run and still being in its end state. */
+.md-source__facts {
+  font-size: 0.95em;
+  opacity: 1;
+  margin-top: 0.1rem;
+  gap: 0.5rem;
+  align-items: center;
+  overflow: visible;
+}
+
+/* The animation has to go, not just be out-specified. Material applies it via
+   `.md-source__repository--active .md-source__facts { animation: facts }`, and
+   a running animation's value beats any normal author declaration — so setting
+   a height on the base rule had no effect while `animation-name` was `facts`
+   and the computed height stayed 0. Matching that selector and cancelling the
+   animation lets a plain height win. */
+.md-source__repository--active .md-source__facts {
+  animation: none;
+  height: auto;
+}
+
+/* The same trap one level down. Material also animates each count in with
+   `@keyframes fact { 0% { transform: translateY(100%) } to { translateY(0) } }`,
+   again with no fill-mode — which left both `<li>` sitting a full line-height
+   BELOW their own parent, spilling out of the nav bar. Cancel it and pin the
+   end state. */
+.md-source__repository--active .md-source__fact {
+  animation: none;
+  transform: none;
+  opacity: 1;
+}
+
+/* Both lines have to fit: the name, then the counts beneath it. */
+.md-tabs__source .md-source__repository {
+  overflow: visible;
+}
+
+.md-source__fact::before {
+  margin-right: 0.15rem;
+}
+
+/* ---- row 2: the nav, plus the right-aligned social/repo group ---- */
+.md-tabs__grid {
+  display: flex;
+  align-items: center;
+}
+
+.md-tabs__list {
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Pushed to the right edge of the same grid the tabs sit in, so it lines up
+   with the content column rather than the viewport. */
+.md-tabs__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.md-tabs__social {
+  display: flex;
+  align-items: center;
+  color: var(--md-primary-bg-color);
+  opacity: 0.8;
+}
+
+.md-tabs__social:hover {
+  opacity: 1;
+}
+
+/* Both marks the same size, per Shay — GitHub was the smaller of the two. */
+.md-tabs__social svg,
+.md-tabs__source .md-source__icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+  display: block;
+  margin: 0;
+}
+
+.md-tabs__source .md-source__icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+/* The one line that fixes all three alignment problems. */
+.md-tabs__link {
+  margin-top: 0;
+  font-family: var(--md-text-font-family), sans-serif;
+  /* 600, larger and less tracked: a normal-width face needs less letter-spacing
+     than a condensed one, and the extra weight recovers the cap-height lost
+     when Oswald's tall narrow caps went. */
+  font-weight: 600;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--md-primary-bg-color);
+  opacity: 0.78;
+  display: flex;
+  align-items: center;
+}
+
+.md-tabs__link:hover,
+.md-tabs__link:focus-visible {
+  opacity: 1;
+}
+
+.md-tabs__item--active > .md-tabs__link {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.md-tabs__item + .md-tabs__item {
+  margin-left: 1.1rem;
+}
+
+/* Every tab <li> is `display: list-item` by default, so centring the LIST only
+   centres the li itself — the shorter link inside still sits at the top of the
+   48px row. That misaligned the home icon, and then FAQ when it was added as a
+   leaf tab. Applying it to ALL items fixes it once, for any tab added later. */
+.md-tabs__item {
+  display: flex;
+  align-items: center;
+}
+
+.md-tabs__item--home .md-tabs__link {
+  padding: 0;
+}
+
+.md-tabs__icon {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.md-tabs__icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ---- the caret ---- */
+.md-tabs__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  margin-left: -0.05rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--md-primary-bg-color);
+  opacity: 0.78;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+}
+
+.md-tabs__item--nested:hover .md-tabs__toggle,
+.md-tabs__toggle[aria-expanded="true"],
+.md-tabs__toggle:hover {
+  opacity: 1;
+}
+
+.md-tabs__toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.md-tabs__caret {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* menu-down.svg's triangle fills only the middle ~40% of its 24-unit viewBox,
+   so the svg must be oversized to yield a legible glyph. */
+/* Static, always pointing down — Shay: the flip is unnecessary motion.
+   `transition: none` is explicit because the theme's inherited shorthand
+   otherwise reports `all`, which would animate anything set later. */
+.md-tabs__caret svg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
+  display: block;
+  transform: none;
+  transition: none;
+}
+
+/* ---- grouped dropdown sections (Workflows) ---- */
+.md-tabs__menu-item--group + .md-tabs__menu-item--group {
+  margin-top: 0.3rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  padding-top: 0.3rem;
+}
+
+/* A label, not a link — there is no page behind it. */
+.md-tabs__menu-group {
+  display: block;
+  padding: 0.35rem 0.9rem 0.15rem;
+  font-family: var(--md-text-font-family), sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color);
+}
+
+.md-tabs__submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.md-tabs__submenu .md-tabs__menu-link {
+  padding-left: 1.4rem;
+}
+
+/* ---- the dropdown ---- */
+.md-tabs__item--nested {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* A category label inside a dropdown. Not a link — the category has no page of
+   its own, and making it clickable sent readers to whichever page happened to
+   be first. */
+.md-tabs__menu-item--group {
+  margin-top: 0.35rem;
+  padding: 0.3rem 0.9rem 0.15rem;
+}
+
+.md-tabs__menu-item--group:first-child {
+  margin-top: 0;
+}
+
+.md-tabs__menu-group {
+  display: block;
+  font-family: var(--md-text-font-family);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-tabs__menu-item--in-group .md-tabs__menu-link {
+  padding-left: 1.5rem;
+}
+
+.md-tabs__menu {
+  /* Workflows lists 18 rows across three groups. Cap the height so a long menu
+     scrolls instead of running off the bottom of a laptop screen. */
+  max-height: min(70vh, 32rem);
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  min-width: 12rem;
+  margin: 0;
+  padding: 0.3rem 0;
+  list-style: none;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 150ms, transform 150ms, visibility 150ms;
+}
+
+/* Opens on hover, on keyboard focus, and on click. Hover is what Shay expects
+   on desktop; the click path is what makes it reachable on touch, where hover
+   does not exist. */
+/* Split into separate rules on purpose. A selector list is dropped wholesale
+   if any member fails to parse, so grouping `:has()` with `:hover` would make
+   hover — the path that matters most — depend on `:has()` support. Kept apart,
+   each works alone. */
+.md-tabs__item--nested:hover > .md-tabs__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.md-tabs__item--nested:focus-within > .md-tabs__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* The click/touch path, driven by a class ON THE LIST ITEM.
+
+   Not a sibling/attribute selector. Both `[aria-expanded="true"] ~ .menu` and
+   `:has([aria-expanded="true"]) > .menu` were verified to match (`matches()`
+   returns true, the rule sits in the CSSOM with the right declarations) and yet
+   never applied: the engine does not reliably invalidate a FOLLOWING sibling
+   when an attribute changes on the button. A class on the common ancestor
+   invalidates its subtree every time. `:hover` and `:focus-within` were never
+   affected, which is why those paths worked all along. */
+.md-tabs__item--nested.md-tabs__item--open > .md-tabs__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.md-tabs__menu-item {
+  margin: 0;
+}
+
+.md-tabs__menu-link {
+  display: block;
+  padding: 0.4rem 0.9rem;
+  font-family: var(--md-text-font-family), sans-serif;
   font-size: 0.72rem;
-  margin-top: 0.4rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--md-default-fg-color--light);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-/* Mobile: full-width bottom strip */
-@media (max-width: 600px) {
-  .email-banner {
-    bottom: 0;
-    right: 0;
-    left: 0;
-    max-width: none;
-    border-radius: 8px 8px 0 0;
-    border-bottom: none;
+.md-tabs__menu-link:hover,
+.md-tabs__menu-link:focus-visible {
+  background: color-mix(in srgb, var(--md-accent-fg-color) 12%, transparent);
+  color: var(--cb-accent-text);
+}
+
+.md-tabs__menu-link--active {
+  color: var(--cb-accent-text);
+  font-weight: 500;
+}
+
+/* Both `overflow: auto` AND `contain: content` clip the dropdown. The second
+   is the one that bites: it implies paint containment, so the menu reported
+   itself visible with a correct bounding rect and still never rendered. */
+.md-tabs,
+.md-tabs__list {
+  overflow: visible;
+  contain: none;
+}
+
+/* ============================
+   LEFT COLUMN = THIS PAGE'S CONTENTS, NOTHING ELSE
+   ============================
+   With `toc.integrate` the sidebar mixed two different things: the nav tree
+   (section label, sibling pages, every other category) and the current page's
+   headings. On a Workflows page that meant 35 sibling rows around a handful of
+   real contents.
+
+   An earlier attempt hid just the section and page labels. It assumed the
+   active page is a DIRECT child of the lifted section — true on Start Here,
+   false inside a Workflows category, where it hid the category label AND the
+   page's own label, leaving its headings floating under an unrelated sibling.
+
+   So: hide the nav tree entirely and show only `.md-nav--secondary`, the
+   current page's table of contents. The tab bar and its dropdowns already carry
+   the structure; this column's job is the page you are reading.
+   ============================ */
+
+.md-sidebar--primary .md-nav__title,
+.md-sidebar--primary .md-nav__link,
+.md-sidebar--primary .md-nav__container {
+  display: none;
+}
+
+/* ...except the page's own contents, which is the point. */
+.md-sidebar--primary .md-nav--secondary .md-nav__link {
+  display: block;
+}
+
+/* No tree means no indent to inherit. */
+.md-sidebar--primary .md-nav,
+.md-sidebar--primary .md-nav__list {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* ============================
+   PRINT — NOTHING SPLIT ACROSS A PAGE BREAK
+   ============================
+   Material already hides the chrome on print (header, tabs, sidebars, footer,
+   copy buttons) and sets code to pre-wrap. What it does NOT do is control page
+   breaks, which is the whole problem with printing a checklist: a step heading
+   lands at the foot of one page and its instructions start on the next, or a
+   prompt box gets sliced in half.
+
+   `break-inside` is the modern property; `page-break-inside` is kept alongside
+   it because print engines lag behind screen ones.
+   ============================ */
+@media print {
+  @page {
+    margin: 16mm 14mm;
+  }
+
+  /* Material drops the base to .68rem on print, which would shrink every
+     em-based heading while our prose rule holds p/li at 0.8rem — compressing
+     the hierarchy. Put the base back so headings keep their proportions. */
+  .md-typeset {
+    font-size: 0.8rem;
+  }
+
+  /* Navigation that means nothing on paper. */
+  .md-path {
+    display: none;
+  }
+
+  /* Atomic blocks: never slice these. */
+  .md-typeset pre,
+  .md-typeset .highlight,
+  .md-typeset table,
+  .md-typeset .admonition,
+  .md-typeset details,
+  .md-typeset .step-done {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* A heading must not be the last thing on a page. */
+  .md-typeset h1,
+  .md-typeset h2,
+  .md-typeset h3,
+  .md-typeset h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+    break-inside: avoid;
+  }
+
+  /* Keep a step heading with the paragraph that follows it. */
+  .md-typeset .checklist h3 + p,
+  .md-typeset .checklist h2 + h3 {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  /* No single stranded line at the top or bottom of a page. */
+  .md-typeset p,
+  .md-typeset li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Checkboxes are the point of a printed checklist — make sure they survive
+     the print pipeline, which commonly strips form-control rendering. */
+  .md-typeset .checklist .step-done input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0.95em;
+    height: 0.95em;
+    border: 1px solid #333;
+    border-radius: 2px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Admonition tints and code-box fills must print, not drop out to white. */
+  .md-typeset .admonition,
+  .md-typeset .highlight,
+  .md-typeset code {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }

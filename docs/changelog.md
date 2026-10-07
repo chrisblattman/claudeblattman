@@ -61,7 +61,7 @@ Why I stripped `CRITICAL`, `YOU MUST`, and `ABSOLUTELY` from most of my skills. 
 
 ### Prompt architecture (partial — expanded)
 
-Three new sections on the [Prompt Engineering](essentials/prompting.md) page: long-content ordering (put the document at the top, question at the bottom), system-vs-user prompt separation, and reusable constraint blocks (anti-hallucination, anti-bloat, scope guard, structured uncertainty, voice preservation). The full package — including a prompt-preferences template download — ships in Launch 2.
+Three new sections on the Prompt Engineering page: long-content ordering (put the document at the top, question at the bottom), system-vs-user prompt separation, and reusable constraint blocks (anti-hallucination, anti-bloat, scope guard, structured uncertainty, voice preservation). The full package — including a prompt-preferences template download — ships in Launch 2.
 
 ---
 
@@ -107,7 +107,7 @@ The four-skill pipeline now has a single canonical page that explains how the pa
 A couple of pieces still waiting.
 
 - **Voice pack system** — register overlays (core voice + proposal + public writing + email) plus a critic-agent that flags drift at the line level. Shown as a complete pack with sanitized downloads. Gated on voice-pack sanitization.
-- **Prompt architecture (full page)** — the [Prompt Engineering page](essentials/prompting.md) got three new sections in the April 17 launch (long-content ordering, system-vs-user, constraint blocks). The complete page update plus the [prompt-preferences template](downloads/index.md#templates) as a paste-into-any-project download is still pending.
+- **Prompt architecture (full page)** — the Prompt Engineering page got three new sections in the April 17 launch (long-content ordering, system-vs-user, constraint blocks). The complete page update plus the [prompt-preferences template](downloads/index.md#templates) as a paste-into-any-project download is still pending.
 
 ---
 

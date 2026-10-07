@@ -1,4 +1,7 @@
 ---
+hide:
+  - navigation
+  - toc
 description: About Claude Blattman — how a professor with no coding background built an AI workflow system for academic research management. Free and open source.
 ---
 
@@ -10,19 +13,7 @@ Claude Blattman is a free, open-source resource for building AI workflows. It do
 
 The name is a joke. The tools are real.
 
----
-
-## About Chris Blattman
-
-I'm a political economist at the [Harris School of Public Policy](https://harris.uchicago.edu/) at the University of Chicago. My research focuses on violence, crime, and poverty — I design and test interventions in cities across Latin America and Africa. You can read more about my research and writing at [chrisblattman.com](https://chrisblattman.com).
-
-I'm not a coder — I've never written a line of code in my life. Everything on this site was built with AI tools.
-
-**Website:** [chrisblattman.com](https://chrisblattman.com)
-
-**Book:** [Why We Fight](https://chrisblattman.com/why-we-fight/) — a book about the causes of war and peace
-
-**Social:** [@cblatts on X/Twitter](https://twitter.com/cblatts)
+For who's behind it, see [About Chris Blattman](about-chris.md).
 
 ---
 
@@ -47,21 +38,6 @@ I built this site because I'm in the same position as most of my readers: buried
 If a non-technical professor can build a working AI workflow system, you can too.
 
 This site is the whole thing — tutorials, downloadable tools, honest assessments of what works and what doesn't — shared freely as a public good. It's not a product. It's not a course. It's one person's system, documented so you can learn from it and build your own.
-
-I write about research, conflict, policy, and increasingly about AI tools on [X/Twitter (@cblatts)](https://twitter.com/cblatts) and at [chrisblattman.com](https://chrisblattman.com).
-
-### Other Advice Posts
-
-For over a decade I've written practical advice for academics and researchers on [my blog](https://chrisblattman.com) — everything from how to get into a PhD program to how to survive the tenure track:
-
-- [International Development](https://chrisblattman.com/development/)
-- [Undergrads & Masters](https://chrisblattman.com/undergrad-ma/)
-- [PhD Students](https://chrisblattman.com/phd-advice/)
-- [Faculty](https://chrisblattman.com/advice-professors/)
-- [Travel](https://chrisblattman.com/travel/)
-- [Writing Well](https://chrisblattman.com/writing/)
-
----
 
 ## How This Site Was Built
 

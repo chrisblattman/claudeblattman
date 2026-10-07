@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Starter Templates
 
 Downloadable skill skeletons and templates you can adapt for your own document-collection and compilation workflows. These are generic — they use the [architecture patterns](architecture-patterns.md) from the tax workflow but are not tax-specific.

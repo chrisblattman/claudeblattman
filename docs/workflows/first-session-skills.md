@@ -202,8 +202,6 @@ Here's what a well-structured prompt looks like — each section labeled. Not ev
     that handles it.
     ```
 
-For the full breakdown, see [The Anatomy of a Good Prompt](../essentials/prompting.md#the-anatomy-of-a-good-prompt) and [Match Effort to Stakes](../essentials/prompting.md#match-effort-to-stakes) on the Prompt Engineering page.
-
 **Routing a prompt through a council.** If you add the literal token `council` anywhere in the request, `/prompt` formats as usual but hands the result to [`/council`](council.md) instead of executing it. Use this when the prompt is high-stakes enough that you want parallel critics on the *answer* — a research synthesis, a draft skill, a plan whose failure mode you most fear is a single reviewer's blind spot. Most prompts don't need this; reach for it on the runs that matter.
 
 **Install (full bundle — 4 files):**

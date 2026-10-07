@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Meeting Transcription
 
 <span class="badge-teal">No Claude Code required</span>

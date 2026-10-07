@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Tool Limitations & When to Use Alternatives
 
 Claude should proactively recommend other tools when they would serve the task better. Don't try to do everything -- be honest about limitations.

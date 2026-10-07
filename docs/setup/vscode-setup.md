@@ -144,7 +144,7 @@ manually — your choice.
 - **Run [`/checkin`](skill-reference.md#checkin-daily-check-in-session)** to get a morning briefing on what's happened across email, calendar, and project docs since the last session
 - **Ask for a status update** to generate a short report for collaborators
 
-For more on these workflows, see [Skills in Action](../workflows/index.md) and the [Executive Assistant](../toolkit/executive-assistant.md) workflow.
+For more on these workflows, see [general best practices](../workflows/best-practices.md) and the [Executive Assistant workflows](../workflows/executive-assistant.md).
 
 ---
 

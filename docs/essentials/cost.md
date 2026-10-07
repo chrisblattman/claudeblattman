@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # The Cost Reality
 
 <span class="badge-teal">No Claude Code required</span>
@@ -70,7 +75,7 @@ You lose the power tools, but you still get the core: a strong AI chatbot with s
 
 If you're not sure whether this is worth it, here's a low-risk sequence:
 
-1. **Week 1:** Sign up for Claude Pro ($20/mo). Work through [Chatbots Done Right](chatbots.md) and [Prompt Engineering](prompting.md). Use Claude for one real work task daily.
+1. **Week 1:** Sign up for Claude Pro ($20/mo). Work through [Chatbots Done Right](chatbots.md). Use Claude for one real work task daily.
 2. **Week 2:** Try Wispr Flow (free trial available). See if dictation changes how you interact with AI.
 3. **Week 3:** If you're getting value, try Granola for your next few meetings.
 4. **Week 4:** If you want to go deeper, install Claude Code ([Install Guide](../toolkit/install-mac.md)) and try the Toolkit path.

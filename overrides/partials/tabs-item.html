@@ -1,0 +1,148 @@
+{#-
+  Overrides Material's partials/tabs-item.html.
+
+  The stock version renders exactly one link per top-level nav item: if the item
+  is a section it drills into the first child and discards the rest, which is why
+  `navigation.tabs` has no dropdowns. This version keeps that behaviour for leaf
+  tabs and renders a real submenu for sections.
+
+  Two extras on top of the stock markup:
+    * the homepage tab renders a house icon instead of the word "Home"
+    * a section tab gets a chevron and a <ul class="md-tabs__menu"> of children
+
+  Hover and keyboard focus both open the menu (CSS: :hover, :focus-within).
+-#}
+
+{% macro render_content(nav_item, ref) %}
+  {% set ref = ref or nav_item %}
+  {% if nav_item == ref or "navigation.indexes" in features %}
+    {% if nav_item.is_index and nav_item.meta.icon %}
+      {% include ".icons/" ~ nav_item.meta.icon ~ ".svg" %}
+    {% endif %}
+  {% endif %}
+  {{ ref.title }}
+{% endmacro %}
+
+{% macro render(nav_item, ref) %}
+  {% set ref = ref or nav_item %}
+  {% set class = "md-tabs__item" %}
+  {% if ref.active %}
+    {% set class = class ~ " md-tabs__item--active" %}
+  {% endif %}
+
+  {#- The homepage: icon only, with an accessible name.
+
+      The house is Shay's own, lifted from the inline SVG at index.html:21 of
+      shayhouseknecht.com — it lives in that file's markup, not as an asset,
+      which is why there was no file to find. Solid silhouette with the doorway
+      cut out, using fill-rule evenodd. -#}
+  {% if nav_item.is_homepage %}
+    <li class="{{ class }} md-tabs__item--home">
+      <a href="{{ nav_item.url | url }}" class="md-tabs__link" title="{{ nav_item.title }}">
+        <span class="md-tabs__icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12 3 L21 10.5 V21 H14 V15 H10 V21 H3 V10.5 Z"/>
+          </svg>
+        </span>
+        <span class="md-tabs__sr">{{ nav_item.title }}</span>
+      </a>
+    </li>
+
+  {#- A section: its own link plus a dropdown of its children.
+
+      Every child is listed. An earlier version skipped children where
+      `is_index` was true, meaning to drop a section's own overview page — but
+      `is_index` is true for ANY page named index.md, so it silently swallowed
+      "Newcomers" (starter-kit/index.md) and "Tax season"
+      (tax-workflow/index.md). Listing everything is predictable; the only cost
+      is that a section overview appears both as the tab link and as the first
+      menu row, which is normal and useful. -#}
+  {% elif nav_item.children %}
+    {#- A child is either a page (a plain menu row) or a section (a bolded,
+        non-clickable group label with its own pages beneath). Workflows uses
+        the grouped form; Start Here, Tools and About are flat. -#}
+    {#- A namespace, not a plain `set`. Jinja scopes assignments to the loop
+        body, so the fallback below silently left `target` as none and the whole
+        tab failed to render — which is exactly what happened the moment
+        Workflows lost its direct index page. -#}
+    {% set ns = namespace(target=none) %}
+    {% set direct_pages = nav_item.children | selectattr("is_page") | list %}
+    {% if direct_pages %}
+      {% set ns.target = direct_pages | first %}
+    {% endif %}
+    {% if not ns.target %}
+      {#- No direct page: fall back to the first page inside the first group. -#}
+      {% for group in nav_item.children %}
+        {% if not ns.target and group.children %}
+          {% set group_pages = group.children | selectattr("is_page") | list %}
+          {% if group_pages %}
+            {% set ns.target = group_pages | first %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% set target = ns.target %}
+    {% if target %}
+      {% set menu_id = "tabmenu-" ~ (nav_item.title | lower | replace(" ", "-") | replace("&", "and")) %}
+      <li class="{{ class }} md-tabs__item--nested">
+        {#- The label navigates. The caret is decoration plus a touch affordance:
+            the menu opens on hover and on keyboard focus, so a pointer user
+            never needs to click it. -#}
+        <a href="{{ target.url | url }}" class="md-tabs__link">{{ nav_item.title }}</a>
+        <button type="button"
+                class="md-tabs__toggle"
+                aria-expanded="false"
+                aria-controls="{{ menu_id }}"
+                aria-label="{{ nav_item.title }} menu">
+          <span class="md-tabs__caret">{% include ".icons/material/menu-down.svg" %}</span>
+        </button>
+        {#- One row per child. A PAGE gets a link. A CATEGORY gets a single
+            link to its own landing page, which is the category's first entry
+            in mkdocs.yml.
+
+            This was categories-only once before and was reverted, because a
+            category row then landed on whichever workflow happened to be first
+            and the other six were invisible from the nav. The landing pages are
+            what make it safe now: every workflow in a category is listed on the
+            page the category row goes to, and the left sidebar lists all three
+            categories and all their pages on every Workflows page. -#}
+        {#- If a tab has ANY category children, the menu is categories ONLY —
+            the tab's own overview page is already where the tab label goes, so
+            listing it again was a redundant fourth row. Flat tabs (Start Here,
+            Build Your Own, About) have no categories and keep listing pages. -#}
+        {% set has_groups = nav_item.children | rejectattr("is_page") | list | length > 0 %}
+        <ul class="md-tabs__menu" id="{{ menu_id }}">
+          {% for child in nav_item.children %}
+            {% if child.is_page and not has_groups %}
+              <li class="md-tabs__menu-item">
+                <a href="{{ child.url | url }}"
+                   class="md-tabs__menu-link{% if child.active %} md-tabs__menu-link--active{% endif %}">
+                  {{ child.title }}
+                </a>
+              </li>
+            {% elif child.children %}
+              {% set landing = child.children | selectattr("is_page") | first %}
+              {% if landing %}
+                <li class="md-tabs__menu-item">
+                  <a href="{{ landing.url | url }}"
+                     class="md-tabs__menu-link{% if child.active %} md-tabs__menu-link--active{% endif %}">
+                    {{ child.title }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
+    {% endif %}
+
+  {#- A plain tab. -#}
+  {% else %}
+    <li class="{{ class }}">
+      <a href="{{ nav_item.url | url }}" class="md-tabs__link">
+        {{ render_content(nav_item) }}
+      </a>
+    </li>
+  {% endif %}
+{% endmacro %}

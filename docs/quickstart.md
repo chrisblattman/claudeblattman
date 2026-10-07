@@ -108,14 +108,6 @@ These three principles — structure, context, and format — apply to every AI 
 
     [:octicons-arrow-right-24: Read it now](essentials/chatbots.md)
 
--   **Want the formal prompt framework?**
-
-    ---
-
-    Six sections, depth calibration, and how to make AI format your prompts for you.
-
-    [:octicons-arrow-right-24: Prompt Engineering](essentials/prompting.md)
-
 -   **Ready for the command line?**
 
     ---

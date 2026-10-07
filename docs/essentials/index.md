@@ -1,10 +1,15 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Chatbot Essentials
 
 **I don't know if I have the best habits in the world, but these ones really changed my research and my life.**
 
 !!! tip "Some very basic advice before you dive in"
 
-    Get a paid subscription to Claude or ChatGPT (or both). Always use the strongest model available — the quality gap is large. Give the AI context about who you are and what you need before diving into a request. The [Chatbots Done Right](chatbots.md) page covers the fundamentals; the [Prompt Engineering](prompting.md) page formalizes the full framework.
+    Get a paid subscription to Claude or ChatGPT (or both). Always use the strongest model available — the quality gap is large. Give the AI context about who you are and what you need before diving into a request. The [Chatbots Done Right](chatbots.md) page covers the fundamentals.
 
 ---
 
@@ -19,14 +24,6 @@
     The techniques that separate casual chatbot use from genuinely useful work. Models, context, prompts, conversations.
 
     [:octicons-arrow-right-24: Read more](chatbots.md)
-
--   **:material-text-box-edit-outline: Prompt Engineering**
-
-    ---
-
-    Prompt writing as a structured skill. The bridge between casual use and building real workflows.
-
-    [:octicons-arrow-right-24: Read more](prompting.md)
 
 -   **:material-folder-star-outline: AI Project Folders**
 

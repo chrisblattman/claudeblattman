@@ -458,8 +458,7 @@ For project management workflows that go beyond project folders — weekly revie
 
     The prompting techniques that make project files (and everything else) work better.
 
-    [:octicons-arrow-right-24: Prompt Engineering](prompting.md)
-
+    
 -   **Understand the landscape**
 
     ---
@@ -477,3 +476,5 @@ For project management workflows that go beyond project folders — weekly revie
     [:octicons-arrow-right-24: Get Started](../setup/index.md)
 
 </div>
+
+<label class="page-done"><input type="checkbox"> My folders make some semblance of sense now.</label>

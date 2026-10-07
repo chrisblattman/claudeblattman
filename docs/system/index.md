@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Build Your Own
 
 **How to create your own skills, agents, and self-improving workflows.**

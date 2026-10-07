@@ -1,6 +1,30 @@
-# MCP Setup
+---
+description: Giving the agent access to your email, documents and calendar — connectors first, which need no terminal, then MCP for what connectors don't cover.
+---
 
-MCP (Model Context Protocol) servers extend Claude Code's capabilities by connecting to external services. Once connected, Claude can read your email, search your documents, check your calendar, and more — directly from the terminal.
+# Connect your apps
+
+By default the agent can only see the folder you point it at. Connecting an app widens that: it can
+read your email, search your documents, check your calendar.
+
+There are two routes, and the easy one came along after most of this page was written.
+
+!!! warning "Try connectors first — this page is about the harder route"
+    **Connectors** are built into the app. You turn them on in its own settings, sign in through
+    the normal provider window, and set per-tool permissions. No terminal, nothing to install, a
+    few minutes. For Gmail, Google Drive and Calendar this is almost certainly what you want, and
+    it is the route the [checklists](../starter-kit/regular.md) assume.
+
+    **MCP**, which is what the rest of this page covers, is the older and more capable route. It
+    reaches things connectors don't — a Zotero library, Apple apps, WhatsApp — but it needs the
+    command line, and Google Workspace in particular means creating your own project in Google
+    Cloud Console.
+
+    Only one setting matters for safety either way: if you never want the agent sending mail on your
+    behalf, set that permission to **Blocked** rather than "needs approval". Blocked is the only
+    unambiguous stop.
+
+*As of October 2026.*
 
 !!! info "Time and difficulty"
     **Google Workspace** (Gmail, Docs, Calendar): ~45-60 minutes. The OAuth credential setup is the hardest part — it requires creating a project in Google Cloud Console. Follow each step carefully.
@@ -303,3 +327,6 @@ With MCP configured:
 
 1. **[Learn about skills](../setup/skill-reference.md)** — Automated workflows that use your MCP connections
 2. **[Browse the Skill Library](../setup/skill-reference.md)** — Pre-built skills with MCP integration
+
+<label class="page-done"><input type="checkbox"> I connected something!</label>
+<label class="page-done"><input type="checkbox"> That's everything I need connected for now.</label>

@@ -156,6 +156,7 @@ After 3–4 writing sessions of active updating, most users find the file become
 
     Structured prompts with your voice file loaded get better results than either alone.
 
-    [:octicons-arrow-right-24: Prompt Engineering](prompting.md)
-
+    
 </div>
+
+<label class="page-done"><input type="checkbox"> My agent sounds less like slop and more like me!</label>

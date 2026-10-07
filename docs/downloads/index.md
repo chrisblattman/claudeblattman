@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Downloads & Reference Library
 
 Guides, templates, and reference documents from my actual setup. Download, adapt, and use freely.
@@ -27,36 +32,6 @@ Guides, templates, and reference documents from my actual setup. Download, adapt
 ## Prompting
 
 <div class="grid cards" markdown>
-
--   **Prompt Preferences Template**
-
-    ---
-
-    *Updated February 2026*
-
-    A template for documenting your personal prompting style: standard sections, common constraints, preferred output formats, and roles. Paste into a ChatGPT or Claude project as standing instructions.
-
-    [:octicons-download-16: Download](prompt-preferences-template.md) · [:octicons-arrow-right-24: Related: Prompt Engineering](../essentials/prompting.md)
-
--   **Prompt Engineering Assistant — Instructions**
-
-    ---
-
-    *Updated March 2026*
-
-    Ready-to-paste instructions for a ChatGPT or Claude.ai Project that restructures messy input into clean prompts. Three modes: quick format, format-and-critique, and prompt pack.
-
-    [:octicons-download-16: Download](prompt-assistant-instructions.md) · [:octicons-arrow-right-24: Related: Prompt Engineering](../essentials/prompting.md)
-
--   **Prompting Best Practices Guide**
-
-    ---
-
-    *Updated February 2026*
-
-    Comprehensive reference (400+ lines) covering core principles, task-specific guidance, prompt chaining, versioning, and a quality checklist. Based on Anthropic's best practices, adapted for research and professional workflows.
-
-    [:octicons-download-16: Download](prompting-guide.md) · [:octicons-arrow-right-24: Related: Prompt Engineering](../essentials/prompting.md)
 
 </div>
 

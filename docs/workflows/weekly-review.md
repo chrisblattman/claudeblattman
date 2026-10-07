@@ -1,4 +1,7 @@
 ---
+hide:
+  - navigation
+  - toc
 description: How the weekly review skill updates a living project dashboard in Google Docs — three-marker boundaries, batch writes, and the placeholder trick that stops Google Docs from mangling emoji.
 ---
 

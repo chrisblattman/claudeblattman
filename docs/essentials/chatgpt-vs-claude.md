@@ -18,7 +18,7 @@ I pay for and use both daily. Here's an honest comparison.
 
 ## When I Use Claude
 
-**Everything in Claude Code.** The terminal-based tool that reads your files, manages your email, and runs custom skills has no real ChatGPT equivalent. If you use Claude Code, Claude is your primary AI tool by default.
+**Everything in the Code tab.** The desktop app that reads your files, manages your email, and runs custom skills has no real ChatGPT equivalent. If you use Claude Code, Claude is your primary AI tool by default.
 
 **Long-form writing and editing.** Claude consistently produces better prose — maintaining voice, following structural instructions, and providing substantive feedback.
 
@@ -49,6 +49,8 @@ See [The Cost Reality](cost.md) for a full breakdown including other tools in th
 
 **If you can afford both:** Use Claude as your primary tool and ChatGPT for Deep Research and web-heavy tasks. They're genuinely complementary.
 
-**If you're just starting:** Start with whichever one you already have. The techniques in [Chatbots Done Right](chatbots.md) and [Prompt Engineering](prompting.md) work with both.
+**If you're just starting:** Start with whichever one you already have. The techniques in [Chatbots Done Right](chatbots.md) work with both.
 
 For a detailed decision framework covering Claude Code, Claude.ai, ChatGPT, Gemini, and Perplexity, see the [Tool Limitations & When to Use What](../downloads/tool-limitations.md) guide.
+
+<label class="page-done"><input type="checkbox"> I've picked my agent!</label>

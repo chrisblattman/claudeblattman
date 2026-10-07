@@ -274,8 +274,7 @@ You probably don't need these. Add them only when you feel recurring pain in one
 
     The prompting techniques that make project files (and everything else) work better.
 
-    [:octicons-arrow-right-24: Prompt Engineering](../prompting.md)
-
+    
 -   **Understand the landscape**
 
     ---

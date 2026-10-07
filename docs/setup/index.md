@@ -2,7 +2,7 @@
 
 **The terminal is the biggest hurdle.** Once you get past it, the rest follows. No coding experience required.
 
-This section takes you from zero to a working system. If you want to see what the system *does* before setting it up, start with [Skills in Action](../workflows/index.md).
+This section takes you from zero to a working system. If you want to see what the system *does* before setting it up, start with the [workflows](../workflows/best-practices.md).
 
 ---
 

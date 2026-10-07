@@ -118,7 +118,7 @@ The Quickstart demonstrated this, but it bears repeating: structured prompts get
 **Strong prompt:**
 > *Write a 250-word abstract for an economics paper. The paper uses a randomized controlled trial to test whether cognitive behavioral therapy reduces criminal behavior among high-risk young men in a major Latin American city. Main finding: 20% reduction in arrests at 12 months, driven by changes in self-regulation rather than employment. The audience is the American Economic Review. Lead with the research question, then design, then result, then implication. Avoid jargon that wouldn't appear in a top-5 journal.*
 
-The second version takes 60 seconds longer to write and saves 20 minutes of back-and-forth. For the full six-section framework with examples, see [Prompt Engineering](prompting.md).
+The second version takes 60 seconds longer to write and saves 20 minutes of back-and-forth.
 
 ---
 
@@ -181,21 +181,11 @@ Start simple — a text file, a note in your phone. Just stop reinventing the wh
 
 Over time, this library becomes the seed of something more powerful. On this site, the [Get Started](../setup/index.md) path shows how to turn saved prompts into automated skills that run in seconds. But even without that, a simple collection of your best prompts is one of the highest-value things you can build.
 
-For a head start, download the **[Prompt Preferences Template](../downloads/prompt-preferences-template.md)** — it gives you a ready-made structure for capturing your preferred sections, constraints, output formats, and roles.
-
 ---
 
 ## Next Steps
 
 <div class="grid cards" markdown>
-
--   **Level up your prompts**
-
-    ---
-
-    Prompt engineering as a structured skill, not just tips and tricks.
-
-    [:octicons-arrow-right-24: Prompt Engineering](prompting.md)
 
 -   **Add power tools**
 

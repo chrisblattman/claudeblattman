@@ -1,141 +1,44 @@
 ---
 hide:
   - navigation
-description: A professor's open-source AI workflow system for managing research projects, email, meetings, and teams using Claude Code. Free tools, setup guides, and tutorials.
+  - toc
+description: A professor's guide to AI that works on the files on your computer, not in a chat window. Free, for researchers and managers who don't code.
 social:
   cards_layout_options:
     title: Claude Blattman
-    description: AI workflow tools for researchers & managers. Free and open source.
+    description: AI that works on your files, not in a chat box. For researchers and managers who don't code.
 ---
 
-# Claude Blattman
-
-<p class="hero-pitch">Tools I use to manage my schedule, communication, and complex projects with large teams across several countries. Examples and tutorials for productivity and sanity.</p>
-
-<div class="credibility-strip" markdown>
-By [Chris Blattman](https://chrisblattman.com), political economist at UChicago Harris. In January 2026 I started building AI workflows with Claude Code. What seemed impossible then — inbox triage, meeting capture, proposal drafting, project dashboards, trip planning — is running today. Claude Blattman isn't real, but the tools are. I've never coded in my life, so if I can do this you can.
+<div class="home-lockup" markdown>
+# Claude Blattman { .home-title }
+<p class="home-tagline">AI for professionals who don't code</p>
 </div>
 
-## What Is This?
+<p class="home-byline">By <a href="https://chrisblattman.com">Chris Blattman</a>, political economist at UChicago Harris.</p>
 
-This site covers AI tools for knowledge work — from [chatbot prompting](essentials/index.md) to advanced automation with [Claude Code](https://code.claude.com/docs/en/overview), a terminal-based AI tool that can read your files, search your email, manage your calendar, and run custom workflows. The site documents how I built a working system and shares everything so you can do the same. Here's [how I got here](about.md#how-i-got-here).
+<p class="home-lede">These are the AI tools I use to manage complex research projects with large teams across multiple countries. Claude Blattman helps me with: managing my schedule, inbox triage, meeting capture, proposal drafting, trip planning, and more.</p>
 
-!!! tip "Already a power user? Skip the tour."
-    [Skill Library](setup/skill-reference.md) — 20 skills, one-command install · [Config Templates](downloads/index.md#templates) — starter files for CLAUDE.md, email policy, voice · [GitHub Repo](https://github.com/chrisblattman/claudeblattman) — browse the source
+## What is Agentic AI, and how is it different from a chatbot?
 
-## Where to Start
+The original ChatGPT is a chatbot. You ask and answer inside a window. You copy and paste something
+into it, the chatbot responds, and you copy and paste the response back to the file or website you
+are working on.
 
-!!! example "Downloaded Claude and Codex already? Start here."
-    Use the [Desktop Agent Starter Kit](starter-kit/index.md) first. It assumes the apps are installed and walks through exactly what to open, what folder to use, and the first `/prompt` -> `/review-plan` -> `/done` loop.
+An agent works on files on your computer. You point it at a folder, say what you want, and the agent
+can: read the documents and look for information, open an existing or create a new document, make
+autonomous edits, and save the changes.
 
-!!! example "Never used AI tools? Start here — no installation required."
-    Three pages that work in any browser: [Chatbots Done Right](essentials/chatbots.md) · [Prompt Engineering](essentials/prompting.md) · [AI Project Folders](essentials/project-folders.md). Total time: 30 minutes. You'll leave with better prompts and a reusable system for any recurring task.
+## My absolute essentials for agentic work
 
-<div class="grid cards" markdown>
+<p class="essentials-line" markdown>[A desktop app](setup/index.md) · [Dictation](essentials/wispr-flow.md) · [Meeting transcription](essentials/granola.md)</p>
 
--   **:material-rocket-launch-outline: Desktop Agent Starter Kit** <span class="badge-teal">Start here</span>
+## Start here if you are
 
-    ---
+- **[New to this](starter-kit/index.md):** you've never used an agent before.
+- **[Occasional user](starter-kit/occasional.md):** you have the desktop app, but mostly use it
+  for occasional tasks.
+- **[Regular user](starter-kit/regular.md):** you use these tools regularly and want to
+  get better.
 
-    Already installed Claude and Codex? Open the apps for the first time, choose a safe practice folder, run one useful task, review the plan, and write a handoff.
-
-    [:octicons-arrow-right-24: Start the first session](starter-kit/index.md)
-
--   **:material-lightbulb-outline: New to AI Tools?** <span class="badge-teal">No Claude Code required</span>
-
-    ---
-
-    Start with the essentials: which chatbot to use, prompt engineering that works, hands-free dictation, and meeting transcription. No coding or terminal needed.
-
-    [:octicons-arrow-right-24: The Essentials](essentials/index.md)
-
--   **:material-rocket-launch-outline: Claude Code for Newbies**
-
-    ---
-
-    Set up Claude Code, configure your CLAUDE.md, connect your email and calendar, and install your first skills. Step-by-step for Mac and Windows.
-
-    [:octicons-arrow-right-24: Setup Guide](setup/index.md)
-
--   **:octicons-download-16: Get Skills & Templates**
-
-    ---
-
-    Browse 20 downloadable skills with one-command install. Starter config templates for CLAUDE.md, email policy, voice files, and more. Already have Claude Code? Start here.
-
-    [:octicons-arrow-right-24: Skill Library](setup/skill-reference.md) · [:octicons-arrow-right-24: Templates](downloads/index.md#templates)
-
--   **:material-sync: Prompt, Plan, Review, Revise**
-
-    ---
-
-    A repeatable loop: brain-dump an idea, structure it with `/prompt`, stress-test it with fresh agents via `/review-plan`, and capture what you learned with `/done`. Works on day one — no integrations needed.
-
-    [:octicons-arrow-right-24: Learn the loop](workflows/first-session-skills.md)
-
--   **:material-view-dashboard-outline: Project Management with Claude Code**
-
-    ---
-
-    A system for tracking complex projects across email, docs, meetings, and messaging. Each project gets a living dashboard with status, history, and next steps — maintained automatically from meeting transcripts and project documents.
-
-    [:octicons-arrow-right-24: Project Management Workflow](workflows/project-management.md)
-
--   **:material-email-check-outline: Executive Assistant**
-
-    ---
-
-    Email triage, morning briefings, meeting prep, post-meeting follow-up, and communication drafting. Skills that handle the daily overhead of managing a busy schedule and high-volume inbox.
-
-    [:octicons-arrow-right-24: Executive Assistant Workflow](toolkit/executive-assistant.md)
-
--   **:material-text-account: Teaching AI Your Voice** <span class="badge-teal">Claude Code optional</span>
-
-    ---
-
-    AI has a house style and it's not yours. Build a voice file that captures how you actually write — ban list, annotated examples, sentence-level rules — and load it into any chatbot or Claude Code project.
-
-    [:octicons-arrow-right-24: Build your voice file](essentials/voice.md)
-
--   **:material-sync-circle: Continuous Improvement**
-
-    ---
-
-    Tips arrive every day from X, blogs, and newsletters — a firehose. This is how I store, prioritize, and integrate them: a four-stage loop where five critics argue over each tip before any change touches CLAUDE.md, skills, or rules.
-
-    [:octicons-arrow-right-24: The continuous-improvement loop](system/continuous-improvement.md)
-
--   **:material-account-group-outline: Council of Critics**
-
-    ---
-
-    When one fresh agent isn't enough. `/council` dispatches up to five critics in parallel — skeptic, pre-mortem, methodologist, budget hawk — then a separate model synthesizes the raw outputs. Single round, hard cap five, no majority vote. Default panels for plans, papers, decisions, and grants.
-
-    [:octicons-arrow-right-24: The council pattern](workflows/council.md)
-
--   **:material-merge: Cross-vendor critics**
-
-    ---
-
-    A council of five Claudes still shares one model's blind spots. Swap a seat for Codex or Gemini and dispatch them side by side from a single command. I've caught empirical errors this way that an all-Claude council waved through. Setup, flags, and a manual paste-loop for tools without CLIs.
-
-    [:octicons-arrow-right-24: AI integration](system/ai-integration.md)
-
--   **:material-file-document-check-outline: Tax Season Case Study**
-
-    ---
-
-    A complete case study: using Claude Code to collect tax documents from email, compile deductions, and catch errors with a three-year review. What worked, what AI got wrong, and transferable patterns for any document-heavy workflow.
-
-    [:octicons-arrow-right-24: Tax Workflow](tax-workflow/index.md)
-
-</div>
-
-## What's New
-
-- **April 2026:** Continuous-improvement loop documented end-to-end (firehose framing, four-stage pipeline, the five-critic council that decides what gets in). Plus session discipline, sub-project routing, the meeting loop, weekly review, `/recall` for past-session search, and dial-back prompting. [See the full April update →](changelog.md)
-- **March 2026:** Meeting prep and follow-up skills. Updated [Executive Assistant](toolkit/executive-assistant.md) workflow with daily ritual stack.
-- **February 2026:** [Tax Season](tax-workflow/index.md) case study. Nav restructure. 13 new downloadable skills in the [Skill Library](setup/skill-reference.md).
-
-!!! tip "Stay in the loop"
-    I add new tools and guides regularly. [Get email updates](https://buttondown.email/claudeblattman) — a few times a year, no spam. Or [star it on GitHub](https://github.com/chrisblattman/claudeblattman) so others can find it. Something broken or unclear? [Send a quick note](mailto:claudeblattman+feedback@gmail.com?subject=Feedback).
+There's also a [two-month plan](starter-kit/two-month-plan.md) for working through the rest of
+Claude Blattman, one page a week.

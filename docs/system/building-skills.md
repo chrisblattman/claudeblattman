@@ -167,3 +167,5 @@ See [Patterns](patterns.md) for the full catalog.
 - **[Patterns](patterns.md)** — Reusable design patterns and quality checklist
 - **[Skill Library](../setup/skill-reference.md)** — Study existing skills as examples
 - **[Skill Design Patterns](../downloads/skill-patterns.md)** — Downloadable reference with archetypes, quality checklist, and performance logging conventions (February 2026)
+
+<label class="page-done"><input type="checkbox"> I built a skill!</label>

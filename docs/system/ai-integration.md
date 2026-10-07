@@ -169,3 +169,5 @@ What goes wrong, in order of likelihood:
 - **[`/council`](../workflows/council.md)** — the council pattern this page extends.
 - **[Continuous Improvement](continuous-improvement.md)** — the tips pipeline uses Grok via the manual paste-loop and `/tips-integrate` uses an all-Claude five-persona council. Useful contrast.
 - **[Prompt, plan, review, revise](../workflows/first-session-skills.md)** — where one-shot `/codex` and `/gemini` sit in the broader loop.
+
+<label class="page-done"><input type="checkbox"> I called in a second opinion!</label>

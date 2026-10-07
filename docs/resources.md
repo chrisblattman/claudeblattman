@@ -1,3 +1,7 @@
+---
+hide:
+  - navigation
+---
 # Resources
 
 A curated collection of the resources, tools, and reference implementations that shaped this project. Each entry includes a brief summary of what's useful and why I found it worth your time.
@@ -78,7 +82,7 @@ Anthropic's official collection of example Agent Skills — the first-party refe
 
 [:octicons-link-external-16: docs.anthropic.com](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering)
 
-Anthropic's own guide to writing effective prompts. More technical than what I cover in my [Essentials section](essentials/prompting.md), but worth reading if you want to understand the mechanics. I adapted several patterns from here into my prompt formatting skills.
+Anthropic's own guide to writing effective prompts. More technical than this site goes, but worth reading if you want to understand the mechanics. I adapted several patterns from here into my prompt formatting skills.
 
 ### MCP (Model Context Protocol)
 

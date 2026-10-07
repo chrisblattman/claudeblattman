@@ -16,9 +16,9 @@
       "sha256": "9bead76ba194bd545c25df2984df314cfe7b2d1e89eb7fe621c2f6e054a42780"
     },
     {
-      "bytes": 280,
+      "bytes": 327,
       "path": ".gitignore",
-      "sha256": "738280fa32c3d9aa55aadd5c9c1c651c7badd7c7fab1cd9dae2bc0c23920c7e1"
+      "sha256": "2ab62afb8c8e5f70b2a9de4a9b3dcb3a376af00f9568951e77ed969ddf2827c6"
     },
     {
       "bytes": 2839,
@@ -66,9 +66,9 @@
       "sha256": "80b699951fcd79c42acb91048ac89d0e6f04cd7916e41fa5b63fdeb1d32e8af5"
     },
     {
-      "bytes": 8148,
+      "bytes": 2076,
       "path": "docs/index.md",
-      "sha256": "aaa5628cb975b8578f5a93ae1e602bcc8669cbd03d8bae4f17a1c22ae9db2e7a"
+      "sha256": "875104b50eee0ef313ed08bdd17cf375ffa5e981da5e4392e8fe7bd230617a3f"
     },
     {
       "bytes": 35649,
@@ -76,24 +76,39 @@
       "sha256": "8aefa90a74c86ea71b6c7204c669657e704de2e7c90061e6b82eaa84d72f67af"
     },
     {
-      "bytes": 553,
+      "bytes": 582,
       "path": "docs/skills/school-digest-raw-materials.md",
-      "sha256": "5e9f864cad9c6a6baa6a7f151d99ba9ab1a9eb6a107d5cb164ae5d4b747c3295"
+      "sha256": "c16a04994a5140a81d337d3860304233742a194cb4734a29c023cbdfb6a721e9"
     },
     {
-      "bytes": 20461,
+      "bytes": 12954,
       "path": "docs/starter-kit/index.md",
-      "sha256": "06539a739fa2f78881c452e34feacb9b9e2cbb59c0b1a80361f8acbb90eb5787"
+      "sha256": "bb63673edd12ece069c4eaa5969126c3235762bf1e95860ab059c2d66341e95b"
     },
     {
-      "bytes": 15432,
+      "bytes": 15434,
+      "path": "docs/starter-kit/occasional.md",
+      "sha256": "ffec9b775fefec8426cbe2434b67434c5ddf1fa488293ca4c4a0ed917da5b4d2"
+    },
+    {
+      "bytes": 19120,
+      "path": "docs/starter-kit/regular.md",
+      "sha256": "fd328efc597ac6cb3524aa469b07cfed7ea0407c283ddc098fe228af060c6e9d"
+    },
+    {
+      "bytes": 11931,
+      "path": "docs/starter-kit/two-month-plan.md",
+      "sha256": "21968d9dcdead9b99993dfcf48b9ee4772ccddb0f0aeed5bf60e562d5ac23cdd"
+    },
+    {
+      "bytes": 73435,
       "path": "docs/stylesheets/extra.css",
-      "sha256": "8289a0e7375fb5c56320bd3cc4f18efa7542393879da2effb3070bf50384297e"
+      "sha256": "913b80880a1c7e84500028c483a1ce1a83f9ab48533acff52d7680f4aa259de8"
     },
     {
-      "bytes": 5791,
+      "bytes": 10142,
       "path": "mkdocs.yml",
-      "sha256": "7feb844471a6f5fc8e825ce15addedba9e322b50df4bfe812a8a92a7e97712cb"
+      "sha256": "bd954e570734372bab219ddfbe98db4b912c1842370b1c68c8ef1e5def8ebfdc"
     },
     {
       "bytes": 426,
@@ -224,6 +239,16 @@
       "bytes": 2503,
       "path": "scripts/emit-public.sh",
       "sha256": "377cb6aa867faab411dfce6e7ba07478ca9b4147e8e72f6729827bb7ec236453"
+    },
+    {
+      "bytes": 2794,
+      "path": "scripts/page-dossier.py",
+      "sha256": "501c2f88352a2325f69927b74a23593741506411cef29ba87e79606fd15814ea"
+    },
+    {
+      "bytes": 949,
+      "path": "scripts/stamp-css.py",
+      "sha256": "8d28b85dc501df4093598b8c2b019e0845bfacf4b1fc9fb67a37cfc91310aed3"
     },
     {
       "bytes": 6777,

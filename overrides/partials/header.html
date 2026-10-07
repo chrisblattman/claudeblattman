@@ -19,17 +19,16 @@
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
-          <span class="md-ellipsis">
-            {{ config.site_name }}
+          <span class="md-ellipsis md-header__wordmark">
+            {#- Just the name. The full site_name carries a tagline after a
+                middot, far too long for an uppercase display line. -#}
+            <a href="{{ nav.homepage.url | url }}">{{ config.site_name.split('·')[0] | trim }}</a>
           </span>
         </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" style="color: inherit; text-decoration: none;">
-              Home
-            </a>
-          </span>
-        </div>
+        {#- Material swaps to a SECOND .md-header__topic on scroll — that is what
+            replaced the wordmark with the word "Home" partway down a page. There
+            is no second topic now, so the wordmark stays put. It links to the
+            homepage, as does the house icon on the nav row below it. -#}
       </div>
     </div>
     {% if config.theme.palette %}
@@ -53,11 +52,9 @@
         {% include "partials/search.html" %}
       {% endif %}
     {% endif %}
-    {% if config.repo_url %}
-      <div class="md-header__source">
-        {% include "partials/source.html" %}
-      </div>
-    {% endif %}
+    {#- The repo block is on the nav row, in overrides/partials/tabs.html, sized
+        to match this search field. X lives in the footer, where extra.social
+        already renders it. -#}
   </nav>
   {% if "navigation.tabs.sticky" in features %}
     {% if "navigation.tabs" in features %}

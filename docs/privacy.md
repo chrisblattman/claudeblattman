@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Privacy
 
 *Last updated: February 2026*

@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Project Folders for Work
 
 *Part of [AI Project Folders](../project-folders.md)*

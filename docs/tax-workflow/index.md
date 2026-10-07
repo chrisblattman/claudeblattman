@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Using Claude Code for Tax Season
 
 *Claude Blattman — not quite a CPA.*
