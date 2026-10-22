@@ -1,0 +1,36 @@
+{
+  "name": "starter-kit-codex",
+  "version": "0.2.0",
+  "description": "Independent council perspectives, optional outside opinions, setup checks, and session handoffs.",
+  "author": {
+    "name": "Chris Blattman",
+    "url": "https://claudeblattman.com"
+  },
+  "homepage": "https://claudeblattman.com/starter-kit/",
+  "license": "MIT",
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "repository": "https://github.com/chrisblattman/claudeblattman",
+  "keywords": [
+    "council",
+    "workflow",
+    "review",
+    "handoff"
+  ],
+  "extensions": {
+    "com.openai": {
+      "requires_local_executor": true,
+      "interface": {
+        "displayName": "Starter Kit for Codex",
+        "shortDescription": "Councils and session handoffs",
+        "longDescription": "Independent council perspectives, optional outside opinions, setup checks, and session handoffs.",
+        "developerName": "Chris Blattman",
+        "category": "Productivity",
+        "capabilities": [],
+        "defaultPrompt": "Help me use the starter kit for this project.",
+        "websiteURL": "https://claudeblattman.com/starter-kit/",
+        "logo": "./assets/icon-512.png",
+        "composerIcon": "./assets/icon-512.png"
+      }
+    }
+  }
+}

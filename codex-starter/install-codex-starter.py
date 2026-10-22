@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the Codex starter pack: one global AGENTS.md plus four skills.
+"""Install the Codex starter pack: five skills; optional global guidance.
 
 Run from inside the pack folder:
 
@@ -31,20 +31,19 @@ from pathlib import Path
 
 PACK_NAME = "claude-blattman-codex-starter"
 PACK_ROOT = Path(__file__).resolve().parent
-STATE_ROOT = Path.home() / ".codex" / "managed" / PACK_NAME
+TARGET_ROOT = Path.home() / ".codex"
+STATE_ROOT = TARGET_ROOT / "managed" / PACK_NAME
 RECORD_PATH = STATE_ROOT / "installed.json"
 
 MANIFEST = [
-    {"source": "global/AGENTS.md", "destination": "~/.codex/AGENTS.md", "type": "file"},
-    {"source": "skills/prompt", "destination": "~/.codex/skills/prompt", "type": "directory"},
-    {"source": "skills/review-plan", "destination": "~/.codex/skills/review-plan", "type": "directory"},
-    {"source": "skills/done", "destination": "~/.codex/skills/done", "type": "directory"},
-    {"source": "skills/ask-agents", "destination": "~/.codex/skills/ask-agents", "type": "directory"},
+    {"source": "skills/" + name, "destination": "~/.codex/skills/" + name, "type": "directory"}
+    for name in ("council", "kit-hello", "kit-setup", "ask-agents", "done")
 ]
 
 
+
 def expand(path_text):
-    return Path(os.path.expanduser(path_text))
+    return TARGET_ROOT / path_text.removeprefix("~/.codex/") if path_text.startswith("~/.codex/") else Path(os.path.expanduser(path_text))
 
 
 def file_hash(path):
@@ -137,7 +136,7 @@ def record_item(item, destination, src_hash, dst_hash, restore_path):
 def cmd_install():
     record = load_record()
     recorded = {entry["destination"]: entry for entry in record.get("items", [])}
-    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
     new_items = []
     for item in MANIFEST:
         source = PACK_ROOT / item["source"]
@@ -170,7 +169,7 @@ def cmd_install():
     save_record(new_items)
     print("")
     print("Done. Restart Codex so it picks up the skills, then invoke them by")
-    print("name in any session: $prompt  $review-plan  $done  $ask-agents")
+    print("name in any session: /council  /kit-hello  /kit-setup  /ask-agents  /done")
     return 0
 
 
@@ -218,7 +217,7 @@ def cmd_uninstall():
     if not items:
         print("Nothing to uninstall (no install record found).")
         return 0
-    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
     for item in items:
         destination = Path(item["destination"])
         if destination.exists():
@@ -245,14 +244,27 @@ def cmd_uninstall():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Install or remove the Codex starter pack (AGENTS.md + four skills)."
+        description="Install or remove five Codex starter skills."
     )
     parser.add_argument(
         "command",
         choices=["install", "status", "verify", "uninstall"],
         help="install: copy into place; status: preview; verify: check; uninstall: remove",
     )
+    parser.add_argument("--target-root", type=Path, help="Explicit install root, useful for isolated tests")
+    parser.add_argument("--include-global-guidance", action="store_true", help="Also install the optional global AGENTS.md")
     args = parser.parse_args()
+    global TARGET_ROOT, STATE_ROOT, RECORD_PATH
+    if args.target_root:
+        TARGET_ROOT = args.target_root.resolve()
+        STATE_ROOT = TARGET_ROOT / "managed" / PACK_NAME
+        RECORD_PATH = STATE_ROOT / "installed.json"
+    if args.include_global_guidance:
+        MANIFEST.append({"source": "global/AGENTS.md", "destination": "~/.codex/AGENTS.md", "type": "file"})
+    if args.command in ("install", "status"):
+        for retired in ("prompt", "review-plan"):
+            if (TARGET_ROOT / "skills" / retired).exists():
+                print(f"Retired starter skill still present: {retired}; preserving it for explicit migration.")
     if args.command == "install":
         return cmd_install()
     if args.command == "status":

@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "skills": [
+    "council",
+    "kit-hello",
+    "kit-setup",
+    "ask-agents",
+    "done"
+  ],
+  "description": "Independent council perspectives, optional outside opinions, setup checks, and session handoffs.",
+  "status": "local councils supported; provider-balanced Light/Full not bundled"
+}

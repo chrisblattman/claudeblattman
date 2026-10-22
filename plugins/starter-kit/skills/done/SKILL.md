@@ -1,28 +1,10 @@
 ---
 name: done
-description: "Close out a work session: write a short HANDOFF.md snapshot so the next session picks up where this one left off. Run at the end of any substantive session."
+description: Save a short HANDOFF.md so the next session can resume. Use when the user asks to wrap up, finish, or capture the session.
 ---
 
-# Done — end-of-session handoff
+# Save the handoff
 
-Close out this session. Plain Write tool only — no scripts, no state files, no routing logic. Everything stays in the current folder.
+Write `HANDOFF.md` in the current project folder as a snapshot of at most 30 lines. Replace its previous snapshot; do not append a transcript. Use Status, Next steps, Key files, and Decisions sections. Put the next actionable step first and include the current deliverable and relevant council archive. Distinguish completed work from blocked or untested work. Preserve the decisions that explain the current state.
 
-1. **Summarize the session from the conversation:** what we worked on, where it stands, what was decided, and the next concrete steps.
-
-2. **Overwrite `./HANDOFF.md`** — it's a snapshot, not a log, so replace the whole file. 30 lines maximum, exactly these sections:
-
-   ```
-   # Handoff — <project>
-
-   ## Status
-   ## Next steps
-   - [ ] <one concrete step a fresh session could start on without asking questions>
-   ## Key files
-   ## Decisions
-   ```
-
-   A few short lines per section. Next steps are checkboxes, most important first; leave finished items out. Key files = the handful of files the next session should open first.
-
-3. **If `./SESSION_LOG.md` exists**, also append a dated entry of 3–6 bullets — what happened this session. Append at the end; never edit earlier entries. (If the file doesn't exist, skip this — don't create it.)
-
-4. **End by telling the user:** "Next session, open this folder and I'll read HANDOFF.md to pick up where we left off."
+If `SESSION_LOG.md` already exists and project instructions authorize session logging, append a short dated entry; otherwise do not create or modify a log. Show the user the handoff path and explain how to resume. Do not publish, commit, change global instructions, or contact other people as part of this skill.

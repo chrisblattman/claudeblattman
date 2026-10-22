@@ -25,6 +25,9 @@ release_surfaces=(
   "README.md"
   ".gitignore"
   ".claude-plugin"
+  ".agents/plugins/marketplace.json"
+  "starter-kit-source"
+  "plugins/starter-kit-codex"
   "plugins/starter-kit"
   "codex-starter"
   "docs/starter-kit"
@@ -66,7 +69,7 @@ for line in file_list.read_text(encoding="utf-8").splitlines():
 
 manifest = {
     "schema_version": 1,
-    "release": "starter-kit-v0.1.1",
+    "release": "starter-kit-v" + json.loads(Path("starter-kit-source/package.json").read_text())["version"],
     "mode": "public-repo-authored",
     "note": "v0.1 records the exact public starter-kit release surface. Broader private-to-public skill emission is deferred.",
     "files": files,
@@ -89,5 +92,5 @@ if [ "$mode" = "--check" ]; then
 fi
 
 mv "$manifest_tmp" public-manifest.json
-printf 'Wrote public-manifest.json for starter-kit-v0.1.1.\n'
+printf 'Wrote public-manifest.json.\n'
 scripts/check-public-release.sh

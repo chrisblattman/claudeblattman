@@ -13,4 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: bash scripts/emit-public.sh --check
+      - run: python3 scripts/build-starter-plugins.py --check
+      - run: python3 scripts/test-starter-packages.py
       - run: bash scripts/check-public-release.sh

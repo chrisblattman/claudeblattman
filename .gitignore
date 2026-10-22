@@ -16,3 +16,9 @@ godaddy-setup.md
 .sanitize-names.local
 .sanitize-private-blocklist.local
 .cache/
+
+# Public handoff templates shipped inside the starter packages
+!starter-kit-source/**/HANDOFF.md
+!plugins/starter-kit/**/HANDOFF.md
+!plugins/starter-kit-codex/**/HANDOFF.md
+!codex-starter/skills/**/HANDOFF.md

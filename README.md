@@ -24,25 +24,31 @@ No coding background required. Everything is built with markdown and AI tools.
 
 ## Quick Start
 
-New to the desktop agent apps? Start with the **Desktop Agent Starter Kit**:
+The **Starter Kit 0.2.0** provides the same five skills in Claude Code and Codex: council, kit-hello, kit-setup, ask-agents, and done. Choose the plugin for your app. Both are generated from one shared source.
 
-1. Install Claude Code, then sign in.
-2. In Claude Code, add and install the starter plugin:
+**Claude Code:** run these in the Claude Code conversation:
 
-   ```text
-   /plugin marketplace add chrisblattman/claudeblattman
-   /plugin install starter-kit@claudeblattman
-   ```
-
-3. After your first Claude Code handoff, optionally install the Codex starter pack:
-
-```bash
-git clone https://github.com/chrisblattman/claudeblattman.git
-cd claudeblattman/codex-starter
-python3 install-codex-starter.py install
+```text
+/plugin marketplace add chrisblattman/claudeblattman
+/plugin install starter-kit@claudeblattman
 ```
 
-Then follow [Start Here: Desktop Agent Starter Kit](https://claudeblattman.com/starter-kit/).
+**Codex:** with the Codex CLI installed, run these in your terminal:
+
+```sh
+codex plugin marketplace add chrisblattman/claudeblattman
+codex plugin add starter-kit-codex@claudeblattman
+```
+
+These commands add this repository as a plugin marketplace. They do not require finding the kit in a public plugin directory. Restart your app/session after installation, then select `kit-hello` from its skill picker to check the files. If your client does not support plugin installation, the [manual Codex installer](codex-starter/README.md) is also available.
+
+Council requires Python 3 and an agent client with native subagent support. The default is **three independent local members: pre-mortem, skeptic, and completeness checker**, followed by a separate fresh synthesis worker. Chief of Staff is bundled but added only on request as a fourth member.
+
+Try `Use a council to review this proposal.` To include the optional member: `Use a council with Chief of Staff to review this proposal.` You can also select the council skill from your app's skill picker (Claude Code's plugin command is `/starter-kit:council`). Ask for another council to review the resulting work in a new run. An explicitly requested adversarial review adds a separate local reviewer before synthesis.
+
+Chris's cross-provider **Light/Full** runtime is not included. The optional Ask Agents skill obtains outside opinions; it does not enable those council modes.
+
+**Upgrading:** this release replaces the bundled `/prompt` and `/review-plan` skills with the council workflow. The manual installer preserves existing user-owned copies. The website guides are being revised separately; this package README describes the skills available in 0.2.0.
 
 The older `skills/` library remains available as advanced/reference material,
 but it is not the recommended first-run path.

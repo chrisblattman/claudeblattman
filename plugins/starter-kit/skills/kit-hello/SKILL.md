@@ -1,11 +1,10 @@
 ---
 name: kit-hello
-description: Smoke-test skill for the starter kit. Confirms the plugin installed and skills load. Use when the user runs /kit-hello or asks to verify the starter kit installation.
+description: Verify the starter kit's installed skill files and version, and explain the next step. Use when the user runs kit-hello or asks whether installation worked.
 ---
 
-# Kit Hello — installation check
+# Check the installation
 
-You are confirming the claudeblattman starter kit is installed and working.
+Read `references/package.json` and `references/host.md` next to this skill. Inspect the neighboring skill folders: `council`, `kit-hello`, `kit-setup`, `ask-agents`, and `done` must each contain `SKILL.md`. Check Council's `scripts/council.py`, policy, synthesis reference, and three default persona files plus the optional Chief of Staff persona. Do not modify files or call external services.
 
-1. Reply with exactly one short paragraph: confirm the starter-kit plugin is installed, state the plugin version (0.1.1), and tell the user the next step is to open a safe practice folder and run the first `/prompt` from the Starter Kit page. Say `/kit-setup` is optional later for Codex/Gemini second opinions.
-2. Do not read or modify any files.
+Report the actual packaged version and any missing files. Distinguish files found from a tested runtime: this check does not prove subagent dispatch or external authentication. If intact, invite the user to open a practice project and try `/council` on a small real task. Explain that the default is three local members and `/kit-setup` checks optional outside connections. Do not advertise Light/Full as operational while the Council runtime status says otherwise. Never hardcode a version or claim a missing skill is installed.

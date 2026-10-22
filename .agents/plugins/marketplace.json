@@ -1,0 +1,20 @@
+{
+  "name": "claudeblattman",
+  "interface": {
+    "displayName": "Claude Blattman Starter Kit"
+  },
+  "plugins": [
+    {
+      "name": "starter-kit-codex",
+      "source": {
+        "source": "local",
+        "path": "./plugins/starter-kit-codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

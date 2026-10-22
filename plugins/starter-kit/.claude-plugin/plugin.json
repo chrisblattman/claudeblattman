@@ -1,7 +1,7 @@
 {
   "name": "starter-kit",
-  "version": "0.1.1",
-  "description": "A beginner-friendly desktop-agent workflow: shape rough requests, review plans before acting, and leave handoff notes. Optional second opinions work when Codex or Gemini are already set up.",
+  "version": "0.2.0",
+  "description": "Independent council perspectives, optional outside opinions, setup checks, and session handoffs.",
   "author": {
     "name": "Chris Blattman",
     "url": "https://claudeblattman.com"

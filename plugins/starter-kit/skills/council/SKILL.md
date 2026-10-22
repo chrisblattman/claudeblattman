@@ -1,128 +1,66 @@
 ---
 name: council
-description: Dispatch a small panel of critic agents in parallel on a plan, draft, or decision, then synthesize their raw critiques in a separate fresh-context pass. Use when the user asks for a council, a panel of critics, or a multi-angle review.
-argument-hint: <topic or file:path> [--panel a,b,c] [--n 3] [--type plan|decision] [--peer codex|gemini]
+description: Develop or review a plan, draft, workflow, decision, or argument using independent council members and a fresh synthesis. Use for an explicit council request, including dictated counsel. Discussing councils alone is not an invocation.
 ---
 
-# /council — Parallel Critics, Then a Separate Synthesis
+# Council
 
-Dispatch 3–4 critic agents in parallel on the same input, collect their raw critiques, then run ONE synthesis pass in a fresh context. Hard cap: 4 critics. Single round only — critics speak once, the synthesizer reads once. Never turn the critiques into a majority vote.
+Read `references/host.md`, `references/policy.json`, and `references/synthesis.md` next to this skill. These files and this workflow are generated from one source for both apps. Do not invoke a separate prompt formatter or the Ask Agents conversational workflow.
 
-Why this shape:
-- **Parallel, not sequential** — independent critics with different lenses catch different problems, and nobody anchors on whoever spoke first.
-- **One round only** — no debate or rebuttals. Multi-round AI debate drifts toward consensus, not accuracy.
-- **Separate synthesis** — a fresh-context pass reads the critiques as data instead of being swayed by the conversation that produced them.
+## Select the run
 
-## The four shipped critics
+The starter default, explicitly chosen for beginners, is **three local members**: skeptic, pre-mortem, and completeness checker. Read their complete definitions in `references/personas/`. Label this a **local custom council**, not Chris's provider-balanced Light mode. Use three fresh workers in the current app; the orchestrating conversation is not a council member.
 
-| Critic | Lens |
-|--------|------|
-| `skeptic` | Wishful thinking — which load-bearing claims aren't backed by evidence? |
-| `pre-mortem` | Works backward from failure — the top 3 ways this fails |
-| `completeness-checker` | What's missing that a domain expert would expect? |
-| `chief-of-staff` | What's the actual decision, and what does saying yes cost the user? |
+Honor an explicit provider/count/lens request; never reinterpret it as the default. The archive helper supports the three default local members, plus **Chief of Staff as an optional fourth member only when explicitly requested**. Never add or substitute Chief of Staff automatically, even for decisions. Pass `--chief-of-staff` to `plan` when the user asks to include it. If the requested custom panel differs, explain that limitation and offer a supported run only with the user's agreement; do not silently add services, change counts, or call it balanced. Clarify only material ambiguity. Do not require an existing draft: members can independently develop an answer or propose an approach against the same brief.
 
-Persona files live at `${CLAUDE_PLUGIN_ROOT}/agents/<name>.md`.
+Chris's explicit **Light** means one Claude, one Codex, and one Gemini member, followed by fresh synthesis. **Full** means two per provider, then a fresh adversary, then fresh synthesis. Different providers can run concurrently; two Full members from one provider run sequentially. These counts, lenses, and chair rules are preserved in `references/policy.json`.
 
-## Default panels
+**Current runtime boundary:** this starter ships the local native-worker route. Chris's audited balanced runtime (including Gemini through Antigravity, model-pinned execution, and bound chair receipts) has not been ported into this starter kit. If Light/Full is requested, explain this specific missing dependency before launching anything. Offer the supported local council or an explicitly labeled custom outside opinion only if the user chooses it. Do not feed a starter manifest into Chris's incompatible resolver/runner, use Gemini CLI as its replacement, or claim that installing Ask Agents enables audited Light/Full. See `references/runtime-status.md`.
 
-| Task type | Panel | N |
-|-----------|-------|---|
-| Plan / architecture / workflow review | skeptic, pre-mortem, completeness-checker | 3 |
-| Decision support ("should I…") | skeptic, pre-mortem, chief-of-staff | 3 |
+## Prepare a neutral brief and durable archive
 
-Paper and grant-proposal panels need additional personas — future release. If the user asks for one, say so and offer the plan panel as the closest fit.
+Preserve the user's question verbatim; add a neutral evidence index, governing constraints, requested output, and stated success criteria. Do not insert the host's preferred answer, invent requirements, or rewrite an ambiguous objective into a different task. Ask about a missing fact only when it materially changes the work. Stable source files remain at original paths; do not recursively copy source folders. Declare intentionally mutable files or directory pointers as live evidence.
 
-Inferring the type when `--type` isn't given: "plan / design / architecture / workflow" → plan; "should I / decide / go or no-go / accept or reject" → decision; unclear → ask one line: "Is this a plan review or a decision?"
+Write the brief to a temporary file, then use the bundled helper (Python 3):
 
-## When NOT to run a council
+```text
+python3 <skill-directory>/scripts/council.py plan --host <claude|codex> --mode local --brief-file <brief.md> --output <project>/council/YYYY-MM-DD_topic --evidence <stable-file>
+```
 
-- Quick lookups, single-file edits, casual brainstorming — just answer.
-- Inputs under ~50 words of substance — there isn't enough for three critics to disagree about. Offer a quick single review instead.
-- If it's unclear whether the user wants a council run or is just discussing councils as a topic, ask one line before dispatching.
+Repeat `--evidence` as needed; use `--live-evidence` for intentionally mutable sources or directory pointers. The output directory must be new; use a fresh suffix for another run on the same date. The helper freezes `PROMPT.md`, `MANIFEST.json`, `MANIFEST.md`, exact `seat-prompts/`, and the evidence identities. It creates private `raw/` and `reports/` directories. Keep these project records out of public releases.
 
-## Steps
+## Independent work
 
-### 1. Parse and resolve
+Dispatch each generated seat prompt unchanged through the host's native subagent mechanism in `references/host.md`. Give each worker the shared task and evidence, complete assigned lens, and its unique report path. Do not give members earlier answers or other members' reports. Each worker can choose its research depth and useful specialist checks; discourage recreating the entire panel. Do not add arbitrary turn, time, spending, token, or output ceilings. Honor the host's actual permissions and user restrictions; never weaken them to mimic Chris's machine.
 
-1. Identify the input. If `file:<path>` is given, Read that file — its content is what the critics review. Otherwise the topic is the text or recent conversation content the user pointed at.
-2. Resolve the panel: explicit `--panel` wins; else `--type`; else infer from keywords; else ask.
-3. Cap at 4 critics. If the user asks for more: "Hard cap is 4 — more voices adds noise, not signal. Pick a tighter panel."
+Members analyze and report; they do not revise source artifacts or shared control files. Wait for actual completion. Save each full answer exactly as returned, including partial substantive content and separate additional deliveries. Preserve execution identifiers and observable model facts without inventing telemetry. Record each terminal outcome:
 
-### 2. Check the persona files exist
+```text
+python3 <skill-directory>/scripts/council.py record --run <archive> --seat skeptic --state succeeded --report-file <exact-report.md> --execution-id <actual-worker-id>
+```
 
-For each persona in the panel, Glob `${CLAUDE_PLUGIN_ROOT}/agents/<name>.md`. If any file is missing, stop with a clear message:
+Use the other seat IDs printed by `plan`; `failed`, `blocked`, and `partial` are also supported. Include `--note` for execution/access caveats and repeat `--addendum-file` for separate additional deliveries. The helper copies the full report without overwriting an earlier delivery and checks stable evidence for changes. A partial report or failed execution remains available to synthesis, not a successful vote. Do not rerun merely to obtain cleaner formatting. An unavailable native subagent facility is a blocker; never impersonate three members in the host conversation.
 
-> "Council can't run: the persona file for `<name>` is missing from the starter-kit plugin. Reinstalling the plugin usually fixes this, or pass `--panel` with personas that exist."
+## Challenge and fresh synthesis
 
-No silent substitutions for missing personas.
+For the default local run, go directly to synthesis. An explicit request for a dedicated challenge may add a fresh adversary after the independent reports, before synthesis; it remains a custom run. Request it with `plan --adversarial`. This follows the audited ordering and does not make a local panel Full. Do not launch an adversary when independent reports are incomplete or their evidence changed; disclose the omission and synthesize available reports with limitations.
 
-### 3. Optional peer swap (`--peer codex` or `--peer gemini`)
+```text
+python3 <skill-directory>/scripts/council.py packet --run <archive> --stage adversary
+python3 <skill-directory>/scripts/council.py record --run <archive> --stage adversary --state succeeded --report-file <exact-report.md> --execution-id <actual-worker-id>
+python3 <skill-directory>/scripts/council.py packet --run <archive> --stage synthesis
+```
 
-By default all critics are Claude agents — that works with zero extra setup. `--peer` swaps ONE critic for a different AI engine, so the panel isn't all one model family.
+Use each exact frozen `STAGE_PROMPT.md` with a new worker. Packets use anonymous report labels, preserve distinct deliveries as one member's contribution, and include source/verification caveats. Never edit raw reports to force agreement. The adversary checks shared assumptions, source errors, missing alternatives, minority major findings, and unsupported compromises; it does not vote or synthesize. Record an adversarial failure once; do not keep retrying it.
 
-0. **Privacy check and explicit confirmation (required).** A peer critic sends the full input to another AI service. If the input contains confidential records, personal contact details, research-participant or human-subjects data, or anything the user wouldn't paste into a public website — skip the peer swap, say why in one sentence, and run the all-Claude panel. If the privacy check passes, ask: "Send this plan to Codex/Gemini as one council critic? (yes/no)" Proceed with the peer critic only if the user answers yes; otherwise run the all-Claude panel.
+The synthesizer compares reasons and evidence, distinguishes agreement from truth, preserves major minority findings, and labels its own inferences. It produces the requested useful result or recommendation with unresolved questions and decisions for the user. Follow `references/synthesis.md`. The host does not perform this stage inline. Record synthesis through the same helper, which writes `SYNTHESIS.md`. A failed primary permits the one predeclared fresh fallback in the manifest; record both attempts. If both fail, return clearly labeled unsynthesized reports without a council verdict. Do not silently turn a failed external provider into the host's answer.
 
-1. Read `~/.claude/starter-kit/engines.json` (written by `/kit-setup`). The engine counts as available only if ALL of these hold:
-   - the file exists and parses as JSON (missing or broken file = every engine unavailable — that's normal, not an error),
-   - the engine's top-level entry (`codex` or `gemini`) has `"available": true` — the flat schema in `${CLAUDE_PLUGIN_ROOT}/references/engines-contract.md` is the only one,
-   - `command -v codex` (or `command -v gemini`) still finds the CLI — the config can go stale; the live check wins.
+```text
+python3 <skill-directory>/scripts/council.py status --run <archive>
+```
 
-   If any check fails, print exactly:
+Show the actual completed/failed members, source limitations, challenge status, synthesis result, and durable synthesis link. The portable helper verifies file integrity, not independently observed provider identity or every source read. Never describe it as Chris's certified balanced execution.
 
-   > "Running on Claude only — that's the normal setup and everything here works. (Have ChatGPT or Gemini? Run /kit-setup to plug them in.)"
+## Revision and another run
 
-   and continue with the all-Claude panel.
-
-2. If the engine is available, pick the critic it replaces: `codex` replaces `skeptic` (closest overlap — rigor and failure-finding); `gemini` replaces `completeness-checker` (broad coverage). If the replaced persona isn't in the panel, replace the last critic in the panel.
-
-3. Build the peer prompt: the replaced persona's role and output shape (from its persona file), the same input the Claude critics get, and the line "End with VERDICT: APPROVE or REVISE + brief rationale. Do not reconcile with other critics — a separate synthesizer does that."
-
-4. Create two temp files in one Bash call — `echo "$(mktemp /tmp/council-peer-prompt.XXXXXX) $(mktemp /tmp/council-peer-out.XXXXXX)"` — note both paths, then use the Write tool to put the peer prompt in the first one.
-
-5. In Step 4's parallel message, include ONE Bash call alongside the Task calls:
-
-   ```bash
-   bash "${CLAUDE_PLUGIN_ROOT}/scripts/codex-run.sh" <out-file> < <prompt-file>
-   # or, for gemini:
-   bash "${CLAUDE_PLUGIN_ROOT}/scripts/gemini-run.sh" <out-file> < <prompt-file>
-   ```
-
-6. If the script fails or reports the engine unavailable, don't fail the council — note "peer critic unavailable, continuing with Claude critics" and synthesize from the critics that did return.
-
-### 4. Dispatch the critics in parallel
-
-Print one status line first: `<panel-type> panel: dispatching N critics`
-
-Then send ONE message containing all N Task calls — one message is what makes them run in parallel. Each call:
-- `subagent_type`: `starter-kit:<name>` (plugin agents are namespaced, e.g. `starter-kit:skeptic`)
-- `description`: 3–5 words (e.g. "Skeptic reviews plan")
-- `prompt`: the full input from Step 1, plus: "Produce your structured critique in your persona's output shape (findings, score, blockers). End with VERDICT: APPROVE or REVISE + one line of rationale."
-
-Fallback: if dispatch fails because the `starter-kit:<name>` agent type isn't found, Read the persona file and re-dispatch as `subagent_type: general-purpose` with the persona file's full content prefixed to the prompt as the role.
-
-No `model` parameter — critics run on whatever model the session is using. That's deliberate: the kit works on any plan without special access.
-
-### 5. Collect
-
-Collect the raw critic outputs (and Read the peer's out-file, if one ran). Do NOT summarize or reconcile them yourself — that happens in a fresh context, next.
-
-### 6. Separate synthesis pass (mandatory — never skip, never inline)
-
-Dispatch ONE more Task call:
-- `subagent_type`: `general-purpose` (fresh context — the synthesizer must not see this conversation)
-- `prompt` containing, in order:
-  1. An instruction to first Read the synthesis template at `${CLAUDE_PLUGIN_ROOT}/references/council-synthesis.md` and follow it. Resolve `${CLAUDE_PLUGIN_ROOT}` to its actual path when composing the prompt — the subagent can't expand the variable itself.
-  2. Which branch applies: plan or decision.
-  3. All raw critic outputs, verbatim, each labeled with its persona name (label the peer by engine + persona, e.g. "codex as skeptic").
-  4. The original content the critics reviewed.
-
-### 7. Emit
-
-Show the synthesizer's output, then include the raw critic outputs inside a `<details>` collapsible at the bottom. Nothing hidden: the council ranks concerns, it does not dismiss them.
-
-## Out of scope
-
-- Round 2 / iterative debate (single round only)
-- Majority voting on narrative output
-- More than 4 critics
+Let the user accept, reject, or question findings. Revise the actual artifact only when authorized, preserving the prior version. A requested further review starts a **new archive and fresh members** with the revised artifact, original purpose, evidence, and updated user decisions. Independent members do not inherit earlier debate; after their reports, the synthesis may check whether earlier material objections were resolved. Do not start an automatic multi-round debate or keep looping until agreement. Saving recurring preferences requires the user's direction; it is not an automatic consequence of review. `/done` saves the handoff when requested.
