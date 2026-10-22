@@ -1,20 +1,10 @@
 ---
 name: done
-description: Wrap up the current session by writing a short HANDOFF.md in the project folder, so the next session can resume quickly. Use when the user says done, wrap up, close this out, or capture the session.
+description: Save a short HANDOFF.md so the next session can resume. Use when the user asks to wrap up, finish, or capture the session.
 ---
 
-# Done
+# Save the handoff
 
-Close the session by capturing where things stand.
+Write `HANDOFF.md` in the current project folder as a snapshot of at most 30 lines. Replace its previous snapshot; do not append a transcript. Use Status, Next steps, Key files, and Decisions sections. Put the next actionable step first and include the current deliverable and relevant council archive. Distinguish completed work from blocked or untested work. Preserve the decisions that explain the current state.
 
-## Workflow
-
-1. Review what changed this session, what was decided, and what comes next.
-2. Overwrite `./HANDOFF.md` in the current project folder with a snapshot of 30 lines or fewer, using these sections:
-   - **Status** — where the work stands right now
-   - **Next steps** — the first concrete things to do next session
-   - **Key files** — the paths that matter, each with a one-line note
-   - **Decisions** — choices made this session, and briefly why
-3. Show the user what you wrote.
-
-Replace the whole file each time — `HANDOFF.md` is a current-state snapshot, not a log. Do not append dated entries.
+If `SESSION_LOG.md` already exists and project instructions authorize session logging, append a short dated entry; otherwise do not create or modify a log. Show the user the handoff path and explain how to resume. Do not publish, commit, change global instructions, or contact other people as part of this skill.

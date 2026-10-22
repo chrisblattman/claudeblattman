@@ -77,12 +77,18 @@ else
   done
 fi
 
-if ! grep -q '"version": "0.1.1"' .claude-plugin/marketplace.json 2>/dev/null; then
-  say_fail ".claude-plugin/marketplace.json is missing starter version 0.1.1"
-fi
+if ! python3 - <<'PY'
+import json
+from pathlib import Path
 
-if ! grep -q '"version": "0.1.1"' plugins/starter-kit/.claude-plugin/plugin.json 2>/dev/null; then
-  say_fail "plugins/starter-kit/.claude-plugin/plugin.json is missing version 0.1.1"
+market = json.loads(Path('.claude-plugin/marketplace.json').read_text())
+claude = json.loads(Path('plugins/starter-kit/.claude-plugin/plugin.json').read_text())
+codex = json.loads(Path('plugins/starter-kit-codex/plugin.json').read_text())
+listed = next(p for p in market['plugins'] if p['name'] == 'starter-kit')
+assert market['metadata']['version'] == listed['version'] == claude['version'] == codex['version']
+PY
+then
+  say_fail "Claude marketplace, Claude plugin, and Codex plugin versions must match"
 fi
 
 if [ ! -f public-manifest.json ]; then
