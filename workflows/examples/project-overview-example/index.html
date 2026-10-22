@@ -1,0 +1,3577 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems">
+      
+      
+        <meta name="author" content="Chris Blattman">
+      
+      
+        <link rel="canonical" href="https://claudeblattman.com/workflows/examples/project-overview-example/">
+      
+      
+        <link rel="prev" href="../../sub-project-routing/">
+      
+      
+        <link rel="next" href="../research-design-example/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Example: Project Dashboard - Claude Blattman · AI for Professionals Who Don't Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Example: Project Dashboard - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="og:description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems" />
+<meta property="og:image" content="https://claudeblattman.com/assets/images/social/workflows/examples/project-overview-example.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://claudeblattman.com/workflows/examples/project-overview-example/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Example: Project Dashboard - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="twitter:description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems" />
+<meta property="twitter:image" content="https://claudeblattman.com/assets/images/social/workflows/examples/project-overview-example.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nairobi-digital-futures-project-overview-meeting-log" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <style>
+    .md-banner {
+      background: color-mix(in srgb, var(--md-accent-fg-color) 15%, var(--md-default-bg-color));
+      color: var(--md-default-fg-color--light);
+      font-size: 0.75rem;
+    }
+    .feedback-line {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--md-default-fg-color--lightest);
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .feedback-line:hover { opacity: 0.85; }
+  </style>
+  <span style="font-weight: 600; color: var(--md-accent-fg-color);">Power users:</span> <a href="../../../setup/skill-reference/" style="font-weight: 600; color: var(--md-accent-fg-color);">Get Skills & Templates &rarr;</a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-header__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Blattman · AI for Professionals Who Don't Code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            <a href="../../.." style="color: inherit; text-decoration: none;">
+              Home
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../starter-kit/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start Here
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  What's New
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../essentials/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Essentials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../setup/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflows
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../system/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Build Your Own
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-nav__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Blattman · AI for Professionals Who Don't Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../starter-kit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What's New
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../essentials/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essentials
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Essentials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/chatbots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chatbots Done Right
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cost Reality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/prompting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/voice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teaching AI Your Voice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/project-folders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Project Folders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plan-review-browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stress-Test Any Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/session-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/wispr-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voice Dictation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/granola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting Transcription
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/notebooklm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NotebookLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../essentials/chatgpt-vs-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChatGPT vs Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../setup/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install (Mac)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install (Windows)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/vscode-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set Up VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/mcp-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/skill-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill Library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-session-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt, Plan, Review, Revise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executive Assistant
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Executive Assistant
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/executive-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building an AI Executive Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../school-digest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Noise Canceling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meeting-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weekly-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly Review (Mechanics)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sub-project-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sub-Project Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Project Dashboard
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Project Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weekly-meeting-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weekly Meeting Summaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weekly Meeting Summaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meeting-nairobi-digital-futures-weekly-check-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meeting: Nairobi Digital Futures Weekly Check-In
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meeting: Nairobi Digital Futures Weekly Check-In">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cohort-1-training-fidelity-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cohort 1 Training Fidelity Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cohort-2-screening-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cohort 2 Screening Progress
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-midline-survey-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Midline Survey Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-partner-coordination-and-upcoming-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Partner Coordination and Upcoming Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meeting-nairobi-digital-futures-midline-design-working-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meeting: Nairobi Digital Futures — Midline Design Working Session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meeting: Nairobi Digital Futures — Midline Design Working Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-baseline-data-review-for-midline-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Baseline Data Review for Midline Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-list-experiment-technical-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. List Experiment Technical Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-endorsement-experiment-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Endorsement Experiment Alternative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../research-design-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: Research Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    /recall (past sessions)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../council/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    /council (parallel critics)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tax-workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tax Season
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_8" id="__nav_6_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tax Season
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tax-workflow/before-you-start/privacy-and-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tax-workflow/case-study/the-workflow-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tax-workflow/case-study/document-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Document Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tax-workflow/case-study/compilation-and-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilation & Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tax-workflow/case-study/what-ai-got-wrong/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What AI Got Wrong
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tax-workflow/build-your-own/architecture-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tax-workflow/build-your-own/starter-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Starter Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tax-workflow/reference/academic-tax-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Academic Tax Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tax-workflow/reference/when-to-get-help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When to Get Help
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build Your Own
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build Your Own
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system/building-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../build-your-own/dial-back-discipline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dial-Back Discipline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system/agents-vs-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents vs Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system/continuous-improvement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Improvement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system/ai-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Integration (cross-vendor)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system/patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../downloads/real-claude-md-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Real CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weekly-meeting-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weekly Meeting Summaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weekly Meeting Summaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meeting-nairobi-digital-futures-weekly-check-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meeting: Nairobi Digital Futures Weekly Check-In
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meeting: Nairobi Digital Futures Weekly Check-In">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cohort-1-training-fidelity-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cohort 1 Training Fidelity Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cohort-2-screening-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cohort 2 Screening Progress
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-midline-survey-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Midline Survey Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-partner-coordination-and-upcoming-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Partner Coordination and Upcoming Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meeting-nairobi-digital-futures-midline-design-working-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meeting: Nairobi Digital Futures — Midline Design Working Session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meeting: Nairobi Digital Futures — Midline Design Working Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-baseline-data-review-for-midline-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Baseline Data Review for Midline Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-list-experiment-technical-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. List Experiment Technical Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-endorsement-experiment-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Endorsement Experiment Alternative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Workflows
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../project-management/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Project Management
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="nairobi-digital-futures-project-overview-meeting-log">Nairobi Digital Futures — Project Overview &amp; Meeting Log<a class="headerlink" href="#nairobi-digital-futures-project-overview-meeting-log" title="Permanent link">&para;</a></h1>
+<p><em>This is a synthetic example showing what a <code>/weekly-review</code> produces over time. The project, team, and data are entirely fictional — names, institutions, and details do not correspond to any real study. The structure and level of detail are realistic.</em></p>
+<hr />
+<p>=== PROJECT STATUS DASHBOARD ===
+Last updated: 2026-02-14 (Week of Feb 10-14)
+Updated by: Claude Code /weekly-review</p>
+<hr />
+<p>STRATEGIC OBJECTIVE (NORTH STAR)
+Estimate the causal impact of a digital financial literacy + mobile savings program ("Jipange") on savings behavior, income, and economic empowerment among women market vendors in Nairobi, Kenya — and identify which program components drive the effects.</p>
+<hr />
+<p>STRATEGIC PRIORITIES
+1. Complete Cohort 2 screening and randomization by March 15
+2. Maintain Cohort 1 training attendance above 80%
+3. Finalize midline survey instrument and pilot by end of February</p>
+<hr />
+<p>CRITICAL SUCCESS FACTORS</p>
+<ul>
+<li>
+<p>Market association trust and cooperation in all three market areas
+  Status: GREEN
+  Owner: Faith Wambui
+  Note: Gikomba Market association confirmed continued cooperation after Jan community meeting. Kawangware relationship solid. Eastleigh requires ongoing engagement — new market chair elected in January.</p>
+</li>
+<li>
+<p>Financial capability screening tool validity and completion rate
+  Status: GREEN
+  Owner: Lisa Park
+  Note: Cohort 1 screening completion rate 94%. Adapted FINDEX-based assessment performing well. Two items flagged for cultural adaptation review (see Research Design doc).</p>
+</li>
+<li>
+<p>Training fidelity and facilitator quality
+  Status: YELLOW
+  Owner: James Mwangi
+  Note: Average session attendance 76% (target 80%). Two of six trainers below threshold. Remediation plan in place — additional training session scheduled Feb 20. One trainer (Eastleigh site B) may need replacement.</p>
+</li>
+<li>
+<p>Ethics compliance across institutions
+  Status: GREEN
+  Owner: Sarah Okonkwo
+  Note: Georgetown IRB renewal approved through Dec 2026. University of Nairobi ethics committee renewal submitted Jan 30, expected approval by Feb 28. No adverse events reported.</p>
+</li>
+<li>
+<p>Cohort enrollment targets
+  Status: GREEN
+  Owner: Lisa Park
+  Note: Cohort 1 enrolled 380/400 target (95%). Cohort 2 screening underway with 290 of ~400 screened. On track.</p>
+</li>
+<li>
+<p>Gates Foundation reporting and relationship
+  Status: GREEN
+  Owner: Sarah Okonkwo
+  Note: Q1 progress report submitted Feb 1. Program officer (Amanda Chen) positive on enrollment numbers. Site visit tentatively scheduled for April.</p>
+</li>
+</ul>
+<hr />
+<p>WHERE WE ARE</p>
+<p>Cohort 1 (n=380) is nine weeks into the 12-week Jipange program. Training group attendance averaging 76%, slightly below our 80% target, concentrated in two trainer groups. We have a remediation plan. Control group contamination checks show no evidence of spillover — the market-cluster randomization is holding.</p>
+<p>Cohort 2 screening is 73% complete (290/~400). We're running two screening teams across Eastleigh and Kawangware simultaneously. Gikomba screening starts next week. Randomization planned for March 15 pending screening completion.</p>
+<p>The midline survey instrument is in second-round revision. James flagged concerns about the self-reported income module — response rates on sensitive items were low in the Cohort 1 baseline. We're testing list experiment and indirect question alternatives for the midline.</p>
+<p>Budget is on track. Gates Foundation Q1 disbursement received. IDRC supplemental ($120K) confirmed but not yet disbursed — expected March.</p>
+<hr />
+<p>COHORT STATUS SUMMARY</p>
+<p>Cohort 1 (Training Phase)
+  Enrolled: 380 (target 400)
+  Treatment arm: 192 | Control arm: 188
+  Market clusters: 6 treatment, 6 control
+  Program start: Dec 9, 2025
+  Program week: 9 of 12
+  Avg attendance (treatment): 76%
+  Baseline survey complete: Yes (response rate 97%)
+  Next milestone: Midline survey (Apr 2026)</p>
+<p>Cohort 2 (Screening Phase)
+  Screened to date: 290 of ~400
+  Screening start: Jan 20, 2026
+  Screening teams: 2 active
+  Target randomization: Mar 15, 2026
+  Market clusters: 6 (3 Eastleigh, 2 Kawangware, 1 Gikomba)</p>
+<p>Cohort 3 (Planning Phase)
+  Target enrollment: ~400
+  Screening start: Jun 2026
+  Market clusters: 6 (remaining eligible clusters)
+  Status: Market mapping underway</p>
+<hr />
+<p>KEY METRICS</p>
+<p>Cohort 1 training attendance: 76% (target 80%)
+  Cohort 1 baseline response rate: 97%
+  Cohort 2 screening completion: 73% (290/~400)
+  Trainer quality (above threshold): 4 of 6
+  Budget burn rate: 23% of total ($189K of $820K)
+  Adverse events: 0
+  Market association incidents: 1 (minor, resolved — see Jan 28 meeting log)</p>
+<hr />
+<p>TIMELINE AND UPCOMING MILESTONES</p>
+<p>Feb 17-21: Cohort 2 Gikomba Market screening begins
+  Feb 20: Trainer remediation session (James + trainers)
+  Feb 24-28: Midline survey instrument pilot (n=30 from Cohort 1 control)
+  Mar 1: IDRC supplemental disbursement (expected)
+  Mar 15: Cohort 2 randomization
+  Mar 24: Cohort 2 program launch
+  Apr 7-25: Cohort 1 midline survey
+  Apr (TBD): Gates Foundation site visit
+  Jun 2026: Cohort 3 screening begins
+  Aug 2026: Cohort 1 endline survey</p>
+<hr />
+<p>CURRENT PRIORITIES BY PERSON</p>
+<p>Sarah Okonkwo (PI)
+  - Review midline survey instrument revision (due Feb 18)
+  - Prepare for Gates Foundation site visit logistics (April)
+  - Finalize power calculations memo with updated ICC estimates
+  - Review Cohort 2 randomization protocol with Lisa</p>
+<p>James Mwangi (Co-PI)
+  - Lead trainer remediation session (Feb 20)
+  - Evaluate trainer replacement decision for Eastleigh site B
+  - Finalize midline self-reported income module (list experiment vs. indirect questions)
+  - Supervise qualitative interviews with Cohort 1 participants (ongoing)</p>
+<p>Lisa Park (Research Manager)
+  - Complete Cohort 2 screening (target: Mar 10)
+  - Prepare randomization protocol and pre-registration update
+  - Manage screening team logistics for Gikomba Market
+  - Compile Cohort 1 attendance data for trainer performance review</p>
+<p>Faith Wambui (Field Researcher)
+  - Coordinate Gikomba Market association entry for Cohort 2 screening
+  - Continue market mapping for Cohort 3 clusters
+  - Follow up with new Eastleigh market chair (relationship building)</p>
+<p>Priya Sharma (RA)
+  - Lead midline survey piloting (Feb 24-28)
+  - Enter and clean Cohort 2 screening data (ongoing)
+  - Prepare list experiment programming in SurveyCTO</p>
+<p>Daniel Ochieng (RA)
+  - Manage Cohort 1 attendance tracking and trainer performance data
+  - Prepare training fidelity report for James's review
+  - Assist with Cohort 2 screening in Kawangware</p>
+<p>Grace Njeri (RA)
+  - Process Cohort 1 qualitative interview transcripts
+  - Assist Priya with midline pilot logistics
+  - Update participant tracking database</p>
+<hr />
+<p>KEY CHALLENGES</p>
+<ol>
+<li>
+<p>Training fidelity below target. Two trainers below 80% attendance threshold. If remediation doesn't work, we need replacement trainers — which means retraining and potentially losing 2-3 weeks of Cohort 1 program time. James leading this.</p>
+</li>
+<li>
+<p>Sensitive survey items. Self-reported income and savings measures had low response rates at baseline (68% on the most sensitive items). Need a measurement solution before midline. List experiments add survey length but may be necessary.</p>
+</li>
+<li>
+<p>Eastleigh market leadership transition. New market chair elected January — doesn't know the project. Faith is building the relationship but it's early. This affects Cohort 2 screening in Eastleigh and eventually Cohort 3.</p>
+</li>
+<li>
+<p>IDRC disbursement timing. The $120K supplemental is confirmed but disbursement is slow. We're covering Cohort 2 screening costs from the Gates budget, but need the IDRC funds before Cohort 3 to avoid a gap.</p>
+</li>
+</ol>
+<hr />
+<p>FUNDING PIPELINE</p>
+<p>Gates Foundation (primary): $700K over 3 years. Q1 disbursement received ($175K). On track.
+  IDRC (supplemental): $120K. Approved, disbursement expected March 2026.
+  Total budget: $820K. Spent to date: $189K (23%).
+  No new funding applications pending.
+  Potential: Ford Foundation expression of interest for qualitative component add-on ($80K). Sarah to discuss with James.</p>
+<hr />
+<p>PARTNER AND STAKEHOLDER STATUS</p>
+<p>Kenya National Bureau of Statistics: Engaged. Director briefed Jan 15. Supportive. Requesting quarterly updates.
+  Kenya Women's Enterprise Fund: Active partner. Providing community trainers and referral network. Monthly coordination calls.
+  University of Nairobi (Department of Economics): James's home institution. Hosting field office. Ethics committee renewal pending.
+  IPA Kenya: Lisa's employer. Managing field operations. Contract renewed through Dec 2026.
+  Gates Foundation: Positive. Program officer Amanda Chen responsive. Site visit April.</p>
+<hr />
+<p>DECISIONS MADE THIS WEEK</p>
+<ol>
+<li>
+<p>Midline survey will include list experiment module for sensitive income items (replacing direct self-report). James and Priya to finalize design by Feb 21.</p>
+</li>
+<li>
+<p>Trainer remediation before replacement. Will assess after Feb 20 training. Decision on replacement by Mar 1.</p>
+</li>
+<li>
+<p>Cohort 2 randomization will proceed March 15 even if screening falls slightly short of 400 target. Minimum threshold: 360.</p>
+</li>
+<li>
+<p>Power calculations memo will use updated ICC estimates from Cohort 1 baseline data (ICC = 0.048, lower than assumed 0.05). Sarah to circulate by Feb 21.</p>
+</li>
+</ol>
+<hr />
+<p>SHORT-TERM TASKS (Next 2 Weeks)</p>
+<p>[ ] Sarah: Review midline instrument (Feb 18)
+  [ ] Sarah: Circulate updated power calc memo (Feb 21)
+  [ ] James: Lead trainer remediation session (Feb 20)
+  [ ] James: Finalize list experiment design (Feb 21)
+  [ ] Lisa: Complete Cohort 2 screening (Mar 10)
+  [ ] Lisa: Draft randomization protocol (Feb 28)
+  [ ] Faith: Gikomba Market coordination for screening (Feb 17)
+  [ ] Priya: Program list experiment in SurveyCTO (Feb 24)
+  [ ] Priya: Run midline pilot (Feb 24-28)
+  [ ] Daniel: Compile trainer attendance report (Feb 19)
+  [ ] Grace: Complete qualitative transcript batch 3 (Feb 21)</p>
+<p>=== END DASHBOARD ===</p>
+<hr />
+<h2 id="weekly-meeting-summaries">Weekly Meeting Summaries<a class="headerlink" href="#weekly-meeting-summaries" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="meeting-nairobi-digital-futures-weekly-check-in">Meeting: Nairobi Digital Futures Weekly Check-In<a class="headerlink" href="#meeting-nairobi-digital-futures-weekly-check-in" title="Permanent link">&para;</a></h3>
+<p>Date: 2026-02-12 (Wednesday), 10:00 AM EAT
+Participants: Sarah Okonkwo, James Mwangi, Lisa Park, Faith Wambui, Daniel Ochieng (via Zoom)
+Duration: 58 minutes
+Source: Granola transcript</p>
+<p><em>Note: This summary was generated from a meeting transcript by Claude Code. It captures key discussions and decisions but may not reflect every comment or nuance. Team members should flag any corrections.</em></p>
+<hr />
+<h4 id="1-cohort-1-training-fidelity-review">1. Cohort 1 Training Fidelity Review<a class="headerlink" href="#1-cohort-1-training-fidelity-review" title="Permanent link">&para;</a></h4>
+<p>Daniel presented the latest attendance data. Overall training group attendance is 76%, down slightly from 78% two weeks ago. The decline is concentrated in two trainer groups:</p>
+<ul>
+<li>
+<p><strong>Trainer Group 3 (Eastleigh site B):</strong> 64% average attendance. The trainer, Rose, has been inconsistent with session scheduling and two participants reported feeling the sessions "weren't relevant." James noted this is the same trainer flagged in the January review. He recommended we proceed with a replacement rather than another round of coaching.</p>
+</li>
+<li>
+<p><strong>Trainer Group 5 (Kawangware site A):</strong> 71% average attendance. This appears to be a transportation issue rather than trainer quality — the session venue changed in January and several participants have longer travel times. Lisa is looking into a venue closer to the original location.</p>
+</li>
+</ul>
+<p>The other four groups are all above 82%, with Group 1 (Eastleigh site A) at 89% — the highest in the study.</p>
+<p><strong>Decision:</strong> James will lead one more remediation training on Feb 20 that includes all trainers (not just underperformers, to avoid stigma). If Group 3 attendance doesn't improve to 72% by Mar 1, we replace Rose. The Kenya Women's Enterprise Fund has two backup trainers who completed training in December but weren't assigned.</p>
+<p>Sarah raised the question of whether we need to document the trainer variation for the paper. James agreed it's important — differential training intensity by trainer is a potential source of heterogeneity. Daniel will compile a trainer-level attendance dataset that we can use in analysis. Lisa noted we should also track session content fidelity, not just attendance — whether trainers are covering all module components. James will add a fidelity checklist to the observation protocol.</p>
+<h4 id="2-cohort-2-screening-progress">2. Cohort 2 Screening Progress<a class="headerlink" href="#2-cohort-2-screening-progress" title="Permanent link">&para;</a></h4>
+<p>Lisa reported 290 screened out of a target of approximately 400. Two screening teams are running in parallel — one in Eastleigh (led by Priya) and one in Kawangware (led by Grace, with Daniel assisting remotely on data entry).</p>
+<p>Eastleigh screening is slightly behind schedule. Lisa attributed this to the market leadership transition — the new chair, Mrs. Oduya, initially wanted to "review the project" before allowing continued access. Faith met with her twice and it's now resolved, but they lost about four days.</p>
+<p><strong>Gikomba Market screening</strong> starts Feb 17. Faith confirmed the market association liaison (Mrs. Kamau) is ready and has identified the screening venue — the same community hall used for Cohort 1. Faith noted one concern: a recent dispute between vendor associations in the area (Feb 5) has increased tensions. She recommended waiting until the following week to start if tensions remain elevated. The group discussed and agreed Faith should make a game-day decision based on local conditions.</p>
+<p>Lisa presented the screening data quality so far. The adapted FINDEX-based financial capability assessment is performing well — completion rate 94%, average screening time 35 minutes. Two items flagged for review:</p>
+<ul>
+<li>
+<p><strong>Item 14 (informal borrowing):</strong> High refusal rate (12%). Women seem reluctant to discuss borrowing from informal lenders. Priya suggested rewording to ask about "people who help you when money is short" rather than "lenders" — less stigmatizing.</p>
+</li>
+<li>
+<p><strong>Item 22 (savings amounts):</strong> Possible social desirability bias — reported savings seem high compared to national survey data for this income group. James suggested adding a validation cross-check with M-Pesa records at midline, but noted it adds complexity.</p>
+</li>
+</ul>
+<p><strong>Decision:</strong> Keep current screening tool as-is for Cohort 2 (consistency with Cohort 1). Flag items 14 and 22 for revision before Cohort 3. Lisa will document the concerns in the screening protocol memo.</p>
+<h4 id="3-midline-survey-design">3. Midline Survey Design<a class="headerlink" href="#3-midline-survey-design" title="Permanent link">&para;</a></h4>
+<p>James presented the revised midline instrument (v2.1). The major change is the proposed switch from direct self-report to <strong>list experiments</strong> for the three most sensitive financial items:</p>
+<ol>
+<li>"In the past 3 months, have you borrowed from an informal money lender?"</li>
+<li>"In the past 3 months, have you missed a loan repayment?"</li>
+<li>"In the past 3 months, have you hidden income or savings from your household?"</li>
+</ol>
+<p>At baseline, these items had response rates of 78%, 65%, and 68% respectively — well below the 95%+ response rate on non-sensitive items. James walked through the list experiment design:</p>
+<ul>
+<li>Control list: 4 innocuous items (e.g., "visited a health clinic," "attended a market association meeting")</li>
+<li>Treatment list: Same 4 items + 1 sensitive item</li>
+<li>Randomly assign half of respondents to each list per item</li>
+<li>Need ~200 per list per item for adequate power</li>
+</ul>
+<p>Sarah raised two concerns. First, list experiments sacrifice individual-level measurement — we get prevalence estimates but can't link responses to individual treatment effects. This limits heterogeneity analysis. James acknowledged this but argued that biased direct reports are worse than imprecise list experiments. He proposed a <strong>combined design</strong>: direct self-report first (for those willing), then list experiment for everyone. We can compare the two and use the list experiment to correct for bias.</p>
+<p>Second concern: survey length. The current instrument is 45 minutes. Adding list experiments for three items adds approximately 8 minutes. James noted we could cut the time-use module (10 minutes) to compensate — it was included for the descriptive paper but isn't essential for the main experimental estimates.</p>
+<p><strong>Decision:</strong> Proceed with combined design (direct report + list experiment). Cut the detailed time-use module; keep the abbreviated version (3 items instead of 12). Priya will program the list experiments in SurveyCTO and pilot Feb 24-28 with 30 control group participants from Cohort 1.</p>
+<h4 id="4-partner-coordination-and-upcoming-events">4. Partner Coordination and Upcoming Events<a class="headerlink" href="#4-partner-coordination-and-upcoming-events" title="Permanent link">&para;</a></h4>
+<p>Sarah updated the team on the Gates Foundation Q1 report, submitted Feb 1. Amanda Chen (program officer) responded positively, particularly about the enrollment numbers and market engagement strategy. She mentioned a possible site visit in April — no date confirmed yet. Sarah will follow up to nail down timing so we can prepare.</p>
+<p>James reported that the University of Nairobi ethics committee renewal is pending. He submitted Jan 30 and expects approval by end of February. No issues anticipated — this is a routine annual renewal with no protocol changes.</p>
+<p>Faith raised the question of the Kenya National Bureau of Statistics quarterly update. The last briefing was Jan 15. The next one should be in April, ideally timed with the Gates visit if possible so Sarah only needs to travel once. James offered to present the qualitative findings at the KNBS briefing to add depth beyond the quantitative enrollment numbers.</p>
+<p>Lisa flagged that the IPA Kenya contract renewal went through. Her position is secure through Dec 2026. She also noted that IPA's regional director (Michael Torres) will be in Nairobi in March and wants to visit the field sites. Lisa will coordinate.</p>
+<p><strong>Action items from this discussion:</strong>
+- Sarah to follow up with Amanda Chen on April site visit timing
+- James to coordinate with KNBS for April briefing
+- Lisa to schedule Michael Torres field visit (March)
+- Faith to assess Gikomba Market situation before Feb 17 screening launch</p>
+<hr />
+<h3 id="meeting-nairobi-digital-futures-midline-design-working-session">Meeting: Nairobi Digital Futures — Midline Design Working Session<a class="headerlink" href="#meeting-nairobi-digital-futures-midline-design-working-session" title="Permanent link">&para;</a></h3>
+<p>Date: 2026-02-05 (Wednesday), 2:00 PM EAT
+Participants: Sarah Okonkwo, James Mwangi, Priya Sharma (via Zoom)
+Duration: 42 minutes
+Source: Granola transcript</p>
+<p><em>Note: This summary was generated from a meeting transcript by Claude Code. It captures key discussions and decisions but may not reflect every comment or nuance. Team members should flag any corrections.</em></p>
+<hr />
+<h4 id="1-baseline-data-review-for-midline-planning">1. Baseline Data Review for Midline Planning<a class="headerlink" href="#1-baseline-data-review-for-midline-planning" title="Permanent link">&para;</a></h4>
+<p>Sarah opened with baseline summary statistics from Cohort 1. Key findings relevant to midline design:</p>
+<ul>
+<li><strong>Balance check:</strong> Treatment and control groups well-balanced on all 14 baseline covariates. Largest normalized difference is 0.08 SD (household income). No concerns.</li>
+<li><strong>Income and savings measures:</strong> As noted above, direct self-report items on borrowing and savings had 65-78% response rates. Non-sensitive items averaged 96%. The gap confirms measurement concerns.</li>
+<li><strong>Financial capability scores:</strong> The adapted FINDEX assessment classified 31% of the sample as low-capability, 45% as moderate, and 24% as high. This distribution is close to what we expected based on the pilot data from 2024.</li>
+<li><strong>Attrition concern:</strong> 6 participants (1.6%) unreachable at the 4-week check-in. All in control group. Lisa is following up with market association contacts. Not yet concerning but worth monitoring.</li>
+</ul>
+<h4 id="2-list-experiment-technical-design">2. List Experiment Technical Design<a class="headerlink" href="#2-list-experiment-technical-design" title="Permanent link">&para;</a></h4>
+<p>Priya presented three design options for the list experiments. After discussion, the group settled on the <strong>double list</strong> approach — each respondent sees both a short list (3 items) and a long list (4 items, one sensitive), randomly assigned to which list is short vs. long. This approach:</p>
+<ul>
+<li>Reduces floor/ceiling effects</li>
+<li>Allows internal consistency checks</li>
+<li>Adds minimal time vs. single list</li>
+</ul>
+<p>Priya estimated programming time: 2 weeks in SurveyCTO, including randomization logic and built-in quality checks. The pilot on Feb 24-28 will test comprehension, timing, and enumerator comfort.</p>
+<h4 id="3-endorsement-experiment-alternative">3. Endorsement Experiment Alternative<a class="headerlink" href="#3-endorsement-experiment-alternative" title="Permanent link">&para;</a></h4>
+<p>James raised endorsement experiments as an alternative for the informal lending item specifically. Rather than asking about own borrowing, the endorsement experiment asks about support for policies or organizations associated with informal lending regulation. The idea: the program may shift attitudes toward formal financial services even if participants won't report their own borrowing behavior.</p>
+<p>Sarah liked the idea conceptually but was concerned about interpretation — endorsement experiments measure attitudes, not behavior, and our primary outcomes are behavioral. The group agreed to include one endorsement experiment item on attitudes toward formal vs. informal financial services as a secondary outcome but not replace the list experiment.</p>
+<p><strong>Decision:</strong> Primary sensitive measurement via list experiments. Add one endorsement experiment item on financial service attitudes as secondary outcome. Priya to program both.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  <p class="feedback-line">
+    Found this useful?
+    <a href="https://github.com/chrisblattman/claudeblattman" target="_blank">Star it on GitHub</a>
+    or share with a colleague.
+    Something broken or unclear?
+    <a href="mailto:claudeblattman+feedback@gmail.com?subject=Feedback%3A%20Example%3A%20Project%20Dashboard">Send feedback</a>.
+  </p>
+
+  <!-- Email signup slide-in banner -->
+  <div id="email-banner" class="email-banner" style="display:none;">
+    <button class="email-banner__close" aria-label="Close">&times;</button>
+    <p class="email-banner__text">
+      New tools for researchers and managers every few weeks.
+      Email updates only &mdash; a few times a year.
+    </p>
+    <form class="email-banner__form"
+          action="https://buttondown.email/api/emails/embed-subscribe/claudeblattman"
+          method="post" target="popupwindow"
+          onsubmit="window.open('https://buttondown.email/claudeblattman','popupwindow')">
+      <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+      <!-- Honeypot — hidden from humans, bots fill it -->
+      <input type="text" name="url" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit">Subscribe</button>
+    </form>
+    <span class="email-banner__msg" style="display:none;"></span>
+    <a href="/privacy/" class="email-banner__privacy">Privacy policy</a>
+  </div>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../sub-project-routing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sub-Project Routing">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Sub-Project Routing
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../research-design-example/" class="md-footer__link md-footer__link--next" aria-label="Next: Example: Research Design">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Example: Research Design
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Built by <a href="https://chrisblattman.com">Chris Blattman</a> &mdash; shared freely under MIT License
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/chrisblattman/claudeblattman" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/cblatts" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant", "navigation.instant.prefetch", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+
+  <!-- GoatCounter analytics — privacy-friendly, no cookies, free for non-commercial -->
+  <script>
+    window.goatcounter = { no_onload: true };
+  </script>
+  <script data-goatcounter="https://claudeblattman.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script>
+    /* Track page views on every navigation (including instant loading) */
+    document$.subscribe(function() {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({
+          path: location.pathname + location.search + location.hash
+        });
+      }
+    });
+  </script>
+
+  <script>
+    /* Make the site title text clickable — navigates home like the logo icon */
+    (function() {
+      var title = document.querySelector('.md-header__title');
+      if (title) {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function() {
+          var logo = document.querySelector('.md-header__button.md-logo');
+          if (logo) logo.click();
+        });
+      }
+    })();
+
+    /* Email signup slide-in banner */
+    (function() {
+      var BANNER_KEY = 'cb_email_banner_dismissed';
+      var THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+
+      /* Check if dismissed within last 30 days */
+      var dismissed = localStorage.getItem(BANNER_KEY);
+      if (dismissed && (Date.now() - parseInt(dismissed, 10)) < THIRTY_DAYS) return;
+
+      var banner = document.getElementById('email-banner');
+      if (!banner) return;
+
+      var shown = false;
+      function showBanner() {
+        if (shown) return;
+        shown = true;
+        banner.style.display = 'block';
+      }
+
+      /* Show after 45 seconds */
+      setTimeout(showBanner, 45000);
+
+      /* Show at 50% scroll — whichever comes first */
+      document.addEventListener('scroll', function() {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollable > 0 && (window.scrollY / scrollable) >= 0.5) {
+          showBanner();
+        }
+      }, { passive: true });
+
+      /* Dismiss button — hide and remember for 30 days */
+      banner.querySelector('.email-banner__close').addEventListener('click', function() {
+        banner.style.display = 'none';
+        localStorage.setItem(BANNER_KEY, Date.now().toString());
+      });
+    })();
+  </script>
+
+  </body>
+</html>
