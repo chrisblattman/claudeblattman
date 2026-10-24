@@ -1,6 +1,10 @@
-# Starter Kit 0.2.0
+# Starter Kit 0.3.0-dev.0 — pilot candidate
 
-Five skills: `/council`, `/kit-hello`, `/kit-setup`, `/ask-agents`, and `/done`.
+Six skills: `/council`, `/kit-hello`, `/kit-setup`, `/ask-agents`, `/done`, and `/aniket-me`.
+
+This is a pilot candidate on the `aniket-me-pilot` branch. The marketplace commands below install the default branch's stable version. To try only Aniket Me, give your agent the [pilot guide](https://github.com/chrisblattman/claudeblattman/blob/aniket-me-pilot/starter-kit-source/ANIKET-PILOT.md).
+
+Start a request with “Aniket me” for advice on improving how you work with AI, or name a particular workflow or question. Aniket Me uses bundled, dated public-source notes and relevant originals. It recognizes practices already working and does not require an existing skill library. It is an independent adaptation, not an endorsement by Aniket Panjwani.
 
 Council starts three independent local members—pre-mortem, skeptic, and completeness checker—and a fresh synthesis worker. Chief of Staff is an optional fourth member, added only when you ask. Their definitions are bundled in both packages. An explicitly requested challenge runs after the member reports, before synthesis. Further review starts a fresh run; it does not create an automatic debate loop.
 

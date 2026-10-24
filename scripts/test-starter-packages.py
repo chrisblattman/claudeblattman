@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Offline installation, parity, and council failure-path tests; no model calls."""
 import json
+import hashlib
 from pathlib import Path
 import subprocess
 import sys
@@ -10,7 +11,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
-NAMES = {"council", "kit-hello", "kit-setup", "ask-agents", "done"}
+NAMES = {"council", "kit-hello", "kit-setup", "ask-agents", "done", "aniket-me"}
 
 
 def call(*args, ok=True):
@@ -23,6 +24,32 @@ def call(*args, ok=True):
 
 
 class Packages(unittest.TestCase):
+    def test_standalone_aniket_export_is_complete_and_reproducible(self):
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp)
+            args = (PYTHON, ROOT / "scripts/build-starter-plugins.py", "--check",
+                    "--standalone-skill", "aniket-me", "--package-dir", output)
+            call(*args)
+            archive, = output.glob("*.zip")
+            before = archive.read_bytes()
+            with zipfile.ZipFile(archive) as zipped:
+                self.assertEqual(set(zipped.namelist()), {
+                    "aniket-me/SKILL.md", "aniket-me/references/sources.md",
+                    "aniket-me/README.md", "aniket-me/LICENSE", "aniket-me/PACKAGE.json"})
+                for relative in ("SKILL.md", "references/sources.md"):
+                    self.assertEqual(zipped.read("aniket-me/" + relative),
+                                     (ROOT / "starter-kit-source/skills/aniket-me" / relative).read_bytes())
+                manifest = json.loads(zipped.read("aniket-me/PACKAGE.json"))
+                for relative, digest in manifest["files"].items():
+                    self.assertEqual(hashlib.sha256(zipped.read("aniket-me/" + relative)).hexdigest(), digest)
+                for path in zipped.namelist():
+                    for marker in (b"/Users/", b"Dropbox/", b"AI_Knowledge_Management", b"@uchicago.edu"):
+                        self.assertNotIn(marker, zipped.read(path))
+            call(*args)
+            self.assertEqual(archive.read_bytes(), before)
+            hashes = json.loads((output / "SHA256.json").read_text())
+            self.assertEqual(hashes[archive.name], hashlib.sha256(before).hexdigest())
+
     def test_archive_contents(self):
         with tempfile.TemporaryDirectory() as temp:
             call(PYTHON, ROOT / "scripts/build-starter-plugins.py", "--check", "--package-dir", temp)
@@ -46,6 +73,15 @@ class Packages(unittest.TestCase):
                 self.assertEqual((root / "skills" / name / "SKILL.md").read_bytes(), expected.read_bytes())
             for name in ("skeptic", "pre-mortem", "completeness-checker", "chief-of-staff"):
                 self.assertEqual((root / "skills/council/references/personas" / (name + ".md")).read_bytes(), (ROOT / "starter-kit-source/agents" / (name + ".md")).read_bytes())
+
+    def test_aniket_sources_are_bundled_and_portable(self):
+        for root in (ROOT / "starter-kit-source", ROOT / "plugins/starter-kit", ROOT / "plugins/starter-kit-codex", ROOT / "codex-starter"):
+            skill = root / "skills/aniket-me"
+            self.assertTrue((skill / "references/sources.md").is_file())
+            for path in skill.rglob("*.md"):
+                content = path.read_text()
+                for private_marker in ("/Users/", "Dropbox/", "AI_Knowledge_Management", "private consultation transcript"):
+                    self.assertNotIn(private_marker, content)
 
     def test_manual_install_restore_and_retired_preservation(self):
         installer = ROOT / "codex-starter/install-codex-starter.py"

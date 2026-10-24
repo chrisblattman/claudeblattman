@@ -1,12 +1,13 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0-dev.0",
   "skills": [
     "council",
     "kit-hello",
     "kit-setup",
     "ask-agents",
-    "done"
+    "done",
+    "aniket-me"
   ],
-  "description": "Independent council perspectives, optional outside opinions, setup checks, and session handoffs.",
-  "status": "local councils supported; provider-balanced Light/Full not bundled"
+  "description": "Independent council perspectives, public-source workflow advice, optional outside opinions, setup checks, and session handoffs.",
+  "status": "pilot candidate on aniket-me-pilot; provider-balanced Light/Full not bundled"
 }

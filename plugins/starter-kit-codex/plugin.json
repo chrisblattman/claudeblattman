@@ -1,7 +1,7 @@
 {
   "name": "starter-kit-codex",
-  "version": "0.2.0",
-  "description": "Independent council perspectives, optional outside opinions, setup checks, and session handoffs.",
+  "version": "0.3.0-dev.0",
+  "description": "Independent council perspectives, public-source workflow advice, optional outside opinions, setup checks, and session handoffs.",
   "author": {
     "name": "Chris Blattman",
     "url": "https://claudeblattman.com"
@@ -22,7 +22,7 @@
       "interface": {
         "displayName": "Starter Kit for Codex",
         "shortDescription": "Councils and session handoffs",
-        "longDescription": "Independent council perspectives, optional outside opinions, setup checks, and session handoffs.",
+        "longDescription": "Independent council perspectives, public-source workflow advice, optional outside opinions, setup checks, and session handoffs.",
         "developerName": "Chris Blattman",
         "category": "Productivity",
         "capabilities": [],
