@@ -22,6 +22,10 @@ A free, open-source resource for non-developers who want to build real AI workfl
 
 No coding background required. Everything is built with markdown and AI tools.
 
+## Aniket Me pilot
+
+The 0.3.0-dev.0 pilot adds Aniket Me to the five released skills. It offers advice on how to work with AI using dated public sources, without requiring the maintainer's private files. Give Claude Code or Codex the [Aniket Me pilot guide](starter-kit-source/ANIKET-PILOT.md) and ask it to install the skill for your project. Then start a request with “Aniket me”. The pilot is open for testing. The commands below describe the stable 0.2.0 kit on the default branch.
+
 ## Quick Start
 
 The **Starter Kit 0.2.0** provides the same five skills in Claude Code and Codex: council, kit-hello, kit-setup, ask-agents, and done. Choose the plugin for your app. Both are generated from one shared source.

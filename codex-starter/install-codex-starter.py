@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the Codex starter pack: five skills; optional global guidance.
+"""Install the Codex starter pack: six skills; optional global guidance.
 
 Run from inside the pack folder:
 
@@ -37,7 +37,7 @@ RECORD_PATH = STATE_ROOT / "installed.json"
 
 MANIFEST = [
     {"source": "skills/" + name, "destination": "~/.codex/skills/" + name, "type": "directory"}
-    for name in ("council", "kit-hello", "kit-setup", "ask-agents", "done")
+    for name in ("council", "kit-hello", "kit-setup", "ask-agents", "done", "aniket-me")
 ]
 
 
@@ -169,7 +169,7 @@ def cmd_install():
     save_record(new_items)
     print("")
     print("Done. Restart Codex so it picks up the skills, then invoke them by")
-    print("name in any session: /council  /kit-hello  /kit-setup  /ask-agents  /done")
+    print("name in any session: /council  /kit-hello  /kit-setup  /ask-agents  /done  /aniket-me")
     return 0
 
 

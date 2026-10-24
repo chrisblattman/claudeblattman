@@ -9,11 +9,14 @@ python3 scripts/build-starter-plugins.py
 python3 scripts/build-starter-plugins.py --check
 python3 scripts/test-starter-packages.py
 python3 scripts/build-starter-plugins.py --package-dir working-notes/package-unification-oct22/packages
+python3 scripts/build-starter-plugins.py --check --standalone-skill aniket-me --package-dir working-notes/aniket-pilot/packages
 ```
 
 The build regenerates `plugins/starter-kit/`, `plugins/starter-kit-codex/`, and `codex-starter/skills/` together. `scripts/build-codex-plugin.py` remains a compatibility alias for the same build. CI checks freshness, common instruction parity, retired-skill exclusion, and archive/installation behavior. Building never uploads, publishes, or changes an installed plugin. Readers receive updates through each host's normal plugin update process after a separate release.
 
 The manual Codex installer has an explicit `--target-root` for disposable installation tests. Plugin installation does not overwrite global AGENTS.md. Generated archives contain one plugin each; market catalogs are separate.
+
+The optional standalone Aniket Me archive copies the same authoritative skill and source notes, plus `ANIKET-PILOT.md`, the license and a file-hash manifest. It includes no other skills or installer. Only this self-contained skill supports standalone export. Other starter skills require their host adapters and supporting resources. Keep pilot feedback in private planning, outside public source and archives.
 
 ## Audit boundary
 

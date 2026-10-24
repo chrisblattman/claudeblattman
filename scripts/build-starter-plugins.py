@@ -78,7 +78,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--package-dir", type=Path, help="Write local ZIPs outside plugin directories; never uploads")
+    parser.add_argument("--standalone-skill", choices=["aniket-me"],
+                        help="Export only this self-contained skill, with pilot instructions and license")
     args = parser.parse_args()
+    if args.standalone_skill and not args.package_dir:
+        parser.error("--standalone-skill requires --package-dir")
     metadata = json.loads((SOURCE / "package.json").read_text())
     if set(metadata["skills"]) != {p.name for p in (SOURCE / "skills").iterdir() if p.is_dir()}:
         raise ValueError("Source skill inventory differs from package.json")
@@ -109,7 +113,20 @@ def main():
                     raise ValueError("Archives must be outside source and installable package folders")
             output.mkdir(parents=True, exist_ok=True)
             hashes = {}
-            for stage in stages.values():
+            archive_stages = list(stages.values())
+            if args.standalone_skill:
+                stage = Path(temp) / args.standalone_skill
+                shutil.copytree(SOURCE / "skills" / args.standalone_skill, stage)
+                shutil.copy2(SOURCE / "ANIKET-PILOT.md", stage / "README.md")
+                shutil.copy2(ROOT / "LICENSE", stage / "LICENSE")
+                put(stage / "PACKAGE.json", {"name": args.standalone_skill,
+                    "version": metadata["version"], "status": "team-pilot",
+                    "source": "https://github.com/chrisblattman/claudeblattman/tree/aniket-me-pilot/starter-kit-source/skills/aniket-me",
+                    "source_status": "Public pilot candidate; not a stable release.",
+                    "files": {rel: hashlib.sha256(content).hexdigest()
+                              for rel, content in sorted(tree(stage).items())}})
+                archive_stages = [stage]
+            for stage in archive_stages:
                 archive = output / f"{stage.name}-{metadata['version']}.zip"
                 with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as zipped:
                     for rel, content in sorted(tree(stage).items()):
