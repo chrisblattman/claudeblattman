@@ -1,12 +1,13 @@
 # Starter Kit 0.3.0
 
-One shared kit for Claude Code and Codex, with six skills:
+One shared kit for Claude Code and Codex, with seven skills:
 
 | Skill | Purpose |
 |---|---|
 | `/council` | Develop independent approaches with three local personas and fresh synthesis |
 | `/adversarial-review` | Review existing work with four fresh local reviewers and fresh synthesis |
 | `/ask-agents` | Ask named connected providers and retrieve their full responses |
+| `/prompt` | Prepare or refine a prompt, or format and execute an explicitly requested task |
 | `/kit-setup` | Discover and test optional provider connections |
 | `/kit-hello` | Check installation files, prerequisites and next steps |
 | `/done` | Preserve decisions and unfinished work for the next session |
@@ -39,6 +40,8 @@ codex plugin add starter-kit-codex@claudeblattman
 
 Until this candidate is merged/released, those commands may install the prior version. Restart the host and use Kit Hello to check the actual version. Plugin installation is the supported path for both apps. No separate manual installer is included.
 
-**Migration:** `/prompt` and `/review-plan` are not bundled. Council prepares its brief; existing-work review uses `/adversarial-review`. Remove or rename a conflicting legacy command only with the user's direction. Old `engines.json` availability flags are no longer required. This release does not delete existing user-owned skill copies or preference files. If an older manual install exists, review its duplicate skills explicitly rather than deleting them automatically. 0.2 archives remain historical records; use their original helper for later inspection.
+**Prompt:** prepare-only and refine-only requests return a prompt without executing it; explicit format-and-run requests show the assignment and then execute. Council uses full prompt preparation when requested or needed for consequential ambiguity, returning the brief to Council without a duplicate panel. An ordinary Prompt request does not automatically launch Council.
+
+**Migration:** `/review-plan` is not a separate bundled skill; existing-work review uses `/adversarial-review`. Prompt is bundled with its updated prepare/refine/execute behavior. Remove or rename a conflicting legacy command only with the user's direction. Old `engines.json` availability flags are no longer required. This release does not delete existing user-owned skill copies or preference files. If an older manual install exists, review its duplicate skills explicitly rather than deleting them automatically. 0.2 archives remain historical records; use their original helper for later inspection.
 
 See `CROSS-CLIENT.md` for the source/build contract. Do not edit generated package files.

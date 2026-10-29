@@ -6,9 +6,9 @@
       "sha256": "d15c44db2a5fff0be25f989556962458f64f8e619df3d3c27bbf3b69d82f0e03"
     },
     {
-      "bytes": 846,
+      "bytes": 874,
       "path": ".claude-plugin/marketplace.json",
-      "sha256": "ea495c5ca78d2c845b642833acef9ec4d659bc5df1fcd780f4bded8e7a23d1c5"
+      "sha256": "9e94afb823c8b5b9e4da2e8edf32aea0d9eb5883a779bea145e3e49d8df7ac56"
     },
     {
       "bytes": 565,
@@ -26,9 +26,9 @@
       "sha256": "728fcd05703ae055f3482575d48532d841c9a2d6c4dfc7c1de0c2d98419d0612"
     },
     {
-      "bytes": 3268,
+      "bytes": 3278,
       "path": "README.md",
-      "sha256": "5cac9b5983adaf79ba5f5b9d0c9d012cd1d11e7505c922a2b20f5c6d223203d6"
+      "sha256": "9bc60860b2b04857f43a13511150545e3c0a1c92d3e0f7e4bedbde985b631993"
     },
     {
       "bytes": 8148,
@@ -66,14 +66,14 @@
       "sha256": "046b2910e8c9dfb2651ebfddde654df892ca707078448f09c50ddc576e9ccbaf"
     },
     {
-      "bytes": 353,
+      "bytes": 381,
       "path": "plugins/starter-kit-claude/.claude-plugin/plugin.json",
-      "sha256": "4c6bd0997adfe0f281643c50fda8a774a826c702037c378603ce582965dfb37e"
+      "sha256": "3da7451b5ec6335b7fc53f41979ca50f07ea04559eb45973fbd2a063d51fdecf"
     },
     {
-      "bytes": 4402,
+      "bytes": 6124,
       "path": "plugins/starter-kit-claude/CROSS-CLIENT.md",
-      "sha256": "6fe8cd15ff00f91d806f4df9dd537eed9b838b16a7fb65dff5033dee683f5a94"
+      "sha256": "7d54e6b0e34f17982a021f6c9ab7621cac8aac651ec9da00ea0fa9c9df148679"
     },
     {
       "bytes": 1071,
@@ -81,14 +81,14 @@
       "sha256": "c226c1779c8d491ffaf1dcda2a7bb7c38216b0f56a2c1701cb44f5f096e99384"
     },
     {
-      "bytes": 3956,
+      "bytes": 4470,
       "path": "plugins/starter-kit-claude/README.md",
-      "sha256": "c00de6cb9e15c582091a9387a84c13b1996566fce86b23567b2383508511d21e"
+      "sha256": "c3b694d945fa7071a4261c2b992533499de170389d3dfd0f1750009bea27ebfc"
     },
     {
-      "bytes": 2393,
+      "bytes": 2690,
       "path": "plugins/starter-kit-claude/RELEASE-NOTES.md",
-      "sha256": "99cd420efe6ccbe740004cc7f67d89b88a373848635da87c8569de7e480e66e9"
+      "sha256": "7656699bdb1502dc8de2fe3fb84dfa890322d09c5b334fbf513ba3ad910c5be3"
     },
     {
       "bytes": 356,
@@ -106,44 +106,49 @@
       "sha256": "6a44230d4024011da160cf8f49cdfabddf110590e65eb13f5819a78410faa34d"
     },
     {
-      "bytes": 3164,
+      "bytes": 3573,
       "path": "plugins/starter-kit-claude/shared/personas/chief-of-staff.md",
-      "sha256": "a6d61d18b7a193475801400d93c0c2b21b6201d3e002334987c530aed9e9c1ce"
+      "sha256": "99d6ebc8e2d0ea366b2882418103785a84048ddad39209ed0410f528d0bab72c"
     },
     {
-      "bytes": 2469,
+      "bytes": 2864,
       "path": "plugins/starter-kit-claude/shared/personas/completeness-checker.md",
-      "sha256": "4320560c363b5e216c8f8cc1dadcc40347a357165924c1ef832d62b4933da285"
+      "sha256": "f45b5697af52873e9ee5e127859914f5e455231537a1fb406ac81cba0b85a262"
     },
     {
-      "bytes": 2433,
+      "bytes": 2836,
       "path": "plugins/starter-kit-claude/shared/personas/pre-mortem.md",
-      "sha256": "d497789820bc0a8a58a6096e6dad7a3d98a9cd10b139946fa56ebce09f54134b"
+      "sha256": "c45101a6187f92578c2aefbcad657c6321b58a47587d36bab043306248d43bfc"
     },
     {
-      "bytes": 2279,
+      "bytes": 2666,
       "path": "plugins/starter-kit-claude/shared/personas/skeptic.md",
-      "sha256": "183f55665757e577b1897c6209e77e80aff56afa4c6c3ebe1b4afd724083ae6a"
+      "sha256": "ac8ce259161f995d2a1da5a85a12927a7b727ff54a225166d92117c507be75d9"
     },
     {
-      "bytes": 2159,
+      "bytes": 2414,
       "path": "plugins/starter-kit-claude/skills/adversarial-review/SKILL.md",
-      "sha256": "4843cf05ad457a05a22d5d1ffba3f8dcc64c8592e2531c049fd7cbafdc291760"
+      "sha256": "fb433543f8a1d782713cf9f26f5c296e9ee516178b374bbbcd936c4f6e5499aa"
     },
     {
-      "bytes": 1266,
+      "bytes": 11422,
+      "path": "plugins/starter-kit-claude/skills/adversarial-review/references/council-synthesis.md",
+      "sha256": "a01823ce64ae81ef0230341a9d47a2e648722e9fa9b12fbf9d1858de0f05653f"
+    },
+    {
+      "bytes": 1677,
       "path": "plugins/starter-kit-claude/skills/adversarial-review/references/host.md",
-      "sha256": "56cb112e2dd78ea4bb00251d954c1e98a151552e7aebf5a8adb1df65d12af335"
+      "sha256": "f8ce34885319e5e41b4bff7da01b8a061932224f792b8c1618eb1592aa0b19dd"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/adversarial-review/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 8169,
-      "path": "plugins/starter-kit-claude/skills/adversarial-review/references/panel-workflow.md",
-      "sha256": "39e8bb9a5d32c67e816e293b9c9debab402edafe84f95907a16d7ac48b9a3893"
+      "bytes": 17832,
+      "path": "plugins/starter-kit-claude/skills/adversarial-review/references/panel-execution.md",
+      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
     },
     {
       "bytes": 857,
@@ -156,14 +161,9 @@
       "sha256": "3afec45f609396b83bf885af59c40ea41f3e25d161a9d234af6daeb074a2d062"
     },
     {
-      "bytes": 1376,
-      "path": "plugins/starter-kit-claude/skills/adversarial-review/references/synthesis.md",
-      "sha256": "1b210780b582420a2e3b326e5dace66996dda14af9e79c43cd13eca7fbdc7817"
-    },
-    {
-      "bytes": 23659,
+      "bytes": 26027,
       "path": "plugins/starter-kit-claude/skills/adversarial-review/scripts/council.py",
-      "sha256": "8d6bb3a1b654110f470531b3d3d5905fc5c1a1be23dc11039b33f211d595c518"
+      "sha256": "952b6e37ba63938fe9b7c80dc0a975648c929d3e00942e38f48b72dc5f2e34eb"
     },
     {
       "bytes": 2482,
@@ -171,14 +171,14 @@
       "sha256": "97ff99c778d7793ced3e1db29e49c9292cd25ade97fe8f84814324dd50fed2bc"
     },
     {
-      "bytes": 1266,
+      "bytes": 1677,
       "path": "plugins/starter-kit-claude/skills/ask-agents/references/host.md",
-      "sha256": "56cb112e2dd78ea4bb00251d954c1e98a151552e7aebf5a8adb1df65d12af335"
+      "sha256": "f8ce34885319e5e41b4bff7da01b8a061932224f792b8c1618eb1592aa0b19dd"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/ask-agents/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
       "bytes": 5127,
@@ -196,24 +196,29 @@
       "sha256": "08ca99add44d27a9e3b4b8edae58c485f8af36322c8f7283fd8298b3ed1032c7"
     },
     {
-      "bytes": 1655,
+      "bytes": 2472,
       "path": "plugins/starter-kit-claude/skills/council/SKILL.md",
-      "sha256": "312ae21fb3bf25793208fb5396d7b8ba3ed4e6a1c96a232ad465bc05aedd68c2"
+      "sha256": "dfeb46d5c1a4532b2d0d06eab1e8ee88065b9e1d622fab14fb004ae55530ff38"
     },
     {
-      "bytes": 1266,
+      "bytes": 11422,
+      "path": "plugins/starter-kit-claude/skills/council/references/council-synthesis.md",
+      "sha256": "a01823ce64ae81ef0230341a9d47a2e648722e9fa9b12fbf9d1858de0f05653f"
+    },
+    {
+      "bytes": 1677,
       "path": "plugins/starter-kit-claude/skills/council/references/host.md",
-      "sha256": "56cb112e2dd78ea4bb00251d954c1e98a151552e7aebf5a8adb1df65d12af335"
+      "sha256": "f8ce34885319e5e41b4bff7da01b8a061932224f792b8c1618eb1592aa0b19dd"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/council/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 8169,
-      "path": "plugins/starter-kit-claude/skills/council/references/panel-workflow.md",
-      "sha256": "39e8bb9a5d32c67e816e293b9c9debab402edafe84f95907a16d7ac48b9a3893"
+      "bytes": 17832,
+      "path": "plugins/starter-kit-claude/skills/council/references/panel-execution.md",
+      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
     },
     {
       "bytes": 857,
@@ -226,14 +231,9 @@
       "sha256": "3afec45f609396b83bf885af59c40ea41f3e25d161a9d234af6daeb074a2d062"
     },
     {
-      "bytes": 1376,
-      "path": "plugins/starter-kit-claude/skills/council/references/synthesis.md",
-      "sha256": "1b210780b582420a2e3b326e5dace66996dda14af9e79c43cd13eca7fbdc7817"
-    },
-    {
-      "bytes": 23659,
+      "bytes": 26027,
       "path": "plugins/starter-kit-claude/skills/council/scripts/council.py",
-      "sha256": "8d6bb3a1b654110f470531b3d3d5905fc5c1a1be23dc11039b33f211d595c518"
+      "sha256": "952b6e37ba63938fe9b7c80dc0a975648c929d3e00942e38f48b72dc5f2e34eb"
     },
     {
       "bytes": 1241,
@@ -241,29 +241,29 @@
       "sha256": "b5d3923530216bfd8bd343db31c7e956ee221efb41e9070df3d1659953cf02d3"
     },
     {
-      "bytes": 1266,
+      "bytes": 1677,
       "path": "plugins/starter-kit-claude/skills/done/references/host.md",
-      "sha256": "56cb112e2dd78ea4bb00251d954c1e98a151552e7aebf5a8adb1df65d12af335"
+      "sha256": "f8ce34885319e5e41b4bff7da01b8a061932224f792b8c1618eb1592aa0b19dd"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/done/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 1654,
+      "bytes": 1761,
       "path": "plugins/starter-kit-claude/skills/kit-hello/SKILL.md",
-      "sha256": "efabcb6829f7aab91339b8f077e07d85a00fca0a2002362cb1cc312536fa3aac"
+      "sha256": "9b4de58cd77a73b8c215d7a5ab0d10ef7a8fcfe21f27e350999e12819c9cb6ca"
     },
     {
-      "bytes": 1266,
+      "bytes": 1677,
       "path": "plugins/starter-kit-claude/skills/kit-hello/references/host.md",
-      "sha256": "56cb112e2dd78ea4bb00251d954c1e98a151552e7aebf5a8adb1df65d12af335"
+      "sha256": "f8ce34885319e5e41b4bff7da01b8a061932224f792b8c1618eb1592aa0b19dd"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/kit-hello/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
       "bytes": 2678,
@@ -271,19 +271,44 @@
       "sha256": "dcb2db5cd50ef90094d88b269a8c11c966add8aa4596957e8f52de1480d5b249"
     },
     {
-      "bytes": 1266,
+      "bytes": 1677,
       "path": "plugins/starter-kit-claude/skills/kit-setup/references/host.md",
-      "sha256": "56cb112e2dd78ea4bb00251d954c1e98a151552e7aebf5a8adb1df65d12af335"
+      "sha256": "f8ce34885319e5e41b4bff7da01b8a061932224f792b8c1618eb1592aa0b19dd"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/kit-setup/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 4402,
+      "bytes": 6024,
+      "path": "plugins/starter-kit-claude/skills/prompt/SKILL.md",
+      "sha256": "74ab5173822f760b0e6fac586a1abc4334df44efcdacb655cb78e7f27ca9f8dd"
+    },
+    {
+      "bytes": 4520,
+      "path": "plugins/starter-kit-claude/skills/prompt/references/formatting-core.md",
+      "sha256": "0f4991dc21d9159bb3f4b2767490def426e3fda88392c23dc066432ad35fcb00"
+    },
+    {
+      "bytes": 1677,
+      "path": "plugins/starter-kit-claude/skills/prompt/references/host.md",
+      "sha256": "f8ce34885319e5e41b4bff7da01b8a061932224f792b8c1618eb1592aa0b19dd"
+    },
+    {
+      "bytes": 425,
+      "path": "plugins/starter-kit-claude/skills/prompt/references/package.json",
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+    },
+    {
+      "bytes": 1699,
+      "path": "plugins/starter-kit-claude/skills/prompt/references/refine-mode.md",
+      "sha256": "d34eb557420a77c9d7df63987537d7e4472f2d0e61064a56595f10306151585e"
+    },
+    {
+      "bytes": 6124,
       "path": "plugins/starter-kit-codex/CROSS-CLIENT.md",
-      "sha256": "6fe8cd15ff00f91d806f4df9dd537eed9b838b16a7fb65dff5033dee683f5a94"
+      "sha256": "7d54e6b0e34f17982a021f6c9ab7621cac8aac651ec9da00ea0fa9c9df148679"
     },
     {
       "bytes": 1071,
@@ -291,14 +316,14 @@
       "sha256": "c226c1779c8d491ffaf1dcda2a7bb7c38216b0f56a2c1701cb44f5f096e99384"
     },
     {
-      "bytes": 3956,
+      "bytes": 4470,
       "path": "plugins/starter-kit-codex/README.md",
-      "sha256": "c00de6cb9e15c582091a9387a84c13b1996566fce86b23567b2383508511d21e"
+      "sha256": "c3b694d945fa7071a4261c2b992533499de170389d3dfd0f1750009bea27ebfc"
     },
     {
-      "bytes": 2393,
+      "bytes": 2690,
       "path": "plugins/starter-kit-codex/RELEASE-NOTES.md",
-      "sha256": "99cd420efe6ccbe740004cc7f67d89b88a373848635da87c8569de7e480e66e9"
+      "sha256": "7656699bdb1502dc8de2fe3fb84dfa890322d09c5b334fbf513ba3ad910c5be3"
     },
     {
       "bytes": 17171,
@@ -306,49 +331,54 @@
       "sha256": "046b2910e8c9dfb2651ebfddde654df892ca707078448f09c50ddc576e9ccbaf"
     },
     {
-      "bytes": 1289,
+      "bytes": 1345,
       "path": "plugins/starter-kit-codex/plugin.json",
-      "sha256": "7939671137884fc87aef96c8009c5eb1ee8364997be19a57c769cce200ce5982"
+      "sha256": "5e7a8e13c396cce04ebbb0bb648013beed127b2d16990a956f0fd951a74339e4"
     },
     {
-      "bytes": 3164,
+      "bytes": 3573,
       "path": "plugins/starter-kit-codex/shared/personas/chief-of-staff.md",
-      "sha256": "a6d61d18b7a193475801400d93c0c2b21b6201d3e002334987c530aed9e9c1ce"
+      "sha256": "99d6ebc8e2d0ea366b2882418103785a84048ddad39209ed0410f528d0bab72c"
     },
     {
-      "bytes": 2469,
+      "bytes": 2864,
       "path": "plugins/starter-kit-codex/shared/personas/completeness-checker.md",
-      "sha256": "4320560c363b5e216c8f8cc1dadcc40347a357165924c1ef832d62b4933da285"
+      "sha256": "f45b5697af52873e9ee5e127859914f5e455231537a1fb406ac81cba0b85a262"
     },
     {
-      "bytes": 2433,
+      "bytes": 2836,
       "path": "plugins/starter-kit-codex/shared/personas/pre-mortem.md",
-      "sha256": "d497789820bc0a8a58a6096e6dad7a3d98a9cd10b139946fa56ebce09f54134b"
+      "sha256": "c45101a6187f92578c2aefbcad657c6321b58a47587d36bab043306248d43bfc"
     },
     {
-      "bytes": 2279,
+      "bytes": 2666,
       "path": "plugins/starter-kit-codex/shared/personas/skeptic.md",
-      "sha256": "183f55665757e577b1897c6209e77e80aff56afa4c6c3ebe1b4afd724083ae6a"
+      "sha256": "ac8ce259161f995d2a1da5a85a12927a7b727ff54a225166d92117c507be75d9"
     },
     {
-      "bytes": 2159,
+      "bytes": 2414,
       "path": "plugins/starter-kit-codex/skills/adversarial-review/SKILL.md",
-      "sha256": "4843cf05ad457a05a22d5d1ffba3f8dcc64c8592e2531c049fd7cbafdc291760"
+      "sha256": "fb433543f8a1d782713cf9f26f5c296e9ee516178b374bbbcd936c4f6e5499aa"
     },
     {
-      "bytes": 1422,
+      "bytes": 11422,
+      "path": "plugins/starter-kit-codex/skills/adversarial-review/references/council-synthesis.md",
+      "sha256": "a01823ce64ae81ef0230341a9d47a2e648722e9fa9b12fbf9d1858de0f05653f"
+    },
+    {
+      "bytes": 2145,
       "path": "plugins/starter-kit-codex/skills/adversarial-review/references/host.md",
-      "sha256": "d186f9cb15b0d10b51c8754f7528848f3721337d1331faeb5d2507a3f19a9573"
+      "sha256": "fc2556a03f4df70f78b630c9b7189d732bb6e39a2eaf5a67212438f202d47b42"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/adversarial-review/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 8169,
-      "path": "plugins/starter-kit-codex/skills/adversarial-review/references/panel-workflow.md",
-      "sha256": "39e8bb9a5d32c67e816e293b9c9debab402edafe84f95907a16d7ac48b9a3893"
+      "bytes": 17832,
+      "path": "plugins/starter-kit-codex/skills/adversarial-review/references/panel-execution.md",
+      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
     },
     {
       "bytes": 857,
@@ -361,14 +391,9 @@
       "sha256": "3afec45f609396b83bf885af59c40ea41f3e25d161a9d234af6daeb074a2d062"
     },
     {
-      "bytes": 1376,
-      "path": "plugins/starter-kit-codex/skills/adversarial-review/references/synthesis.md",
-      "sha256": "1b210780b582420a2e3b326e5dace66996dda14af9e79c43cd13eca7fbdc7817"
-    },
-    {
-      "bytes": 23659,
+      "bytes": 26027,
       "path": "plugins/starter-kit-codex/skills/adversarial-review/scripts/council.py",
-      "sha256": "8d6bb3a1b654110f470531b3d3d5905fc5c1a1be23dc11039b33f211d595c518"
+      "sha256": "952b6e37ba63938fe9b7c80dc0a975648c929d3e00942e38f48b72dc5f2e34eb"
     },
     {
       "bytes": 2482,
@@ -376,14 +401,14 @@
       "sha256": "97ff99c778d7793ced3e1db29e49c9292cd25ade97fe8f84814324dd50fed2bc"
     },
     {
-      "bytes": 1422,
+      "bytes": 2145,
       "path": "plugins/starter-kit-codex/skills/ask-agents/references/host.md",
-      "sha256": "d186f9cb15b0d10b51c8754f7528848f3721337d1331faeb5d2507a3f19a9573"
+      "sha256": "fc2556a03f4df70f78b630c9b7189d732bb6e39a2eaf5a67212438f202d47b42"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/ask-agents/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
       "bytes": 5127,
@@ -401,24 +426,29 @@
       "sha256": "08ca99add44d27a9e3b4b8edae58c485f8af36322c8f7283fd8298b3ed1032c7"
     },
     {
-      "bytes": 1655,
+      "bytes": 2472,
       "path": "plugins/starter-kit-codex/skills/council/SKILL.md",
-      "sha256": "312ae21fb3bf25793208fb5396d7b8ba3ed4e6a1c96a232ad465bc05aedd68c2"
+      "sha256": "dfeb46d5c1a4532b2d0d06eab1e8ee88065b9e1d622fab14fb004ae55530ff38"
     },
     {
-      "bytes": 1422,
+      "bytes": 11422,
+      "path": "plugins/starter-kit-codex/skills/council/references/council-synthesis.md",
+      "sha256": "a01823ce64ae81ef0230341a9d47a2e648722e9fa9b12fbf9d1858de0f05653f"
+    },
+    {
+      "bytes": 2145,
       "path": "plugins/starter-kit-codex/skills/council/references/host.md",
-      "sha256": "d186f9cb15b0d10b51c8754f7528848f3721337d1331faeb5d2507a3f19a9573"
+      "sha256": "fc2556a03f4df70f78b630c9b7189d732bb6e39a2eaf5a67212438f202d47b42"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/council/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 8169,
-      "path": "plugins/starter-kit-codex/skills/council/references/panel-workflow.md",
-      "sha256": "39e8bb9a5d32c67e816e293b9c9debab402edafe84f95907a16d7ac48b9a3893"
+      "bytes": 17832,
+      "path": "plugins/starter-kit-codex/skills/council/references/panel-execution.md",
+      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
     },
     {
       "bytes": 857,
@@ -431,14 +461,9 @@
       "sha256": "3afec45f609396b83bf885af59c40ea41f3e25d161a9d234af6daeb074a2d062"
     },
     {
-      "bytes": 1376,
-      "path": "plugins/starter-kit-codex/skills/council/references/synthesis.md",
-      "sha256": "1b210780b582420a2e3b326e5dace66996dda14af9e79c43cd13eca7fbdc7817"
-    },
-    {
-      "bytes": 23659,
+      "bytes": 26027,
       "path": "plugins/starter-kit-codex/skills/council/scripts/council.py",
-      "sha256": "8d6bb3a1b654110f470531b3d3d5905fc5c1a1be23dc11039b33f211d595c518"
+      "sha256": "952b6e37ba63938fe9b7c80dc0a975648c929d3e00942e38f48b72dc5f2e34eb"
     },
     {
       "bytes": 1241,
@@ -446,29 +471,29 @@
       "sha256": "b5d3923530216bfd8bd343db31c7e956ee221efb41e9070df3d1659953cf02d3"
     },
     {
-      "bytes": 1422,
+      "bytes": 2145,
       "path": "plugins/starter-kit-codex/skills/done/references/host.md",
-      "sha256": "d186f9cb15b0d10b51c8754f7528848f3721337d1331faeb5d2507a3f19a9573"
+      "sha256": "fc2556a03f4df70f78b630c9b7189d732bb6e39a2eaf5a67212438f202d47b42"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/done/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 1654,
+      "bytes": 1761,
       "path": "plugins/starter-kit-codex/skills/kit-hello/SKILL.md",
-      "sha256": "efabcb6829f7aab91339b8f077e07d85a00fca0a2002362cb1cc312536fa3aac"
+      "sha256": "9b4de58cd77a73b8c215d7a5ab0d10ef7a8fcfe21f27e350999e12819c9cb6ca"
     },
     {
-      "bytes": 1422,
+      "bytes": 2145,
       "path": "plugins/starter-kit-codex/skills/kit-hello/references/host.md",
-      "sha256": "d186f9cb15b0d10b51c8754f7528848f3721337d1331faeb5d2507a3f19a9573"
+      "sha256": "fc2556a03f4df70f78b630c9b7189d732bb6e39a2eaf5a67212438f202d47b42"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/kit-hello/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
       "bytes": 2678,
@@ -476,14 +501,39 @@
       "sha256": "dcb2db5cd50ef90094d88b269a8c11c966add8aa4596957e8f52de1480d5b249"
     },
     {
-      "bytes": 1422,
+      "bytes": 2145,
       "path": "plugins/starter-kit-codex/skills/kit-setup/references/host.md",
-      "sha256": "d186f9cb15b0d10b51c8754f7528848f3721337d1331faeb5d2507a3f19a9573"
+      "sha256": "fc2556a03f4df70f78b630c9b7189d732bb6e39a2eaf5a67212438f202d47b42"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/kit-setup/references/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+    },
+    {
+      "bytes": 6024,
+      "path": "plugins/starter-kit-codex/skills/prompt/SKILL.md",
+      "sha256": "74ab5173822f760b0e6fac586a1abc4334df44efcdacb655cb78e7f27ca9f8dd"
+    },
+    {
+      "bytes": 4520,
+      "path": "plugins/starter-kit-codex/skills/prompt/references/formatting-core.md",
+      "sha256": "0f4991dc21d9159bb3f4b2767490def426e3fda88392c23dc066432ad35fcb00"
+    },
+    {
+      "bytes": 2145,
+      "path": "plugins/starter-kit-codex/skills/prompt/references/host.md",
+      "sha256": "fc2556a03f4df70f78b630c9b7189d732bb6e39a2eaf5a67212438f202d47b42"
+    },
+    {
+      "bytes": 425,
+      "path": "plugins/starter-kit-codex/skills/prompt/references/package.json",
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+    },
+    {
+      "bytes": 1699,
+      "path": "plugins/starter-kit-codex/skills/prompt/references/refine-mode.md",
+      "sha256": "d34eb557420a77c9d7df63987537d7e4472f2d0e61064a56595f10306151585e"
     },
     {
       "bytes": 6493,
@@ -516,9 +566,9 @@
       "sha256": "ff694ee63e1c162cac7374fd27592fff82ed1350454254a52e760da9e810e10b"
     },
     {
-      "bytes": 15060,
+      "bytes": 23061,
       "path": "scripts/test-starter-packages.py",
-      "sha256": "4dc126a3821defd5cfaf2fcb2a971ff122303d3b10f1f5634d6cf45d97cfe9f3"
+      "sha256": "121b2cdb2f55f0d189f6819bc2af1b201fe839f470ceac46e2153ca76f10d64e"
     },
     {
       "bytes": 7002,
@@ -541,19 +591,19 @@
       "sha256": "71c3d2fb8f50c91bf6cb9b94f4be95fff3e932cb614937dc16b83c36b0bb556c"
     },
     {
-      "bytes": 4402,
+      "bytes": 6124,
       "path": "starter-kit-source/MAINTENANCE.md",
-      "sha256": "6fe8cd15ff00f91d806f4df9dd537eed9b838b16a7fb65dff5033dee683f5a94"
+      "sha256": "7d54e6b0e34f17982a021f6c9ab7621cac8aac651ec9da00ea0fa9c9df148679"
     },
     {
-      "bytes": 3956,
+      "bytes": 4470,
       "path": "starter-kit-source/PACKAGE-README.md",
-      "sha256": "c00de6cb9e15c582091a9387a84c13b1996566fce86b23567b2383508511d21e"
+      "sha256": "c3b694d945fa7071a4261c2b992533499de170389d3dfd0f1750009bea27ebfc"
     },
     {
-      "bytes": 2393,
+      "bytes": 2690,
       "path": "starter-kit-source/RELEASE-NOTES.md",
-      "sha256": "99cd420efe6ccbe740004cc7f67d89b88a373848635da87c8569de7e480e66e9"
+      "sha256": "7656699bdb1502dc8de2fe3fb84dfa890322d09c5b334fbf513ba3ad910c5be3"
     },
     {
       "bytes": 356,
@@ -571,14 +621,14 @@
       "sha256": "6a44230d4024011da160cf8f49cdfabddf110590e65eb13f5819a78410faa34d"
     },
     {
-      "bytes": 1266,
+      "bytes": 1677,
       "path": "starter-kit-source/adapters/claude/host.md",
-      "sha256": "56cb112e2dd78ea4bb00251d954c1e98a151552e7aebf5a8adb1df65d12af335"
+      "sha256": "f8ce34885319e5e41b4bff7da01b8a061932224f792b8c1618eb1592aa0b19dd"
     },
     {
-      "bytes": 1422,
+      "bytes": 2145,
       "path": "starter-kit-source/adapters/codex/host.md",
-      "sha256": "d186f9cb15b0d10b51c8754f7528848f3721337d1331faeb5d2507a3f19a9573"
+      "sha256": "fc2556a03f4df70f78b630c9b7189d732bb6e39a2eaf5a67212438f202d47b42"
     },
     {
       "bytes": 12720,
@@ -591,24 +641,24 @@
       "sha256": "08ca99add44d27a9e3b4b8edae58c485f8af36322c8f7283fd8298b3ed1032c7"
     },
     {
-      "bytes": 3164,
+      "bytes": 3573,
       "path": "starter-kit-source/agents/chief-of-staff.md",
-      "sha256": "a6d61d18b7a193475801400d93c0c2b21b6201d3e002334987c530aed9e9c1ce"
+      "sha256": "99d6ebc8e2d0ea366b2882418103785a84048ddad39209ed0410f528d0bab72c"
     },
     {
-      "bytes": 2469,
+      "bytes": 2864,
       "path": "starter-kit-source/agents/completeness-checker.md",
-      "sha256": "4320560c363b5e216c8f8cc1dadcc40347a357165924c1ef832d62b4933da285"
+      "sha256": "f45b5697af52873e9ee5e127859914f5e455231537a1fb406ac81cba0b85a262"
     },
     {
-      "bytes": 2433,
+      "bytes": 2836,
       "path": "starter-kit-source/agents/pre-mortem.md",
-      "sha256": "d497789820bc0a8a58a6096e6dad7a3d98a9cd10b139946fa56ebce09f54134b"
+      "sha256": "c45101a6187f92578c2aefbcad657c6321b58a47587d36bab043306248d43bfc"
     },
     {
-      "bytes": 2279,
+      "bytes": 2666,
       "path": "starter-kit-source/agents/skeptic.md",
-      "sha256": "183f55665757e577b1897c6209e77e80aff56afa4c6c3ebe1b4afd724083ae6a"
+      "sha256": "ac8ce259161f995d2a1da5a85a12927a7b727ff54a225166d92117c507be75d9"
     },
     {
       "bytes": 17171,
@@ -616,14 +666,14 @@
       "sha256": "046b2910e8c9dfb2651ebfddde654df892ca707078448f09c50ddc576e9ccbaf"
     },
     {
-      "bytes": 383,
+      "bytes": 425,
       "path": "starter-kit-source/package.json",
-      "sha256": "8b84eaefd88bbe828bfa5a609ec7bafc36a0ab8be4054ecddc22936b3b50d788"
+      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 2159,
+      "bytes": 2414,
       "path": "starter-kit-source/skills/adversarial-review/SKILL.md",
-      "sha256": "4843cf05ad457a05a22d5d1ffba3f8dcc64c8592e2531c049fd7cbafdc291760"
+      "sha256": "fb433543f8a1d782713cf9f26f5c296e9ee516178b374bbbcd936c4f6e5499aa"
     },
     {
       "bytes": 2482,
@@ -636,14 +686,19 @@
       "sha256": "35dacc0af6178fe19639d720ad40f300ebaa67704716a1d7aeffdc326c6c1b16"
     },
     {
-      "bytes": 1655,
+      "bytes": 2472,
       "path": "starter-kit-source/skills/council/SKILL.md",
-      "sha256": "312ae21fb3bf25793208fb5396d7b8ba3ed4e6a1c96a232ad465bc05aedd68c2"
+      "sha256": "dfeb46d5c1a4532b2d0d06eab1e8ee88065b9e1d622fab14fb004ae55530ff38"
     },
     {
-      "bytes": 8169,
-      "path": "starter-kit-source/skills/council/references/panel-workflow.md",
-      "sha256": "39e8bb9a5d32c67e816e293b9c9debab402edafe84f95907a16d7ac48b9a3893"
+      "bytes": 11422,
+      "path": "starter-kit-source/skills/council/references/council-synthesis.md",
+      "sha256": "a01823ce64ae81ef0230341a9d47a2e648722e9fa9b12fbf9d1858de0f05653f"
+    },
+    {
+      "bytes": 17832,
+      "path": "starter-kit-source/skills/council/references/panel-execution.md",
+      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
     },
     {
       "bytes": 857,
@@ -656,14 +711,9 @@
       "sha256": "3afec45f609396b83bf885af59c40ea41f3e25d161a9d234af6daeb074a2d062"
     },
     {
-      "bytes": 1376,
-      "path": "starter-kit-source/skills/council/references/synthesis.md",
-      "sha256": "1b210780b582420a2e3b326e5dace66996dda14af9e79c43cd13eca7fbdc7817"
-    },
-    {
-      "bytes": 23659,
+      "bytes": 26027,
       "path": "starter-kit-source/skills/council/scripts/council.py",
-      "sha256": "8d6bb3a1b654110f470531b3d3d5905fc5c1a1be23dc11039b33f211d595c518"
+      "sha256": "952b6e37ba63938fe9b7c80dc0a975648c929d3e00942e38f48b72dc5f2e34eb"
     },
     {
       "bytes": 1241,
@@ -671,14 +721,29 @@
       "sha256": "b5d3923530216bfd8bd343db31c7e956ee221efb41e9070df3d1659953cf02d3"
     },
     {
-      "bytes": 1654,
+      "bytes": 1761,
       "path": "starter-kit-source/skills/kit-hello/SKILL.md",
-      "sha256": "efabcb6829f7aab91339b8f077e07d85a00fca0a2002362cb1cc312536fa3aac"
+      "sha256": "9b4de58cd77a73b8c215d7a5ab0d10ef7a8fcfe21f27e350999e12819c9cb6ca"
     },
     {
       "bytes": 2678,
       "path": "starter-kit-source/skills/kit-setup/SKILL.md",
       "sha256": "dcb2db5cd50ef90094d88b269a8c11c966add8aa4596957e8f52de1480d5b249"
+    },
+    {
+      "bytes": 6024,
+      "path": "starter-kit-source/skills/prompt/SKILL.md",
+      "sha256": "74ab5173822f760b0e6fac586a1abc4334df44efcdacb655cb78e7f27ca9f8dd"
+    },
+    {
+      "bytes": 4520,
+      "path": "starter-kit-source/skills/prompt/references/formatting-core.md",
+      "sha256": "0f4991dc21d9159bb3f4b2767490def426e3fda88392c23dc066432ad35fcb00"
+    },
+    {
+      "bytes": 1699,
+      "path": "starter-kit-source/skills/prompt/references/refine-mode.md",
+      "sha256": "d34eb557420a77c9d7df63987537d7e4472f2d0e61064a56595f10306151585e"
     }
   ],
   "mode": "public-repo-authored",

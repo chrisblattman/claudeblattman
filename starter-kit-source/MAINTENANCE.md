@@ -1,6 +1,12 @@
 # One source, two host packages
 
-`starter-kit-source/skills/` owns six workflow instructions. `agents/` owns four personas, copied once into each plugin’s `shared/personas/` folder. Both panel skills reference those shared files; no per-skill persona copies are generated. Council's `scripts/` and `references/` own the shared panel implementation, copied into Adversarial Review at build time. `adapters/shared/` owns provider transport, copied identically into both Ask Agents packages. Host adapters describe only native dispatch and optional command aliases. No private runtime dependency is shipped.
+`starter-kit-source/skills/` owns seven workflow instructions. `agents/` owns four personas, copied once into each plugin’s `shared/personas/` folder. Both panel skills reference those shared files; no per-skill persona copies are generated. Council's `scripts/` and `references/` own the shared panel implementation, copied into Adversarial Review at build time. `adapters/shared/` owns provider transport, copied identically into both Ask Agents packages. Host adapters describe only native dispatch and optional command aliases. No private runtime dependency is shipped.
+
+Panel runs save a persona-free `PROMPT.md` unchanged and include it in every assignment. Local workers additionally receive a wrapper linking to frozen run-local persona guidelines; external-provider workers receive no persona assignment. The run-local copies preserve which role instructions were used without duplicating installed definitions. Development and review guidance are explicitly separated inside each persona. Full Prompt preparation is used when requested or needed for consequential ambiguity, in hold mode before dispatch; it returns to the calling workflow without a second panel.
+
+`references/panel-execution.md` is the shared execution contract; the former `panel-workflow.md` name is retired. `council-synthesis.md` preserves the supplied upstream quality contract and stage instructions with documented public-runtime adaptations. It replaces the provisional `quality-contract.md` and `synthesis.md` files. The helper freezes the full source, extracts its named quality and chair sections, and includes them in the generated assignments outside the unchanged task brief. Existing archives retain their original instructions. Native host behavior stays in the adapters. Private source hashes and the detailed reconciliation belong in the private review workspace; private runtime certification is not reproduced.
+
+Prompt's shared v3.0 workflow and its formatting/refinement references are packaged identically for both hosts. The host adapters map invocation syntax. Personal preference files and the optional private teaching guide are not shipped; user-supplied preferences and project guidance still apply. Do not introduce a separate automatic prompt execution path in Council or Ask Agents.
 
 ```sh
 python3 scripts/build-all-plugins.py
@@ -32,7 +38,7 @@ Offline fixtures establish packaging and orchestration bookkeeping, not real pro
 
 ## Adapter differences
 
-Both packages have the same six workflow instructions, shared persona definitions, panel runtime and provider transport. `adapters/claude/host.md` and `adapters/codex/host.md` differ only in the native worker mechanism and host-specific instructions. The shared provider scripts work for either host; the separate Grok wrapper handles that provider's subscription/authentication contract.
+Both packages have the same seven workflow instructions, shared persona definitions, panel runtime and provider transport. `adapters/claude/host.md` and `adapters/codex/host.md` differ only in the native worker mechanism and host-specific instructions. The shared provider scripts work for either host; the separate Grok wrapper handles that provider's subscription/authentication contract.
 
 Claude additionally has optional `commands/codex.md`, `commands/gemini.md` and `commands/grok.md` shortcuts. They delegate to Ask Agents; Codex users make the same requests through Ask Agents. They are conveniences, not additional workflows or connections. Claude's native named-agent copies are not generated: both hosts use the shared persona text.
 

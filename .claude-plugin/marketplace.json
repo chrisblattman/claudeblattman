@@ -12,7 +12,7 @@
     {
       "name": "starter-kit",
       "source": "./plugins/starter-kit-claude",
-      "description": "Develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
+      "description": "Prepare and refine prompts, develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
       "version": "0.3.0",
       "author": {
         "name": "Chris Blattman",

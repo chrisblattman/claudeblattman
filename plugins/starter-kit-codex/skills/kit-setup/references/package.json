@@ -6,8 +6,9 @@
     "kit-hello",
     "kit-setup",
     "ask-agents",
+    "prompt",
     "done"
   ],
-  "description": "Develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
+  "description": "Prepare and refine prompts, develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
   "status": "release candidate; offline checks available, live host/provider acceptance pending"
 }

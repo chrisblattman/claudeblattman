@@ -11,7 +11,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
-NAMES = {"adversarial-review", "council", "kit-hello", "kit-setup", "ask-agents", "done"}
+NAMES = {"adversarial-review", "council", "kit-hello", "kit-setup", "ask-agents", "prompt", "done"}
 
 
 def call(*args, ok=True):
@@ -49,6 +49,16 @@ class Packages(unittest.TestCase):
             for name in NAMES:
                 expected = ROOT / "starter-kit-source/skills" / name / "SKILL.md"
                 self.assertEqual((root / "skills" / name / "SKILL.md").read_bytes(), expected.read_bytes())
+            for name in ("council", "adversarial-review"):
+                refs = root / "skills" / name / "references"
+                self.assertTrue((refs / "panel-execution.md").is_file())
+                self.assertTrue((refs / "council-synthesis.md").is_file())
+                self.assertFalse((refs / "quality-contract.md").exists())
+                self.assertFalse((refs / "synthesis.md").exists())
+                self.assertFalse((refs / "panel-workflow.md").exists())
+                self.assertIn("references/panel-execution.md", (root / "skills" / name / "SKILL.md").read_text())
+            for name in ("formatting-core.md", "refine-mode.md"):
+                self.assertEqual((root / "skills/prompt/references" / name).read_bytes(), (ROOT / "starter-kit-source/skills/prompt/references" / name).read_bytes())
             for name in ("skeptic", "pre-mortem", "completeness-checker", "chief-of-staff"):
                 self.assertEqual((root / "shared/personas" / (name + ".md")).read_bytes(), (ROOT / "starter-kit-source/agents" / (name + ".md")).read_bytes())
 
@@ -135,6 +145,104 @@ class Council(unittest.TestCase):
         packet = (self.run / "packets/synthesis-primary/STAGE_PROMPT.md").read_text()
         self.assertIn(report.read_text(), packet)
         self.assertEqual(packet.count(" — Family X"), 4)
+
+    def test_persona_wrapper_keeps_common_prompt_and_freezes_linked_guidelines(self):
+        self.brief.write_text("# Task\n\nConsider A or B—neither is settled.\n\nKeep the final newline.\n")
+        for host in ("claude", "codex"):
+            for workflow in ("council", "adversarial-review"):
+                with self.subTest(host=host, workflow=workflow):
+                    self.helper = ROOT / f"plugins/starter-kit-{host}/skills/{workflow}/scripts/council.py"
+                    self.run = self.base / f"{host}-{workflow}"
+                    self.invoke("plan", "--host", host, "--mode", "local", "--brief-file", self.brief, "--output", self.run)
+                    manifest = json.loads((self.run / "MANIFEST.json").read_text())
+                    self.assertEqual((self.run / "PROMPT.md").read_bytes(), self.brief.read_bytes())
+                    for seat in manifest["seats"]:
+                        assignment = (self.run / seat["prompt"]).read_text()
+                        guidelines = (self.run / seat["persona_guidelines"]).resolve()
+                        original = ROOT / f"plugins/starter-kit-{host}/shared/personas/{seat['persona']}.md"
+                        self.assertIn(self.brief.read_text(), assignment)
+                        self.assertIn(f"[persona guidelines](<{guidelines}>)", assignment)
+                        self.assertEqual(guidelines.read_bytes(), original.read_bytes())
+                        self.assertNotIn(original.read_text(), assignment)
+                        self.assertIn(seat["persona_guidelines"], manifest["frozen_files"])
+                    # Role-file drift must be caught just like a changed shared brief.
+                    guidelines.write_text("Changed role instructions")
+                    self.invoke("status", "--run", self.run, ok=False)
+
+    def test_switching_to_providers_preserves_prompt_without_personas(self):
+        self.plan()
+        original = (self.run / "PROMPT.md").read_bytes()
+        self.run = self.base / "providers"
+        self.plan("--providers", "claude,codex")
+        self.assertEqual((self.run / "PROMPT.md").read_bytes(), original)
+        self.assertFalse((self.run / "persona-guidelines").exists())
+        manifest = json.loads((self.run / "MANIFEST.json").read_text())
+        for seat in manifest["seats"]:
+            assignment = (self.run / seat["prompt"]).read_text()
+            self.assertIn(original.decode(), assignment)
+            self.assertIsNone(seat["persona_guidelines"])
+            self.assertNotIn("## Persona wrapper", assignment)
+            self.assertNotIn("[persona guidelines]", assignment)
+
+    def test_quality_contract_reaches_all_seats_and_chair_stages_unchanged(self):
+        source = (ROOT / "starter-kit-source/skills/council/references/council-synthesis.md").read_text()
+        expected = source.split("## Quality and revision contract\n", 1)[1].split("\n## ", 1)[0].strip()
+        for host in ("claude", "codex"):
+            for mode in ("local", "full"):
+                with self.subTest(host=host, mode=mode):
+                    self.helper = ROOT / f"plugins/starter-kit-{host}/skills/council/scripts/council.py"
+                    self.run = self.base / f"quality-{host}-{mode}"
+                    self.invoke("plan", "--host", host, "--mode", mode, "--adversarial", "--brief-file", self.brief, "--output", self.run)
+                    manifest = json.loads((self.run / "MANIFEST.json").read_text())
+                    self.assertEqual((self.run / "PROMPT.md").read_bytes(), self.brief.read_bytes())
+                    self.assertIn(expected, (self.run / "QUALITY_CONTRACT.md").read_text())
+                    self.assertEqual((self.run / "COUNCIL_SYNTHESIS.md").read_text(), source)
+                    self.assertIn("QUALITY_CONTRACT.md", manifest["frozen_files"])
+                    for seat in manifest["seats"]:
+                        self.assertIn(expected, (self.run / seat["prompt"]).read_text())
+                        report = self.base / f"{seat['id']}-quality-report.md"
+                        report.write_text("Evidence supports the small pilot; demand remains uncertain.")
+                        self.invoke("record", "--run", self.run, "--seat", seat["id"], "--state", "succeeded", "--report-file", report, "--execution-id", "fixture-" + seat["id"])
+                    self.stage("adversary")
+                    self.stage("synthesis", "failed")
+                    self.stage("synthesis", "succeeded", "fallback")
+                    for stage in ("adversary-primary", "synthesis-primary", "synthesis-fallback"):
+                        packet = (self.run / "packets" / stage / "STAGE_PROMPT.md").read_text()
+                        self.assertIn(expected, packet)
+                        self.assertNotIn("[original input]", packet)
+                        if stage.startswith("synthesis"):
+                            for heading in ("FULL CONSENSUS", "MATERIAL DISAGREEMENTS", "UNIQUE HIGH-VALUE FINDINGS", "ADVERSARIAL FINDINGS", "FAILED OR DEGRADED ARMS", "RECOMMENDED RESOLUTION"):
+                                self.assertIn(heading, packet)
+                            self.assertIn("Separate sourced fact, report judgment, and synthesis inference", packet)
+                            self.assertIn('Report “applied” separately from “verified.”', packet)
+                        else:
+                            self.assertIn("What a synthesizer must not smooth over", packet)
+                    (self.run / "QUALITY_CONTRACT.md").write_text("Changed criteria")
+                    self.invoke("status", "--run", self.run, ok=False)
+
+    def test_missing_canonical_section_fails_before_archive(self):
+        installed = self.base / "fixture-plugin"
+        shutil.copytree(ROOT / "plugins/starter-kit-codex", installed)
+        self.helper = installed / "skills/council/scripts/council.py"
+        reference = installed / "skills/council/references/council-synthesis.md"
+        reference.write_text(reference.read_text().replace("## Fresh synthesis prompt", "## Missing synthesis"))
+        self.invoke("plan", "--host", "codex", "--mode", "local", "--brief-file", self.brief, "--output", self.run, ok=False)
+        self.assertFalse(self.run.exists())
+
+    def test_planned_chair_instructions_survive_installed_reference_update(self):
+        installed = self.base / "fixture-plugin"
+        shutil.copytree(ROOT / "plugins/starter-kit-codex", installed)
+        self.helper = installed / "skills/council/scripts/council.py"
+        self.plan("--adversarial")
+        reference = installed / "skills/council/references/council-synthesis.md"
+        reference.write_text("New installation with different instructions.")
+        self.record_seats()
+        self.stage("adversary")
+        self.stage("synthesis")
+        for name, frozen in (("adversary", "ADVERSARY_INSTRUCTIONS.md"), ("synthesis", "SYNTHESIS_INSTRUCTIONS.md")):
+            packet = (self.run / "packets" / (name + "-primary") / "STAGE_PROMPT.md").read_text()
+            self.assertIn((self.run / frozen).read_text(), packet)
+            self.assertNotIn("New installation", packet)
 
     def test_requested_adversary_precedes_synthesis(self):
         self.plan("--adversarial")

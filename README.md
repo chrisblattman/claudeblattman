@@ -24,7 +24,7 @@ No coding background required. Everything is built with markdown and AI tools.
 
 ## Quick Start
 
-The **Starter Kit 0.3.0 review candidate** contains six shared skills for Claude Code and Codex: council, adversarial-review, kit-hello, kit-setup, ask-agents, and done. Both packages are generated from one source.
+The **Starter Kit 0.3.0 review candidate** contains seven shared skills for Claude Code and Codex: council, adversarial-review, kit-hello, kit-setup, ask-agents, prompt, and done. Both packages are generated from one source.
 
 Council develops with three local personas; Adversarial Review uses four fresh reviewers. Each has a fresh synthesis worker. Optional named providers include Claude, Codex, Gemini through Antigravity, and subscription-authenticated Grok Build. Local personas remain the default. Saved panel preferences survive package updates.
 

@@ -1,7 +1,7 @@
 {
   "name": "starter-kit-codex",
   "version": "0.3.0",
-  "description": "Develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
+  "description": "Prepare and refine prompts, develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
   "author": {
     "name": "Chris Blattman",
     "url": "https://claudeblattman.com"
@@ -22,7 +22,7 @@
       "interface": {
         "displayName": "Starter Kit for Codex",
         "shortDescription": "Councils and session handoffs",
-        "longDescription": "Develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
+        "longDescription": "Prepare and refine prompts, develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
         "developerName": "Chris Blattman",
         "category": "Productivity",
         "capabilities": [],
