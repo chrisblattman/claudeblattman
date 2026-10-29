@@ -52,7 +52,7 @@ import json
 from pathlib import Path
 
 market = json.loads(Path('.claude-plugin/marketplace.json').read_text())
-claude = json.loads(Path('plugins/starter-kit/.claude-plugin/plugin.json').read_text())
+claude = json.loads(Path('plugins/starter-kit-claude/.claude-plugin/plugin.json').read_text())
 codex = json.loads(Path('plugins/starter-kit-codex/plugin.json').read_text())
 listed = next(p for p in market['plugins'] if p['name'] == 'starter-kit')
 assert market['metadata']['version'] == listed['version'] == claude['version'] == codex['version']

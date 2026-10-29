@@ -1,6 +1,6 @@
 # Shared panel execution
 
-This contract serves Council and Adversarial Review in both hosts. Read the installed `host.md`, `policy.json`, `synthesis.md`, and complete relevant `personas/*.md`. Resolve all paths from the installed skill directory. Python 3.9+ is required. Do not import a private runtime or simulate workers within one conversation.
+This contract serves Council and Adversarial Review in both hosts. Read the installed `host.md`, `policy.json`, `synthesis.md`, and the complete relevant persona definitions in `../../shared/personas/` relative to the installed skill directory. Council and Adversarial Review share that one folder. Other references resolve from the installed skill directory. Python 3.9+ is required. Do not import a private runtime or simulate workers within one conversation.
 
 ## Choose and freeze the panel
 

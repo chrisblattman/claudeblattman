@@ -1,5 +1,8 @@
 # 0.3.0 review candidate — October 29, 2026
 
+- Plugin installation for both hosts; no separate manual Codex installer.
+- One shared persona folder per plugin, used by both panel workflows.
+- Explicit Claude/Codex package folder names and one shared build command.
 - Six shared skills, including separate development Council and Adversarial Review.
 - Three local development personas; four local reviewers; fresh synthesis for both.
 - Exact custom provider panels, Light and Full counts, and saved user defaults with backups/reset.

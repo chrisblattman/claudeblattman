@@ -28,7 +28,7 @@ The **Starter Kit 0.3.0 review candidate** contains six shared skills for Claude
 
 Council develops with three local personas; Adversarial Review uses four fresh reviewers. Each has a fresh synthesis worker. Optional named providers include Claude, Codex, Gemini through Antigravity, and subscription-authenticated Grok Build. Local personas remain the default. Saved panel preferences survive package updates.
 
-See the [package guide](starter-kit-source/PACKAGE-README.md) for installation, prerequisites, connections, migration and current validation limits. See the [manual Codex installer](codex-starter/README.md) if plugin installation is unavailable. The candidate still needs live acceptance testing; repository marketplace commands install the released branch, not necessarily this candidate.
+See the [package guide](starter-kit-source/PACKAGE-README.md) for installation, prerequisites, connections, migration and current validation limits. Plugin installation is the supported path for both apps. The candidate still needs live acceptance testing; repository marketplace commands install the released branch, not necessarily this candidate.
 
 The older `skills/` folder is an advanced reference library. Overlapping council/review/done entries point to the bundled workflows rather than maintaining conflicting implementations. Website walkthrough edits are handled separately from this package branch.
 
@@ -37,8 +37,8 @@ The older `skills/` folder is an advanced reference library. Overlapping council
 ```
 claudeblattman/
 ├── docs/               # Website source (MkDocs Material)
-├── plugins/starter-kit/ # Claude plugin for the desktop-agent starter kit
-├── codex-starter/      # Codex starter pack installer + skills
+├── plugins/starter-kit-claude/ # Claude plugin for the desktop-agent starter kit
+├── plugins/starter-kit-codex/  # Codex plugin from the same shared source
 ├── skills/             # Downloadable skill files
 ├── agents/             # Downloadable agent files
 ├── templates/          # Starter templates (CLAUDE.md, goals.yaml)

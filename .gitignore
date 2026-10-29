@@ -9,7 +9,7 @@ credentials/
 *.json.bak
 .claude/
 HANDOFF.md
-!plugins/starter-kit/references/project-folder-template/HANDOFF.md
+!plugins/starter-kit-claude/references/project-folder-template/HANDOFF.md
 SESSION_LOG.md
 PUBLIC_VOCAB.md
 godaddy-setup.md
@@ -19,6 +19,5 @@ godaddy-setup.md
 
 # Public handoff templates shipped inside the starter packages
 !starter-kit-source/**/HANDOFF.md
-!plugins/starter-kit/**/HANDOFF.md
+!plugins/starter-kit-claude/**/HANDOFF.md
 !plugins/starter-kit-codex/**/HANDOFF.md
-!codex-starter/skills/**/HANDOFF.md

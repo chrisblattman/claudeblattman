@@ -11,7 +11,7 @@ One shared kit for Claude Code and Codex, with six skills:
 | `/kit-hello` | Check installation files, prerequisites and next steps |
 | `/done` | Preserve decisions and unfinished work for the next session |
 
-The bundled personas are skeptic, pre-mortem, completeness checker, and Chief of Staff. Chief of Staff is optional in development and included in the four-reviewer default. Each panel gets a separate fresh synthesis worker. Another review is always a new user-requested run, never an automatic debate loop.
+Both plugins read their four personas from one `shared/personas/` folder per installation. The bundled personas are skeptic, pre-mortem, completeness checker, and Chief of Staff. Chief of Staff is optional in development and included in the four-reviewer default. Each panel gets a separate fresh synthesis worker. Another review is always a new user-requested run, never an automatic debate loop.
 
 Start with Kit Hello, then `Use a council to develop a plan for this project.` After revising the result, ask `Run an adversarial review of this plan.` Native fresh-worker support and Python 3.9+ are required. External connections are optional and require Node 18+ and a provider CLI/login. Grok additionally requires Python 3.11+ for configuration checks.
 
@@ -37,8 +37,8 @@ codex plugin marketplace add chrisblattman/claudeblattman
 codex plugin add starter-kit-codex@claudeblattman
 ```
 
-Until this candidate is merged/released, those commands may install the prior version. Restart the host and use Kit Hello to check the actual version. The repository's manual Codex installer is an alternative; it preserves existing files with backups and does not install global guidance by default.
+Until this candidate is merged/released, those commands may install the prior version. Restart the host and use Kit Hello to check the actual version. Plugin installation is the supported path for both apps. No separate manual installer is included.
 
-**Migration:** `/prompt` and `/review-plan` are not bundled. Council prepares its brief; existing-work review uses `/adversarial-review`. Remove or rename a conflicting legacy command only with the user's direction. Old `engines.json` availability flags are no longer required. Existing user-owned skills and preference files are preserved. 0.2 archives remain historical records; use their original helper for later inspection.
+**Migration:** `/prompt` and `/review-plan` are not bundled. Council prepares its brief; existing-work review uses `/adversarial-review`. Remove or rename a conflicting legacy command only with the user's direction. Old `engines.json` availability flags are no longer required. This release does not delete existing user-owned skill copies or preference files. If an older manual install exists, review its duplicate skills explicitly rather than deleting them automatically. 0.2 archives remain historical records; use their original helper for later inspection.
 
 See `CROSS-CLIENT.md` for the source/build contract. Do not edit generated package files.

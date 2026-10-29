@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Offline installation, parity, and council failure-path tests; no model calls."""
+"""Offline packaging, parity, and council failure-path tests; no model calls."""
 import json
+import shutil
 from pathlib import Path
 import subprocess
 import sys
@@ -25,7 +26,7 @@ def call(*args, ok=True):
 class Packages(unittest.TestCase):
     def test_archive_contents(self):
         with tempfile.TemporaryDirectory() as temp:
-            call(PYTHON, ROOT / "scripts/build-starter-plugins.py", "--check", "--package-dir", temp)
+            call(PYTHON, ROOT / "scripts/build-all-plugins.py", "--check", "--package-dir", temp)
             for archive in Path(temp).glob("*.zip"):
                 with zipfile.ZipFile(archive) as zipped:
                     names = zipped.namelist()
@@ -36,36 +37,33 @@ class Packages(unittest.TestCase):
                     for name in NAMES:
                         self.assertEqual(zipped.read(f"{root}/skills/{name}/SKILL.md"), (ROOT / "starter-kit-source/skills" / name / "SKILL.md").read_bytes())
                     self.assertFalse(any("marketplace.json" in n for n in names))
+                    for persona in ("skeptic", "pre-mortem", "completeness-checker", "chief-of-staff"):
+                        matches = [n for n in names if n.endswith("/" + persona + ".md")]
+                        self.assertEqual(matches, [f"{root}/shared/personas/{persona}.md"])
+                    self.assertFalse(any("install-codex-starter" in n for n in names))
 
     def test_generated_parity_and_inventory(self):
-        call(PYTHON, ROOT / "scripts/build-starter-plugins.py", "--check")
-        for root in (ROOT / "plugins/starter-kit", ROOT / "plugins/starter-kit-codex", ROOT / "codex-starter"):
+        call(PYTHON, ROOT / "scripts/build-all-plugins.py", "--check")
+        for root in (ROOT / "plugins/starter-kit-claude", ROOT / "plugins/starter-kit-codex"):
             self.assertEqual({p.name for p in (root / "skills").iterdir()}, NAMES)
             for name in NAMES:
                 expected = ROOT / "starter-kit-source/skills" / name / "SKILL.md"
                 self.assertEqual((root / "skills" / name / "SKILL.md").read_bytes(), expected.read_bytes())
             for name in ("skeptic", "pre-mortem", "completeness-checker", "chief-of-staff"):
-                self.assertEqual((root / "skills/council/references/personas" / (name + ".md")).read_bytes(), (ROOT / "starter-kit-source/agents" / (name + ".md")).read_bytes())
+                self.assertEqual((root / "shared/personas" / (name + ".md")).read_bytes(), (ROOT / "starter-kit-source/agents" / (name + ".md")).read_bytes())
 
-    def test_manual_install_restore_and_retired_preservation(self):
-        installer = ROOT / "codex-starter/install-codex-starter.py"
-        with tempfile.TemporaryDirectory() as temp:
-            target = Path(temp) / "codex"
-            original = target / "skills/done/SKILL.md"
-            original.parent.mkdir(parents=True)
-            original.write_text("My existing handoff skill")
-            retired = target / "skills/prompt/SKILL.md"
-            retired.parent.mkdir()
-            retired.write_text("User-owned prompt skill")
-            call(PYTHON, installer, "install", "--target-root", target)
-            call(PYTHON, installer, "verify", "--target-root", target)
-            call(PYTHON, installer, "install", "--target-root", target)
-            self.assertFalse((target / "AGENTS.md").exists())
-            self.assertEqual(retired.read_text(), "User-owned prompt skill")
-            call(PYTHON, installer, "uninstall", "--target-root", target)
-            self.assertEqual(original.read_text(), "My existing handoff skill")
-            self.assertEqual(retired.read_text(), "User-owned prompt skill")
-            self.assertFalse((target / "skills/council").exists())
+    def test_shared_workflow_files_match_between_hosts(self):
+        claude = ROOT / "plugins/starter-kit-claude"
+        codex = ROOT / "plugins/starter-kit-codex"
+        for name in NAMES:
+            left = {str(p.relative_to(claude / "skills" / name)): p.read_bytes() for p in (claude / "skills" / name).rglob("*") if p.is_file() and p.name != "host.md"}
+            right = {str(p.relative_to(codex / "skills" / name)): p.read_bytes() for p in (codex / "skills" / name).rglob("*") if p.is_file() and p.name != "host.md"}
+            self.assertEqual(left, right)
+        for plugin in (claude, codex):
+            persona_files = list(plugin.rglob("skeptic.md"))
+            self.assertEqual(persona_files, [plugin / "shared/personas/skeptic.md"])
+            self.assertEqual(len(list((plugin / "shared/personas").glob("*.md"))), 4)
+
 
 
 class Council(unittest.TestCase):
@@ -213,9 +211,16 @@ class Council(unittest.TestCase):
         self.run = self.base / "explicit"
         self.plan("--mode", "local")
         self.assertEqual(len(json.loads((self.run / "MANIFEST.json").read_text())["seats"]), 3)
-        installer = ROOT / "codex-starter/install-codex-starter.py"
-        for action in ("install", "install", "uninstall"):
-            call(PYTHON, installer, action, "--target-root", self.base / "installation")
+        # Simulate replacing plugin contents; settings live outside either plugin.
+        for source in (ROOT / "plugins/starter-kit-claude", ROOT / "plugins/starter-kit-codex"):
+            installed = self.base / "installed-plugin"
+            for _ in range(2):
+                if installed.exists():
+                    shutil.rmtree(installed)
+                shutil.copytree(source, installed)
+                shown = json.loads(call(PYTHON, installed / "skills/council/scripts/council.py", "preferences", "show", "--settings", settings).stdout)
+                self.assertEqual(shown["effective_panel"]["providers"], ["claude", "grok"])
+            shutil.rmtree(installed)
         self.assertEqual(settings.read_bytes(), original)
         self.invoke("preferences", "reset", "--settings", settings)
         self.assertEqual(json.loads(settings.read_text())["other"], {"keep": True})

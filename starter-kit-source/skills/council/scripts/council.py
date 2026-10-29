@@ -191,7 +191,7 @@ def plan(args):
     seats = []
     evidence_text = "\n".join(f"- {e['id']}: {e['path']} ({e['volatility']})" for e in evidence) or "No separately indexed evidence. State any needed access gaps."
     for seat_id, provider, name in assignments:
-        persona = (SKILL / "references/personas" / f"{name}.md").read_text() if name else "Independent generalist: examine the entire task, alternatives, evidence, feasibility, and missing perspectives. Do not assume another member will cover a weakness."
+        persona = (SKILL.parents[1] / "shared/personas" / f"{name}.md").read_text() if name else "Independent generalist: examine the entire task, alternatives, evidence, feasibility, and missing perspectives. Do not assume another member will cover a weakness."
         job = ("Develop an independent useful approach or answer. Explain alternatives and tradeoffs; do not grade a nonexistent draft. Use development output guidance in the persona." if workflow == "council" else "Review the supplied existing work against its purpose and evidence. Separate factual errors, material risks, and preferences; give locations, consequences, and smallest sufficient fixes. Do not invent flaws. Use review output guidance in the persona.")
         prompt = f"""# Independent {workflow} assignment: {seat_id}
 
