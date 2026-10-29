@@ -12,7 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - run: bash scripts/emit-public.sh --check
-      - run: python3 scripts/build-starter-plugins.py --check
+      - run: python3 scripts/build-all-plugins.py --check
       - run: python3 scripts/test-starter-packages.py
+      - run: node --test scripts/test-agent-transport.mjs
+      - run: python3 scripts/test-release-scanner.py
       - run: bash scripts/check-public-release.sh
+      - run: python3 scripts/build-all-plugins.py --check --package-dir /tmp/starter-kit-release
+      - run: python3 scripts/scan-public.py --archive /tmp/starter-kit-release/starter-kit-claude-0.3.0.zip --archive /tmp/starter-kit-release/starter-kit-codex-0.3.0.zip

@@ -1,31 +1,47 @@
-# Starter Kit 0.2.0
+# Starter Kit 0.3.0
 
-Five skills: `/council`, `/kit-hello`, `/kit-setup`, `/ask-agents`, and `/done`.
+One shared kit for Claude Code and Codex, with seven skills:
 
-Council starts three independent local members—pre-mortem, skeptic, and completeness checker—and a fresh synthesis worker. Chief of Staff is an optional fourth member, added only when you ask. Their definitions are bundled in both packages. An explicitly requested challenge runs after the member reports, before synthesis. Further review starts a fresh run; it does not create an automatic debate loop.
+| Skill | Purpose |
+|---|---|
+| `/council` | Develop independent approaches with three local personas and fresh synthesis |
+| `/adversarial-review` | Review existing work with four fresh local reviewers and fresh synthesis |
+| `/ask-agents` | Ask named connected providers and retrieve their full responses |
+| `/prompt` | Prepare or refine a prompt, or format and execute an explicitly requested task |
+| `/kit-setup` | Discover and test optional provider connections |
+| `/kit-hello` | Check installation files, prerequisites and next steps |
+| `/done` | Preserve decisions and unfinished work for the next session |
 
-The same source produces Claude and Codex skills. App-specific files only describe native worker dispatch and existing external transports. Start with `/kit-hello`, then try `/council` in a practice project. Python 3 is required for durable council archives. Optional Codex-host outside opinions use Node 18+ and authenticated provider CLIs.
+Both plugins read their four personas from one `shared/personas/` folder per installation. The bundled personas are skeptic, pre-mortem, completeness checker, and Chief of Staff. Chief of Staff is optional in development and included in the four-reviewer default. Each panel gets a separate fresh synthesis worker. Another review is always a new user-requested run, never an automatic debate loop.
 
-Chris's balanced Light/Full policy is preserved, but its audited external runtime is not bundled. Requests for those modes stop with an explanation; they never silently fall back to another provider. The current Ask Agents runners are suitable for their documented outside-opinion workflow, not a substitute for that runtime.
+Start with Kit Hello, then `Use a council to develop a plan for this project.` After revising the result, ask `Run an adversarial review of this plan.` Native fresh-worker support and Python 3.9+ are required. External connections are optional and require Node 18+ and a provider CLI/login. Grok additionally requires Python 3.11+ for configuration checks.
 
-`/prompt` and `/review-plan` are no longer included. Council prepares its own neutral brief. Previous manual installs may retain user-owned copies; the installer reports them without deleting them.
+Ask Agents supports Claude Code, Codex, Gemini through Antigravity, and official subscription-authenticated Grok Build. A manually connected CLI works without Kit Setup; missing connections return an error. Grok currently uses a reviewed macOS release pin, not a browser or an API fallback. Its requests use the subscription allowance; paid extra usage depends on the account's existing settings. The kit does not change billing. See Ask Agents' transport reference for platform/version limits.
 
-See `CROSS-CLIENT.md` for the source and build process. Do not edit generated package files.
+To change both panel defaults, ask for the exact providers you want. Preferences live in `~/.config/starter-kit/settings.json`, outside the installed package. Resetting them restores local personas. Light means one each of Claude, Codex and Gemini; Full means two each plus a challenge. Custom panels can include Grok. The host orchestrates native and external workers, and uses fresh native workers for chairs. These are portable panels, not claims of private runtime certification. Only Claude and Codex are supported hosts; a provider connection is not a host adapter.
 
-To include the optional member, ask: `Use a council with Chief of Staff to review this proposal.` A plain `/council` keeps the three default members. See the [repository installation instructions](https://github.com/chrisblattman/claudeblattman#quick-start) for both apps.
+**Validation:** this is the 0.3.0 review candidate. Offline tests cover packaging, archives, preference persistence and failure handling. Live installation, native-worker panels and authenticated provider calls still need acceptance testing before public release. Building does not install or publish the kit.
 
-Install in Claude Code:
+## Install after release approval
+
+Claude Code conversation:
 
 ```text
 /plugin marketplace add chrisblattman/claudeblattman
 /plugin install starter-kit@claudeblattman
 ```
 
-Install for Codex from your terminal:
+Codex terminal:
 
 ```sh
 codex plugin marketplace add chrisblattman/claudeblattman
 codex plugin add starter-kit-codex@claudeblattman
 ```
 
-Restart your app/session and select kit-hello from the skill picker. Native subagent support is required for councils.
+Until this candidate is merged/released, those commands may install the prior version. Restart the host and use Kit Hello to check the actual version. Plugin installation is the supported path for both apps. No separate manual installer is included.
+
+**Prompt:** prepare-only and refine-only requests return a prompt without executing it; explicit format-and-run requests show the assignment and then execute. Council uses full prompt preparation when requested or needed for consequential ambiguity, returning the brief to Council without a duplicate panel. An ordinary Prompt request does not automatically launch Council.
+
+**Migration:** `/review-plan` is not a separate bundled skill; existing-work review uses `/adversarial-review`. Prompt is bundled with its updated prepare/refine/execute behavior. Remove or rename a conflicting legacy command only with the user's direction. Old `engines.json` availability flags are no longer required. This release does not delete existing user-owned skill copies or preference files. If an older manual install exists, review its duplicate skills explicitly rather than deleting them automatically. 0.2 archives remain historical records; use their original helper for later inspection.
+
+See `CROSS-CLIENT.md` for the source/build contract. Do not edit generated package files.

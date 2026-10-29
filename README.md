@@ -24,42 +24,21 @@ No coding background required. Everything is built with markdown and AI tools.
 
 ## Quick Start
 
-The **Starter Kit 0.2.0** provides the same five skills in Claude Code and Codex: council, kit-hello, kit-setup, ask-agents, and done. Choose the plugin for your app. Both are generated from one shared source.
+The **Starter Kit 0.3.0 review candidate** contains seven shared skills for Claude Code and Codex: council, adversarial-review, kit-hello, kit-setup, ask-agents, prompt, and done. Both packages are generated from one source.
 
-**Claude Code:** run these in the Claude Code conversation:
+Council develops with three local personas; Adversarial Review uses four fresh reviewers. Each has a fresh synthesis worker. Optional named providers include Claude, Codex, Gemini through Antigravity, and subscription-authenticated Grok Build. Local personas remain the default. Saved panel preferences survive package updates.
 
-```text
-/plugin marketplace add chrisblattman/claudeblattman
-/plugin install starter-kit@claudeblattman
-```
+See the [package guide](starter-kit-source/PACKAGE-README.md) for installation, prerequisites, connections, migration and current validation limits. Plugin installation is the supported path for both apps. The candidate still needs live acceptance testing; repository marketplace commands install the released branch, not necessarily this candidate.
 
-**Codex:** with the Codex CLI installed, run these in your terminal:
-
-```sh
-codex plugin marketplace add chrisblattman/claudeblattman
-codex plugin add starter-kit-codex@claudeblattman
-```
-
-These commands add this repository as a plugin marketplace. They do not require finding the kit in a public plugin directory. Restart your app/session after installation, then select `kit-hello` from its skill picker to check the files. If your client does not support plugin installation, the [manual Codex installer](codex-starter/README.md) is also available.
-
-Council requires Python 3 and an agent client with native subagent support. The default is **three independent local members: pre-mortem, skeptic, and completeness checker**, followed by a separate fresh synthesis worker. Chief of Staff is bundled but added only on request as a fourth member.
-
-Try `Use a council to review this proposal.` To include the optional member: `Use a council with Chief of Staff to review this proposal.` You can also select the council skill from your app's skill picker (Claude Code's plugin command is `/starter-kit:council`). Ask for another council to review the resulting work in a new run. An explicitly requested adversarial review adds a separate local reviewer before synthesis.
-
-Chris's cross-provider **Light/Full** runtime is not included. The optional Ask Agents skill obtains outside opinions; it does not enable those council modes.
-
-**Upgrading:** this release replaces the bundled `/prompt` and `/review-plan` skills with the council workflow. The manual installer preserves existing user-owned copies. The website guides are being revised separately; this package README describes the skills available in 0.2.0.
-
-The older `skills/` library remains available as advanced/reference material,
-but it is not the recommended first-run path.
+The older `skills/` folder is an advanced reference library. Overlapping council/review/done entries point to the bundled workflows rather than maintaining conflicting implementations. Website walkthrough edits are handled separately from this package branch.
 
 ## Repo Structure
 
 ```
 claudeblattman/
 ├── docs/               # Website source (MkDocs Material)
-├── plugins/starter-kit/ # Claude plugin for the desktop-agent starter kit
-├── codex-starter/      # Codex starter pack installer + skills
+├── plugins/starter-kit-claude/ # Claude plugin for the desktop-agent starter kit
+├── plugins/starter-kit-codex/  # Codex plugin from the same shared source
 ├── skills/             # Downloadable skill files
 ├── agents/             # Downloadable agent files
 ├── templates/          # Starter templates (CLAUDE.md, goals.yaml)

@@ -1,6 +1,5 @@
 ---
-description: Ask Codex a specific question through the starter Ask Agents skill.
-argument-hint: <question>
+description: Ask Codex through the shared Ask Agents connection.
 ---
 
-Use the installed starter-kit Ask Agents skill for this request, with codex as the requested service. Follow its authorization, privacy, transport, and reporting instructions. Do not turn this into a council.
+Follow the installed Ask Agents skill for the user's request, selecting `codex` exactly. Use its bundled shared runner and retrieve the report. Do not run a legacy wrapper, change model/provider, or create a council. Missing connections return an explicit error and setup guidance.

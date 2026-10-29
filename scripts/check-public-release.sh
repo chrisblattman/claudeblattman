@@ -43,38 +43,8 @@ for prefix in "planning/" ".claude/" "site/"; do
   fi
 done
 
-public_file_list="$(mktemp)"
-trap 'rm -f "$public_file_list"' EXIT
-
-{
-  git ls-files
-  git ls-files --others --exclude-standard
-} | sort -u > "$public_file_list"
-
-public_file_count="$(wc -l < "$public_file_list" | tr -d ' ')"
-
-if [ "$public_file_count" -eq 0 ]; then
-  say_fail "no public files found; git ls-files returned nothing"
-else
-  private_re='(/Users/chrisblattman|Dropbox/(Codex|AI_Projects|Research & Writing|Claude/Settings|Claude/Projects)|Proposal_Resources|HPP-Blattman|blattman@gmail|Label_[0-9]+|[a-z0-9]{6,}@(g\.us|lid)|[a-z0-9]{16,}@group\.calendar\.google\.com|uchicago-bfi-blattman|PVT[A-Za-z]*_[A-Za-z0-9]+|\.granola-api-key|sk-ant-|client_secret|api_key[[:space:]]*=|password[[:space:]]*=|IRB[- ]?[0-9])'
-  hits=$(xargs grep -IInE "$private_re" < "$public_file_list" 2>/dev/null | grep -v '^scripts/check-public-release.sh:' | grep -v '^CONTRIBUTING.md:' || true)
-  if [ -n "$hits" ]; then
-    printf 'Private marker hits in public repo surface:\n%s\n' "$hits" >&2
-    fail=1
-  fi
-
-  # These .local files are intentionally gitignored because they may contain real
-  # private names or phrases. CI usually skips them; run this gate locally before
-  # public pushes for the fuller name/phrase sweep.
-  for list in ".sanitize-names.local" ".sanitize-private-blocklist.local"; do
-    if [ -s "$list" ]; then
-      hits=$(xargs grep -IInE -f "$list" < "$public_file_list" 2>/dev/null | grep -v '^CONTRIBUTING.md:' || true)
-      if [ -n "$hits" ]; then
-        printf 'Private blocklist hits from %s:\n%s\n' "$list" "$hits" >&2
-        fail=1
-      fi
-    fi
-  done
+if ! python3 scripts/scan-public.py; then
+  say_fail "public source/privacy scan failed"
 fi
 
 if ! python3 - <<'PY'
@@ -82,7 +52,7 @@ import json
 from pathlib import Path
 
 market = json.loads(Path('.claude-plugin/marketplace.json').read_text())
-claude = json.loads(Path('plugins/starter-kit/.claude-plugin/plugin.json').read_text())
+claude = json.loads(Path('plugins/starter-kit-claude/.claude-plugin/plugin.json').read_text())
 codex = json.loads(Path('plugins/starter-kit-codex/plugin.json').read_text())
 listed = next(p for p in market['plugins'] if p['name'] == 'starter-kit')
 assert market['metadata']['version'] == listed['version'] == claude['version'] == codex['version']
@@ -100,4 +70,4 @@ if [ "$fail" -ne 0 ]; then
   exit 1
 fi
 
-printf 'Public release check passed (%s files scanned).\n' "$public_file_count"
+printf 'Public release check passed.\n'

@@ -1,0 +1,11 @@
+{
+  "name": "starter-kit",
+  "version": "0.3.0",
+  "description": "Prepare and refine prompts, develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
+  "author": {
+    "name": "Chris Blattman",
+    "url": "https://claudeblattman.com"
+  },
+  "homepage": "https://claudeblattman.com/starter-kit/",
+  "license": "MIT"
+}
