@@ -1,10 +1,12 @@
 ---
 name: kit-hello
-description: Verify the starter kit's installed skill files and version, and explain the next step. Use when the user runs kit-hello or asks whether installation worked.
+description: Check the installed starter kit, prerequisites, and next step without calling external models.
 ---
 
 # Check the installation
 
-Read `references/package.json` and `references/host.md` next to this skill. Inspect the neighboring skill folders: `council`, `kit-hello`, `kit-setup`, `ask-agents`, and `done` must each contain `SKILL.md`. Check Council's `scripts/council.py`, policy, synthesis reference, and three default persona files plus the optional Chief of Staff persona. Do not modify files or call external services.
+Read `references/package.json` and `references/host.md`. Inspect every skill named in the actual package inventory: council, adversarial-review, kit-hello, kit-setup, ask-agents, done. Both panel skills must include `scripts/council.py`, their policy, synthesis and execution references, and all four personas. Ask Agents must include both shared transport scripts. Report missing files rather than claiming success.
 
-Report the actual packaged version and any missing files. Distinguish files found from a tested runtime: this check does not prove subagent dispatch or external authentication. If intact, invite the user to open a practice project and try `/council` on a small real task. Explain that the default is three local members and `/kit-setup` checks optional outside connections. Do not advertise Light/Full as operational while the Council runtime status says otherwise. Never hardcode a version or claim a missing skill is installed.
+Check Python 3.9+ for panel archives and whether this host exposes native fresh workers. Report file integrity, prerequisites and runtime verification separately; do not launch workers or outside services as part of Hello. Node 18+ is needed only for external connections; Grok additionally needs Python 3.11+ for its route validation. Show saved panel preferences through the helper without changing them.
+
+Explain: Council develops with three local personas by default; Adversarial Review uses four fresh reviewers; each gets a fresh synthesis. Optional saved provider panels apply to both. Start a small real task with Council, then review its revised result with Adversarial Review. Offer Kit Setup only for wanted external connections. Skill discovery/installation does not establish live provider or native-worker success. State the actual package version and supported host, never a hardcoded release number.

@@ -29,16 +29,13 @@ def generate(stage, host, metadata):
         refs.mkdir(exist_ok=True)
         shutil.copy2(SOURCE / "adapters" / host / "host.md", refs / "host.md")
         put(refs / "package.json", metadata)
-        if name == "council":
+        if name in ("council", "adversarial-review"):
+            if name == "adversarial-review":
+                shutil.copytree(SOURCE / "skills/council/scripts", skill / "scripts")
+                shutil.copytree(SOURCE / "skills/council/references", refs, dirs_exist_ok=True)
             shutil.copytree(SOURCE / "agents", refs / "personas")
         if name == "ask-agents":
-            shutil.copy2(SOURCE / "adapters" / host / "transport.md", refs / "transport.md")
-            if host == "claude":
-                shutil.copytree(SOURCE / "adapters/claude/scripts", skill / "scripts")
-                shutil.copy2(SOURCE / "adapters/claude/engines-contract.md", refs / "engines-contract.md")
-            else:
-                (skill / "scripts").mkdir()
-                shutil.copy2(SOURCE / "adapters/codex/run-external-agent.mjs", skill / "scripts/run-external-agent.mjs")
+            shutil.copytree(SOURCE / "adapters/shared", skill / "scripts")
     base = {"name": "starter-kit" if host == "claude" else "starter-kit-codex", "version": metadata["version"],
             "description": metadata["description"], "author": {"name": "Chris Blattman", "url": "https://claudeblattman.com"},
             "homepage": "https://claudeblattman.com/starter-kit/", "license": "MIT"}
@@ -58,6 +55,8 @@ def generate(stage, host, metadata):
         put(stage / "plugin.json", base)
         (stage / "assets").mkdir()
         shutil.copy2(SOURCE / "assets/icon-512.png", stage / "assets/icon-512.png")
+    shutil.copy2(ROOT / "LICENSE", stage / "LICENSE")
+    shutil.copy2(SOURCE / "RELEASE-NOTES.md", stage / "RELEASE-NOTES.md")
     shutil.copy2(SOURCE / "PACKAGE-README.md", stage / "README.md")
     shutil.copy2(SOURCE / "MAINTENANCE.md", stage / "CROSS-CLIENT.md")
 

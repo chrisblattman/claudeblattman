@@ -1,12 +1,13 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "skills": [
     "council",
+    "adversarial-review",
     "kit-hello",
     "kit-setup",
     "ask-agents",
     "done"
   ],
-  "description": "Independent council perspectives, optional outside opinions, setup checks, and session handoffs.",
-  "status": "local councils supported; provider-balanced Light/Full not bundled"
+  "description": "Develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
+  "status": "release candidate; offline checks available, live host/provider acceptance pending"
 }

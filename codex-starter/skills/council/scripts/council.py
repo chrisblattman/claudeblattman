@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Portable local-council archive operations; never launches an AI or certifies a provider."""
+"""Portable council and review archive operations; never launches an AI or certifies a provider."""
 
 import argparse
 import contextlib
@@ -13,7 +13,7 @@ import tempfile
 import uuid
 
 SKILL = Path(__file__).resolve().parents[1]
-SCHEMA = "starter-local-council-v1"
+SCHEMA = "starter-panel-v2"
 STATES = ("succeeded", "partial", "failed", "blocked")
 
 
@@ -68,7 +68,7 @@ def checked(run):
     manifest = read_json(run / "MANIFEST.json")
     state = read_json(run / "STATE.json")
     if manifest.get("schema") != SCHEMA:
-        raise ValueError("Unsupported manifest: this helper is not Chris's balanced resolver.")
+        raise ValueError("Unsupported manifest schema; use the helper version that created this archive.")
     if digest((run / "MANIFEST.json").read_bytes()) != state["manifest_sha256"]:
         raise ValueError("Frozen manifest changed; preserve the run and start a new one.")
     for rel, sha in manifest["frozen_files"].items():
@@ -97,13 +97,79 @@ def evidence_changes(manifest):
     return changes
 
 
+PROVIDERS = ("claude", "codex", "gemini", "grok")
+
+
+def settings_path(args):
+    return (args.settings or Path.home() / ".config/starter-kit/settings.json").expanduser().resolve()
+
+
+def load_settings(args):
+    path = settings_path(args)
+    value = read_json(path) if path.exists() else {"schema_version": 1}
+    if not isinstance(value, dict) or value.get("schema_version") != 1:
+        raise ValueError("Unsupported settings schema. Preserve the file and repair it explicitly.")
+    return value
+
+
+def validate_panel(panel):
+    if not isinstance(panel, dict) or panel.get("mode") not in ("local", "custom", "light", "full"):
+        raise ValueError("Panel mode must be local, custom, light, or full.")
+    providers = panel.get("providers", [])
+    if panel["mode"] == "custom":
+        if not isinstance(providers, list) or not providers or any(p not in PROVIDERS for p in providers):
+            raise ValueError("Custom panel requires named providers: claude, codex, gemini, grok. Repeat names for extra seats.")
+    elif providers:
+        raise ValueError("Use custom mode for an explicit provider list.")
+    return panel
+
+
+def preferences(args):
+    value = load_settings(args)
+    if args.action != "show":
+        if args.action == "reset":
+            value.pop("panel", None)
+        else:
+            panel = {"mode": args.mode or ("custom" if args.providers else "local")}
+            if args.providers:
+                panel["providers"] = args.providers.split(",")
+            value["panel"] = validate_panel(panel)
+        dest = settings_path(args)
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if dest.exists():
+            backup = dest.with_name(dest.name + ".backup-" + uuid.uuid4().hex)
+            exclusive(backup, dest.read_bytes())
+            backup.chmod(0o600)
+        atomic_json(dest, value)
+    print(json.dumps({"path": str(settings_path(args)), "settings": value, "effective_panel": validate_panel(value.get("panel", {"mode": "local"}))}, indent=2))
+
+
 def plan(args):
-    if args.mode != "local":
-        raise ValueError("Light/Full require Chris's audited balanced runtime, including Antigravity and bound receipts. This starter kit ships only the local custom route. Nothing dispatched.")
+    if args.providers:
+        if args.mode not in (None, "custom"):
+            raise ValueError("Explicit providers require custom mode.")
+        selected = validate_panel({"mode": "custom", "providers": args.providers.split(",")})
+    elif args.mode:
+        selected = validate_panel({"mode": args.mode})
+    else:
+        selected = validate_panel(load_settings(args).get("panel", {"mode": "local"}))
+    mode = selected["mode"]
+    if args.chief_of_staff and mode != "local":
+        raise ValueError("Chief of Staff is a local persona option; specify exact providers for a custom panel.")
     brief = args.brief_file.read_bytes()
     if not brief.strip():
         raise ValueError("The neutral brief must not be empty.")
     policy = read_json(SKILL / "references/policy.json")
+    workflow = args.workflow or ("adversarial-review" if SKILL.name == "adversarial-review" else "council")
+    if mode == "local":
+        names = list(policy["review_personas"] if workflow == "adversarial-review" else policy["local_personas"])
+        if args.chief_of_staff and "chief-of-staff" not in names:
+            names.append("chief-of-staff")
+        assignments = [("completeness" if n == "completeness-checker" else n, args.host, n) for n in names]
+    else:
+        providers = selected["providers"] if mode == "custom" else policy["modes"][mode]["providers"]
+        assignments = [(f"{provider}-{i+1}", provider, None) for i, provider in enumerate(providers)]
+    adversarial = args.adversarial or mode == "full"
     evidence = []
     for volatility, paths in (("stable", args.evidence), ("live", args.live_evidence)):
         for source in paths:
@@ -124,10 +190,12 @@ def plan(args):
     frozen = {name: digest((run / name).read_bytes()) for name in ("PROMPT.md", "POLICY.json", "SYNTHESIS_INSTRUCTIONS.md")}
     seats = []
     evidence_text = "\n".join(f"- {e['id']}: {e['path']} ({e['volatility']})" for e in evidence) or "No separately indexed evidence. State any needed access gaps."
-    for name in policy["local_personas"] + (["chief-of-staff"] if args.chief_of_staff else []):
-        seat_id = "completeness" if name == "completeness-checker" else name
-        persona = (SKILL / "references/personas" / f"{name}.md").read_text()
-        prompt = f"""# Independent council assignment: {seat_id}
+    for seat_id, provider, name in assignments:
+        persona = (SKILL / "references/personas" / f"{name}.md").read_text() if name else "Independent generalist: examine the entire task, alternatives, evidence, feasibility, and missing perspectives. Do not assume another member will cover a weakness."
+        job = ("Develop an independent useful approach or answer. Explain alternatives and tradeoffs; do not grade a nonexistent draft. Use development output guidance in the persona." if workflow == "council" else "Review the supplied existing work against its purpose and evidence. Separate factual errors, material risks, and preferences; give locations, consequences, and smallest sufficient fixes. Do not invent flaws. Use review output guidance in the persona.")
+        prompt = f"""# Independent {workflow} assignment: {seat_id}
+
+{job}
 
 Analyze and report on the whole request through your assigned lens. If the request asks to develop work, propose an approach or answer; do not limit yourself to criticizing a nonexistent draft. Do not read other members' reports. Do not edit project evidence or shared control files. Use your normal permitted tools and original evidence paths. Delegate only genuinely distinct specialist checks; do not recreate the panel. Report important assumptions, evidence, alternatives, missing information, and source-access limits. Do not invent concerns or agreement.
 
@@ -145,15 +213,16 @@ Return the full report to the host, or write it only to an invocation-specific f
         rel = f"seat-prompts/{seat_id}.md"
         exclusive(run / rel, prompt.encode())
         frozen[rel] = digest(prompt.encode())
-        seats.append({"id": seat_id, "provider": args.host, "persona": name, "prompt": rel})
-    manifest = {"schema": SCHEMA, "run_id": str(uuid.uuid4()), "mode": "local-custom", "host": args.host,
-                "evidence": evidence, "seats": seats, "adversarial_requested": args.adversarial,
+        seats.append({"id": seat_id, "provider": provider, "persona": name, "prompt": rel})
+    manifest = {"schema": SCHEMA, "run_id": str(uuid.uuid4()), "mode": "local-custom" if mode == "local" else mode, "workflow": workflow, "host": args.host,
+                "panel_selection": selected,
+                "evidence": evidence, "seats": seats, "adversarial_requested": adversarial,
                 "synthesis": {"primary": "fresh-local-worker", "fallback": "one-new-fresh-local-worker"},
                 "source_policy_version": policy["audit_policy_version"], "frozen_files": frozen,
                 "verification_limit": "File integrity checks; execution identity and source access are host-reported, not independently certified."}
     write_json(run / "MANIFEST.json", manifest)
     write_json(run / "STATE.json", {"manifest_sha256": digest((run / "MANIFEST.json").read_bytes()), "seats": {}, "stages": {}, "packets": {}})
-    (run / "MANIFEST.md").write_text(f"# Local custom council\n\n{len(seats)} independent members in " + args.host + ". Not a provider-balanced Light council.\n\n" + "\n".join(f"- {s['id']}: `{s['prompt']}` → `reports/{s['id']}.md`" for s in seats) + "\n\nRead STATE.json for recorded outcomes. No AI has been launched by this helper.\n")
+    (run / "MANIFEST.md").write_text(f"# {workflow}: {manifest['mode']}\n\n{len(seats)} independent members; fresh host synthesis. Portable orchestration, not certified provider balance.\n\n" + "\n".join(f"- {s['id']} ({s['provider']}): `{s['prompt']}` → `reports/{s['id']}.md`" for s in seats) + "\n\nRead STATE.json for outcomes. No AI has been launched by this helper.\n")
     print(json.dumps({"archive": str(run), "seats": seats}, indent=2))
 
 
@@ -196,8 +265,9 @@ def record(args):
 def project_text(text, manifest, run):
     replacements = [(str(run), "[run archive]")]
     replacements.extend((e["path"], e["id"]) for e in manifest["evidence"])
-    for s in manifest["seats"]:
-        replacements.append((s["provider"], "[host provider]"))
+    families = list(dict.fromkeys(s["provider"] for s in manifest["seats"]))
+    for index, provider in enumerate(families):
+        replacements.append((provider, "Family " + "XYZW"[index]))
     # This is a transparent local packet projection, not certified pseudonymization.
     for original, replacement in sorted(set(replacements), key=lambda x: -len(x[0])):
         text = re.sub(re.escape(original), lambda _: replacement, text, flags=re.IGNORECASE)
@@ -234,11 +304,12 @@ def packet(args):
         target.mkdir()
         blocks = ["# Shared brief\n" + project_text((run / "PROMPT.md").read_text(), manifest, run)]
         blocks.append("# Evidence access\n" + "\n".join(f"{e['id']}: {e['path']} ({e['volatility']})" for e in manifest["evidence"]))
-        blocks.append("# Execution caveats\nLocal custom council, one provider family. Member identities are host-reported. Source inspection is not independently certified. Do not treat agreement as provider-family corroboration. A failed/partial report is analytical input with caveats, never a successful vote.")
+        blocks.append("# Execution caveats\nPortable panel. Family labels identify requested provider groups, not independently verified models. Same-family agreement is not independent provider corroboration. Source inspection is not independently certified. A failed/partial report is analytical input with caveats, never a successful vote.")
+        families = list(dict.fromkeys(s["provider"] for s in manifest["seats"]))
         blocks.append("Current evidence changes: " + json.dumps(evidence_changes(manifest)))
         for index, (seat, item) in enumerate(reports):
             body = (run / item["report"]).read_text()
-            blocks.append(f"# Report {chr(65+index)} — Family X\nState: {item['state']}; note: {item['note']}; evidence changes: {json.dumps(item['evidence_changes'])}\n\n" + project_text(body, manifest, run))
+            blocks.append(f"# Report {chr(65+index)} — Family {'XYZW'[families.index(seat['provider'])]}\nState: {item['state']}; note: {item['note']}; evidence changes: {json.dumps(item['evidence_changes'])}\n\n" + project_text(body, manifest, run))
             for extra in item.get("addenda", []):
                 blocks.append("## Separate additional delivery from this same member (not another vote)\n" + project_text((run / extra["path"]).read_text(), manifest, run))
         for seat in manifest["seats"]:
@@ -272,7 +343,10 @@ def status(args):
     manifest, state = checked(run)
     synthesis = state["stages"].get("synthesis-fallback", state["stages"].get("synthesis-primary", {}))
     if synthesis.get("state") == "succeeded":
-        classification = "synthesized-local-custom"
+        complete = len(state["seats"]) == len(manifest["seats"]) and all(x["state"] == "succeeded" and not x["evidence_changes"] for x in state["seats"].values()) and not evidence_changes(manifest)
+        if manifest["adversarial_requested"] and state["stages"].get("adversary-primary", {}).get("state") != "succeeded":
+            complete = False
+        classification = ("synthesized-" + manifest["mode"]) if complete else "synthesized-with-limitations"
     elif "synthesis-fallback" in state["stages"]:
         classification = "unsynthesized-panel-output"
     else:
@@ -290,7 +364,10 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     p = sub.add_parser("plan")
     p.add_argument("--host", choices=("claude", "codex"), required=True)
-    p.add_argument("--mode", choices=("local", "light", "full"), default="local")
+    p.add_argument("--mode", choices=("local", "custom", "light", "full"))
+    p.add_argument("--providers", help="Comma-separated exact provider seats; repeats create additional seats")
+    p.add_argument("--workflow", choices=("council", "adversarial-review"))
+    p.add_argument("--settings", type=Path, help="Explicit alternative settings file; default is user-owned ~/.config/starter-kit/settings.json")
     p.add_argument("--brief-file", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--evidence", type=Path, action="append", default=[])
@@ -314,9 +391,14 @@ def main():
     p.add_argument("--attempt", choices=("primary", "fallback"), default="primary")
     p = sub.add_parser("status")
     p.add_argument("--run", type=Path, required=True)
+    p = sub.add_parser("preferences")
+    p.add_argument("action", choices=("show", "set", "reset"))
+    p.add_argument("--mode", choices=("local", "custom", "light", "full"))
+    p.add_argument("--providers")
+    p.add_argument("--settings", type=Path)
     args = parser.parse_args()
     try:
-        {"plan": plan, "record": record, "packet": packet, "status": status}[args.command](args)
+        {"plan": plan, "record": record, "packet": packet, "status": status, "preferences": preferences}[args.command](args)
     except (ValueError, OSError, KeyError) as error:
         print(f"Council: {error}", file=sys.stderr)
         return 1

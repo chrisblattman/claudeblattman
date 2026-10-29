@@ -1,0 +1,7 @@
+# Codex host adapter
+
+The host is Codex. Resolve paths from this skill's installed directory. Use the host's native collaboration/spawn-agent facility to start fresh workers with no inherited conversation (`fork_turns: "none"` where supported). Supply the exact assignment, complete persona, original evidence paths, and unique report path. Independent members may run concurrently within the host's capacity. If all slots are occupied, queue the remaining independent workers without exposing previous answers. Wait for terminal results; a fresh synthesis uses a new worker. If native subagents are unavailable, report the limitation rather than simulating them in the host answer.
+
+The starter local default uses the user's current model/effort unless a supported explicit request overrides it. Record the selection available from the host, and distinguish it from provider-observed telemetry. Do not claim Chris's pinned balanced defaults. Respect host approvals and workspace boundaries.
+
+For Ask Agents and provider seats, use the neighboring Ask Agents `scripts/run-agent.mjs` and shared transport reference. Discover connections live; no engines registry is required. Both hosts share the same transport, settings file and workflow instructions. Setup never overwrites global instructions. Native local workers use the host's existing permissions and available model unless the user specifies a supported override.

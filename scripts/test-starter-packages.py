@@ -10,7 +10,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
-NAMES = {"council", "kit-hello", "kit-setup", "ask-agents", "done"}
+NAMES = {"adversarial-review", "council", "kit-hello", "kit-setup", "ask-agents", "done"}
 
 
 def call(*args, ok=True):
@@ -86,7 +86,7 @@ class Council(unittest.TestCase):
         return call(PYTHON, self.helper, *args, ok=ok)
 
     def plan(self, *extra):
-        self.invoke("plan", "--host", "codex", "--brief-file", self.brief, "--output", self.run, "--evidence", self.evidence, *extra)
+        self.invoke("plan", "--host", "codex", "--settings", self.base / "settings.json", "--brief-file", self.brief, "--output", self.run, "--evidence", self.evidence, *extra)
 
     def record_seats(self, failed=False, addendum=False):
         for seat in ("skeptic", "pre-mortem", "completeness"):
@@ -175,11 +175,74 @@ class Council(unittest.TestCase):
         status = json.loads(self.invoke("status", "--run", self.run).stdout)
         self.assertEqual(status["source_changes"][0]["volatility"], "stable")
 
-    def test_balanced_modes_refuse_before_creating_run(self):
-        for mode in ("light", "full"):
-            result = self.invoke("plan", "--host", "codex", "--mode", mode, "--brief-file", self.brief, "--output", self.run, ok=False)
-            self.assertIn("Antigravity", result.stderr)
-            self.assertFalse(self.run.exists())
+    def test_provider_modes_and_exact_custom_seats(self):
+        for mode, count in (("light", 3), ("full", 6)):
+            self.run = self.base / mode
+            self.plan("--mode", mode)
+            manifest = json.loads((self.run / "MANIFEST.json").read_text())
+            self.assertEqual(len(manifest["seats"]), count)
+            self.assertEqual(manifest["adversarial_requested"], mode == "full")
+        self.run = self.base / "custom"
+        self.plan("--providers", "grok,codex,grok")
+        manifest = json.loads((self.run / "MANIFEST.json").read_text())
+        self.assertEqual([s["provider"] for s in manifest["seats"]], ["grok", "codex", "grok"])
+        self.assertTrue(all(s["persona"] is None for s in manifest["seats"]))
+
+    def test_review_has_four_fresh_required_seats(self):
+        self.helper = ROOT / "plugins/starter-kit-codex/skills/adversarial-review/scripts/council.py"
+        self.plan()
+        manifest = json.loads((self.run / "MANIFEST.json").read_text())
+        self.assertEqual(manifest["workflow"], "adversarial-review")
+        self.assertEqual(len(manifest["seats"]), 4)
+        self.record_seats()
+        self.invoke("packet", "--run", self.run, "--stage", "synthesis", ok=False)
+        self.invoke("record", "--run", self.run, "--seat", "chief-of-staff", "--state", "blocked", "--note", "Native worker unavailable")
+        self.stage("synthesis")
+        status = json.loads(self.invoke("status", "--run", self.run).stdout)
+        self.assertEqual(status["classification"], "synthesized-with-limitations")
+        self.assertEqual(status["planned"], 4)
+        self.assertEqual(status["succeeded"], 3)
+
+    def test_preferences_persist_and_explicit_requests_win(self):
+        settings = self.base / "settings.json"
+        settings.write_text(json.dumps({"schema_version": 1, "other": {"keep": True}}))
+        self.invoke("preferences", "set", "--settings", settings, "--providers", "claude,grok")
+        original = settings.read_bytes()
+        self.plan()
+        self.assertEqual([s["provider"] for s in json.loads((self.run / "MANIFEST.json").read_text())["seats"]], ["claude", "grok"])
+        self.run = self.base / "explicit"
+        self.plan("--mode", "local")
+        self.assertEqual(len(json.loads((self.run / "MANIFEST.json").read_text())["seats"]), 3)
+        installer = ROOT / "codex-starter/install-codex-starter.py"
+        for action in ("install", "install", "uninstall"):
+            call(PYTHON, installer, action, "--target-root", self.base / "installation")
+        self.assertEqual(settings.read_bytes(), original)
+        self.invoke("preferences", "reset", "--settings", settings)
+        self.assertEqual(json.loads(settings.read_text())["other"], {"keep": True})
+        self.assertNotIn("panel", json.loads(settings.read_text()))
+        self.assertEqual(len(list(self.base.glob("settings.json.backup-*"))), 2)
+        self.run = self.base / "reset"
+        self.plan()
+        self.assertEqual(len(json.loads((self.run / "MANIFEST.json").read_text())["seats"]), 3)
+
+    def test_invalid_provider_or_settings_fails_without_archive(self):
+        self.invoke("plan", "--host", "codex", "--providers", "unknown", "--brief-file", self.brief, "--output", self.run, ok=False)
+        self.assertFalse(self.run.exists())
+        bad = self.base / "bad.json"
+        bad.write_text('{"schema_version":1,"panel":{"mode":"custom","providers":[]}}')
+        self.invoke("plan", "--host", "codex", "--settings", bad, "--brief-file", self.brief, "--output", self.run, ok=False)
+        self.assertFalse(self.run.exists())
+
+    def test_mixed_family_packet_retains_failures_without_claiming_complete(self):
+        self.plan("--providers", "claude,grok")
+        report = self.base / "answer.md"
+        report.write_text("A material finding with original evidence.")
+        self.invoke("record", "--run", self.run, "--seat", "claude-1", "--state", "succeeded", "--report-file", report, "--execution-id", "fixture-session")
+        self.invoke("record", "--run", self.run, "--seat", "grok-2", "--state", "blocked", "--note", "Login unavailable")
+        self.stage("synthesis")
+        result = json.loads(self.invoke("status", "--run", self.run).stdout)
+        self.assertEqual(result["classification"], "synthesized-with-limitations")
+        self.assertIn("Login unavailable", (self.run / "packets/synthesis-primary/STAGE_PROMPT.md").read_text())
 
     def test_new_review_cannot_overwrite_old_archive(self):
         self.plan()

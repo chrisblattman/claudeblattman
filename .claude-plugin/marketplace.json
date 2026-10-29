@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Starter kit and skills from claudeblattman.com \u2014 desktop agent workflows for researchers and professionals",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "plugins": [
     {
       "name": "starter-kit",
       "source": "./plugins/starter-kit",
-      "description": "Independent council perspectives, optional outside opinions, setup checks, and session handoffs.",
-      "version": "0.2.0",
+      "description": "Develop with independent personas, review with fresh reviewers, consult connected agents, and save session handoffs.",
+      "version": "0.3.0",
       "author": {
         "name": "Chris Blattman",
         "url": "https://claudeblattman.com"

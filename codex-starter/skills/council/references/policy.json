@@ -1,111 +1,43 @@
 {
-  "provider_order": [
-    "claude",
-    "codex",
-    "gemini"
-  ],
-  "modes": {
-    "full": {
-      "seat_counts": {
-        "claude": 2,
-        "codex": 2,
-        "gemini": 2
-      },
-      "adversarial_review": true,
-      "synthesis": true
-    },
-    "light": {
-      "seat_counts": {
-        "claude": 1,
-        "codex": 1,
-        "gemini": 1
-      },
-      "adversarial_review": false,
-      "synthesis": true
-    }
-  },
-  "mode_selection": {
-    "contract_version": 1,
-    "default": "adaptive",
-    "routine_start": "light",
-    "explicit_user_mode_is_binding": true,
-    "importance_alone_does_not_force_full": true,
-    "full_factors": [
-      "the work has several genuinely separable lenses that can be assigned without duplication",
-      "the expected value of additional independent scrutiny outweighs coordination and subscription cost",
-      "a dedicated adversarial stage is materially useful before synthesis"
-    ],
-    "light_factors": [
-      "the work is sequential or depends on one shared context",
-      "three provider-family perspectives cover the material lenses",
-      "the run is an exploratory, diagnostic, or pilot iteration"
-    ],
-    "note": "Light is a starting configuration, not a capability ceiling. Full remains available whenever the task structure and expected value justify it. A later follow-up panel remains a new user-triggered invocation under the review-plan non-recursion rule."
-  },
-  "chair_rotations": {
-    "full": [
-      {
-        "adversary": "codex",
-        "synthesizer": "gemini",
-        "synthesis_fallback": "claude"
-      },
-      {
-        "adversary": "gemini",
-        "synthesizer": "claude",
-        "synthesis_fallback": "codex"
-      },
-      {
-        "adversary": "claude",
-        "synthesizer": "codex",
-        "synthesis_fallback": "gemini"
-      }
-    ],
-    "light": [
-      {
-        "synthesizer": "claude",
-        "synthesis_fallback": "gemini"
-      },
-      {
-        "synthesizer": "codex",
-        "synthesis_fallback": "claude"
-      },
-      {
-        "synthesizer": "gemini",
-        "synthesis_fallback": "codex"
-      }
-    ]
-  },
-  "lens_sets": {
-    "council": {
-      "full": [
-        "implementation, reliability, and operational constraints",
-        "pre-mortem, failure recovery, and hidden dependencies",
-        "feasibility, verification, evidence, and rollback",
-        "simplification, maintenance burden, and opportunity cost",
-        "outside view, alternatives, and disconfirming cases",
-        "completeness, affected users, and missing perspectives"
-      ],
-      "light": [
-        "implementation, reliability, and decisive failure modes",
-        "verification, evidence, simplification, and rollback",
-        "outside view, alternatives, completeness, and missing perspectives"
-      ]
-    }
-  },
-  "schema": "starter-council-policy-v1",
-  "audit_policy_version": "1.6.20",
+  "schema": "starter-council-policy-v2",
+  "audit_policy_version": "public-0.3.0",
   "default_mode": "local",
   "local_personas": [
     "skeptic",
     "pre-mortem",
     "completeness-checker"
   ],
-  "balanced_runtime_available": false,
-  "full_host_local_synthesis": {
-    "full": true,
-    "light": false,
-    "note": "Full: the host family synthesizes; the adversary is drawn from the two non-host families and the synthesis fallback is the other non-host family, so a fallback never lands on the host's own (possibly scarce) subscription. Light stays on rotation until the replay bias test (replay-bias-harness.mjs) shows no material own-family promotion effect: Light has no adversarial pass, so nothing else checks the synthesizer.",
-    "light_enable_requires": "replay-bias-harness.mjs result recorded in the decision record"
+  "review_personas": [
+    "skeptic",
+    "pre-mortem",
+    "completeness-checker",
+    "chief-of-staff"
+  ],
+  "provider_order": [
+    "claude",
+    "codex",
+    "gemini"
+  ],
+  "modes": {
+    "light": {
+      "providers": [
+        "claude",
+        "codex",
+        "gemini"
+      ],
+      "adversarial": false
+    },
+    "full": {
+      "providers": [
+        "claude",
+        "codex",
+        "gemini",
+        "claude",
+        "codex",
+        "gemini"
+      ],
+      "adversarial": true
+    }
   },
-  "note": "Local default is the starter user decision; balanced definitions come from the audited policy. No portable balanced runtime is bundled."
+  "note": "Portable public orchestration, not private certification. Grok is opt-in via custom providers. All chairs are fresh native host workers."
 }

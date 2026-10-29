@@ -4,4 +4,4 @@ The host is Codex. Resolve paths from this skill's installed directory. Use the 
 
 The starter local default uses the user's current model/effort unless a supported explicit request overrides it. Record the selection available from the host, and distinguish it from provider-observed telemetry. Do not claim Chris's pinned balanced defaults. Respect host approvals and workspace boundaries.
 
-For Ask Agents, follow its transport reference and bundled Node runner. Kit Setup checks Node 18+, `command -v claude`, and `command -v gemini`, then uses that runner for the requested smoke test. This adapter discovers services live and does not use Claude's engines.json. Do not install or overwrite global AGENTS.md during plugin setup.
+For Ask Agents and provider seats, use the neighboring Ask Agents `scripts/run-agent.mjs` and shared transport reference. Discover connections live; no engines registry is required. Both hosts share the same transport, settings file and workflow instructions. Setup never overwrites global instructions. Native local workers use the host's existing permissions and available model unless the user specifies a supported override.

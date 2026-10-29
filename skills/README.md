@@ -2,7 +2,9 @@
 
 Downloadable skills (slash commands) and agents for Claude Code.
 
-> **First-time desktop users:** start with the [Desktop Agent Starter Kit](../docs/starter-kit/index.md). The files below are an advanced/reference library from a broader setup. Some skills assume Gmail, Calendar, Granola, project configs, or account-specific templates and are not part of the v0.1 starter kit.
+> **First-time desktop users:** start with the [Desktop Agent Starter Kit](../docs/starter-kit/index.md). The files below are an advanced/reference library from a broader setup. Some skills assume Gmail, Calendar, Granola, project configs, or account-specific templates and are not part of the starter kit.
+
+The overlapping `council.md`, `review-plan.md`, and `done.md` files are migration notices. Install the shared kit for these workflows; do not install the legacy files as a second implementation. The broader library is selected reference material and is not a synchronized copy of a personal skill collection.
 
 ## Quick Install
 
@@ -14,8 +16,8 @@ mkdir -p ~/.claude/commands
 mkdir -p ~/.claude/agents
 
 # Download a skill
-curl -o ~/.claude/commands/done.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/done.md
+curl -o ~/.claude/commands/proposal-write.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-write.md
 
 # Download an agent
 curl -o ~/.claude/agents/review-writing.md \
@@ -38,8 +40,8 @@ Restart Claude Code after adding new commands.
 | **Proposal Revision** | `/proposal-revise` | None | Applies reviewer/collaborator feedback to proposal drafts |
 | **Proposal Writing** | `/proposal-write` | None | Drafts funding proposals from structured inputs and project context |
 | **Meeting Follow-Up** | `/post-meeting` | Gmail MCP, Granola MCP (optional) | Extracts decisions and action items from meeting transcripts, drafts follow-up email |
-| **Multi-Critic Council** | `/council` | None (chef-skill mode); persona agents in `~/.claude/agents/` for default panels | Dispatches parallel critic agents on a topic, then runs a separate synthesis pass. Use for plan reviews, paper reviews, and decisions |
-| **Plan Review** | `/review-plan` | None (web search optional) | Structured expert critique of plans |
+| **Council (migration notice)** | `/council` | Shared starter kit | Use the bundled development council; bundled adversarial-review handles critique |
+| **Plan Review (migration notice)** | `/review-plan` | Shared starter kit | Use bundled `/adversarial-review` |
 | **Schedule Query** | `/schedule-query` | Calendar MCP | Checks calendar availability and drafts scheduling replies |
 | **Project Setup** | `/setup-project-management` | None | Initializes project management system for research projects |
 | **Add To-Do** | `/todo-add` | None | Adds a to-do item to the correct list with duplicate checking |

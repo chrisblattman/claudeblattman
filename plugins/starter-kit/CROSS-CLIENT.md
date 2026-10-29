@@ -1,20 +1,31 @@
-# One source, two client packages
+# One source, two host packages
 
-Edit `starter-kit-source/skills/<name>/SKILL.md` once. The entire skill behavior is canonical there; neither client has a separately authored copy. Supporting templates and Council's archive helper live with the source skill. Personas are canonical in `starter-kit-source/agents/`. The builder copies those same bytes into both packages.
-
-Only host mechanics differ: `starter-kit-source/adapters/claude/` and `adapters/codex/` describe native worker launch, executable discovery, and the existing external runners. Shared behavior does not belong in these adapters. `package.json` owns the inventory and version.
+`starter-kit-source/skills/` owns six workflow instructions. `agents/` owns four personas. Council's `scripts/` and `references/` own the shared panel implementation, copied into Adversarial Review at build time. `adapters/shared/` owns provider transport, copied identically into both Ask Agents packages. Host adapters describe only native dispatch and optional command aliases. No private runtime dependency is shipped.
 
 ```sh
 python3 scripts/build-starter-plugins.py
 python3 scripts/build-starter-plugins.py --check
 python3 scripts/test-starter-packages.py
-python3 scripts/build-starter-plugins.py --package-dir working-notes/package-unification-oct22/packages
+node --test scripts/test-agent-transport.mjs
+python3 scripts/test-release-scanner.py
+bash scripts/emit-public.sh
+bash scripts/check-public-release.sh
+python3 scripts/build-starter-plugins.py --check --package-dir /absolute/private/release-output
+python3 scripts/scan-public.py --archive /absolute/private/release-output/starter-kit-0.3.0.zip --archive /absolute/private/release-output/starter-kit-codex-0.3.0.zip
 ```
 
-The build regenerates `plugins/starter-kit/`, `plugins/starter-kit-codex/`, and `codex-starter/skills/` together. `scripts/build-codex-plugin.py` remains a compatibility alias for the same build. CI checks freshness, common instruction parity, retired-skill exclusion, and archive/installation behavior. Building never uploads, publishes, or changes an installed plugin. Readers receive updates through each host's normal plugin update process after a separate release.
+Use Python 3.11+ for the transport TOML tests (`STARTER_KIT_PYTHON` can select it).
 
-The manual Codex installer has an explicit `--target-root` for disposable installation tests. Plugin installation does not overwrite global AGENTS.md. Generated archives contain one plugin each; market catalogs are separate.
+The builder regenerates both plugin directories and manual Codex skills. Archives each contain exactly one plugin; catalogs stay outside. No build command uploads, installs, changes login, or modifies preferences. The manual installer preserves existing files and does not install global guidance unless explicitly requested.
 
-## Audit boundary
+## Public adaptations
 
-This is a portable adaptation of the inspected council behavior, not a redistribution of Chris's private machine-specific execution system. `skills/council/references/runtime-status.md` identifies the missing balanced runtime. The starter uses local custom councils by explicit user decision. Do not label them Light, Full, provider-balanced, or provenance-certified. Light/Full counts and policies remain reference data until the compatible runtime and live acceptance tests are available.
+The refreshed workflows preserve independent work, development versus review, report retention, fresh synthesis, explicit failure reporting and one-pass revision. Public defaults use three/four local personas, not a private multi-provider default. Provider panels use fresh host chairs. User-owned settings survive updates. The transport uses analysis permissions, not private permission bypasses. Paths resolve locally; private names, account details, hardcoded project roots and private helper dependencies are excluded.
+
+Grok's subscription wrapper is adapted with official binary checks and public home-directory discovery. Reviewed version/checksums are in its source. Never remove those checks to accept an unknown binary. Browser Expert is not part of the public kit. Gemini uses Antigravity, not Gemini CLI. No provider/model fallback is automatic.
+
+Private source hashes and derivation notes belong in the maintainer's private review workspace, not this package. Refresh source behavior deliberately, then regenerate all targets. The older reference library is not the authority for overlapping starter workflows.
+
+## Acceptance boundary
+
+Offline fixtures establish packaging and orchestration bookkeeping, not real provider availability. Before public release, record fresh install and actual native three-persona/four-reviewer runs in each host; connect and test each advertised provider; verify failure/partial-response behavior and preference preservation through an upgrade. Record client/CLI versions and account route without credentials. Grok pins currently support macOS only; native Windows external transport has not been accepted. Do not advertise private certification or native hosting in other apps.
