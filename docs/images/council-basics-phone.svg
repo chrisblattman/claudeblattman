@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1280" role="img" aria-labelledby="title desc"><title id="title">From your request to your next session</title><desc id="desc">Saved skill instructions feed /council. Three independent members produce separate reports for synthesis. Your judgment leads to revised work and /done, which saves a handoff for the next session. File names describe Chris’s inspected setup.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#00695f"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#173b36;font-size:19px}.title{font-weight:700;font-size:23px}.small{font-size:20px}.file{font-family:monospace;font-size:18px;fill:#00695f}.line{fill:none;stroke:#00695f;stroke-width:2;marker-end:url(#arrow)}.return{stroke-dasharray:7 6}.node{fill:#fff;stroke:#00695f;stroke-width:1.6}.support{fill:#f0f7f5;stroke:#b2cec7;stroke-width:1.3}</style>
+<rect class="node" x="85" y="25" width="245" height="60" rx="10"/>
+<text x="207.5" y="49.0" class="title" text-anchor="middle">Your request</text>
+<text x="207.5" y="75.0" class="small" text-anchor="middle">Type or dictate</text>
+<rect class="support" x="85" y="120" width="245" height="85" rx="10"/>
+<text x="207.5" y="143.5" class="title" text-anchor="middle">Skill files</text>
+<text x="207.5" y="169.5" class="small" text-anchor="middle">Templates, rules</text>
+<text x="207.5" y="195.5" class="small" text-anchor="middle">and guidelines</text>
+<rect class="node" x="85" y="245" width="245" height="75" rx="10"/>
+<text x="207.5" y="276.5" class="title" text-anchor="middle">/council</text>
+<text x="207.5" y="302.5" class="small" text-anchor="middle">Prepare and send</text>
+<path class="line" d="M85 55 H60 V282 H85"/>
+<path class="line" d="M207 205 V245"/>
+<rect class="support" x="85" y="355" width="245" height="68" rx="10"/>
+<text x="207.5" y="383.0" class="file" text-anchor="middle">PROMPT.md</text>
+<text x="207.5" y="409.0" class="file" text-anchor="middle">seat-prompts/</text>
+<path class="line" d="M207 320 V355"/>
+<rect class="node" x="65" y="465" width="130" height="48" rx="10"/>
+<text x="130.0" y="496.0" class="title" text-anchor="middle">Member 1</text>
+<rect class="support" x="225" y="465" width="105" height="48" rx="10"/>
+<text x="277.5" y="496.0" class="small" text-anchor="middle">Report 1</text>
+<path class="line" d="M85 389 H43 V489 H65"/>
+<path class="line" d="M195 489 H225"/>
+<path class="line" d="M330 489 H345 V695 H207 V725"/>
+<rect class="node" x="65" y="535" width="130" height="48" rx="10"/>
+<text x="130.0" y="566.0" class="title" text-anchor="middle">Member 2</text>
+<rect class="support" x="225" y="535" width="105" height="48" rx="10"/>
+<text x="277.5" y="566.0" class="small" text-anchor="middle">Report 2</text>
+<path class="line" d="M85 389 H43 V559 H65"/>
+<path class="line" d="M195 559 H225"/>
+<path class="line" d="M330 559 H345 V695 H207 V725"/>
+<rect class="node" x="65" y="605" width="130" height="48" rx="10"/>
+<text x="130.0" y="636.0" class="title" text-anchor="middle">Member 3</text>
+<rect class="support" x="225" y="605" width="105" height="48" rx="10"/>
+<text x="277.5" y="636.0" class="small" text-anchor="middle">Report 3</text>
+<path class="line" d="M85 389 H43 V629 H65"/>
+<path class="line" d="M195 629 H225"/>
+<path class="line" d="M330 629 H345 V695 H207 V725"/>
+<rect class="node" x="85" y="725" width="245" height="75" rx="10"/>
+<text x="207.5" y="756.5" class="title" text-anchor="middle">Synthesis</text>
+<text x="207.5" y="782.5" class="file" text-anchor="middle">SYNTHESIS.md</text>
+<rect class="node" x="85" y="840" width="245" height="75" rx="10"/>
+<text x="207.5" y="871.5" class="title" text-anchor="middle">Your judgment</text>
+<text x="207.5" y="897.5" class="small" text-anchor="middle">Ask, decide, direct</text>
+<rect class="node" x="85" y="955" width="245" height="100" rx="10"/>
+<text x="207.5" y="986.0" class="title" text-anchor="middle">Revise the work</text>
+<text x="207.5" y="1012.0" class="small" text-anchor="middle">Consider adversarial review</text>
+<text x="207.5" y="1038.0" class="small" text-anchor="middle">or another review cycle</text>
+<rect class="node" x="85" y="1095" width="245" height="75" rx="10"/>
+<text x="207.5" y="1126.5" class="title" text-anchor="middle">/done</text>
+<text x="207.5" y="1152.5" class="file" text-anchor="middle">HANDOFF.md</text>
+<path class="line" d="M207 800 V840"/>
+<path class="line" d="M207 915 V955"/>
+<path class="line" d="M207 1055 V1095"/>
+<path class="line return" d="M207 1170 V1245 H15 V55 H85"/>
+<text x="190" y="1200" class="small" text-anchor="middle">Use the handoff to start</text>
+<text x="190" y="1225" class="small" text-anchor="middle">your next session</text>
+</svg>

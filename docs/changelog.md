@@ -37,7 +37,7 @@ Each piece has its own page below.
 
 ### Session management
 
-How to run long sessions without losing your place. Decision matrix for `/rewind` vs `/compact <hint>` vs `/clear` vs starting fresh. Covers the four `/rewind` restore modes, when compaction hints actually steer the summary, and the real hook names (there's no `PostCompact` hook — compaction-aware reinjection ties to `SessionStart`). [Read more →](essentials/session-management.md)
+How to run long sessions without losing your place. Decision matrix for `/rewind` vs `/compact <hint>` vs `/clear` vs starting fresh. Covers the four `/rewind` restore modes, when compaction hints actually steer the summary, and the real hook names (there's no `PostCompact` hook — compaction-aware reinjection ties to `SessionStart`). [Read more →](workflows/session-management.md)
 
 ### Sub-project routing
 
@@ -57,11 +57,11 @@ SQLite FTS5 full-text search with BM25 ranking over local Claude Code and Codex 
 
 ### Dial-back discipline
 
-Why I stripped `CRITICAL`, `YOU MUST`, and `ABSOLUTELY` from most of my skills. Ceremonial emphasis overtriggers Claude 4.5+ in tool-use paths and degrades output quality. The fix is positive examples instead of negative rules, and saving emphatic language for genuinely blocking security or data concerns. [Read more →](build-your-own/dial-back-discipline.md)
+Why I stripped `CRITICAL`, `YOU MUST`, and `ABSOLUTELY` from most of my skills. Ceremonial emphasis overtriggers Claude 4.5+ in tool-use paths and degrades output quality. The fix is positive examples instead of negative rules, and saving emphatic language for genuinely blocking security or data concerns. [Read more →](hyperlinks/dial-back-discipline.md)
 
 ### Prompt architecture (partial — expanded)
 
-Three new sections on the [Prompt Engineering](essentials/prompting.md) page: long-content ordering (put the document at the top, question at the bottom), system-vs-user prompt separation, and reusable constraint blocks (anti-hallucination, anti-bloat, scope guard, structured uncertainty, voice preservation). The full package — including a prompt-preferences template download — ships in Launch 2.
+Three new sections on the Prompt Engineering page: long-content ordering (put the document at the top, question at the bottom), system-vs-user prompt separation, and reusable constraint blocks (anti-hallucination, anti-bloat, scope guard, structured uncertainty, voice preservation). The full package — including a prompt-preferences template download — ships in Launch 2.
 
 ---
 
@@ -75,7 +75,6 @@ The skills the meeting workflow page already references, brought to current vers
 
 - **`/post-meeting` v1.0 → v1.7** — hollow-transcript guard, explicit sender choice (you vs. an AI EA identity), and a recipient rule that defaults to the full team minus low-frequency categories. Production-validated end-to-end on a real research-team meeting. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/post-meeting.md)
 - **`/weekly-review` v1.4 → v1.9.1** — strict YAML config parsing (loud failure on malformed `.claude/CLAUDE.md`), bundled helper scripts for multi-tab Google Doc writes, RTF/PDF transcript normalization, per-meeting hollow-transcript handling, document-comment processing. Two council reviews shaped the v1.9 series. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/weekly-review.md)
-- **`/prompt` v2.0 → v2.1** — Opus 4.7 update: long-content ordering and system-vs-user separation in the formatting core; optional `council` token to route a formatted prompt through a multi-critic review. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/prompt.md)
 - **`/tips-curate` v1.3 → v1.5** — end-of-run backlog check that prompts `/tips-integrate` when unprocessed HIGH-quality tips exceed 15. Replaces a standing biweekly calendar ritual. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-curate.md)
 
 ### `/done` v2.1 — sub-project routing rewritten
@@ -98,7 +97,7 @@ The two pieces I'd flagged as pending in the original Launch 2 list shipped toge
 
 ### Continuous-improvement page consolidated
 
-The four-skill pipeline now has a single canonical page that explains how the parts fit together. Lede leads with the firehose problem (tips arrive faster than anyone can adopt them) and six concrete questions: which to adopt, where to store them, how to remember them, how to prioritize, how to get them into your workflow, how to avoid wrecking a working setup with a bad addition. The four stages (discover / curate / integrate / applied), a worked tip-to-rule-change example, the five critic personas, the actual changes the council has approved, install instructions, the tips log and learning-catalog mechanics — all in one place. [Read the page →](system/continuous-improvement.md)
+The four-skill pipeline now has a single canonical page that explains how the parts fit together. Lede leads with the firehose problem (tips arrive faster than anyone can adopt them) and six concrete questions: which to adopt, where to store them, how to remember them, how to prioritize, how to get them into your workflow, how to avoid wrecking a working setup with a bad addition. The four stages (discover / curate / integrate / applied), a worked tip-to-rule-change example, the five critic personas, the actual changes the council has approved, install instructions, the tips log and learning-catalog mechanics — all in one place. [Read the page →](hyperlinks/continuous-improvement.md)
 
 ---
 
@@ -107,7 +106,7 @@ The four-skill pipeline now has a single canonical page that explains how the pa
 A couple of pieces still waiting.
 
 - **Voice pack system** — register overlays (core voice + proposal + public writing + email) plus a critic-agent that flags drift at the line level. Shown as a complete pack with sanitized downloads. Gated on voice-pack sanitization.
-- **Prompt architecture (full page)** — the [Prompt Engineering page](essentials/prompting.md) got three new sections in the April 17 launch (long-content ordering, system-vs-user, constraint blocks). The complete page update plus the [prompt-preferences template](downloads/index.md#templates) as a paste-into-any-project download is still pending.
+- **Prompt architecture (full page)** — the Prompt Engineering page got three new sections in the April 17 launch (long-content ordering, system-vs-user, constraint blocks). The complete page update plus the [prompt-preferences template](hyperlinks/downloads/index.md#templates) as a paste-into-any-project download is still pending.
 
 ---
 

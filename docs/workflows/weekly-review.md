@@ -1,4 +1,6 @@
 ---
+hide:
+  - toc
 description: How the weekly review skill updates a living project dashboard in Google Docs — three-marker boundaries, batch writes, and the placeholder trick that stops Google Docs from mangling emoji.
 ---
 
@@ -91,5 +93,5 @@ The skill is a tool. It's for the 80% of projects where a living Google Doc is t
 
 - **[Project Management](project-management.md)** — the full four-layer system `/weekly-review` lives inside.
 - **[Meeting workflow](meeting-workflow.md)** — how transcripts get captured in the first place.
-- **[Session management](../essentials/session-management.md)** — why I run `/weekly-review` in a dedicated session rather than between other tasks.
+- **[Session management](session-management.md)** — why I run `/weekly-review` in a dedicated session rather than between other tasks.
 - **[What's new in April 2026](../changelog.md)**.

@@ -9,7 +9,7 @@ Most of my research projects have three or four parallel workstreams at once. A 
 Sub-project routing fixes that. Each workstream gets its own sub-folder with its own handoff. A single piece of state — a JSON file at the project root — tells session-start and session-end hooks which sub-folder is active *right now*.
 
 !!! note "`/start-task` not yet published"
-    The `/start-task` skill that drives the routing isn't on the [Skill Library](../setup/skill-reference.md) yet — sanitization pending. The folder shape, the JSON state file, and the routing rules below are the durable parts; the skill is mostly orchestration over them. Adopt the structure now and either build a thin wrapper or wait for the published version.
+    The `/start-task` skill that drives the routing isn't on the [Skill Library](../hyperlinks/skill-reference.md) yet — sanitization pending. The folder shape, the JSON state file, and the routing rules below are the durable parts; the skill is mostly orchestration over them. Adopt the structure now and either build a thin wrapper or wait for the published version.
 
 ---
 
@@ -146,6 +146,6 @@ One sign it's *not* ready: a project that does one thing. A paper that's only a 
 
 ## Related
 
-- **[Session management](../essentials/session-management.md)** — how `/done` and `SessionStart` hooks fit into the broader session-discipline loop.
+- **[Session management](session-management.md)** — how `/done` and `SessionStart` hooks fit into the broader session-discipline loop.
 - **[Project Management](project-management.md)** — the layer above sub-project routing, covering folder structure, transcripts, and weekly review.
 - **[What's new in April 2026](../changelog.md)**.

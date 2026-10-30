@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # Using Claude Code for Tax Season
 
 *Claude Blattman — not quite a CPA.*
@@ -102,7 +106,7 @@ You do **not** need to:
 
 - Use Claude Code for your own taxes (many shouldn't — see [When to Get Help](reference/when-to-get-help.md))
 - Know anything about tax law
-- Have any prior Claude Code experience (though the [Build Your Own](build-your-own/architecture-patterns.md) section assumes familiarity with [skills](../setup/skill-reference.md))
+- Have any prior Claude Code experience (though the [Build Your Own](build-your-own/architecture-patterns.md) section assumes familiarity with [skills](../hyperlinks/skill-reference.md))
 
 ---
 
@@ -146,7 +150,7 @@ You do **not** need to:
 
     [:octicons-arrow-right-24: Academic Tax Basics](reference/academic-tax-basics.md)
     [:octicons-arrow-right-24: When to Get Help](reference/when-to-get-help.md)
-    [:octicons-arrow-right-24: Downloads](../downloads/index.md#tax-workflow-resources)
+    [:octicons-arrow-right-24: Downloads](../hyperlinks/downloads/index.md#tax-workflow-resources)
 
 </div>
 

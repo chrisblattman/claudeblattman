@@ -39,15 +39,15 @@ This isn't required. You can skip straight to Layer 1 and organize projects on t
 
 **What the cleanup covers:** inbox triage (getting from thousands of unread to single digits), local disk audit (finding hidden space hogs), cloud storage inventory (cataloging everything across services), and calendar consolidation.
 
-[:octicons-arrow-right-24: The One-Time Cleanup](../toolkit/executive-assistant.md#the-one-time-cleanup) — what I cleaned, how long it took, and prompts you can use yourself
+[:octicons-arrow-right-24: The One-Time Cleanup](building-an-assistant.md#the-one-time-cleanup) — what I cleaned, how long it took, and prompts you can use yourself
 
-[:octicons-download-16: Cloud Storage Organization Guide](../downloads/cloud-storage-guide.md) — detailed step-by-step walkthrough with scripts and decision frameworks
+[:octicons-download-16: Cloud Storage Organization Guide](cloud-storage-guide.md) — detailed step-by-step walkthrough with scripts and decision frameworks
 
 ---
 
 ## Layer 1: Organize the Project Folder
 
-**Skill:** [`/setup-project-management`](../setup/skill-reference.md#setup-project-management-project-setup)
+**Skill:** [`/setup-project-management`](../hyperlinks/skill-reference.md#setup-project-management-project-setup)
 
 The foundation. Before Claude Code can help manage a project, it needs a structured place to look.
 
@@ -74,7 +74,7 @@ This is a living document — part research design, part project history, part p
 
 ## Layer 2: Capture Everything
 
-**Tool:** [Granola](../essentials/granola.md) (meeting transcription) + Claude Code
+**Tool:** [Granola](../hyperlinks/granola.md) (meeting transcription) + Claude Code
 
 Once the project folder exists, the next step is to stop losing information. Meetings are where most decisions happen and most context gets lost.
 
@@ -88,14 +88,14 @@ Once the project folder exists, the next step is to stop losing information. Mee
 **The shift:** Before transcription, meetings were a black hole. Something would be decided, an action item assigned, and three weeks later nobody could remember the details. Now every meeting is searchable. The weekly review (Layer 3) mines these transcripts automatically.
 
 !!! info "Before you start"
-    **Requires:** [Granola](../essentials/granola.md) installed (free tier works). A transcripts folder in your project structure.
+    **Requires:** [Granola](../hyperlinks/granola.md) installed (free tier works). A transcripts folder in your project structure.
     **Time:** 5 minutes to set up. Zero ongoing effort — Granola runs automatically.
 
 ---
 
 ## Layer 3: The Weekly Review
 
-**Skill:** [`/weekly-review`](../setup/skill-reference.md#weekly-review-weekly-project-review) `[PM]`
+**Skill:** [`/weekly-review`](../hyperlinks/skill-reference.md#weekly-review-weekly-project-review) `[PM]`
 
 This is where the system comes alive. The weekly review pulls from every source and produces two outputs: a high-level dashboard and a detailed weekly log.
 
@@ -157,7 +157,7 @@ The dashboard prioritizes strategic objectives first, then operational objective
 
 ## Layer 4: Proposals and Reports on Demand
 
-**Skills:** [`/proposal-write`](../setup/skill-reference.md#proposal-write-proposal-drafting) and [`/proposal-revise`](../setup/skill-reference.md#proposal-revise-proposal-revision) `[PM]`
+**Skills:** [`/proposal-write`](../hyperlinks/skill-reference.md#proposal-write-proposal-drafting) and [`/proposal-revise`](../hyperlinks/skill-reference.md#proposal-revise-proposal-revision) `[PM]`
 
 Because the Google Doc hub contains the research design, project history, all prior proposals (successful, unsuccessful, pending), and the weekly review keeps everything current — Claude Code can draft almost anything.
 
@@ -254,4 +254,4 @@ curl -o ~/.claude/agents/review-methodology.md \
   https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/agents/review-methodology.md
 ```
 
-Restart Claude Code after installing. For full customization details, see each skill's entry in the [Skill Library](../setup/skill-reference.md).
+Restart Claude Code after installing. For full customization details, see each skill's entry in the [Skill Library](../hyperlinks/skill-reference.md).

@@ -21,9 +21,9 @@
       "sha256": "ef146a7fd45fb7d15157e1beb4002d4a1479ac78586f5175cb3eb17eb9b2b506"
     },
     {
-      "bytes": 468,
+      "bytes": 685,
       "path": ".gitignore",
-      "sha256": "728fcd05703ae055f3482575d48532d841c9a2d6c4dfc7c1de0c2d98419d0612"
+      "sha256": "4b806d844e306633102cbc1818641ac87ba1b5980e98c2832b9861f44ebd93d9"
     },
     {
       "bytes": 3278,
@@ -31,34 +31,44 @@
       "sha256": "9bc60860b2b04857f43a13511150545e3c0a1c92d3e0f7e4bedbde985b631993"
     },
     {
-      "bytes": 8148,
+      "bytes": 4827,
       "path": "docs/index.md",
-      "sha256": "aaa5628cb975b8578f5a93ae1e602bcc8669cbd03d8bae4f17a1c22ae9db2e7a"
+      "sha256": "29d7769bf71249b5eb87d2f89f17e7dba6e154d430a556262b0e7286b7bfff0c"
     },
     {
-      "bytes": 35649,
-      "path": "docs/setup/skill-reference.md",
-      "sha256": "8aefa90a74c86ea71b6c7204c669657e704de2e7c90061e6b82eaa84d72f67af"
+      "bytes": 4627,
+      "path": "docs/starter-kit/agents-at-work.md",
+      "sha256": "20be54435b2e31a4318a31a0556e8d225583afc3887c09b18d7284ce310cb161"
     },
     {
-      "bytes": 553,
-      "path": "docs/skills/school-digest-raw-materials.md",
-      "sha256": "5e9f864cad9c6a6baa6a7f151d99ba9ab1a9eb6a107d5cb164ae5d4b747c3295"
+      "bytes": 14612,
+      "path": "docs/starter-kit/from-terminal.md",
+      "sha256": "3d8abddacb199f97aab7ec90a7f53e698d53fcdafa90531fc1061b25045f4416"
     },
     {
-      "bytes": 20461,
-      "path": "docs/starter-kit/index.md",
-      "sha256": "06539a739fa2f78881c452e34feacb9b9e2cbb59c0b1a80361f8acbb90eb5787"
+      "bytes": 11443,
+      "path": "docs/starter-kit/newcomers.md",
+      "sha256": "e764dcc5ed2bb1c62cfbe0811243f66e1b8218039e9478aa7eed3477986fb35f"
     },
     {
-      "bytes": 15432,
+      "bytes": 23793,
+      "path": "docs/starter-kit/occasional.md",
+      "sha256": "5178ac6c9c46f6a8a390fce0b63f13ea963b6098479841ece986fec592ff402a"
+    },
+    {
+      "bytes": 13209,
+      "path": "docs/starter-kit/two-month-plan.md",
+      "sha256": "9516be9003bca34cfbe3aacf15083216367e342f572cc84ca1d31bdaa0510fae"
+    },
+    {
+      "bytes": 99957,
       "path": "docs/stylesheets/extra.css",
-      "sha256": "8289a0e7375fb5c56320bd3cc4f18efa7542393879da2effb3070bf50384297e"
+      "sha256": "13246aab663a2614d8ff991b9d51eb926d5db12b7efc4aa2240ab95d40b4a2ad"
     },
     {
-      "bytes": 5791,
+      "bytes": 13439,
       "path": "mkdocs.yml",
-      "sha256": "7feb844471a6f5fc8e825ce15addedba9e322b50df4bfe812a8a92a7e97712cb"
+      "sha256": "1e685a00903e8fdad38c225f5d037f21f7e01ac125fbda82e83275c31838cbc4"
     },
     {
       "bytes": 17171,
@@ -541,6 +551,11 @@
       "sha256": "cebdc1ea6e5e28c81b76c7c203d52070a4cc5f47fea4c3b43e0715f035fe9627"
     },
     {
+      "bytes": 1300,
+      "path": "scripts/build-staging.sh",
+      "sha256": "d7e33bdcb53596ab03f34728303f4b502a1aa984f7de8eb89975f155526ef48f"
+    },
+    {
       "bytes": 2026,
       "path": "scripts/check-public-release.sh",
       "sha256": "6c1429244c9883c4a5b7e1f3ec95219410925ee7cc340c21ea8f8e4ccbbc8ae5"
@@ -551,9 +566,19 @@
       "sha256": "1dd87a78fa8b7e990baf7b60873f1fbbdf768b4c90e96e8f4e77ab406c45a6c1"
     },
     {
+      "bytes": 2794,
+      "path": "scripts/page-dossier.py",
+      "sha256": "501c2f88352a2325f69927b74a23593741506411cef29ba87e79606fd15814ea"
+    },
+    {
       "bytes": 4917,
       "path": "scripts/scan-public.py",
       "sha256": "0904b62f6a60299167b898fb49d90ca755cdb2bfbdea58c82f7974f85df577f3"
+    },
+    {
+      "bytes": 949,
+      "path": "scripts/stamp-css.py",
+      "sha256": "8d28b85dc501df4093598b8c2b019e0845bfacf4b1fc9fb67a37cfc91310aed3"
     },
     {
       "bytes": 9085,
