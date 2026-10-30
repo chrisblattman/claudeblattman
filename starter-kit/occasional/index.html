@@ -1,0 +1,3900 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Use three independent subagents to develop your work, then a fresh four-member panel to review it.">
+      
+      
+        <meta name="author" content="Chris Blattman">
+      
+      
+        <link rel="canonical" href="https://claudeblattman.com/starter-kit/occasional/">
+      
+      
+        <link rel="prev" href="../agents-at-work/">
+      
+      
+        <link rel="next" href="../../workflows/council-models/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Council and review - Claude Blattman · AI for Professionals Who Don't Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=13246aab66">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <link rel="alternate icon" href="../../images/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+  <style>
+    /* No opacity. At 0.6 this measured 4.30:1 light / 4.10:1 dark for the text
+       and 2.82:1 / 3.18:1 for the links — failing AA in both schemes, on every
+       page. It is also now the only email-signup affordance on the site, so
+       making it the least legible element defeated the point. */
+    .feedback-line {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--md-default-fg-color--lightest);
+      font-size: 0.8rem;
+      color: var(--md-default-fg-color--light);
+    }
+  </style>
+
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Council and review - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="og:description" content="Use three independent subagents to develop your work, then a fresh four-member panel to review it." />
+<meta property="og:image" content="https://claudeblattman.com/assets/images/social/starter-kit/occasional.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://claudeblattman.com/starter-kit/occasional/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Council and review - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="twitter:description" content="Use three independent subagents to develop your work, then a fresh four-member panel to review it." />
+<meta property="twitter:image" content="https://claudeblattman.com/assets/images/social/starter-kit/occasional.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#are-you-asking-multiple-subagents-to-tackle-the-task" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-header__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic"><span class="md-ellipsis md-header__wordmark">
+            <a href="../..">Claude Blattman</a>
+          </span>
+          
+            <span class="md-ellipsis cb-header__tagline">
+              <a href="../..">AI for Professionals Who Don't Code</a>
+            </span>
+          
+        </div></div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid md-tabs__grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item md-tabs__item--home">
+      <a href="../.." class="md-tabs__link" title="Home">
+        <span class="md-tabs__icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12 3 L21 10.5 V21 H14 V15 H10 V21 H3 V10.5 Z"/>
+          </svg>
+        </span>
+        <span class="md-tabs__sr">Home</span>
+      </a>
+    </li>
+
+      
+        
+  
+  
+  
+    
+  
+    
+    
+      
+    
+    
+    
+    
+      
+      <li class="md-tabs__item md-tabs__item--active md-tabs__item--nested"><a href="../..#my-absolute-essentials-and-where-to-start" class="md-tabs__link">Essentials</a>
+        <button type="button"
+                class="md-tabs__toggle"
+                aria-expanded="false"
+                aria-controls="tabmenu-essentials"
+                aria-label="Essentials menu">
+          <span class="md-tabs__caret"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
+        </button>
+        <ul class="md-tabs__menu" id="tabmenu-essentials">
+          
+            
+              <li class="md-tabs__menu-group">Get started with an agent</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../newcomers/" class="md-tabs__menu-link">Start from scratch</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../build-your-own/picking-your-agent/" class="md-tabs__menu-link">Choose your agent</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../from-terminal/" class="md-tabs__menu-link">Switch from terminal</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../agents-at-work/" class="md-tabs__menu-link">When work restricts AI agents</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Councils</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="./" class="md-tabs__menu-link md-tabs__menu-link--active">Council and review</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../workflows/council-models/" class="md-tabs__menu-link">Different AI models</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Dictate</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../hyperlinks/wispr-flow/" class="md-tabs__menu-link">Start dictating</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Transcribe and follow up</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../hyperlinks/granola/" class="md-tabs__menu-link">Transcribe your meetings</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Teach it your voice</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../build-your-own/voice/" class="md-tabs__menu-link">Build your voice pack</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../how-i-improve-the-work/" class="md-tabs__menu-link">Build a system</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Organize your digital life</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../workflows/cloud-storage-guide/" class="md-tabs__menu-link">Organize cloud storage</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../workflows/organize-projects/" class="md-tabs__menu-link">Organize your projects</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../build-your-own/project-folders/" class="md-tabs__menu-link">Inside a project folder</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../two-month-plan/"
+                   class="md-tabs__menu-link">
+                  
+                    <strong>The master checklist</strong>
+                  
+                </a>
+              </li>
+            
+          
+        </ul>
+      </li>
+    
+
+      
+        
+  
+  
+  
+    
+    
+    
+        
+          
+          
+            
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      <li class="md-tabs__item md-tabs__item--nested"><a href="../../workflows/projects-and-research/" class="md-tabs__link">Workflows</a>
+        <button type="button"
+                class="md-tabs__toggle"
+                aria-expanded="false"
+                aria-controls="tabmenu-workflows"
+                aria-label="Workflows menu">
+          <span class="md-tabs__caret"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
+        </button>
+        <ul class="md-tabs__menu" id="tabmenu-workflows">
+          
+            
+              
+              
+                <li class="md-tabs__menu-item">
+                  <a href="../../workflows/projects-and-research/"
+                     class="md-tabs__menu-link">
+                    Projects and research
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+              
+                <li class="md-tabs__menu-item">
+                  <a href="../../workflows/executive-assistant/"
+                     class="md-tabs__menu-link">
+                    Work and everyday life
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+              
+                <li class="md-tabs__menu-item">
+                  <a href="../../workflows/best-practices/"
+                     class="md-tabs__menu-link">
+                    Customize your workflow
+                  </a>
+                </li>
+              
+            
+          
+        </ul>
+      </li>
+    
+
+      
+        
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+      
+      <li class="md-tabs__item md-tabs__item--nested"><a href="../../about/" class="md-tabs__link">About</a>
+        <button type="button"
+                class="md-tabs__toggle"
+                aria-expanded="false"
+                aria-controls="tabmenu-about"
+                aria-label="About menu">
+          <span class="md-tabs__caret"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
+        </button>
+        <ul class="md-tabs__menu" id="tabmenu-about">
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../../about/"
+                   class="md-tabs__menu-link">
+                  
+                    About Claude Blattman
+                  
+                </a>
+              </li>
+            
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../../about-chris/"
+                   class="md-tabs__menu-link">
+                  
+                    About Chris Blattman
+                  
+                </a>
+              </li>
+            
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../../how-i-use-ai/"
+                   class="md-tabs__menu-link">
+                  
+                    How I put AI to work
+                  
+                </a>
+              </li>
+            
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../../resources/"
+                   class="md-tabs__menu-link">
+                  
+                    Resources
+                  
+                </a>
+              </li>
+            
+          
+        </ul>
+      </li>
+    
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+
+    <div class="md-tabs__meta">
+        <div class="md-tabs__source">
+          <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+        </div>
+      
+    </div>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+  
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-nav__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Blattman · AI for Professionals Who Don't Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essentials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Essentials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get started with an agent
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Get started with an agent
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../newcomers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start from scratch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/picking-your-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choose your agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../from-terminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch from terminal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents-at-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When work restricts AI agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Councils
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Councils
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Council and review
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Council and review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The working loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up once
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set up once">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-the-starter-kit-or-use-plain-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install the starter kit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-connect-other-ais-if-you-have-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Meet the council
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#develop-the-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Develop the work
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Develop the work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-describe-one-real-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Give the council one real task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-let-the-agents-work-independently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Let the council members work independently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ask-questions-and-give-your-judgment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Ask questions and give your judgment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review the result
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Review the result">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5-run-adversarial-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Run adversarial review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-revise-and-check-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Apply the changes and check them
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-save-where-you-landed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Save where you landed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/council-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Different AI models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictate
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dictate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hyperlinks/wispr-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start dictating
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transcribe and follow up
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Transcribe and follow up
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hyperlinks/granola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transcribe your meetings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teach it your voice
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Teach it your voice
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/voice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build your voice pack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-i-improve-the-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build a system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organize your digital life
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Organize your digital life
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/cloud-storage-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organize cloud storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/organize-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organize your projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/project-folders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inside a project folder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../two-month-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The master checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects and research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects and research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/projects-and-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects and research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/deep-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/project-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catch up on a project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/session-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Save and resume work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/recall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Find past work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/weekly-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/sub-project-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manage sub-projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/examples/project-overview-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: project dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Work and everyday life
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Work and everyday life
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/executive-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Work and everyday life
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/building-an-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build an AI executive assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/meeting-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting follow-up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/school-digest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cut through inbox noise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tax season
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/life/shopping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shopping decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/life/vacation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vacation planning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/life/health/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Health and fitness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize your workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Customize your workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize your workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/mcp-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect your apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/agents-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Write persistent instructions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set rules and guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/building-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create a skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/council/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize council agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/ai-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect different agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/external-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Claude Blattman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about-chris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Chris Blattman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-i-use-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How I put AI to work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../newcomers/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Essentials
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Councils
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="are-you-asking-multiple-subagents-to-tackle-the-task">Are you asking multiple subagents to tackle the task?</h1>
+<p>I use <strong>councils</strong> and <strong>adversarial review</strong> as the default for essentially every task and every review. Instead of settling for one AI’s first answer, I want several independent attempts and a synthesis of what they found. One agent may see an approach, another a missing assumption, and another a reason to ask a different question.</p>
+<p>The habit is simple: <strong>describe the task, let a council work on it, add your judgment, and improve the result.</strong> Use <code>/council</code> to develop the work, then <code>/adversarial-review</code> to examine the result, along with your own judgment. Additional review cycles are choices you can add as needed.</p>
+<details class="council-details" id="not-sure-what-councils-or-subagents-are">
+<summary>Not sure what subagents are?</summary>
+<p>When you chat with an AI in Claude Code or Codex, that’s your main <strong>agent</strong>. The separate workers it starts and manages behind the scenes are <strong>subagents</strong>. Subagents are particularly useful when you want to tackle many things in parallel. A council asks several of them to tackle the same question independently, then brings their findings together. Adversarial review asks fresh workers to examine the result independently and find consequential problems.</p>
+<p>A <strong>skill</strong> is a saved set of instructions for your agent. The <code>/council</code> skill prepares the members’ assignment, coordinates their work, and arranges the synthesis. The slash helps you invoke the skill directly. You can also ask in plain language: “Use the council skill to help me with this task.” The agent can recognize the request, load the installed skill, and spin up the subagents.</p>
+<p>A <strong>plugin</strong> bundles skills and their supporting files so you can install them together, once. There’s <a href="../../hyperlinks/agents-vs-skills/">more on agents and skills</a> if you want it.</p>
+</details>
+<h2 id="run-the-loop">The working loop</h2>
+<p>We’re going to start by assuming you have only one AI subscription, and the council skill in the starter kit works by spinning up subagents with different personas to tackle the task.</p>
+<p>Your request goes into <code>/council</code>, which prepares the shared brief, sends it to three independent members, and arranges a synthesis. You ask questions, give your judgment, and have the draft revised. Then <code>/adversarial-review</code> brings in four fresh reviewers. Use their findings to edit again, and save a handoff when you finish.</p>
+<div class="council-loop council-overview">
+<div class="council-horizontal" tabindex="0" role="region" aria-label="Simple council loop; scroll horizontally on small screens">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 170" role="img" aria-labelledby="council-overview-title council-overview-desc">
+<title id="council-overview-title">The simple council loop</title>
+<desc id="council-overview-desc">Your request, council, add judgment and revise, adversarial review, check and revise again if needed, then done. Before starting a new request, read HANDOFF.md.</desc>
+<defs><marker id="council-overview-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M1 1 L6 3.5 L1 6" fill="none" class="council-arrowhead" stroke-width="1.1"/></marker></defs>
+<path class="council-edge" d="M112 50 H134" marker-end="url(#council-overview-arrow)"/>
+<path class="council-edge" d="M222 50 H244" marker-end="url(#council-overview-arrow)"/>
+<path class="council-edge" d="M386 50 H408" marker-end="url(#council-overview-arrow)"/>
+<path class="council-edge" d="M570 50 H592" marker-end="url(#council-overview-arrow)"/>
+<path class="council-edge" d="M754 50 H776" marker-end="url(#council-overview-arrow)"/>
+<path class="council-edge council-return" d="M812 68 V116 H62 V80" marker-end="url(#council-overview-arrow)"/>
+<rect class="council-session" x="12" y="22" width="100" height="56" rx="2"/>
+<text x="62" y="55">Your request</text>
+<rect class="council-command" x="136" y="34" width="86" height="32" rx="2"/>
+<text class="council-command-label" x="179" y="55">/council</text>
+<rect class="council-session" x="246" y="22" width="140" height="56" rx="2"/>
+<text x="316" y="46">Add judgment</text>
+<text x="316" y="63">and revise</text>
+<rect class="council-command" x="410" y="34" width="160" height="32" rx="2"/>
+<text class="council-command-label" x="490" y="55">/adversarial-review</text>
+<rect class="council-session" x="594" y="22" width="160" height="56" rx="2"/>
+<text x="674" y="46">Check and revise again</text>
+<text x="674" y="63">if needed</text>
+<rect class="council-command" x="778" y="34" width="68" height="32" rx="2"/>
+<text class="council-command-label" x="812" y="55">/done</text>
+<text x="430" y="145">Read <tspan class="council-command-label">HANDOFF.md</tspan>, then start a new request</text>
+</svg>
+</div>
+</div>
+
+<details class="council-details">
+<summary>See how each skill uses subagents for several independent attempts</summary>
+<div class="council-loop">
+<div class="council-horizontal" tabindex="0" role="region" aria-label="Council and review workflow; scroll horizontally to follow the sequence">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1190 288" role="img" aria-labelledby="council-flow-title council-flow-desc">
+<title id="council-flow-title">Council and adversarial review loop</title>
+<desc id="council-flow-desc">Your session invokes council: three separate subagents, Skeptic, Pre-mortem, and Completeness Checker, converge on a separate synthesis subagent. Your judgment and draft revision lead to adversarial-review: four fresh separate subagents, Skeptic, Pre-mortem, Completeness Checker, and Chief of Staff, converge on a fresh synthesis subagent. Your session revises and checks, then invokes done. A return arrow allows another revision cycle.</desc>
+<defs><marker id="council-flow-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M1 1 L6 3.5 L1 6" fill="none" class="council-arrowhead" stroke-width="1.1"/></marker></defs>
+<path class="council-edge" d="M113 145 H134 M134 79 V211 M134 79 H154 M134 145 H154 M134 211 H154"/>
+<path class="council-edge" d="M304 79 H320 V211 M304 145 H320 M304 211 H320 M320 145 H338" marker-end="url(#council-flow-arrow)"/>
+<path class="council-edge" d="M432 145 H462" marker-end="url(#council-flow-arrow)"/>
+<path class="council-edge" d="M582 145 H610 M610 73 V217 M610 73 H630 M610 121 H630 M610 169 H630 M610 217 H630"/>
+<path class="council-edge" d="M780 73 H797 V217 M780 121 H797 M780 169 H797 M780 217 H797 M797 145 H817" marker-end="url(#council-flow-arrow)"/>
+<path class="council-edge" d="M911 145 H944" marker-end="url(#council-flow-arrow)"/>
+<path class="council-edge" d="M1050 145 H1085" marker-end="url(#council-flow-arrow)"/>
+<path class="council-edge council-return" d="M997 167 V265 H522 V173" marker-end="url(#council-flow-arrow)"/>
+<text class="council-note" x="755" y="281">Revise again, if needed</text>
+<rect class="council-command" x="185" y="10" width="88" height="25" rx="2"/>
+<text class="council-command-label" x="229" y="27">/council</text>
+<rect class="council-command" x="626" y="10" width="158" height="25" rx="2"/>
+<text class="council-command-label" x="705" y="27">/adversarial-review</text>
+<text class="council-note" x="705" y="49">Fresh subagents</text>
+<rect class="council-session" x="18" y="123" width="95" height="44" rx="2"/>
+<text class="council-label" x="65.5" y="150">Your request</text>
+<rect class="council-agent" x="154" y="61" width="150" height="36" rx="2"/>
+<text class="council-label" x="229" y="84">Skeptic</text>
+<rect class="council-agent" x="154" y="127" width="150" height="36" rx="2"/>
+<text class="council-label" x="229" y="150">Pre-mortem</text>
+<rect class="council-agent" x="154" y="193" width="150" height="36" rx="2"/>
+<text class="council-label" x="229" y="216">Completeness Checker</text>
+<rect class="council-agent" x="338" y="123" width="94" height="44" rx="2"/>
+<text class="council-label" x="385" y="150">Synthesis</text>
+<rect class="council-session" x="462" y="119" width="120" height="52" rx="2"/>
+<text class="council-label" x="522" y="140">Your judgment</text>
+<text class="council-label" x="522" y="157">Revise draft</text>
+<rect class="council-agent" x="630" y="55" width="150" height="36" rx="2"/>
+<text class="council-label" x="705" y="78">Skeptic</text>
+<rect class="council-agent" x="630" y="103" width="150" height="36" rx="2"/>
+<text class="council-label" x="705" y="126">Pre-mortem</text>
+<rect class="council-agent" x="630" y="151" width="150" height="36" rx="2"/>
+<text class="council-label" x="705" y="174">Completeness Checker</text>
+<rect class="council-agent" x="630" y="199" width="150" height="36" rx="2"/>
+<text class="council-label" x="705" y="222">Chief of Staff</text>
+<rect class="council-agent" x="817" y="119" width="94" height="52" rx="2"/>
+<text class="council-label" x="864" y="150">Synthesis</text>
+<rect class="council-session" x="944" y="123" width="106" height="44" rx="2"/>
+<text class="council-label" x="997" y="150">Revise &amp; check</text>
+<rect class="council-command" x="1085" y="132" width="68" height="26" rx="2"/>
+<text class="council-command-label" x="1119" y="149">/done</text>
+</svg>
+</div>
+<div class="council-legend"><span><i class="council-session" aria-hidden="true"></i>Your session</span><span><i class="council-agent" aria-hidden="true"></i>Separate subagent</span></div>
+</div>
+</details>
+
+<div class="checklist">
+<p><span id="you-must-use-councils"></span>
+<span id="try-it-on-your-work"></span></p>
+<h2 id="set-up-once">Set up once</h2>
+<h3 id="1-install-the-starter-kit-or-use-plain-language">1. Install the starter kit</h3>
+<p>You’ll want a council skill to follow the rest of this workflow. You can ask for a council manually each time, but it’s not practical to keep rebuilding the instructions. A repeatable skill gives the agents a consistent process to follow.</p>
+<p>I’m not the only one doing this, and you do not have to use my skills. The advantage of mine is that the workflows and guides on this website refer to them, so the examples should be easier to follow. The tradeoff is upkeep: I get bogged down by other tasks and I might forget to update the skill bundle online. Other authors may maintain theirs more actively. Here’s a <a href="../../hyperlinks/council-skills/">list of other council and adversarial review skills others have published</a>.</p>
+<p>For installation (and anything else): <strong>when in doubt, just ask the AI to do it.</strong> That’s a general principle for making the most of AI. The rest of the page is here if you’re interested in what’s happening or want more detail, but ideally, we don’t actually want you to follow all the instructions. We want your AI to follow them.</p>
+<p>Open a local Claude Code or Codex session, navigate to the project you want to work in, and ask your agent something as simple as this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Walk me through the councils page on claudeblattman.com. I want to install the starter kit. Then explain to me what it is.
+</code></pre></div>
+<p>You don’t have to learn the installation procedure before you start. Ask it to <strong>install it and teach you</strong>. You may still need to click an install button, approve access, or sign in yourself.</p>
+<details class="council-details">
+<summary>If that didn’t work, install the starter kit manually as a plugin</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Claude</label><label for="__tabbed_1_2">Codex</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Open the Claude app’s <strong>Settings → Plugins</strong>. In versions with a <strong>Customize</strong> section, look for <strong>Customize → Plugins</strong> instead.</li>
+<li>Choose <strong>Add → Add Marketplace → Add from a repository</strong>. Enter <code>https://github.com/chrisblattman/claudeblattman</code> and select <strong>Sync</strong>.</li>
+<li>Find <strong>starter-kit</strong>, open it, and choose <strong>Install</strong>.</li>
+<li>Start a new Code session in your project folder. Type <code>/kit-hello</code> and select the matching skill from the suggestions. The app fills in the plugin prefix. Send it to check that the plugin responds.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Open <strong>Plugins</strong> in the app’s sidebar, or <strong>Settings → Plugins</strong> in versions that put it there.</li>
+<li>Search for <strong>Starter Kit for Codex</strong>, open its details, and choose <strong>Install</strong> or the <strong>+</strong> button. If it is not listed, give the agent the GitHub link above so it can check the repository installation route.</li>
+<li>Start a new chat in your project folder. Type <code>/kit-hello</code>, select the matching skill, and send it to check the installation.</li>
+</ol>
+</div>
+</div>
+</div>
+<p>If the controls in your version look different, use the current <a href="https://code.claude.com/docs/en/discover-plugins">Claude installation guide</a> or <a href="https://learn.chatgpt.com/docs/plugins">Codex plugins guide</a>, or ask the agent to walk you through them.</p>
+</details>
+<details class="council-details">
+<summary>Running into an excessive amount of permission requests?</summary>
+<p>The quick answer: <strong>turn on automatic permissions</strong> to reduce routine approval prompts—<strong>Auto</strong> in Claude Code or <strong>Approve for me</strong> in Codex, where available. These modes check actions automatically, though some requests may still need your approval. Ask your agent to show you the setting, then read <a href="../newcomers/#3-set-permissions">Set permissions in Your first session</a> for more about what it allows and how to choose your settings.</p>
+</details>
+<p><strong>What the starter kit adds</strong></p>
+<div class="council-kit-summary">
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/council</code></td>
+<td>Develops the work with independent members and synthesizes their findings.</td>
+</tr>
+<tr>
+<td><code>/adversarial-review</code></td>
+<td>Reviews the draft with a fresh panel and synthesizes its findings.</td>
+</tr>
+<tr>
+<td><code>/kit-hello</code>, <code>/kit-setup</code></td>
+<td>Checks the installation, introduces the skills, and connects other agents. Usually needed only during setup.</td>
+</tr>
+<tr>
+<td><code>/ask-agents</code></td>
+<td>Asks another connected agent for an outside opinion.</td>
+</tr>
+<tr>
+<td><code>/done</code></td>
+<td>Saves a handoff for your next session.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>I publish some of my <a href="https://github.com/chrisblattman/claudeblattman/tree/main/skills">other frequently used skills on GitHub</a>. They do not ship with this starter kit, but you can find them there if and when you want them.</p>
+<p><label class="step-done"><input type="checkbox"> The skills and their supporting files are installed.</label></p>
+<h3 id="2-connect-other-ais-if-you-have-them">2. Meet the council</h3>
+<p><span id="why-three-agents"></span></p>
+<p>The starter kit’s council uses three independent subagents of the same AI, with different <strong>personas</strong>, or assigned perspectives:</p>
+<div class="council-kit-summary">
+<table>
+<thead>
+<tr>
+<th>Persona</th>
+<th>Its assignment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Skeptic</strong></td>
+<td>Find important claims that lack support and explain the evidence gap.</td>
+</tr>
+<tr>
+<td><strong>Pre-mortem</strong></td>
+<td>Imagine the plan failed. Identify the top three concrete causes and a mitigation for each.</td>
+</tr>
+<tr>
+<td><strong>Completeness Checker</strong></td>
+<td>Find gaps against standard practice: people who need to be involved, dependencies, inputs, and success criteria.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These are separate subagents, each considering the whole task through its assigned lens.</p>
+<p>My own default uses one Claude agent, one Codex agent, and one Gemini agent. I find the differences between models useful. <a href="../../workflows/council-models/#connect-another-model">Part two explains how to connect different agents and change your default</a>. You can start here with the AI you already use.</p>
+<p><label class="step-done"><input type="checkbox"> I understand what the three members will examine.</label></p>
+<h2 id="develop-the-work">Develop the work</h2>
+<h3 id="3-describe-one-real-task">3. Give the council one real task</h3>
+<p>Choose something you actually need: a proposal, a decision, a draft, or an approach to a new project. Start a session in your project folder, then type or dictate in ordinary language. For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/council Help me develop a two-page proposal for a second pilot. We've already done a first pilot. The information is scattered through this project folder, [other locations, such as Google Docs, email threads, etc.]. I've started discussing changes for this pilot in email with [names here]. Some questions I'm thinking about are, [list them here]. I'm worried about [concerns, constraints here].
+</code></pre></div>
+<p>Council organizes the dictated request under the hood into a structured <code>PROMPT.md</code>. You do not need to dictate in a particular order or arrive with a polished prompt. What matters is giving it the information that will make the result useful:</p>
+<ul>
+<li><strong>The result and its audience.</strong> What should exist at the end, who will use it, and what decision or job it needs to support.</li>
+<li><strong>The material and constraints.</strong> Where to find the relevant files; the deadline, length, budget, and requirements that must hold.</li>
+<li><strong>What good looks like.</strong> How you will judge the output. “My manager can decide without asking us to reconstruct the staffing plan” is more useful than “make it excellent.”</li>
+<li><strong>Examples and corrections.</strong> Point to a good previous result and say what to borrow. If an earlier attempt missed your intent, explain what was wrong and what should be different this time.</li>
+</ul>
+<p>You can leave the method open. If you do not know how to approach the task, ask the council to suggest an approach and come back with the questions that would materially change it. You supply the goal, context, and judgment; you do not have to prescribe every step.</p>
+<p><strong>My first prompts in a work session are typically 3 to 4 paragraphs. You shouldn't worry about concision, and in fact the more context and information you can give the council, the better</strong></p>
+<p><label class="step-done"><input type="checkbox"> I’ve asked the council to handle the task.</label>
+<label class="step-done"><input type="checkbox"> My dictated message includes relevant files, constraints, and desired results.</label></p>
+<h3 id="4-let-the-agents-work-independently">4. Let the council members work independently</h3>
+<p>The agent you are talking to sends the shared prompt and relevant files—or access to those files—to three separate subagents. Each gets the same question and evidence, plus any assigned persona. They finish their reports independently, before seeing one another’s answers. Dividing the budget, timetable, and writing among agents can be useful too, but that is a different assignment from getting independent takes on the whole proposal.</p>
+<p>When all three reports are back, your main agent brings them together for synthesis. It gives that job to a fresh subagent. The synthesis compares the reasons and evidence, explains the disagreements, and brings forward important findings raised by only one member. It produces one report with the recommended approach, the unresolved questions, and the decisions that need your judgment. Agreement alone does not prove a claim is true.</p>
+<p><label class="step-done"><input type="checkbox"> My three subagents ran and produced a synthesis report for me.</label></p>
+<h3 id="5-ask-questions-and-give-your-judgment">5. Ask questions and give your judgment</h3>
+<p>Read the synthesis. <strong>Ask for elaboration or clarification on consequential or debated points.</strong> You can ask the agent to bring forward the relevant evidence and explain why the council members disagree.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Explain the disagreement about staffing. Which assumptions drive it, what evidence supports each view, and what would change the recommendation?
+</code></pre></div>
+<p>You do not have to accept the recommendations verbatim. Once you have dug into the points you did not understand or agree with, say what you accept, reject, or want changed. For example, if the synthesis has numbered recommendations:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>I’ve read points 4, 5, and 6; they sound fine. Reject point 1: I want to test the process with our existing customers before expanding it to new ones. Apply your suggested revision in point 9, shortening the pilot to five weeks so we have a week to deal with delays. Save the current version, then revise the proposal itself using these decisions.
+</code></pre></div>
+<p>Your priorities and constraints help the agent revise the actual work.</p>
+<p><label class="step-done"><input type="checkbox"> I dug into the important disagreements and have given my direction.</label></p>
+<p><span id="recursive-review-matters"></span>
+<span id="use-another-council"></span>
+<span id="review-add-judgment-and-revise"></span>
+<span id="scrutinize-important-work"></span>
+<span id="what-i-have-used-it-for"></span>
+<span id="what-the-extra-reviewer-caught"></span>
+<span id="ask-for-a-full-council"></span>
+<span id="what-the-extra-stage-changes"></span>
+<span id="the-files-behind-a-full-council"></span></p>
+<h2 id="review">Review the result</h2>
+<h3 id="5-run-adversarial-review">6. Run adversarial review</h3>
+<p>Once you’ve added your judgment, provided feedback, and pushed back where needed, use <code>/adversarial-review</code> to examine the revised work. It starts a fresh panel to look for consequential problems. The starter kit’s default is <strong>four independent subagents of the same AI</strong>, followed by a fresh synthesis.</p>
+<div class="council-kit-summary">
+<table>
+<thead>
+<tr>
+<th>Reviewer</th>
+<th>What it checks in the draft</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Skeptic</strong></td>
+<td>Which important claims lack support? Where is the argument relying on wishful thinking?</td>
+</tr>
+<tr>
+<td><strong>Pre-mortem</strong></td>
+<td>What are the top three concrete causes of failure, and what could prevent each?</td>
+</tr>
+<tr>
+<td><strong>Completeness Checker</strong></td>
+<td>Who needs to be involved? What dependencies, inputs, or success criteria are missing? Which vague commitments need to be made concrete?</td>
+</tr>
+<tr>
+<td><strong>Chief of Staff</strong></td>
+<td>What is the actual decision, what does saying yes cost, and is it reversible? Would a smaller commitment serve you better?</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The first three personas overlap with <code>/council</code>, but they now review the draft, using fresh reviewers who did not develop it. The Chief of Staff adds a check on whether the result helps you decide and act.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/adversarial-review Review the revised pilot proposal against my original request and the decisions we made afterward. Distinguish must-fix problems from preferences.
+</code></pre></div>
+<p>Just like <code>/council</code>, each reviewer receives the full brief and the same version of the work, plus its assigned focus.</p>
+<p><label class="step-done"><input type="checkbox"> I have reviewed the findings of the four-member panel.</label></p>
+<h3 id="6-revise-and-check-the-result">7. Apply the changes and check them</h3>
+<p>Review does not, in and of itself, finish the task. Once <code>/adversarial-review</code> has come back, I edit again using those comments and findings. Tell the agent which findings to act on, ask it to explain any it rejects, and inspect the changed files. Go back and forth with your agent as many times as you need to get a final result you’re satisfied with.</p>
+<p>I usually find one Council round and one Adversarial Review round, plus a few back and forth final comments, sufficient. Of course, that’s not a hard rule. A major revision, unresolved disagreement, or new evidence may justify another round. Give that round a specific question to settle.</p>
+<p><label class="step-done"><input type="checkbox"> The useful fixes are applied, and I have checked the result.</label></p>
+<h3 id="7-save-where-you-landed">8. Save where you landed</h3>
+<p>Agentic memory is getting better, but for consequential work or long working days, use <code>/done</code> to save a handoff in your project folder. This is particularly helpful if you are planning to pick up work in this project in a new session rather than continuing in this one.</p>
+<p><code>/done</code> asks the agent to record the current status, decisions, unresolved questions, next action, and links to the work and council reports in <code>HANDOFF.md</code>. It gives the next session a route back to the task brief, individual reports, and synthesis saved with the project, so it can inspect how you reached the result.</p>
+<p><label class="step-done"><input type="checkbox"> The work and handoff are saved where I can find them.</label></p>
+</div>
+<p><a href="../../workflows/council-models/">Next: connect different AI models and change your default council →</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+  <p class="feedback-line">
+    <a href="https://buttondown.email/claudeblattman">Get email updates</a>
+    a few times a year, no spam.
+    Something broken or unclear?
+    <a href="mailto:claudeblattman+feedback@gmail.com?subject=Feedback%3A%20Council%20and%20review">Send feedback</a>.
+  </p>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Built by <a href="https://chrisblattman.com">Chris Blattman</a> &mdash; shared freely under MIT License
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/chrisblattman/claudeblattman" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/cblatts" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant", "navigation.instant.prefetch", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+
+  <!-- GoatCounter analytics — privacy-friendly, no cookies, free for non-commercial -->
+  <script>
+    window.goatcounter = { no_onload: true };
+  </script>
+  <script data-goatcounter="https://claudeblattman.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script>
+    /* Track page views on every navigation (including instant loading) */
+    document$.subscribe(function() {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({
+          path: location.pathname + location.search + location.hash
+        });
+      }
+    });
+
+    /* Keep the guide open when readers follow an outside resource.
+       Run again after Material instant navigation replaces page content. */
+    document$.subscribe(function() {
+      document.querySelectorAll('a[href]').forEach(function(link) {
+        var url = new URL(link.href, location.href);
+        if (!/^https?:$/.test(url.protocol) || url.origin === location.origin) return;
+        if (url.hostname === 'claudeblattman.com' || url.hostname === 'www.claudeblattman.com') return;
+        link.target = '_blank';
+        link.relList.add('noopener');
+      });
+    });
+
+    /* HOMEPAGE LADDER EVENTS — added 12 Oct.
+       The "Where to start" ladder in docs/index.md routes every reader, and we
+       had no idea which rung anyone takes: page views alone can't distinguish
+       "arrived at newcomers from the ladder" from "arrived from a tweet". These
+       fire a GoatCounter *event* (event: true keeps them out of the path
+       report) named ladder-rung-N, so after a couple of weeks the dashboard
+       answers two questions we have been guessing at — how many homepage
+       visitors click anything at all, and where the real distribution of
+       readers sits.
+
+       Keyed on the DESTINATION, not the link's index. The ladder's rungs do
+       not hold one link each — the councils rung points at both the working
+       loop and a real project — so an index would silently mislabel every
+       event after it, and would re-number itself the next time a rung gains a
+       link. The destination slug stays stable.
+
+       Fires on mousedown rather than click so it is recorded even when the
+       browser starts navigating immediately. Re-bound per navigation because
+       navigation.instant replaces the DOM without a page load. */
+    document$.subscribe(function() {
+      document.querySelectorAll('.start-ladder a').forEach(function(link) {
+        link.addEventListener('mousedown', function() {
+          if (!window.goatcounter || !window.goatcounter.count) return;
+          var dest = (link.getAttribute('href') || '')
+            .replace(/[#?].*$/, '')
+            .replace(/^\.*\//, '')
+            .replace(/\/$/, '') || 'unknown';
+          window.goatcounter.count({
+            path: 'ladder/' + dest,
+            title: 'Start ladder → ' + (link.textContent || '').trim(),
+            event: true
+          });
+        });
+
+        /* Each ladder row is a <label> wrapping its own checkbox, so the whole
+           strip is a click target — which is what you want on a phone. But the
+           row's link lives INSIDE that label, so clicking it would navigate AND
+           silently tick the box on the way out. Stopping propagation here keeps
+           the two separate: the link navigates, the rest of the row toggles. */
+        link.addEventListener('click', function(ev) {
+          ev.stopPropagation();
+        });
+      });
+    });
+  </script>
+
+  <script>
+    /* Make the site title text clickable — navigates home like the logo icon */
+    (function() {
+      var title = document.querySelector('.md-header__title');
+      if (title) {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function() {
+          var logo = document.querySelector('.md-header__button.md-logo');
+          if (logo) logo.click();
+        });
+      }
+    })();
+
+
+    /* Tab dropdowns. Click-driven, not hover: hover menus are unreachable on
+       touch and were the reason the carets appeared dead. Re-bound on every
+       instant-navigation swap via document$. */
+    document$.subscribe(function() {
+      var toggles = [].slice.call(document.querySelectorAll('.md-tabs__toggle'));
+      if (!toggles.length) return;
+
+      /* Never touch .hidden — it is display:none, which overrides the CSS
+         hover rule and was the reason hovering did nothing. Open/closed is
+         expressed only through aria-expanded, which the CSS keys off. */
+      function close(btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        var li = btn.closest('.md-tabs__item--nested');
+        if (li) li.classList.remove('md-tabs__item--open');
+      }
+
+      function closeAll(except) {
+        toggles.forEach(function(b) { if (b !== except) close(b); });
+      }
+
+      toggles.forEach(function(btn) {
+        var menu = document.getElementById(btn.getAttribute('aria-controls'));
+        if (!menu) return;
+
+        btn.addEventListener('click', function(ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          closeAll(btn);
+          btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+          var li = btn.closest('.md-tabs__item--nested');
+          if (li) li.classList.toggle('md-tabs__item--open', !open);
+        });
+
+        /* Escape closes and returns focus to the button that opened it. */
+        menu.addEventListener('keydown', function(ev) {
+          if (ev.key === 'Escape') { close(btn); btn.focus(); }
+        });
+        btn.addEventListener('keydown', function(ev) {
+          if (ev.key === 'Escape') { close(btn); }
+        });
+      });
+
+      /* A click anywhere else dismisses whatever is open. */
+      document.addEventListener('click', function(ev) {
+        if (!ev.target.closest('.md-tabs__item--nested')) closeAll(null);
+      });
+    });
+
+
+    /* ============================================================
+       PROGRESS: step checklists, page-done marks, and the sidebar
+       ============================================================
+       Two kinds of progress live on this site and they share one home in the
+       left column:
+
+         * the Start Here checklists, where each STEP has a checkbox
+         * Build Your Own, where each PAGE has one at its foot
+
+       Shay asked for the reset to sit at the bottom of the left column in both
+       cases, so the controls are injected into the sidebar rather than the
+       content column. The step COUNT stays in the content column on the
+       checklists, where it sits beside the thing it counts.
+
+       Re-bound on every instant-navigation swap via document$. ------------- */
+
+    /* Which sections show their PAGE LIST in the left column instead of the
+       current page's headings. Read from the active section's own label because
+       `md-nav--lifted` leaves EVERY tab's children in the DOM, so CSS alone
+       cannot tell which section is active. Rename a tab and these strings must
+       change with it.
+
+       Start Here is deliberately absent: Shay asked for that column to carry
+       the checklist's own contents, not links to the other two checklists. */
+    var CB_PAGE_LIST_SECTIONS = ['Workflows'];
+
+    /* Of those, the ones where each page carries an "I did this" checkbox and
+       the column shows a tally. Build Your Own is a path you work through;
+       Workflows is a reference library you dip into, so it is not tracked. */
+    var CB_TRACKED_SECTIONS = [];
+
+    function cbStore(key) {
+      return {
+        read: function () {
+          try { return JSON.parse(localStorage.getItem(key)) || {}; }
+          catch (e) { return {}; }
+        },
+        write: function (v) {
+          try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) {}
+        }
+      };
+    }
+
+    /* Appends a count line and a reset button to the foot of the left column.
+       Neither carries a class the TOC-only rules hide, so both render even
+       though most of that nav is suppressed. */
+    function cbSidebarControls(onReset, container) {
+      var nav = container || document.querySelector('.md-sidebar--primary .md-nav--primary');
+      if (!nav) return null;
+      var count = nav.querySelector('.cb-sidebar-count');
+      var reset = nav.querySelector('.cb-sidebar-reset');
+      if (!count) {
+        count = document.createElement('span');
+        count.className = 'cb-sidebar-count';
+        count.setAttribute('aria-live', 'polite');
+        nav.appendChild(count);
+      }
+      if (!reset) {
+        reset = document.createElement('button');
+        reset.type = 'button';
+        reset.className = 'cb-sidebar-reset';
+        reset.textContent = 'Reset checklist';
+        nav.appendChild(reset);
+      }
+      var controls = nav.querySelector('.cb-progress-controls');
+      if (!controls) {
+        controls = document.createElement('div');
+        controls.className = 'cb-progress-controls';
+        nav.appendChild(controls);
+      }
+      controls.appendChild(count);
+      controls.appendChild(reset);
+      reset.onclick = onReset;
+      return { count: count, reset: reset };
+    }
+
+    /* Homepage essentials use the same count/reset controls beneath their table.
+       Store only this checklist; resetting it must not clear workflow progress. */
+    document$.subscribe(function () {
+      var root = document.querySelector('.md-content .essentials-checks');
+      if (!root) return;
+      var boxes = [].slice.call(root.querySelectorAll('input[type="checkbox"]'));
+      if (!boxes.length) return;
+      var store = cbStore('cb-home-essentials:v1');
+      var saved = store.read();
+      function key(box) { return box.closest('label').textContent.trim(); }
+      function update() {
+        controls.count.textContent = boxes.filter(function (box) {
+          return box.checked;
+        }).length + ' of ' + boxes.length + ' done';
+      }
+      var controls = cbSidebarControls(function () {
+        boxes.forEach(function (box) { box.checked = false; });
+        saved = {};
+        store.write(saved);
+        update();
+      }, root);
+      boxes.forEach(function (box) {
+        if (Object.prototype.hasOwnProperty.call(saved, key(box))) {
+          box.checked = saved[key(box)] === true;
+        }
+        box.onchange = function () {
+          saved[key(box)] = box.checked;
+          store.write(saved);
+          update();
+        };
+      });
+      update();
+    });
+
+    document$.subscribe(function () {
+      /* ---- out-of-nav checklist: adopt the TOC rendered in site_nav ------
+         Moved INTO the primary nav, ahead of any count/reset already there, so
+         it sits where toc.integrate would have put it and the tally stays
+         beneath it. Runs first so branch B's tocLinks() finds it. */
+      var loneToc = document.querySelector('.cb-lone-toc-holder > .md-nav--secondary');
+      var primaryNav = document.querySelector('.md-sidebar--primary .md-nav--primary');
+      if (loneToc && primaryNav) {
+        primaryNav.insertBefore(loneToc, primaryNav.querySelector('.cb-progress-controls'));
+      }
+
+      /* ---- which sidebar mode is this page in? ------------------------- */
+      var activeSection = document.querySelector(
+        '.md-sidebar--primary .md-nav__item--active.md-nav__item--section > .md-nav__link');
+      var sectionName = activeSection ? activeSection.textContent.trim() : '';
+      /* A page that IS a step checklist gets the Start Here column wherever it
+         sits — its own steps, tickable, with the step tally and "Reset
+         checklist" beneath — rather than its section's page list. Shay, 19 Oct,
+         on "Teaching AI your voice": the left column should be the checklist
+         "the way that it is on the newcomers page". The page still counts toward
+         its section's tally seen from the other pages — branch B writes its
+         completion into branch A's store once every step is ticked. Branch A
+         just doesn't draw that tally here. */
+      var isChecklistPage = !!document.querySelector('.md-content .checklist .step-done');
+      var showsPageList = CB_PAGE_LIST_SECTIONS.indexOf(sectionName) !== -1 &&
+                          !isChecklistPage;
+      var isTracked = CB_TRACKED_SECTIONS.indexOf(sectionName) !== -1;
+      document.documentElement.setAttribute(
+        'data-cb-sidebar', showsPageList ? 'section' : 'page');
+
+      /* ---- A0. Category eyebrows become links -------------------------
+         In section mode each category renders as a dead <label>, which Shay
+         asked to make clickable: the capital-letter row should open that
+         category's own landing page. The landing page is the FIRST page listed
+         under the category in mkdocs.yml, so it is the first anchor in the
+         category's nested list.
+
+         Swapping the <label> for an <a> rather than wiring a click handler
+         onto it, so the row is a real link — focusable, middle-clickable, and
+         announced as a link rather than as a form control for a checkbox that
+         exists only to drive the mobile drawer.
+
+         The landing page's own row is then hidden: it would be the same
+         destination twice in a row, directly beneath itself. */
+      function cbCategoryLinks() {
+        var sec = document.querySelector(
+          '.md-sidebar--primary .md-nav--primary > .md-nav__list > ' +
+          '.md-nav__item--active.md-nav__item--section');
+        if (!sec) return;
+        [].slice.call(sec.querySelectorAll('.md-nav__item--nested')).forEach(function (cat) {
+          /* Direct children only, walked by hand rather than with `:scope >`.
+             The label has to be the category's OWN label, not one belonging to
+             something nested deeper inside it. */
+          var label = null;
+          [].slice.call(cat.children).forEach(function (ch) {
+            if (!label && ch.tagName === 'LABEL' &&
+                ch.classList.contains('md-nav__link')) { label = ch; }
+          });
+          if (!label) return;
+          var landing = cat.querySelector('.md-nav__list a.md-nav__link');
+          if (!landing) return;
+          var a = document.createElement('a');
+          a.className = 'md-nav__link cb-cat-link';
+          a.href = landing.getAttribute('href');
+          a.textContent = (label.textContent || '').trim();
+          label.parentNode.replaceChild(a, label);
+          var row = landing.closest('.md-nav__item');
+          if (row) { row.classList.add('cb-landing-row'); }
+        });
+      }
+      cbCategoryLinks();
+
+      /* ---- A. Tracked sections: checkbox(es) per page ------------------
+         A page may carry MORE THAN ONE control — "Connect your apps" has two,
+         the second an explicit "nothing more to connect for now" opt-out, so
+         the page can be completed without wiring up every service. Such a page
+         ticks in the sidebar only when ALL its controls are checked, the same
+         rule as step 9 on the Newcomers checklist.
+
+         State is therefore an ARRAY per path, not a flag. The array's length is
+         written by the page itself, which is how the sidebar tells a
+         half-finished page from a complete one without knowing how many
+         controls any other page has. */
+      var pageBoxes = [].slice.call(
+        document.querySelectorAll('.md-content .page-done input'));
+      if (isTracked) {
+        var store = cbStore('cb-pagedone:v2');
+        var done = store.read();
+
+        var pageComplete = function (path) {
+          var v = done[path];
+          return Array.isArray(v) && v.length > 0 && v.every(Boolean);
+        };
+
+        /* Every page row in the active section, keyed by its own pathname. */
+        var rows = [];
+        var holder = document.querySelector(
+          '.md-sidebar--primary .md-nav__item--active.md-nav__item--section > .md-nav');
+        if (holder) {
+          [].slice.call(holder.querySelectorAll('a.md-nav__link')).forEach(function (a) {
+            if (a.hash) return;                     /* skip the integrated TOC */
+            rows.push({ link: a, path: a.pathname });
+          });
+        }
+
+        var writeThisPage = function () {
+          if (!pageBoxes.length) return;
+          done[location.pathname] = pageBoxes.map(function (b) { return b.checked; });
+          store.write(done);
+        };
+
+        var sync = function () {
+          var n = 0;
+          rows.forEach(function (r) {
+            var on = pageComplete(r.path);
+            if (on) n++;
+            r.link.classList.toggle('md-nav__link--page-done', on);
+          });
+          /* Each label marks itself as soon as its own box is ticked, even if
+             the page as a whole is not finished. */
+          pageBoxes.forEach(function (b) {
+            var l = b.closest('.page-done');
+            if (l) { l.classList.toggle('page-done--done', b.checked); }
+          });
+          if (isChecklistPage) return;   /* branch B owns the column here */
+          var c = cbSidebarControls(function () {
+            rows.forEach(function (r) { delete done[r.path]; });
+            pageBoxes.forEach(function (b) { b.checked = false; });
+            store.write(done);
+            sync();
+          });
+          if (c) {
+            c.count.textContent = n + ' of ' + rows.length + ' done';
+            c.count.hidden = false;
+            c.reset.textContent = 'Reset progress';
+            c.reset.hidden = false;
+          }
+        };
+
+        var saved = done[location.pathname];
+        pageBoxes.forEach(function (b, i) {
+          if (b.dataset.cbBound) return;
+          b.dataset.cbBound = '1';
+          b.checked = Array.isArray(saved) ? !!saved[i] : false;
+          b.addEventListener('change', function () {
+            writeThisPage();
+            sync();
+          });
+        });
+        sync();
+      }
+
+      /* ---- B. Start Here: one checkbox per step ------------------------ */
+      var root = document.querySelector('.md-content .checklist');
+      if (!root) return;
+
+      var allControls = [].slice.call(root.querySelectorAll('.step-done input'));
+      if (!allControls.length) return;
+
+      var store2 = cbStore('cb-checklist:v4:' + location.pathname);
+      var state = store2.read();
+
+      /* The two-month plan wraps each week in a `.week-card` div, so its H3 and
+         its control sit one level down. Flatten that level before the walk
+         rather than teaching the walk about cards: a card is a presentational
+         wrapper, not a new kind of step, and the walk below should keep working
+         on the three guides that have no cards at all.
+
+         Without this the walk finds no H3 among root.children, `steps` comes
+         back empty, and the function returns early — tracking dies silently on
+         the whole page. */
+      var blocks = [];
+      [].slice.call(root.children).forEach(function (el) {
+        if (el.classList && el.classList.contains('week-card')) {
+          [].slice.call(el.children).forEach(function (c) { blocks.push(c); });
+        } else {
+          blocks.push(el);
+        }
+      });
+
+      /* Walk the checklist's blocks in order, assigning each to the heading
+         above it. Forward is what makes multi-control steps work. */
+      var steps = [];
+      var cur = null;
+      blocks.forEach(function (el) {
+        if (el.tagName === 'H3') {
+          cur = { head: el, id: el.id, inputs: [], labels: [], body: [] };
+          steps.push(cur);
+          return;
+        }
+        if (el.tagName === 'H2') { cur = null; return; }
+        if (!cur) return;
+        var labels = [].slice.call(el.querySelectorAll('.step-done'));
+        if (el.classList.contains('step-done')) { labels.push(el); }
+        if (labels.length) {
+          labels.forEach(function (l) {
+            cur.labels.push(l);
+            var input = l.querySelector('input');
+            if (input) { cur.inputs.push(input); }
+          });
+        } else {
+          cur.body.push(el);
+        }
+      });
+      steps = steps.filter(function (st) { return st.inputs.length; });
+
+      /* A carded week dims as a whole, so the card joins its own body list.
+         Harmless on the uncarded guides — parentElement is the checklist. */
+      steps.forEach(function (st) {
+        var card = st.head.parentElement;
+        if (card && card.classList && card.classList.contains('week-card')) {
+          st.body.push(card);
+        }
+      });
+
+      var paired = steps.reduce(function (n, st) { return n + st.inputs.length; }, 0);
+      if (paired !== allControls.length) {
+        console.warn('checklist: paired ' + paired + ' of ' +
+                     allControls.length + ' controls to step headings');
+      }
+      if (!steps.length) return;
+
+      /* The tally now lives in the sidebar too, directly above the reset —
+         Shay, 7 Oct: "move the checklist number box to the left hand nav."
+         That makes the four starter guides match Build Your Own, where branch A
+         has always rendered count-then-reset in the same place.
+
+         cbSidebarControls appends count BEFORE reset, so DOM order gives the
+         requested stacking with no extra ordering code.
+
+         Any in-content bar from a cached page or an instant-navigation swap is
+         removed rather than left to show the same number twice. */
+      var staleBar = document.querySelector('.checklist-progress');
+      if (staleBar) { staleBar.remove(); }
+
+      /* Match TOC rows on the anchor's .hash, NOT an [href="#id"] selector:
+         navigation.instant rewrites every TOC anchor to an ABSOLUTE url at
+         runtime, so a selector matching the built HTML never matches the live
+         DOM. Rebuilt per sync() because instant navigation swaps the nav. */
+      function tocLinks() {
+        var map = {};
+        var nav = document.querySelector('.md-sidebar--primary .md-nav--secondary');
+        if (!nav) return map;
+        [].slice.call(nav.querySelectorAll('a')).forEach(function (a) {
+          if (a.hash) { map[a.hash.slice(1)] = a; }
+        });
+        return map;
+      }
+
+      function keyFor(st, i) { return st.id + '#' + i; }
+
+      function sync2() {
+        var n = 0;
+        var links = tocLinks();
+        steps.forEach(function (st) {
+          var complete = st.inputs.every(function (input) { return input.checked; });
+          if (complete) n++;
+          st.labels.forEach(function (l) {
+            var input = l.querySelector('input');
+            l.classList.toggle('step-done--done', !!(input && input.checked));
+          });
+          st.head.classList.toggle('step--done', complete);
+          st.body.forEach(function (el) {
+            el.classList.toggle('step-body--done', complete);
+          });
+          var link = links[st.id];
+          if (link) { link.classList.toggle('md-nav__link--done', complete); }
+        });
+        var c = cbSidebarControls(function () {
+          allControls.forEach(function (input) { input.checked = false; });
+          state = {};
+          store2.write(state);
+          sync2();
+        });
+        if (c) {
+          /* Counts TASKS, not steps — Shay, 7 Oct: "I want the checklist number
+             to be the number of tasks, not one for each week." The tally should
+             match the number of boxes a reader can see. `n` above stays
+             step-level because that is what ticks a TOC row: a heading is done
+             when everything under it is. */
+          var ticked = allControls.filter(function (i) { return i.checked; }).length;
+          /* A checklist page inside a tracked section has no page-done box of
+             its own (Shay cut the voice page's on 19 Oct), so its steps stand in
+             for one: the page counts as done in the section tally once every
+             step box is ticked. Same store and shape branch A writes. */
+          if (isTracked) {
+            var pageStore = cbStore('cb-pagedone:v2');
+            var pd = pageStore.read();
+            pd[location.pathname] = [ticked === allControls.length];
+            pageStore.write(pd);
+          }
+          c.count.textContent = ticked + ' of ' + allControls.length + ' done';
+          c.count.hidden = false;
+          c.reset.textContent = 'Reset checklist';
+          c.reset.hidden = false;
+        }
+      }
+
+      steps.forEach(function (st) {
+        st.inputs.forEach(function (input, i) {
+          if (input.dataset.cbBound) return;
+          input.dataset.cbBound = '1';
+          var k = keyFor(st, i);
+          input.checked = !!state[k];
+          input.addEventListener('change', function () {
+            if (input.checked) { state[k] = 1; } else { delete state[k]; }
+            store2.write(state);
+            sync2();
+          });
+        });
+      });
+
+      /* ---- B2. Sub-picks ----------------------------------------------
+         Week 8 offers "pick one or two of these and build them". Those rows
+         are `.sub-done`, deliberately NOT `.step-done`, so they stay out of
+         `allControls` — they must not count toward the task tally or hold the
+         week open, since choosing only a couple is the whole point.
+
+         Shay's rule, 7 Oct: ticking a sub-pick ticks its parent; ticking the
+         parent leaves the sub-picks alone. One-way, upward only. Unticking a
+         sub-pick also leaves the parent alone — you still did one. */
+      [].slice.call(root.querySelectorAll('.pick-group')).forEach(function (grp, g) {
+        var parent = grp.querySelector('.step-done input');
+        [].slice.call(grp.querySelectorAll('.sub-done input')).forEach(function (sub, i) {
+          if (sub.dataset.cbBound) return;
+          sub.dataset.cbBound = '1';
+          var k = 'sub#' + g + '#' + i;
+          sub.checked = !!state[k];
+          var mark = function () {
+            var l = sub.closest('.sub-done');
+            if (l) { l.classList.toggle('sub-done--done', sub.checked); }
+          };
+          mark();
+          sub.addEventListener('change', function () {
+            if (sub.checked) { state[k] = 1; } else { delete state[k]; }
+            store2.write(state);
+            mark();
+            if (sub.checked && parent && !parent.checked) {
+              parent.checked = true;
+              parent.dispatchEvent(new Event('change'));
+            } else {
+              sync2();
+            }
+          });
+        });
+      });
+
+      sync2();
+    });
+  </script>
+
+  </body>
+</html>

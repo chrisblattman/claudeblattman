@@ -1,0 +1,3915 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems">
+      
+      
+        <meta name="author" content="Chris Blattman">
+      
+      
+        <link rel="canonical" href="https://claudeblattman.com/hyperlinks/skill-reference/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Skill Library - Claude Blattman · AI for Professionals Who Don't Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=13246aab66">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <link rel="alternate icon" href="../../images/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+  <style>
+    /* No opacity. At 0.6 this measured 4.30:1 light / 4.10:1 dark for the text
+       and 2.82:1 / 3.18:1 for the links — failing AA in both schemes, on every
+       page. It is also now the only email-signup affordance on the site, so
+       making it the least legible element defeated the point. */
+    .feedback-line {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--md-default-fg-color--lightest);
+      font-size: 0.8rem;
+      color: var(--md-default-fg-color--light);
+    }
+  </style>
+
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Skill Library - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="og:description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems" />
+<meta property="og:image" content="https://claudeblattman.com/assets/images/social/hyperlinks/skill-reference.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://claudeblattman.com/hyperlinks/skill-reference/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Skill Library - Claude Blattman · AI for Professionals Who Don't Code" />
+<meta property="twitter:description" content="A project manager's guide to building AI workflows — from chatbots to self-improving systems" />
+<meta property="twitter:image" content="https://claudeblattman.com/assets/images/social/hyperlinks/skill-reference.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#skill-library" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-header__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic"><span class="md-ellipsis md-header__wordmark">
+            <a href="../..">Claude Blattman</a>
+          </span>
+          
+            <span class="md-ellipsis cb-header__tagline">
+              <a href="../..">AI for Professionals Who Don't Code</a>
+            </span>
+          
+        </div></div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid md-tabs__grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item md-tabs__item--home">
+      <a href="../.." class="md-tabs__link" title="Home">
+        <span class="md-tabs__icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12 3 L21 10.5 V21 H14 V15 H10 V21 H3 V10.5 Z"/>
+          </svg>
+        </span>
+        <span class="md-tabs__sr">Home</span>
+      </a>
+    </li>
+
+      
+        
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+      
+      <li class="md-tabs__item md-tabs__item--nested"><a href="../..#my-absolute-essentials-and-where-to-start" class="md-tabs__link">Essentials</a>
+        <button type="button"
+                class="md-tabs__toggle"
+                aria-expanded="false"
+                aria-controls="tabmenu-essentials"
+                aria-label="Essentials menu">
+          <span class="md-tabs__caret"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
+        </button>
+        <ul class="md-tabs__menu" id="tabmenu-essentials">
+          
+            
+              <li class="md-tabs__menu-group">Get started with an agent</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../starter-kit/newcomers/" class="md-tabs__menu-link">Start from scratch</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../build-your-own/picking-your-agent/" class="md-tabs__menu-link">Choose your agent</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../starter-kit/from-terminal/" class="md-tabs__menu-link">Switch from terminal</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../starter-kit/agents-at-work/" class="md-tabs__menu-link">When work restricts AI agents</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Councils</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../starter-kit/occasional/" class="md-tabs__menu-link">Council and review</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../workflows/council-models/" class="md-tabs__menu-link">Different AI models</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Dictate</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../wispr-flow/" class="md-tabs__menu-link">Start dictating</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Transcribe and follow up</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../granola/" class="md-tabs__menu-link">Transcribe your meetings</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Teach it your voice</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../build-your-own/voice/" class="md-tabs__menu-link">Build your voice pack</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../how-i-improve-the-work/" class="md-tabs__menu-link">Build a system</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-group">Organize your digital life</li>
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../workflows/cloud-storage-guide/" class="md-tabs__menu-link">Organize cloud storage</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../workflows/organize-projects/" class="md-tabs__menu-link">Organize your projects</a>
+                  </li>
+                
+              
+                
+                  <li class="md-tabs__menu-item md-tabs__menu-item--in-group">
+                    <a href="../../build-your-own/project-folders/" class="md-tabs__menu-link">Inside a project folder</a>
+                  </li>
+                
+              
+            
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../../starter-kit/two-month-plan/"
+                   class="md-tabs__menu-link">
+                  
+                    <strong>The master checklist</strong>
+                  
+                </a>
+              </li>
+            
+          
+        </ul>
+      </li>
+    
+
+      
+        
+  
+  
+  
+    
+    
+    
+        
+          
+          
+            
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      <li class="md-tabs__item md-tabs__item--nested"><a href="../../workflows/projects-and-research/" class="md-tabs__link">Workflows</a>
+        <button type="button"
+                class="md-tabs__toggle"
+                aria-expanded="false"
+                aria-controls="tabmenu-workflows"
+                aria-label="Workflows menu">
+          <span class="md-tabs__caret"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
+        </button>
+        <ul class="md-tabs__menu" id="tabmenu-workflows">
+          
+            
+              
+              
+                <li class="md-tabs__menu-item">
+                  <a href="../../workflows/projects-and-research/"
+                     class="md-tabs__menu-link">
+                    Projects and research
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+              
+                <li class="md-tabs__menu-item">
+                  <a href="../../workflows/executive-assistant/"
+                     class="md-tabs__menu-link">
+                    Work and everyday life
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+              
+                <li class="md-tabs__menu-item">
+                  <a href="../../workflows/best-practices/"
+                     class="md-tabs__menu-link">
+                    Customize your workflow
+                  </a>
+                </li>
+              
+            
+          
+        </ul>
+      </li>
+    
+
+      
+        
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+      
+      <li class="md-tabs__item md-tabs__item--nested"><a href="../../about/" class="md-tabs__link">About</a>
+        <button type="button"
+                class="md-tabs__toggle"
+                aria-expanded="false"
+                aria-controls="tabmenu-about"
+                aria-label="About menu">
+          <span class="md-tabs__caret"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
+        </button>
+        <ul class="md-tabs__menu" id="tabmenu-about">
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../../about/"
+                   class="md-tabs__menu-link">
+                  
+                    About Claude Blattman
+                  
+                </a>
+              </li>
+            
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../../about-chris/"
+                   class="md-tabs__menu-link">
+                  
+                    About Chris Blattman
+                  
+                </a>
+              </li>
+            
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../../how-i-use-ai/"
+                   class="md-tabs__menu-link">
+                  
+                    How I put AI to work
+                  
+                </a>
+              </li>
+            
+          
+            
+              <li class="md-tabs__menu-item">
+                <a href="../../resources/"
+                   class="md-tabs__menu-link">
+                  
+                    Resources
+                  
+                </a>
+              </li>
+            
+          
+        </ul>
+      </li>
+    
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+
+    <div class="md-tabs__meta">
+        <div class="md-tabs__source">
+          <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+        </div>
+      
+    </div>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+  
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Blattman · AI for Professionals Who Don&#39;t Code" class="md-nav__button md-logo" aria-label="Claude Blattman · AI for Professionals Who Don't Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Blattman · AI for Professionals Who Don't Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chrisblattman/claudeblattman" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chrisblattman/claudeblattman
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essentials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Essentials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get started with an agent
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Get started with an agent
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../starter-kit/newcomers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start from scratch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/picking-your-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choose your agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../starter-kit/from-terminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch from terminal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../starter-kit/agents-at-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When work restricts AI agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Councils
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Councils
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../starter-kit/occasional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Council and review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/council-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Different AI models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictate
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dictate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wispr-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start dictating
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transcribe and follow up
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Transcribe and follow up
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../granola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transcribe your meetings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teach it your voice
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Teach it your voice
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/voice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build your voice pack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-i-improve-the-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build a system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organize your digital life
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Organize your digital life
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/cloud-storage-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organize cloud storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/organize-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organize your projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/project-folders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inside a project folder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../starter-kit/two-month-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The master checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects and research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects and research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/projects-and-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects and research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/deep-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/project-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catch up on a project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/session-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Save and resume work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/recall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Find past work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/weekly-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/sub-project-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manage sub-projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/examples/project-overview-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example: project dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Work and everyday life
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Work and everyday life
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/executive-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Work and everyday life
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/building-an-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build an AI executive assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/meeting-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting follow-up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/school-digest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cut through inbox noise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tax-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tax season
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/life/shopping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shopping decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/life/vacation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vacation planning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/life/health/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Health and fitness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize your workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Customize your workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize your workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/mcp-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect your apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/agents-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Write persistent instructions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set rules and guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/building-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create a skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/council/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize council agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/ai-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect different agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-your-own/external-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Claude Blattman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about-chris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Chris Blattman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-i-use-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How I put AI to work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="skill-library">Skill Library</h1>
+<p>Skills (also called slash commands) are reusable prompts that run inside Claude Code with a single command. Instead of typing out a detailed prompt every time, you type <code>/done</code> or <code>/council</code> and the skill handles the rest.</p>
+<p>A skill is just a markdown file saved in <code>~/.claude/commands/</code>. It contains instructions, optional arguments, and optional references to other files. When you type <code>/skillname</code>, Claude reads the file and follows the instructions. <strong>No code, no compilation, no special syntax — just saved prompts with a shortcut.</strong></p>
+<div class="admonition important">
+<p class="admonition-title">First-time desktop users</p>
+<p>Start with the <a href="../../starter-kit/newcomers/">Desktop Agent Starter Kit</a> before installing skills from this library. If you installed the starter-kit plugin, do not install anything from this page during your first session. The catalog below is advanced/reference material from a broader setup. Some commands assume Gmail, Calendar, Granola, project configs, or account-specific templates and are not part of the v0.1 starter kit.</p>
+</div>
+<hr />
+<h2 id="install-use">Install &amp; Use</h2>
+<div class="admonition warning">
+<p class="admonition-title">Read before you install</p>
+<p>Skills are executable instruction files — when you run them, Claude follows every instruction in the file, including MCP tool calls. Before installing a skill from any source, open the <code>.md</code> file and read through it. Skills from this site are published on <a href="https://github.com/chrisblattman/claudeblattman/tree/main/skills">GitHub</a> where you can review the full source.</p>
+</div>
+<p><strong>Setup</strong> — create the folders where Claude Code looks for skills:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/commands
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/agents
+</code></pre></div>
+<p><strong>Install a skill</strong> — download and restart:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Example: download the /done skill</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/done.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/done.md
+</code></pre></div>
+<p>After saving any new skill file, <strong>restart Claude Code</strong> for the command to become available.</p>
+<p><strong>Use a skill</strong> — type <code>/</code> followed by the skill name:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&gt; /done
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt; /done quick
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&gt; /council Review the draft email and recommend improvements
+</code></pre></div>
+<p>Most skills accept arguments — text after the command name that gets passed as <code>$ARGUMENTS</code>.</p>
+<p><strong>Build your own</strong> — identify a task you do repeatedly, write out the prompt, save it as a <code>.md</code> file in <code>~/.claude/commands/</code>, and add <code>$ARGUMENTS</code> where you want user input. See <a href="../../build-your-own/building-skills/">Building Skills</a> for patterns and a quality checklist.</p>
+<hr />
+<p><strong>Workflow tags:</strong> Skills below are tagged by workflow — <code>[PM]</code> for <a href="../../workflows/project-management/">Project Management</a>, <code>[EA]</code> for <a href="../../workflows/building-an-assistant/">Executive Assistant</a>, <code>[First Session]</code> for <a href="../../workflows/first-session-skills/">First Session Skills</a>, <code>[Advanced]</code> for <a href="../continuous-improvement/">system-level tools</a>.</p>
+<hr />
+<h2 id="skills">Skills</h2>
+<h3 id="done-session-capture">/done — Session Capture</h3>
+<p><code>[First Session]</code></p>
+<p><strong>What it does:</strong> Captures key decisions, open questions, and follow-ups from your current Claude Code session. Writes a structured entry to a session log file.</p>
+<p><strong>MCP dependencies:</strong> None.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/done.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/done.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/done              # Full capture
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>/done quick        # Abbreviated (decisions + follow-ups only)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>/done project:xyz  # Tag with a project name
+</code></pre></div></p>
+<p><strong>Customization:</strong> Log file location (default <code>~/Documents/session-log.md</code>), project matching, archive pruning threshold (default 60 days).</p>
+<hr />
+<h3 id="morning-brief-daily-briefing">/morning-brief — Daily Briefing</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Generates a daily briefing combining calendar, reminders, inbox highlights, VIP tracking, waiting-for detection, overdue items, goal alignment, and optional auto-triage. Unified hard-deadline keyword detection across skills.</p>
+<p><strong>MCP dependencies:</strong> Gmail MCP (required). Google Calendar MCP (required). Apple Reminders via osascript (macOS, optional). Granola MCP (optional, for meeting context).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/morning-brief.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/morning-brief.md
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Config templates (if not already installed)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/config
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/email-policy.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/email-policy-template.md
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/calendar-policy.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/calendar-policy-template.md
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/triage-config.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/triage-config-template.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/morning-brief                # Full briefing
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/morning-brief no-triage      # Skip auto-triage
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>/morning-brief email          # Also email the briefing to yourself
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>/morning-brief no-reminders   # Skip Apple Reminders (non-macOS)
+</code></pre></div></p>
+<p><strong>Customization:</strong> Weather city, timezone, email delivery, triage integration, goal alignment via <code>goals.yaml</code>, deep work nudges, reminder platform.</p>
+<hr />
+<h3 id="checkin-daily-check-in-session">/checkin — Daily Check-In Session</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Interactive chief-of-staff session that combines inbox triage, reminder triage, meeting prep, email quick-fire drafting, and priority management into one 10-15 minute session. Where <code>/morning-brief</code> is a passive daily report, <code>/checkin</code> is an interactive session — it triages your inbox, triages your reminders, preps meetings, drafts emails, and surfaces priorities.</p>
+<p><strong>MCP dependencies:</strong> Gmail MCP (required). Google Calendar MCP (required). Granola MCP (optional, for meeting context). Apple Reminders via osascript (macOS, optional).</p>
+<p><strong>Prerequisite skills:</strong> <code>/triage-inbox</code> (recommended — without it, the triage phase is skipped).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/checkin.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/checkin.md
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Config templates (if not already installed via /triage-inbox or /morning-brief)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/config
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/email-policy.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/email-policy-template.md
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/calendar-policy.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/calendar-policy-template.md
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/triage-config.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/triage-config-template.md
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/goals.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/goals-yaml-template.yaml
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">If you already set up <code>/triage-inbox</code> and <code>/morning-brief</code></p>
+<p>Most config files are already in place. You only need the skill file itself and possibly <code>goals.yaml</code>.</p>
+</div>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/checkin              # Full interactive session (10-15 min)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>/checkin quick        # Status + priorities only (30 seconds)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>/checkin no-email     # Skip email drafting phase
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>/checkin no-triage    # Skip inbox triage
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>/checkin tomorrow     # Preview tomorrow's schedule
+</code></pre></div></p>
+<p><strong>Customization:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Where to Configure</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VIP list</strong></td>
+<td><code>email-policy.md</code></td>
+<td>No VIP highlighting</td>
+</tr>
+<tr>
+<td><strong>Calendar IDs</strong></td>
+<td><code>calendar-policy.md</code></td>
+<td>Primary only</td>
+</tr>
+<tr>
+<td><strong>Goal alignment</strong></td>
+<td><code>goals.yaml</code></td>
+<td>Section omitted</td>
+</tr>
+<tr>
+<td><strong>Push level</strong></td>
+<td><code>goals.yaml</code> → <code>meta.push_level</code></td>
+<td><code>moderate</code></td>
+</tr>
+<tr>
+<td><strong>Auto-triage</strong></td>
+<td>Requires <code>/triage-inbox</code></td>
+<td>Skipped</td>
+</tr>
+<tr>
+<td><strong>Reminders</strong></td>
+<td>Requires macOS</td>
+<td>Phase skipped</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="goals-review-goals-review">/goals-review — Goals Review</h3>
+<p><code>[PM]</code></p>
+<p><strong>What it does:</strong> Reviews quarterly objectives, updates progress scores, surfaces deadlines, and recalibrates priorities. Manages the <code>goals.yaml</code> file that <code>/checkin</code> and <code>/morning-brief</code> read for goal alignment.</p>
+<p><strong>MCP dependencies:</strong> All optional. Gmail MCP (for email evidence). Google Calendar MCP (for meeting evidence). Granola MCP (for transcript evidence). Apple Reminders (macOS, for task evidence).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/goals-review.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/goals-review.md
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Goals template (if not already installed)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/config
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/goals.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/goals-yaml-template.yaml
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>/goals-review              # Full review with interactive updates
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>/goals-review status       # Quick dashboard only
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>/goals-review deadlines    # Show upcoming deadlines only
+</code></pre></div></p>
+<p><strong>Customization:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Where to Configure</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Objectives</strong></td>
+<td><code>goals.yaml</code> → objectives</td>
+<td>Template examples</td>
+</tr>
+<tr>
+<td><strong>Push level</strong></td>
+<td><code>goals.yaml</code> → <code>meta.push_level</code></td>
+<td><code>moderate</code></td>
+</tr>
+<tr>
+<td><strong>Review frequency</strong></td>
+<td>Skill Step 5</td>
+<td>Biweekly (14 days)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="deep-research-multi-vendor-research">/deep-research — Multi-Vendor Research</h3>
+<p><code>[Advanced]</code></p>
+<p><strong>What it does:</strong> Dispatches Claude WebSearch, Codex CLI, and Gemini 2.5 Pro CLI in parallel on the same research prompt. Three raw reports land in the project folder, indexed in a federated <code>research-archive/INDEX.md</code>. ChatGPT Deep Research, Grok, Perplexity, and Gemini's browser Deep Research are available as opt-in paste-loop arms via <code>--tool chatgpt|grok|perplexity|gemini-browser</code>.</p>
+<p><strong>MCP dependencies:</strong> None. Requires Codex CLI and Gemini CLI installed (see <a href="../../build-your-own/ai-integration/">AI integration</a> for setup).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/commands/deep-research-references
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/deep-research.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/deep-research.md
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>config.md<span class="w"> </span>dr-prompt-schema.md<span class="w"> </span>paste-loop-ux.md<span class="w"> </span>claude-subagent-template.md<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/deep-research-references/<span class="nv">$f</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/deep-research-references/<span class="nv">$f</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">done</span>
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>/deep-research &lt;topic&gt;                          # Default: Claude + Codex + Gemini parallel
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>/deep-research &lt;topic&gt; --tool both              # Codex + Gemini only
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>/deep-research &lt;topic&gt; --tool all-auto          # All CLI arms
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>/deep-research &lt;topic&gt; --tool chatgpt           # Paste-loop ChatGPT Deep Research
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>/deep-research --absorb path/to/report.md       # Ingest a manually-run browser report
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>/deep-research &lt;topic&gt; --quick                  # Claude-only, standard depth
+</code></pre></div></p>
+<p><strong>Customization:</strong> Routing config (project-folder mapping), depth defaults, vendor-arm thresholds, archive paths.</p>
+<p><strong>Learn more:</strong> <a href="../../workflows/deep-research/">The deep research workflow</a> · <a href="../../build-your-own/ai-integration/">AI integration</a></p>
+<hr />
+<h3 id="dr-synthesize-deep-research-synthesis">/dr-synthesize — Deep Research Synthesis</h3>
+<p><code>[Advanced]</code></p>
+<p><strong>What it does:</strong> Combines 2+ deep-research raw reports into a single synthesis with a mandatory <code>## Source Reports</code> block preserving absolute paths to the originals. Surfaces agreements, contradictions, gaps, and per-source unique insights. Synthesis is always a new file; raw inputs are never edited. Companion to <code>/deep-research</code> — works on its outputs or any report with the canonical frontmatter.</p>
+<p><strong>MCP dependencies:</strong> None.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/dr-synthesize.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/dr-synthesize.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/dr-synthesize report-a.md report-b.md                  # Synthesize 2 reports
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>/dr-synthesize *.md                                     # Glob all reports in cwd
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>/deep-research &lt;topic&gt; --synthesize                     # Run /deep-research, then chain
+</code></pre></div></p>
+<p><strong>Customization:</strong> Synthesis output path, frontmatter conventions, source-report extraction rules.</p>
+<p><strong>Learn more:</strong> <a href="../../workflows/deep-research/">The deep research workflow</a></p>
+<hr />
+<h3 id="council-parallel-critics-separate-synthesis">/council — Parallel Critics + Separate Synthesis</h3>
+<p><code>[Advanced]</code></p>
+<p><strong>What it does:</strong> Dispatches up to 4 critic agents in parallel on a topic, then runs a separate synthesis pass. Single round, no debate, no majority vote on narrative output. Two panels ship — plan and decision — built from four personas (<code>skeptic</code>, <code>pre-mortem</code>, <code>completeness-checker</code>, <code>chief-of-staff</code>), which come with the starter-kit plugin. Paper and grant panels are not built yet.</p>
+<p><strong>MCP dependencies:</strong> None for Claude-only mode. Optional <code>--peer codex|gemini</code> swaps one seat for a cross-vendor peer; requires the relevant CLI installed.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/council.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/council.md
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/agents
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/agents/proposal-critic-agent.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/agents/proposal-critic-agent.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>/council file:~/path/to/plan.md --type plan    # Plan panel
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>/council "should I take this" --type decision  # Decision panel
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>/council --type plan &lt;topic&gt;                    # Plan / architecture review
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>/council --type grant &lt;topic&gt;                   # 5-critic grant panel
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>/council --peer gemini &lt;topic&gt;                 # Swap one seat for Gemini
+</code></pre></div></p>
+<p><strong>Customization:</strong> Critic / synthesis model (config block at top of <code>council.md</code>), persona library in <code>~/.claude/agents/</code>, default panel sizes.</p>
+<p><strong>Learn more:</strong> <a href="../../build-your-own/council/">The council pattern</a> · <a href="../../build-your-own/ai-integration/">Cross-vendor critics</a></p>
+<hr />
+<h3 id="proposal-revise-proposal-revision">/proposal-revise — Proposal Revision</h3>
+<p><code>[PM]</code></p>
+<p><strong>What it does:</strong> Applies reviewer, collaborator, or self-review feedback to an existing proposal draft while maintaining voice consistency. Handles dictated feedback, comment files, and formal reviewer comments (with categorization).</p>
+<p><strong>MCP dependencies:</strong> None required. Google Docs MCP optional for project context.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/proposal-revise.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-revise.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a># Self-review — dictate feedback directly
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>/proposal-revise 05_Submissions/Grants/Draft.md
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Tighten the intro. Cut 200 words from methodology.
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a># Collaborator feedback from file
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>/proposal-revise Draft.md comments:~/Downloads/feedback.txt
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a># Formal reviewer comments (shows categorization before applying)
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>/proposal-revise Draft.md reviewer:~/Downloads/reviews.pdf
+</code></pre></div></p>
+<p><strong>Customization:</strong> Voice pack path, donor profile directory, backup behavior.</p>
+<hr />
+<h3 id="schedule-query-calendar-availability">/schedule-query — Calendar Availability</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Checks calendar availability across all Google calendars and drafts a scheduling reply with specific time proposals.</p>
+<p><strong>MCP dependencies:</strong> Google Calendar MCP (required). Gmail MCP (optional, for sending reply).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/schedule-query.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/schedule-query.md
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/config
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/calendar-policy.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/calendar-policy-template.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>/schedule-query with:Jane duration:60
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>/schedule-query range:7               # Look 7 days ahead
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>/schedule-query email:msg_id          # Reply to a scheduling email
+</code></pre></div></p>
+<p><strong>Customization:</strong> Calendar IDs, working hours, deep work protection, reply tone templates.</p>
+<hr />
+<h3 id="pre-meeting-brief-meeting-prep-briefing">/pre-meeting-brief — Meeting Prep Briefing</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Pulls context from Gmail, Calendar, Granola transcripts, Google Docs, WhatsApp, and local files to compose a one-page brief before a meeting. Surfaces decisions required, open loops, and preparation needs. Two depth modes — <code>light</code> (top-of-file brief for routine check-ins) and <code>full</code> (deep multi-week synthesis for quarterly reviews or first-meetings with funders).</p>
+<p><strong>MCP dependencies:</strong> Gmail MCP, Google Workspace MCP (Calendar + Docs), Granola MCP. WhatsApp MCP optional.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/pre-meeting-brief.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/pre-meeting-brief.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>/pre-meeting-brief                        # Auto-detect depth from next event
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>/pre-meeting-brief light                  # Force light brief
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>/pre-meeting-brief full                   # Force full multi-source synthesis
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>/pre-meeting-brief email                  # Also draft a pre-meeting email
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>/pre-meeting-brief "&lt;topic keyword&gt;"      # Brief for a specific upcoming event
+</code></pre></div></p>
+<p><strong>Customization:</strong> Lookback window (default 6 weeks for full mode), source-confidence thresholds, minimum-signal gate, attendee detection rules, optional donor-profile lookup for funder meetings.</p>
+<p><strong>Learn more:</strong> <a href="../../workflows/meeting-workflow/">Meeting workflow end-to-end</a></p>
+<hr />
+<h3 id="post-meeting-meeting-follow-up">/post-meeting — Meeting Follow-Up</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Reads a meeting transcript (from Granola, Zoom export, or a local file), extracts decisions and action items grouped by attendee, and drafts a follow-up email. Includes a concise summary for busy readers and a detailed meeting notes appendix for the record.</p>
+<p><strong>MCP dependencies:</strong> Gmail MCP (required for email drafting). Granola MCP (optional — also works with local transcript files).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/post-meeting.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/post-meeting.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>/post-meeting                    # Find most recent transcript automatically
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>/post-meeting keyword            # Search transcripts by keyword
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>/post-meeting nosend             # Generate summary without drafting email
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>/post-meeting save               # Save summary to project folder
+</code></pre></div></p>
+<p><strong>Customization:</strong> Transcript source paths, email signature, meeting notes format, sensitivity flags.</p>
+<hr />
+<h3 id="setup-project-management-project-setup">/setup-project-management — Project Setup</h3>
+<p><code>[PM]</code></p>
+<p><strong>What it does:</strong> Initializes a project management system for a research project. Interactive discovery, gap analysis, and design discussion before creating any files.</p>
+<p><strong>MCP dependencies:</strong> None required. Google Docs MCP useful for document hub setup.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/setup-project-management.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/setup-project-management.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>/setup-project-management              # Full interactive setup
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>/setup-project-management discover     # Assessment only
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>/setup-project-management plan         # Propose plan, stop before implementing
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>/setup-project-management minimal      # Quick setup: just .claude/CLAUDE.md
+</code></pre></div></p>
+<p><strong>Customization:</strong> Project types (quantitative, qualitative, theory/writing), folder naming conventions, external storage integration.</p>
+<hr />
+<h3 id="todo-add-add-to-do-item">/todo-add — Add To-Do Item</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Adds a to-do item to the correct list with duplicate checking. Routes items based on keywords.</p>
+<p><strong>MCP dependencies:</strong> None.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/todo-add.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/todo-add.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>/todo-add Fix the authentication bug
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>/todo-add list:work Set up CI pipeline
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">How these skills differ</p>
+<p><code>/todo-add</code> and <code>/todo-review</code> manage local markdown to-do files — useful for session-level task tracking. <code>/todo-queue</code> is different: it creates <strong>persistent Apple Reminders</strong> from email. For durable action items, use your real reminder system (Apple Reminders, Google Tasks, Todoist); use <code>/todo-add</code> for within-session work management.</p>
+</div>
+<hr />
+<h3 id="todo-queue-todo-queue">/todo-queue — Todo Queue</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Batch-processes emails in a designated Gmail label, converting them to Apple Reminders with timing extracted from email body.</p>
+<p><strong>MCP dependencies:</strong> Gmail MCP. Apple Reminders via osascript (macOS only).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/todo-queue.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/todo-queue.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>/todo-queue              # Process all pending
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>/todo-queue dryrun       # Preview only
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>/todo-queue limit:5      # Process first 5 only
+</code></pre></div></p>
+<hr />
+<h3 id="todo-review-to-do-review">/todo-review — To-Do Review</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Reviews and consolidates to-do items across all configured files. Duplicate detection and batch actions.</p>
+<p><strong>MCP dependencies:</strong> None.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/todo-review.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/todo-review.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>/todo-review           # Quick summary (high priority only)
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>/todo-review full      # All priority levels
+</code></pre></div></p>
+<hr />
+<h3 id="tax-guide-personalized-tax-prep-guide">/tax-guide — Personalized Tax Prep Guide</h3>
+<p><code>[Tax Workflow]</code></p>
+<p><strong>What it does:</strong> A guided Q&amp;A that assesses your tax situation (income types, complexity flags, deductions, filing method) and generates a personalized preparation plan. Outputs a filing recommendation (self-file, self-file with care, or hire a professional), a document checklist, a suggested workflow with links to relevant skills, and privacy guidance.</p>
+<p><strong>MCP dependencies:</strong> None.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/tax-guide.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tax-guide.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>/tax-guide              # Start the guided Q&amp;A
+</code></pre></div></p>
+<p><strong>Learn more:</strong> <a href="../../tax-workflow/">Tax Workflow</a></p>
+<hr />
+<h3 id="tips-scout-search-prompt-generator">/tips-scout — Search Prompt Generator</h3>
+<p><code>[Advanced]</code></p>
+<p><strong>What it does:</strong> Analyzes your recent tips log for coverage gaps, pulls active investigation topics from your to-do list, and generates a customized search prompt for Grok DeepSearch (or any AI search tool). Boosts under-covered categories and de-emphasizes topics you've already researched.</p>
+<p><strong>MCP dependencies:</strong> None (filesystem only).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/tips-scout.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-scout.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>/tips-scout              # Generate customized Grok prompt
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>/tips-scout base         # Output base prompt without customization
+</code></pre></div></p>
+<p><strong>Customization:</strong> Categories and target shares, coverage analysis window (default 14 days), base prompt template location.</p>
+<p><strong>Learn more:</strong> <a href="../continuous-improvement/">Continuous Improvement</a></p>
+<hr />
+<h3 id="tips-bookmarks-x-bookmark-pull">/tips-bookmarks — X Bookmark Pull</h3>
+<p><code>[Advanced]</code></p>
+<p><strong>What it does:</strong> Pulls your X/Twitter bookmarks via <code>twitter-cli</code>, classifies each (worth-reviewing / not-relevant / needs-manual), rates High / Medium / Low, dedupes against the existing tips log, and appends approved items. Replaces the manual copy-paste-email path for X content. Sibling to <code>/tips-curate</code> (Gmail path).</p>
+<p><strong>MCP dependencies:</strong> None. Requires <code>twitter-cli</code> installed and authenticated (a third-party CLI; see its own docs for setup).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/tips<span class="w"> </span>~/.claude-assistant/state
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/tips-bookmarks.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-bookmarks.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>/tips-bookmarks                  # Pull recent bookmarks, classify, dedupe, append
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>/tips-bookmarks dryrun           # Preview without writing
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>/tips-bookmarks limit:20         # Pull more than the default
+</code></pre></div></p>
+<p><strong>Customization:</strong> State file path (default <code>~/.claude-assistant/state/twitter-bookmarks-seen.json</code>), tips log path, tag taxonomy, default fetch limit, twitter-cli binary swap.</p>
+<p><strong>Learn more:</strong> <a href="../continuous-improvement/">Continuous Improvement</a></p>
+<hr />
+<h3 id="tips-curate-tip-curation">/tips-curate — Tip Curation</h3>
+<p><code>[Advanced]</code></p>
+<p><strong>What it does:</strong> Processes @ToSelf emails containing tips and research. Quality-filters (High/Medium/Low), enriches via web research, presents recommendations for approval, appends to a searchable tips log.</p>
+<p><strong>MCP dependencies:</strong> Gmail MCP (required).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/tips
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/tips-curate.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-curate.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>/tips-curate              # Process first 5 unread @ToSelf emails
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>/tips-curate dryrun       # Preview classifications without saving or marking
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>/tips-curate limit:3      # Process 3 at a time
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>/tips-curate all          # Loop through all unread in batches of 5
+</code></pre></div></p>
+<p><strong>Customization:</strong> Batch size, log file location (default <code>~/.claude-assistant/tips/collected-tips-log.md</code>), @ToSelf label name.</p>
+<p><strong>Learn more:</strong> <a href="../continuous-improvement/">Continuous Improvement</a></p>
+<hr />
+<h3 id="tips-integrate-tip-integration">/tips-integrate — Tip Integration</h3>
+<p><code>[Advanced]</code></p>
+<p><strong>What it does:</strong> Converts collected tips into concrete system improvements — direct config edits or investigation tasks. Tracks what has been processed to avoid re-proposing.</p>
+<p><strong>MCP dependencies:</strong> None (filesystem only).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/commands/tips-integrate-references
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/tips-integrate.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-integrate.md
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/tips-integrate-references/scanning-rules.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-integrate-references/scanning-rules.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>/tips-integrate              # Scan all sources
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>/tips-integrate source:tips  # Only scan tips log (includes medium-rated items)
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>/tips-integrate dryrun       # Preview proposals without writing
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>/tips-integrate since:2026-02-01  # Only items after this date
+</code></pre></div></p>
+<p><strong>Output files:</strong> Investigation proposals are written to the <code>INBOX</code> section of <code>skills-learning-catalog.md</code> (created automatically if it doesn't exist).</p>
+<p><strong>Customization:</strong> Source selection, state file location (default <code>~/.claude-assistant/state/integrate-state.json</code>), target config files.</p>
+<p><strong>Learn more:</strong> <a href="../continuous-improvement/">Continuous Improvement</a></p>
+<hr />
+<h3 id="announcement-digest-email-source-digest">/announcement-digest — Email Source Digest</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Compiles a periodic digest of high-volume announcement emails from a single labeled source (school, employer, nonprofit, professional association). Extracts what matters, skips the noise, sends a summary. Sanitized version of the school-digest workflow.</p>
+<p><strong>MCP dependencies:</strong> Gmail MCP (required). Send-email.py or equivalent for sending the digest.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/announcement-digest.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/announcement-digest.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>/announcement-digest        # Compile and send digest of new emails since last run
+</code></pre></div></p>
+<p><strong>Customization:</strong> Source label (<code>@School</code>, <code>@CompanyNews</code>, etc.), classification rules file, recipients, frequency floor (default 2 days), message-ID TTL (default 30 days).</p>
+<p><strong>Learn more:</strong> <a href="../../workflows/school-digest/">Noise canceling: school-digest example</a></p>
+<hr />
+<h3 id="triage-inbox-smart-inbox-triage">/triage-inbox — Smart Inbox Triage</h3>
+<p><code>[EA]</code></p>
+<p><strong>What it does:</strong> Scans inbox for emails to auto-label and archive — newsletters, announcements, receipts, travel confirmations, low-priority notifications. Uses heuristics that Gmail filters can't (List-Unsubscribe detection, body analysis, multi-signal scoring, travel email routing).</p>
+<p><strong>MCP dependencies:</strong> Gmail MCP (required).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/triage-inbox.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/triage-inbox.md
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/config<span class="w"> </span>~/.claude-assistant/state<span class="w"> </span>~/.claude-assistant/logs
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/email-policy.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/email-policy-template.md
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/triage-config.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/triage-config-template.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>/triage-inbox                    # Scan, report, and apply labels
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>/triage-inbox noapply            # Preview only
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>/triage-inbox days:14            # Scan last 14 days
+</code></pre></div></p>
+<p><strong>Customization:</strong> VIP list, label IDs, vendor domains, score thresholds, manual overrides.</p>
+<hr />
+<h3 id="weekly-review-weekly-project-review">/weekly-review — Weekly Project Review</h3>
+<p><code>[PM]</code></p>
+<p><strong>What it does:</strong> Generates a comprehensive weekly summary for a research project, pulling from WhatsApp, meeting transcripts, Gmail, and working documents. Produces a project dashboard and detailed weekly log, writing directly to Google Docs. Includes automated transcript fetching, formatting checkpoint enforcement, and transcript archiving.</p>
+<p><strong>MCP dependencies:</strong> Google Docs MCP (required). Gmail MCP (recommended). WhatsApp MCP (optional). Granola (optional, for transcripts).</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/weekly-review.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/weekly-review.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>/weekly-review                    # Full review, default date range
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>/weekly-review days:14            # Last 14 days
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>/weekly-review tab1only           # Quick dashboard update
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>/weekly-review skipwhatsapp       # Skip WhatsApp if unavailable
+</code></pre></div></p>
+<p><strong>Customization:</strong> Data sources, date range logic, dashboard template (quantitative vs. qualitative projects), synthesis detail level, email filtering keywords, transcript formats, archive behavior.</p>
+<hr />
+<h3 id="proposal-write-proposal-drafting">/proposal-write — Proposal Drafting</h3>
+<p><code>[PM]</code></p>
+<p><strong>What it does:</strong> Drafts a funding proposal from structured inputs — application template, research design, project context, and donor intelligence. Auto-gathers context from the project record and enforces voice consistency.</p>
+<p><strong>MCP dependencies:</strong> None required. Google Docs MCP recommended for project context. Gmail MCP optional for related correspondence.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/commands/proposal-write.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-write.md
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>/proposal-write "Example Foundation" deadline:2026-06-01
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>/proposal-write "Impact Funder" template:~/Downloads/template.pdf budget:150000
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>/proposal-write "Foundation X" resubmission
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>/proposal-write "Foundation Y" dryrun
+</code></pre></div></p>
+<p><strong>Customization:</strong> Voice pack path and style, donor profile directory, context gathering sources, word budgets, default proposal structure.</p>
+<hr />
+<h2 id="agents">Agents</h2>
+<p>Agents are subprocesses that Claude Code launches for specialized tasks. They run in fresh context (avoiding blind spots of the main session) and return structured results.</p>
+<h3 id="review-writing">Review Writing</h3>
+<p><code>[PM]</code></p>
+<p><strong>What it does:</strong> Reviews academic prose for clarity, argument structure, evidence integration, and voice consistency.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/agents/review-writing.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/agents/review-writing.md
+</code></pre></div></p>
+<p><strong>Usage:</strong> "Launch the review-writing agent on my draft at ~/Documents/paper-draft.md"</p>
+<hr />
+<h3 id="review-methodology">Review Methodology</h3>
+<p><code>[PM]</code></p>
+<p><strong>What it does:</strong> Reviews empirical social science papers for causal language accuracy, identification strategy soundness, statistical practice, and robustness discussion.</p>
+<p><strong>Install:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/agents/review-methodology.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/agents/review-methodology.md
+</code></pre></div></p>
+<p><strong>Usage:</strong> "Launch the review-methodology agent on sections 3-5 of the paper draft"</p>
+<hr />
+<h2 id="templates">Templates</h2>
+<h3 id="claudemd-template">CLAUDE.md Template</h3>
+<p>A starter CLAUDE.md file with all common sections. See <a href="../../build-your-own/agents-md/">Your CLAUDE.md</a> for the full setup guide.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude/CLAUDE.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/claude-md-template.md
+</code></pre></div>
+<h3 id="goals-template">Goals Template</h3>
+<p>YAML file for tracking quarterly objectives with weighted OKR format. Referenced by <code>/checkin</code>, <code>/morning-brief</code>, and <code>/goals-review</code> for goal alignment, stalled-goal detection, and progress tracking.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/config
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/goals.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/goals-yaml-template.yaml
+</code></pre></div>
+<h3 id="email-policy-template">Email Policy Template</h3>
+<p>Email handling rules: VIP contacts, auto-archive patterns, label routing. Required by <code>/triage-inbox</code> and <code>/morning-brief</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/config
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/email-policy.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/email-policy-template.md
+</code></pre></div>
+<h3 id="triage-config-template">Triage Config Template</h3>
+<p>Gmail label-to-ID mapping and classification rules. Required by <code>/triage-inbox</code> and <code>/morning-brief</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/config
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/triage-config.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/triage-config-template.md
+</code></pre></div>
+<h3 id="calendar-policy-template">Calendar Policy Template</h3>
+<p>Calendar IDs, scheduling preferences, timezone, deep work protection. Required by <code>/schedule-query</code> and <code>/morning-brief</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude-assistant/config
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>~/.claude-assistant/config/calendar-policy.md<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">  </span>https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/calendar-policy-template.md
+</code></pre></div>
+<hr />
+<h2 id="reference-library">Reference Library</h2>
+<p>For additional downloads — a real annotated CLAUDE.md, skill development patterns, agents vs skills decision guide, and tool comparison guides — see the <a href="../downloads/">Downloads &amp; Templates</a> page.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+  <p class="feedback-line">
+    <a href="https://buttondown.email/claudeblattman">Get email updates</a>
+    a few times a year, no spam.
+    Something broken or unclear?
+    <a href="mailto:claudeblattman+feedback@gmail.com?subject=Feedback%3A%20Skill%20Library">Send feedback</a>.
+  </p>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Built by <a href="https://chrisblattman.com">Chris Blattman</a> &mdash; shared freely under MIT License
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/chrisblattman/claudeblattman" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/cblatts" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant", "navigation.instant.prefetch", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+
+  <!-- GoatCounter analytics — privacy-friendly, no cookies, free for non-commercial -->
+  <script>
+    window.goatcounter = { no_onload: true };
+  </script>
+  <script data-goatcounter="https://claudeblattman.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script>
+    /* Track page views on every navigation (including instant loading) */
+    document$.subscribe(function() {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({
+          path: location.pathname + location.search + location.hash
+        });
+      }
+    });
+
+    /* Keep the guide open when readers follow an outside resource.
+       Run again after Material instant navigation replaces page content. */
+    document$.subscribe(function() {
+      document.querySelectorAll('a[href]').forEach(function(link) {
+        var url = new URL(link.href, location.href);
+        if (!/^https?:$/.test(url.protocol) || url.origin === location.origin) return;
+        if (url.hostname === 'claudeblattman.com' || url.hostname === 'www.claudeblattman.com') return;
+        link.target = '_blank';
+        link.relList.add('noopener');
+      });
+    });
+
+    /* HOMEPAGE LADDER EVENTS — added 12 Oct.
+       The "Where to start" ladder in docs/index.md routes every reader, and we
+       had no idea which rung anyone takes: page views alone can't distinguish
+       "arrived at newcomers from the ladder" from "arrived from a tweet". These
+       fire a GoatCounter *event* (event: true keeps them out of the path
+       report) named ladder-rung-N, so after a couple of weeks the dashboard
+       answers two questions we have been guessing at — how many homepage
+       visitors click anything at all, and where the real distribution of
+       readers sits.
+
+       Keyed on the DESTINATION, not the link's index. The ladder's rungs do
+       not hold one link each — the councils rung points at both the working
+       loop and a real project — so an index would silently mislabel every
+       event after it, and would re-number itself the next time a rung gains a
+       link. The destination slug stays stable.
+
+       Fires on mousedown rather than click so it is recorded even when the
+       browser starts navigating immediately. Re-bound per navigation because
+       navigation.instant replaces the DOM without a page load. */
+    document$.subscribe(function() {
+      document.querySelectorAll('.start-ladder a').forEach(function(link) {
+        link.addEventListener('mousedown', function() {
+          if (!window.goatcounter || !window.goatcounter.count) return;
+          var dest = (link.getAttribute('href') || '')
+            .replace(/[#?].*$/, '')
+            .replace(/^\.*\//, '')
+            .replace(/\/$/, '') || 'unknown';
+          window.goatcounter.count({
+            path: 'ladder/' + dest,
+            title: 'Start ladder → ' + (link.textContent || '').trim(),
+            event: true
+          });
+        });
+
+        /* Each ladder row is a <label> wrapping its own checkbox, so the whole
+           strip is a click target — which is what you want on a phone. But the
+           row's link lives INSIDE that label, so clicking it would navigate AND
+           silently tick the box on the way out. Stopping propagation here keeps
+           the two separate: the link navigates, the rest of the row toggles. */
+        link.addEventListener('click', function(ev) {
+          ev.stopPropagation();
+        });
+      });
+    });
+  </script>
+
+  <script>
+    /* Make the site title text clickable — navigates home like the logo icon */
+    (function() {
+      var title = document.querySelector('.md-header__title');
+      if (title) {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function() {
+          var logo = document.querySelector('.md-header__button.md-logo');
+          if (logo) logo.click();
+        });
+      }
+    })();
+
+
+    /* Tab dropdowns. Click-driven, not hover: hover menus are unreachable on
+       touch and were the reason the carets appeared dead. Re-bound on every
+       instant-navigation swap via document$. */
+    document$.subscribe(function() {
+      var toggles = [].slice.call(document.querySelectorAll('.md-tabs__toggle'));
+      if (!toggles.length) return;
+
+      /* Never touch .hidden — it is display:none, which overrides the CSS
+         hover rule and was the reason hovering did nothing. Open/closed is
+         expressed only through aria-expanded, which the CSS keys off. */
+      function close(btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        var li = btn.closest('.md-tabs__item--nested');
+        if (li) li.classList.remove('md-tabs__item--open');
+      }
+
+      function closeAll(except) {
+        toggles.forEach(function(b) { if (b !== except) close(b); });
+      }
+
+      toggles.forEach(function(btn) {
+        var menu = document.getElementById(btn.getAttribute('aria-controls'));
+        if (!menu) return;
+
+        btn.addEventListener('click', function(ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          closeAll(btn);
+          btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+          var li = btn.closest('.md-tabs__item--nested');
+          if (li) li.classList.toggle('md-tabs__item--open', !open);
+        });
+
+        /* Escape closes and returns focus to the button that opened it. */
+        menu.addEventListener('keydown', function(ev) {
+          if (ev.key === 'Escape') { close(btn); btn.focus(); }
+        });
+        btn.addEventListener('keydown', function(ev) {
+          if (ev.key === 'Escape') { close(btn); }
+        });
+      });
+
+      /* A click anywhere else dismisses whatever is open. */
+      document.addEventListener('click', function(ev) {
+        if (!ev.target.closest('.md-tabs__item--nested')) closeAll(null);
+      });
+    });
+
+
+    /* ============================================================
+       PROGRESS: step checklists, page-done marks, and the sidebar
+       ============================================================
+       Two kinds of progress live on this site and they share one home in the
+       left column:
+
+         * the Start Here checklists, where each STEP has a checkbox
+         * Build Your Own, where each PAGE has one at its foot
+
+       Shay asked for the reset to sit at the bottom of the left column in both
+       cases, so the controls are injected into the sidebar rather than the
+       content column. The step COUNT stays in the content column on the
+       checklists, where it sits beside the thing it counts.
+
+       Re-bound on every instant-navigation swap via document$. ------------- */
+
+    /* Which sections show their PAGE LIST in the left column instead of the
+       current page's headings. Read from the active section's own label because
+       `md-nav--lifted` leaves EVERY tab's children in the DOM, so CSS alone
+       cannot tell which section is active. Rename a tab and these strings must
+       change with it.
+
+       Start Here is deliberately absent: Shay asked for that column to carry
+       the checklist's own contents, not links to the other two checklists. */
+    var CB_PAGE_LIST_SECTIONS = ['Workflows'];
+
+    /* Of those, the ones where each page carries an "I did this" checkbox and
+       the column shows a tally. Build Your Own is a path you work through;
+       Workflows is a reference library you dip into, so it is not tracked. */
+    var CB_TRACKED_SECTIONS = [];
+
+    function cbStore(key) {
+      return {
+        read: function () {
+          try { return JSON.parse(localStorage.getItem(key)) || {}; }
+          catch (e) { return {}; }
+        },
+        write: function (v) {
+          try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) {}
+        }
+      };
+    }
+
+    /* Appends a count line and a reset button to the foot of the left column.
+       Neither carries a class the TOC-only rules hide, so both render even
+       though most of that nav is suppressed. */
+    function cbSidebarControls(onReset, container) {
+      var nav = container || document.querySelector('.md-sidebar--primary .md-nav--primary');
+      if (!nav) return null;
+      var count = nav.querySelector('.cb-sidebar-count');
+      var reset = nav.querySelector('.cb-sidebar-reset');
+      if (!count) {
+        count = document.createElement('span');
+        count.className = 'cb-sidebar-count';
+        count.setAttribute('aria-live', 'polite');
+        nav.appendChild(count);
+      }
+      if (!reset) {
+        reset = document.createElement('button');
+        reset.type = 'button';
+        reset.className = 'cb-sidebar-reset';
+        reset.textContent = 'Reset checklist';
+        nav.appendChild(reset);
+      }
+      var controls = nav.querySelector('.cb-progress-controls');
+      if (!controls) {
+        controls = document.createElement('div');
+        controls.className = 'cb-progress-controls';
+        nav.appendChild(controls);
+      }
+      controls.appendChild(count);
+      controls.appendChild(reset);
+      reset.onclick = onReset;
+      return { count: count, reset: reset };
+    }
+
+    /* Homepage essentials use the same count/reset controls beneath their table.
+       Store only this checklist; resetting it must not clear workflow progress. */
+    document$.subscribe(function () {
+      var root = document.querySelector('.md-content .essentials-checks');
+      if (!root) return;
+      var boxes = [].slice.call(root.querySelectorAll('input[type="checkbox"]'));
+      if (!boxes.length) return;
+      var store = cbStore('cb-home-essentials:v1');
+      var saved = store.read();
+      function key(box) { return box.closest('label').textContent.trim(); }
+      function update() {
+        controls.count.textContent = boxes.filter(function (box) {
+          return box.checked;
+        }).length + ' of ' + boxes.length + ' done';
+      }
+      var controls = cbSidebarControls(function () {
+        boxes.forEach(function (box) { box.checked = false; });
+        saved = {};
+        store.write(saved);
+        update();
+      }, root);
+      boxes.forEach(function (box) {
+        if (Object.prototype.hasOwnProperty.call(saved, key(box))) {
+          box.checked = saved[key(box)] === true;
+        }
+        box.onchange = function () {
+          saved[key(box)] = box.checked;
+          store.write(saved);
+          update();
+        };
+      });
+      update();
+    });
+
+    document$.subscribe(function () {
+      /* ---- out-of-nav checklist: adopt the TOC rendered in site_nav ------
+         Moved INTO the primary nav, ahead of any count/reset already there, so
+         it sits where toc.integrate would have put it and the tally stays
+         beneath it. Runs first so branch B's tocLinks() finds it. */
+      var loneToc = document.querySelector('.cb-lone-toc-holder > .md-nav--secondary');
+      var primaryNav = document.querySelector('.md-sidebar--primary .md-nav--primary');
+      if (loneToc && primaryNav) {
+        primaryNav.insertBefore(loneToc, primaryNav.querySelector('.cb-progress-controls'));
+      }
+
+      /* ---- which sidebar mode is this page in? ------------------------- */
+      var activeSection = document.querySelector(
+        '.md-sidebar--primary .md-nav__item--active.md-nav__item--section > .md-nav__link');
+      var sectionName = activeSection ? activeSection.textContent.trim() : '';
+      /* A page that IS a step checklist gets the Start Here column wherever it
+         sits — its own steps, tickable, with the step tally and "Reset
+         checklist" beneath — rather than its section's page list. Shay, 19 Oct,
+         on "Teaching AI your voice": the left column should be the checklist
+         "the way that it is on the newcomers page". The page still counts toward
+         its section's tally seen from the other pages — branch B writes its
+         completion into branch A's store once every step is ticked. Branch A
+         just doesn't draw that tally here. */
+      var isChecklistPage = !!document.querySelector('.md-content .checklist .step-done');
+      var showsPageList = CB_PAGE_LIST_SECTIONS.indexOf(sectionName) !== -1 &&
+                          !isChecklistPage;
+      var isTracked = CB_TRACKED_SECTIONS.indexOf(sectionName) !== -1;
+      document.documentElement.setAttribute(
+        'data-cb-sidebar', showsPageList ? 'section' : 'page');
+
+      /* ---- A0. Category eyebrows become links -------------------------
+         In section mode each category renders as a dead <label>, which Shay
+         asked to make clickable: the capital-letter row should open that
+         category's own landing page. The landing page is the FIRST page listed
+         under the category in mkdocs.yml, so it is the first anchor in the
+         category's nested list.
+
+         Swapping the <label> for an <a> rather than wiring a click handler
+         onto it, so the row is a real link — focusable, middle-clickable, and
+         announced as a link rather than as a form control for a checkbox that
+         exists only to drive the mobile drawer.
+
+         The landing page's own row is then hidden: it would be the same
+         destination twice in a row, directly beneath itself. */
+      function cbCategoryLinks() {
+        var sec = document.querySelector(
+          '.md-sidebar--primary .md-nav--primary > .md-nav__list > ' +
+          '.md-nav__item--active.md-nav__item--section');
+        if (!sec) return;
+        [].slice.call(sec.querySelectorAll('.md-nav__item--nested')).forEach(function (cat) {
+          /* Direct children only, walked by hand rather than with `:scope >`.
+             The label has to be the category's OWN label, not one belonging to
+             something nested deeper inside it. */
+          var label = null;
+          [].slice.call(cat.children).forEach(function (ch) {
+            if (!label && ch.tagName === 'LABEL' &&
+                ch.classList.contains('md-nav__link')) { label = ch; }
+          });
+          if (!label) return;
+          var landing = cat.querySelector('.md-nav__list a.md-nav__link');
+          if (!landing) return;
+          var a = document.createElement('a');
+          a.className = 'md-nav__link cb-cat-link';
+          a.href = landing.getAttribute('href');
+          a.textContent = (label.textContent || '').trim();
+          label.parentNode.replaceChild(a, label);
+          var row = landing.closest('.md-nav__item');
+          if (row) { row.classList.add('cb-landing-row'); }
+        });
+      }
+      cbCategoryLinks();
+
+      /* ---- A. Tracked sections: checkbox(es) per page ------------------
+         A page may carry MORE THAN ONE control — "Connect your apps" has two,
+         the second an explicit "nothing more to connect for now" opt-out, so
+         the page can be completed without wiring up every service. Such a page
+         ticks in the sidebar only when ALL its controls are checked, the same
+         rule as step 9 on the Newcomers checklist.
+
+         State is therefore an ARRAY per path, not a flag. The array's length is
+         written by the page itself, which is how the sidebar tells a
+         half-finished page from a complete one without knowing how many
+         controls any other page has. */
+      var pageBoxes = [].slice.call(
+        document.querySelectorAll('.md-content .page-done input'));
+      if (isTracked) {
+        var store = cbStore('cb-pagedone:v2');
+        var done = store.read();
+
+        var pageComplete = function (path) {
+          var v = done[path];
+          return Array.isArray(v) && v.length > 0 && v.every(Boolean);
+        };
+
+        /* Every page row in the active section, keyed by its own pathname. */
+        var rows = [];
+        var holder = document.querySelector(
+          '.md-sidebar--primary .md-nav__item--active.md-nav__item--section > .md-nav');
+        if (holder) {
+          [].slice.call(holder.querySelectorAll('a.md-nav__link')).forEach(function (a) {
+            if (a.hash) return;                     /* skip the integrated TOC */
+            rows.push({ link: a, path: a.pathname });
+          });
+        }
+
+        var writeThisPage = function () {
+          if (!pageBoxes.length) return;
+          done[location.pathname] = pageBoxes.map(function (b) { return b.checked; });
+          store.write(done);
+        };
+
+        var sync = function () {
+          var n = 0;
+          rows.forEach(function (r) {
+            var on = pageComplete(r.path);
+            if (on) n++;
+            r.link.classList.toggle('md-nav__link--page-done', on);
+          });
+          /* Each label marks itself as soon as its own box is ticked, even if
+             the page as a whole is not finished. */
+          pageBoxes.forEach(function (b) {
+            var l = b.closest('.page-done');
+            if (l) { l.classList.toggle('page-done--done', b.checked); }
+          });
+          if (isChecklistPage) return;   /* branch B owns the column here */
+          var c = cbSidebarControls(function () {
+            rows.forEach(function (r) { delete done[r.path]; });
+            pageBoxes.forEach(function (b) { b.checked = false; });
+            store.write(done);
+            sync();
+          });
+          if (c) {
+            c.count.textContent = n + ' of ' + rows.length + ' done';
+            c.count.hidden = false;
+            c.reset.textContent = 'Reset progress';
+            c.reset.hidden = false;
+          }
+        };
+
+        var saved = done[location.pathname];
+        pageBoxes.forEach(function (b, i) {
+          if (b.dataset.cbBound) return;
+          b.dataset.cbBound = '1';
+          b.checked = Array.isArray(saved) ? !!saved[i] : false;
+          b.addEventListener('change', function () {
+            writeThisPage();
+            sync();
+          });
+        });
+        sync();
+      }
+
+      /* ---- B. Start Here: one checkbox per step ------------------------ */
+      var root = document.querySelector('.md-content .checklist');
+      if (!root) return;
+
+      var allControls = [].slice.call(root.querySelectorAll('.step-done input'));
+      if (!allControls.length) return;
+
+      var store2 = cbStore('cb-checklist:v4:' + location.pathname);
+      var state = store2.read();
+
+      /* The two-month plan wraps each week in a `.week-card` div, so its H3 and
+         its control sit one level down. Flatten that level before the walk
+         rather than teaching the walk about cards: a card is a presentational
+         wrapper, not a new kind of step, and the walk below should keep working
+         on the three guides that have no cards at all.
+
+         Without this the walk finds no H3 among root.children, `steps` comes
+         back empty, and the function returns early — tracking dies silently on
+         the whole page. */
+      var blocks = [];
+      [].slice.call(root.children).forEach(function (el) {
+        if (el.classList && el.classList.contains('week-card')) {
+          [].slice.call(el.children).forEach(function (c) { blocks.push(c); });
+        } else {
+          blocks.push(el);
+        }
+      });
+
+      /* Walk the checklist's blocks in order, assigning each to the heading
+         above it. Forward is what makes multi-control steps work. */
+      var steps = [];
+      var cur = null;
+      blocks.forEach(function (el) {
+        if (el.tagName === 'H3') {
+          cur = { head: el, id: el.id, inputs: [], labels: [], body: [] };
+          steps.push(cur);
+          return;
+        }
+        if (el.tagName === 'H2') { cur = null; return; }
+        if (!cur) return;
+        var labels = [].slice.call(el.querySelectorAll('.step-done'));
+        if (el.classList.contains('step-done')) { labels.push(el); }
+        if (labels.length) {
+          labels.forEach(function (l) {
+            cur.labels.push(l);
+            var input = l.querySelector('input');
+            if (input) { cur.inputs.push(input); }
+          });
+        } else {
+          cur.body.push(el);
+        }
+      });
+      steps = steps.filter(function (st) { return st.inputs.length; });
+
+      /* A carded week dims as a whole, so the card joins its own body list.
+         Harmless on the uncarded guides — parentElement is the checklist. */
+      steps.forEach(function (st) {
+        var card = st.head.parentElement;
+        if (card && card.classList && card.classList.contains('week-card')) {
+          st.body.push(card);
+        }
+      });
+
+      var paired = steps.reduce(function (n, st) { return n + st.inputs.length; }, 0);
+      if (paired !== allControls.length) {
+        console.warn('checklist: paired ' + paired + ' of ' +
+                     allControls.length + ' controls to step headings');
+      }
+      if (!steps.length) return;
+
+      /* The tally now lives in the sidebar too, directly above the reset —
+         Shay, 7 Oct: "move the checklist number box to the left hand nav."
+         That makes the four starter guides match Build Your Own, where branch A
+         has always rendered count-then-reset in the same place.
+
+         cbSidebarControls appends count BEFORE reset, so DOM order gives the
+         requested stacking with no extra ordering code.
+
+         Any in-content bar from a cached page or an instant-navigation swap is
+         removed rather than left to show the same number twice. */
+      var staleBar = document.querySelector('.checklist-progress');
+      if (staleBar) { staleBar.remove(); }
+
+      /* Match TOC rows on the anchor's .hash, NOT an [href="#id"] selector:
+         navigation.instant rewrites every TOC anchor to an ABSOLUTE url at
+         runtime, so a selector matching the built HTML never matches the live
+         DOM. Rebuilt per sync() because instant navigation swaps the nav. */
+      function tocLinks() {
+        var map = {};
+        var nav = document.querySelector('.md-sidebar--primary .md-nav--secondary');
+        if (!nav) return map;
+        [].slice.call(nav.querySelectorAll('a')).forEach(function (a) {
+          if (a.hash) { map[a.hash.slice(1)] = a; }
+        });
+        return map;
+      }
+
+      function keyFor(st, i) { return st.id + '#' + i; }
+
+      function sync2() {
+        var n = 0;
+        var links = tocLinks();
+        steps.forEach(function (st) {
+          var complete = st.inputs.every(function (input) { return input.checked; });
+          if (complete) n++;
+          st.labels.forEach(function (l) {
+            var input = l.querySelector('input');
+            l.classList.toggle('step-done--done', !!(input && input.checked));
+          });
+          st.head.classList.toggle('step--done', complete);
+          st.body.forEach(function (el) {
+            el.classList.toggle('step-body--done', complete);
+          });
+          var link = links[st.id];
+          if (link) { link.classList.toggle('md-nav__link--done', complete); }
+        });
+        var c = cbSidebarControls(function () {
+          allControls.forEach(function (input) { input.checked = false; });
+          state = {};
+          store2.write(state);
+          sync2();
+        });
+        if (c) {
+          /* Counts TASKS, not steps — Shay, 7 Oct: "I want the checklist number
+             to be the number of tasks, not one for each week." The tally should
+             match the number of boxes a reader can see. `n` above stays
+             step-level because that is what ticks a TOC row: a heading is done
+             when everything under it is. */
+          var ticked = allControls.filter(function (i) { return i.checked; }).length;
+          /* A checklist page inside a tracked section has no page-done box of
+             its own (Shay cut the voice page's on 19 Oct), so its steps stand in
+             for one: the page counts as done in the section tally once every
+             step box is ticked. Same store and shape branch A writes. */
+          if (isTracked) {
+            var pageStore = cbStore('cb-pagedone:v2');
+            var pd = pageStore.read();
+            pd[location.pathname] = [ticked === allControls.length];
+            pageStore.write(pd);
+          }
+          c.count.textContent = ticked + ' of ' + allControls.length + ' done';
+          c.count.hidden = false;
+          c.reset.textContent = 'Reset checklist';
+          c.reset.hidden = false;
+        }
+      }
+
+      steps.forEach(function (st) {
+        st.inputs.forEach(function (input, i) {
+          if (input.dataset.cbBound) return;
+          input.dataset.cbBound = '1';
+          var k = keyFor(st, i);
+          input.checked = !!state[k];
+          input.addEventListener('change', function () {
+            if (input.checked) { state[k] = 1; } else { delete state[k]; }
+            store2.write(state);
+            sync2();
+          });
+        });
+      });
+
+      /* ---- B2. Sub-picks ----------------------------------------------
+         Week 8 offers "pick one or two of these and build them". Those rows
+         are `.sub-done`, deliberately NOT `.step-done`, so they stay out of
+         `allControls` — they must not count toward the task tally or hold the
+         week open, since choosing only a couple is the whole point.
+
+         Shay's rule, 7 Oct: ticking a sub-pick ticks its parent; ticking the
+         parent leaves the sub-picks alone. One-way, upward only. Unticking a
+         sub-pick also leaves the parent alone — you still did one. */
+      [].slice.call(root.querySelectorAll('.pick-group')).forEach(function (grp, g) {
+        var parent = grp.querySelector('.step-done input');
+        [].slice.call(grp.querySelectorAll('.sub-done input')).forEach(function (sub, i) {
+          if (sub.dataset.cbBound) return;
+          sub.dataset.cbBound = '1';
+          var k = 'sub#' + g + '#' + i;
+          sub.checked = !!state[k];
+          var mark = function () {
+            var l = sub.closest('.sub-done');
+            if (l) { l.classList.toggle('sub-done--done', sub.checked); }
+          };
+          mark();
+          sub.addEventListener('change', function () {
+            if (sub.checked) { state[k] = 1; } else { delete state[k]; }
+            store2.write(state);
+            mark();
+            if (sub.checked && parent && !parent.checked) {
+              parent.checked = true;
+              parent.dispatchEvent(new Event('change'));
+            } else {
+              sync2();
+            }
+          });
+        });
+      });
+
+      sync2();
+    });
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,85 @@
+# Voice Pack Template
+
+*Updated October 26, 2026*
+
+Use this as an editable starting point for one recurring writing job. Delete unused sections. The example choices are suggestions, not a standard everyone should follow. See [Teaching AI Your Voice](https://claudeblattman.com/build-your-own/voice/) for the correction-and-reuse exercise.
+
+## 1. The writing job
+
+- **Task:** [For example, a team update or a proposal section.]
+- **Reader and relationship:** [Who will read it, and what do they already know?]
+- **Purpose:** [What should they understand, decide or do?]
+- **Delivery surface:** [Email body, standalone memo, public page, or another format.]
+- **Facts and commitments:** [Supply these for each task. Do not infer them from style examples.]
+
+## 2. Preferences I have chosen
+
+Keep only preferences you endorse. Name their scope. The examples below illustrate choices you could make, not rules to adopt by default.
+
+- **Opening:** [For example, thank a colleague briefly before raising questions.]
+- **Tone and stance:** [How direct or formal should this be for this reader?]
+- **Reasoning and uncertainty:** [What needs explanation? What must remain qualified?]
+- **Length:** [Enough context for this task, with any actual limit.]
+- **Structure:** [Paragraphs, headings, bullets, or a numbered sequence, as appropriate.]
+- **Ending:** [A question, implication, next step, or another ending that fits the purpose.]
+- **Words or punctuation:** [Optional personal preferences and their exceptions.]
+
+Do not turn an absent word in a small sample into a universal ban. Short sentences, numerical claims, directness and brevity can all be wrong for a particular job. Preserve the intended meaning.
+
+## 3. A relevant example, if available
+
+**Audience and purpose:** [Context in which this example worked.]
+
+**Authorship:** [My own writing / my edits to an AI draft / collaborative / AI-assisted and accepted for this task. Explain what is known.]
+
+**Text:** [A useful excerpt you are entitled to reuse.]
+
+**What to notice:** [Explain the opening, reasoning, tone, detail or organization you want to illustrate.]
+
+**What not to copy:** [Facts, names, commitments, quotations, or choices specific to this occasion.]
+
+Use a small relevant excerpt rather than an entire archive. Instructions and examples provide different kinds of context. Neither guarantees the result. An AI analysis of your samples is a hypothesis for you to check, not an authority on your voice.
+
+## 4. Optional outlines
+
+Choose an outline only when it fits the document. Adapt the order and depth.
+
+- **Team update:** acknowledge the work, explain what matters, separate questions from next steps, and name owners only when agreed.
+- **Proposal section:** explain the problem, approach, supporting evidence and uncertainty, then what the requested resources would make possible.
+- **Analytical memo:** state the question or claim, explain the reasoning and evidence, address the main uncertainty, and identify the decision or implication.
+
+## 5. Learn from a correction
+
+Ask the AI:
+
+```text
+Compare my draft and revision, or examine my explicit feedback.
+Identify a possible reusable lesson and its narrowest scope.
+Separate facts, one-off choices and transcription errors from style.
+Check whether existing guidance already covers the problem.
+Show the proposed change before updating persistent guidance.
+```
+
+Decide whether to keep, narrow, reject or defer the lesson. No new rule is a valid result. If you approve a change, replace overlapping guidance where possible and keep a recoverable previous version.
+
+**Change record:** [Date, agreed preference, scope, reason, and what it replaces.]
+
+## 6. Save and reuse
+
+Choose one inspectable home. In a chatbot, use the product's project instructions or supported reference-file mechanism and check its scope. If it cannot save the content, supply your file in the next relevant chat.
+
+In Claude Code, one project-local option is `voice/YOUR_VOICE.md`. Add this import to the project's existing `CLAUDE.md`, preserving its other instructions:
+
+```text
+@voice/YOUR_VOICE.md
+```
+
+Use `/memory` to inspect instructions and saved memories. Consult the [current Claude Code documentation](https://code.claude.com/docs/en/memory) and [ChatGPT project documentation](https://help.openai.com/en/articles/10169521-projects-in-chatgpt) for product-specific storage. Saved context is not model-weight training or guaranteed compliance.
+
+Ask the AI to show the saved text and location. Open it yourself so you know how to revise or remove it.
+
+## 7. Check a later draft
+
+Start a fresh session on a different relevant task. Check meaning and facts, then audience fit, reasoning, tone, length and structure. Notice how much editing remains. If the draft misses, check whether the guidance was available and followed before adding more.
+
+A command, checklist or comparison test can help when repeated work gives it a clear job. No fixed scoring system or weekly maintenance schedule is required. Revisit the guide when your preferences change or a consequential failure reveals a gap.
