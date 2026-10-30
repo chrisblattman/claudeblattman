@@ -20,10 +20,10 @@ test('unknown provider/duplicate options are errors',()=>{
 });
 test('requested model and effort survive without fallback or permission bypass',()=>{
  for(const p of ['claude','codex','gemini']){
-  const args=command(p,{model:'exact-model',effort:'high'},'/tmp/fixture');
+  const args=command(p,{model:'exact-model',effort:'high'},'/tmp/fixture','Fixture task');
   assert.ok(args.includes('exact-model'));assert.ok(!args.some(a=>/fallback|skip-permissions|bypassPermissions/.test(a)));
  }
- assert.ok(command('gemini',{},'/tmp').includes('plan'));
+ assert.ok(command('gemini',{},'/tmp','Fixture task').includes('plan'));
  assert.ok(command('codex',{},'/tmp').includes('read-only'));
 });
 test('discovery does not require a kit registry and never uses Gemini CLI',()=>{
@@ -78,7 +78,7 @@ function fakeRun(agent,output,options={}){
  try{
   const bin=path.join(dir,'fake-cli');const stdin=path.join(dir,'input.txt');const argsFile=path.join(dir,'args.json');
   fs.writeFileSync(bin,`#!${process.execPath}\nconst fs=require('node:fs');if(process.argv.includes('--version')){console.log('fixture-cli 1.0');process.exit(0);}fs.writeFileSync(${JSON.stringify(argsFile)},JSON.stringify(process.argv.slice(2)));let input='';process.stdin.on('data',x=>input+=x);process.stdin.on('end',()=>{fs.writeFileSync(${JSON.stringify(stdin)},input);console.log(${JSON.stringify(output)});process.exit(${options.exit||0});});`,{mode:0o700});
-  const prompt=path.join(dir,'task.md');fs.writeFileSync(prompt,'A neutral fixture task.');
+  const prompt=path.join(dir,'task.md');fs.writeFileSync(prompt,options.prompt??'A neutral fixture task.');
   const out=path.join(dir,'result');
   const env={...process.env,[{claude:'CLAUDE_CLI_PATH',codex:'CODEX_CLI_PATH',gemini:'ANTIGRAVITY_CLI_PATH'}[agent]]:bin};
   const cli=[runner,'--agent',agent,'--output-dir',out,'--cwd',dir,...(options.smoke?['--smoke-test']:['--prompt-file',prompt]),...(options.model?['--model',options.model]:[])];
@@ -100,8 +100,27 @@ test('end-to-end fake auth failure retains partial substantive output',()=>{
 });
 test('end-to-end smoke tests carry no project context and validate response',()=>{
  const r=fakeRun('gemini',lines({event:'result',result:{status:'SUCCESS',response:'starter-kit-ok',conversation_id:'smoke'}}),{smoke:true});
- assert.equal(r.status,0);assert.equal(r.receipt.smoke_test,true);assert.doesNotMatch(r.input,/neutral fixture/);assert.match(r.input,/starter-kit-ok/);
+ const task=r.args[r.args.indexOf('--print')+1];
+ assert.equal(r.status,0);assert.equal(r.receipt.smoke_test,true);assert.equal(r.input,'');assert.doesNotMatch(task,/neutral fixture/);assert.match(task,/starter-kit-ok/);
  const wrong=fakeRun('gemini',lines({event:'result',result:{status:'SUCCESS',response:'wrong'}}),{smoke:true});assert.notEqual(wrong.status,0);
+});
+test('Antigravity receives the same complete task as Claude and Codex, as one literal print argument',()=>{
+ const prompt='Review "quoted paths" and Unicode café.\nKeep $(literal), `backticks`, and --flags as text.';
+ const gemini=fakeRun('gemini',lines({event:'result',result:{status:'SUCCESS',response:'Complete review'}}),{prompt});
+ const claude=fakeRun('claude',lines({type:'result',subtype:'success',result:'Complete review'}),{prompt});
+ const codex=fakeRun('codex',lines({type:'item.completed',item:{type:'agent_message',text:'Complete review'}},{type:'turn.completed'}),{prompt});
+ const task=gemini.args[gemini.args.indexOf('--print')+1];
+ assert.equal(gemini.status,0);assert.equal(claude.status,0);assert.equal(codex.status,0);
+ assert.equal(task,claude.input);assert.equal(task,codex.input);assert.ok(task.endsWith(prompt));
+ assert.equal(gemini.input,'');assert.ok(!gemini.args.includes('--input-format'));
+ assert.equal(gemini.args[gemini.args.indexOf('--output-format')+1],'stream-json');
+ assert.equal(gemini.args[gemini.args.indexOf('--mode')+1],'plan');
+ assert.equal(gemini.report,'Complete review\n');
+});
+test('Antigravity rejects missing print tasks and still rejects empty successful responses',()=>{
+ for(const task of [undefined,'','   '])assert.throws(()=>command('gemini',{},'/tmp',task),/nonempty task/);
+ const r=fakeRun('gemini',lines({event:'result',result:{status:'SUCCESS',response:'',denied_actions:[{action:'command'}]}}));
+ assert.notEqual(r.status,0);assert.equal(r.receipt.state,'failed');assert.equal(r.report,null);
 });
 test('explicit model mismatch fails despite valid provider success',()=>{
  const r=fakeRun('claude',lines({type:'system',subtype:'init',model:'different'},{type:'result',subtype:'success',result:'Useful content',session_id:'x'}),{model:'exact'});

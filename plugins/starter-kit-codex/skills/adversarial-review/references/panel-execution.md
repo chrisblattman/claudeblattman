@@ -46,15 +46,24 @@ Precedence: explicit request for this run, then the user-owned `~/.config/starte
 
 These are portable public panels. They do not claim the private system's independently certified model identities or balanced chair rotation. All synthesis/challenge workers use the host's native fresh-worker facility. A different requested chair is unsupported: explain before dispatch rather than silently replacing it.
 
-For a requested default change, use the helper below. Show the effective result and the reset command. Never edit installed skill text as a preference store. The setting applies to both workflows and both hosts; installing, updating, and uninstalling the kit leave it alone. Unknown top-level settings survive edits, and each existing settings file is backed up before replacement.
+### Save or change a personal default
+
+A request such as “Make Claude, Codex, and Antigravity my default Council” authorizes saving that provider preference. Explain that the existing setting is shared by **Council and Adversarial Review, in both Claude and Codex on this computer**. It does not create separate defaults for each workflow, choose a model version, or change the fresh native host synthesis/challenge workers. `gemini` is the helper's provider name for Antigravity. If the user asks for separate workflow defaults, explain that the current helper does not support them; offer an explicit panel for the individual run.
+
+Read the current preference, save the requested selection, and show the effective result, settings path and reset command. Never edit installed `SKILL.md`, `policy.json`, or provider scripts as a preference store. The preference lives in the user-owned `~/.config/starter-kit/settings.json`; installing, updating, and uninstalling the kit leave it alone. Unknown top-level settings survive edits, and each existing settings file is backed up before replacement. Do not put credentials in this file.
 
 ```text
 python3 <skill>/scripts/council.py preferences show
 python3 <skill>/scripts/council.py preferences set --providers claude,codex,gemini
+python3 <skill>/scripts/council.py preferences show
 python3 <skill>/scripts/council.py preferences reset
 ```
 
-Reset restores three local development personas and four local reviewers. Changing the panel does not create or authenticate any connection.
+Run only the requested action; the last line is the undo command, not the next setup step. Use `preferences set --providers claude,codex` for a two-provider default, or `preferences set --mode light` for the three-provider preset. An explicit list is saved as `panel: {"mode":"custom","providers":["claude","codex","gemini"]}` alongside `schema_version: 1`. It contains provider choices, not copies of skill instructions. Reset removes the saved panel preference and restores three local development personas and four local reviewers; it does not restore an earlier custom selection.
+
+Changing the panel does not install or authenticate any connection. Use Kit Setup for requested connection work. A connection test, one-off provider request, or successful trial does not authorize saving a default. Conversely, a request to save a default does not by itself commission a trial panel. When the user requests a trial, run a small real task with the explicit provider list, independent seats and normal fresh synthesis. Check source access, substantive reports and failures; do not substitute model self-identification or skip required stages. In a requested new-session check, omit explicit mode/provider overrides so the helper actually tests the saved preference.
+
+“Use only Claude and Codex this time” selects `--providers claude,codex` for that run and leaves the saved default intact. “Use local personas this time” selects `--mode local` without resetting preferences. Omitting both honors the saved default.
 
 ```text
 python3 <skill>/scripts/council.py plan --host <claude|codex> --brief-file <brief.md> --output <project>/council/YYYY-MM-DD_topic --evidence <stable-file>
