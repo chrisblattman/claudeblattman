@@ -1,9 +1,14 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Starter Templates
 
 Downloadable skill skeletons and templates you can adapt for your own document-collection and compilation workflows. These are generic — they use the [architecture patterns](architecture-patterns.md) from the tax workflow but are not tax-specific.
 
 !!! tip "How to use these"
-    Copy the template that matches your use case. Replace the bracketed fields with your domain-specific content. Save as a `.md` file in `~/.claude/commands/`. See the [Skill Library](../../setup/skill-reference.md) for installation details.
+    Copy the template that matches your use case. Replace the bracketed fields with your domain-specific content. Save as a `.md` file in `~/.claude/commands/`. See the [Skill Library](../../hyperlinks/skill-reference.md) for installation details.
 
 ---
 

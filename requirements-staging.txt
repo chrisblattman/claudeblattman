@@ -1,0 +1,9 @@
+# Preview builds only. Production (deploy.yml) still uses requirements.txt.
+#
+# Deliberately NOT mkdocs-material[imaging]. The imaging extra exists for the
+# `social` plugin, which mkdocs-staging.yml disables because Cloudflare's build
+# image has no libcairo. Installing it anyway pulls cairosvg/cairocffi/pillow,
+# which is slower and is the most likely thing to fail a hosted build for a
+# feature the preview does not use.
+mkdocs-material==9.7.2
+mkdocs-redirects>=1.2.0

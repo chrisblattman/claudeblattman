@@ -185,9 +185,9 @@ To replicate the full workflow described in this case study, you need:
 
 | Tool | Required for | Setup guide |
 |------|-------------|-------------|
-| Claude Code | Everything | [Install (Mac)](../../toolkit/install-mac.md) / [Install (Windows)](../../toolkit/install-windows.md) |
-| Gmail MCP | Document collection from email | [MCP Setup](../../toolkit/mcp-setup.md) |
-| Google Sheets MCP | Charitable contribution export | [MCP Setup](../../toolkit/mcp-setup.md) |
+| Claude Code | Everything | [Install (Mac)](../../hyperlinks/install-mac.md) / [Install (Windows)](../../hyperlinks/install-windows.md) |
+| Gmail MCP | Document collection from email | [MCP Setup](../../build-your-own/mcp-setup.md) |
+| Google Sheets MCP | Charitable contribution export | [MCP Setup](../../build-your-own/mcp-setup.md) |
 | `openpyxl` (Python) | Generating formatted spreadsheets | `pip3 install openpyxl` |
 
 **Minimum viable setup:** Claude Code + local files only. You can still use the compilation and review patterns without any MCP integrations — just download documents manually.

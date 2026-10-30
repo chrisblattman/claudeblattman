@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Privacy
 
 *Last updated: February 2026*
@@ -29,7 +34,7 @@ For data handling when using Claude Code and MCP integrations, see:
 
 - [Privacy & Setup (Tax Workflow)](tax-workflow/before-you-start/privacy-and-setup.md) — the most detailed treatment, covering data flow, API transmission, and what stays local
 - [Anthropic's privacy policy](https://www.anthropic.com/policies/privacy) — how Anthropic handles API data
-- [MCP Setup](toolkit/mcp-setup.md) — scope of each integration
+- [MCP Setup](build-your-own/mcp-setup.md) — scope of each integration
 
 ## Questions
 

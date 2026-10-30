@@ -21,3 +21,18 @@ godaddy-setup.md
 !starter-kit-source/**/HANDOFF.md
 !plugins/starter-kit-claude/**/HANDOFF.md
 !plugins/starter-kit-codex/**/HANDOFF.md
+
+# Local website review and design files
+working-notes/
+preview-copies/
+preview.command
+design-tools/
+.venv-old/
+.impeccable/
+node_modules/
+ENGINE_VERSION
+.pa11yci
+.mcp.json
+.github/skills/
+.github/agents/
+PRODUCT.md
