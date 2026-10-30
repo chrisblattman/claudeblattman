@@ -34,11 +34,14 @@ export function discover(agent, env=process.env) {
   for(const file of candidates){try{fs.accessSync(file,fs.constants.X_OK);if(fs.statSync(file).isFile())return path.resolve(file);}catch{}}
   throw new Error(`${agent} not connected: ${name} executable unavailable. Install/sign in using Kit Setup or the provider's own setup. No fallback was attempted.`);
 }
-export function command(agent,o,out) {
+export function command(agent,o,out,task) {
   let args;
   if(agent==='claude')args=['--print','--output-format','stream-json','--verbose','--permission-mode','plan','--permission-prompts','none'];
   if(agent==='codex')args=['exec','--sandbox','read-only','--skip-git-repo-check','--json','--output-last-message',path.join(out,'codex-final.txt')];
-  if(agent==='gemini')args=['--print','Read the task from standard input and return your full analysis.','--input-format','text','--output-format','stream-json','--mode','plan','--print-timeout','2562047h47m16s'];
+  if(agent==='gemini') {
+    if(typeof task!=='string'||!task.trim())throw new Error('Antigravity requires a nonempty task for --print.');
+    args=['--print',task,'--output-format','stream-json','--mode','plan','--print-timeout','2562047h47m16s'];
+  }
   if(o.model)args.push('--model',o.model);
   if(o.effort){
     if(agent==='codex')args.push('-c',`model_reasoning_effort=${JSON.stringify(o.effort)}`);
@@ -137,11 +140,11 @@ async function main() {
   const save=(name,data)=>fs.writeFileSync(path.join(out,name),data,{flag:'wx',mode:0o600});
   const scope='Analyze and report on this task only. Do not edit project files, send external messages, change accounts, or run another provider/panel. Use only task-relevant authorized evidence; never read credentials. State any missing access.\n\n';
   save('prompt.md',prompt);
-  const args=command(o.agent,o,out);
+  const args=command(o.agent,o,out,scope+prompt);
   const receipt={schema_version:1,provider:o.agent,route:o.agent==='gemini'?'antigravity':o.agent,executable:bin,version:version.stdout.trim(),requested_model:o.model||'account default',requested_effort:o.effort||'account default',cwd,started_at:new Date().toISOString(),no_automatic_fallback:true,permission_profile:'analysis; host/provider permissions apply',state:'starting'};
   save('EXECUTION.json',JSON.stringify(receipt,null,2)+'\n');
   const env={...process.env};delete env.GEMINI_CLI_TRUST_WORKSPACE;
-  const execution=await execute(bin,args,{cwd,env,input:scope+prompt,out});
+  const execution=await execute(bin,args,{cwd,env,input:o.agent==='gemini'?'':scope+prompt,out});
   const raw=fs.readFileSync(path.join(out,'raw.jsonl'),'utf8');
   const final=path.join(out,'codex-final.txt');
   const parsed=parseOutput(o.agent,raw,fs.existsSync(final)?fs.readFileSync(final,'utf8'):'');
