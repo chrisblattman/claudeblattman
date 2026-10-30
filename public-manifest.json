@@ -146,9 +146,9 @@
       "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 17832,
+      "bytes": 20020,
       "path": "plugins/starter-kit-claude/skills/adversarial-review/references/panel-execution.md",
-      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
+      "sha256": "6da0d84328b66f0dc19f321b50072648f86ec29d27c16d9b5b9847f21f84bece"
     },
     {
       "bytes": 857,
@@ -181,9 +181,9 @@
       "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 5127,
+      "bytes": 5744,
       "path": "plugins/starter-kit-claude/skills/ask-agents/references/transport.md",
-      "sha256": "35dacc0af6178fe19639d720ad40f300ebaa67704716a1d7aeffdc326c6c1b16"
+      "sha256": "8d06276b887ab2a391d8e5a4b35da2f5dc7d662f302985b3b76048f0ba77601a"
     },
     {
       "bytes": 12720,
@@ -191,9 +191,9 @@
       "sha256": "5f832341883314b6dff251b8a5c93cd95097b209521d3ff76f8ebe06e71c00c2"
     },
     {
-      "bytes": 11679,
+      "bytes": 11758,
       "path": "plugins/starter-kit-claude/skills/ask-agents/scripts/run-agent.mjs",
-      "sha256": "08ca99add44d27a9e3b4b8edae58c485f8af36322c8f7283fd8298b3ed1032c7"
+      "sha256": "0e62e338f6bd48f7361ed67416c9d8e014f86f0579abd9f1897a3216cfa5345a"
     },
     {
       "bytes": 2472,
@@ -216,9 +216,9 @@
       "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 17832,
+      "bytes": 20020,
       "path": "plugins/starter-kit-claude/skills/council/references/panel-execution.md",
-      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
+      "sha256": "6da0d84328b66f0dc19f321b50072648f86ec29d27c16d9b5b9847f21f84bece"
     },
     {
       "bytes": 857,
@@ -266,9 +266,9 @@
       "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 2678,
+      "bytes": 4388,
       "path": "plugins/starter-kit-claude/skills/kit-setup/SKILL.md",
-      "sha256": "dcb2db5cd50ef90094d88b269a8c11c966add8aa4596957e8f52de1480d5b249"
+      "sha256": "308472a51929ede9dfb1b95b92229cc6fded7732d020116d54defe0f08bbb151"
     },
     {
       "bytes": 1677,
@@ -376,9 +376,9 @@
       "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 17832,
+      "bytes": 20020,
       "path": "plugins/starter-kit-codex/skills/adversarial-review/references/panel-execution.md",
-      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
+      "sha256": "6da0d84328b66f0dc19f321b50072648f86ec29d27c16d9b5b9847f21f84bece"
     },
     {
       "bytes": 857,
@@ -411,9 +411,9 @@
       "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 5127,
+      "bytes": 5744,
       "path": "plugins/starter-kit-codex/skills/ask-agents/references/transport.md",
-      "sha256": "35dacc0af6178fe19639d720ad40f300ebaa67704716a1d7aeffdc326c6c1b16"
+      "sha256": "8d06276b887ab2a391d8e5a4b35da2f5dc7d662f302985b3b76048f0ba77601a"
     },
     {
       "bytes": 12720,
@@ -421,9 +421,9 @@
       "sha256": "5f832341883314b6dff251b8a5c93cd95097b209521d3ff76f8ebe06e71c00c2"
     },
     {
-      "bytes": 11679,
+      "bytes": 11758,
       "path": "plugins/starter-kit-codex/skills/ask-agents/scripts/run-agent.mjs",
-      "sha256": "08ca99add44d27a9e3b4b8edae58c485f8af36322c8f7283fd8298b3ed1032c7"
+      "sha256": "0e62e338f6bd48f7361ed67416c9d8e014f86f0579abd9f1897a3216cfa5345a"
     },
     {
       "bytes": 2472,
@@ -446,9 +446,9 @@
       "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 17832,
+      "bytes": 20020,
       "path": "plugins/starter-kit-codex/skills/council/references/panel-execution.md",
-      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
+      "sha256": "6da0d84328b66f0dc19f321b50072648f86ec29d27c16d9b5b9847f21f84bece"
     },
     {
       "bytes": 857,
@@ -496,9 +496,9 @@
       "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
     },
     {
-      "bytes": 2678,
+      "bytes": 4388,
       "path": "plugins/starter-kit-codex/skills/kit-setup/SKILL.md",
-      "sha256": "dcb2db5cd50ef90094d88b269a8c11c966add8aa4596957e8f52de1480d5b249"
+      "sha256": "308472a51929ede9dfb1b95b92229cc6fded7732d020116d54defe0f08bbb151"
     },
     {
       "bytes": 2145,
@@ -556,9 +556,9 @@
       "sha256": "0904b62f6a60299167b898fb49d90ca755cdb2bfbdea58c82f7974f85df577f3"
     },
     {
-      "bytes": 9085,
+      "bytes": 10761,
       "path": "scripts/test-agent-transport.mjs",
-      "sha256": "f82d0d8ff3052eb0c04e69ddf024bbc30fc25d709780c9a3decead7c6d3c281e"
+      "sha256": "774ce1dae8579caaf7432979956ede28289ca1cc9e0ba3fecf01e615cad94252"
     },
     {
       "bytes": 3210,
@@ -636,9 +636,9 @@
       "sha256": "5f832341883314b6dff251b8a5c93cd95097b209521d3ff76f8ebe06e71c00c2"
     },
     {
-      "bytes": 11679,
+      "bytes": 11758,
       "path": "starter-kit-source/adapters/shared/run-agent.mjs",
-      "sha256": "08ca99add44d27a9e3b4b8edae58c485f8af36322c8f7283fd8298b3ed1032c7"
+      "sha256": "0e62e338f6bd48f7361ed67416c9d8e014f86f0579abd9f1897a3216cfa5345a"
     },
     {
       "bytes": 3573,
@@ -681,9 +681,9 @@
       "sha256": "97ff99c778d7793ced3e1db29e49c9292cd25ade97fe8f84814324dd50fed2bc"
     },
     {
-      "bytes": 5127,
+      "bytes": 5744,
       "path": "starter-kit-source/skills/ask-agents/references/transport.md",
-      "sha256": "35dacc0af6178fe19639d720ad40f300ebaa67704716a1d7aeffdc326c6c1b16"
+      "sha256": "8d06276b887ab2a391d8e5a4b35da2f5dc7d662f302985b3b76048f0ba77601a"
     },
     {
       "bytes": 2472,
@@ -696,9 +696,9 @@
       "sha256": "a01823ce64ae81ef0230341a9d47a2e648722e9fa9b12fbf9d1858de0f05653f"
     },
     {
-      "bytes": 17832,
+      "bytes": 20020,
       "path": "starter-kit-source/skills/council/references/panel-execution.md",
-      "sha256": "55d1a283844d348fbf951626e52b09adddaef53086781b6696cb72fe1c2fc197"
+      "sha256": "6da0d84328b66f0dc19f321b50072648f86ec29d27c16d9b5b9847f21f84bece"
     },
     {
       "bytes": 857,
@@ -726,9 +726,9 @@
       "sha256": "9b4de58cd77a73b8c215d7a5ab0d10ef7a8fcfe21f27e350999e12819c9cb6ca"
     },
     {
-      "bytes": 2678,
+      "bytes": 4388,
       "path": "starter-kit-source/skills/kit-setup/SKILL.md",
-      "sha256": "dcb2db5cd50ef90094d88b269a8c11c966add8aa4596957e8f52de1480d5b249"
+      "sha256": "308472a51929ede9dfb1b95b92229cc6fded7732d020116d54defe0f08bbb151"
     },
     {
       "bytes": 6024,
