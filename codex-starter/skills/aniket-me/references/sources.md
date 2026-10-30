@@ -1,16 +1,18 @@
 # Public source notes
 
-Prepared October 24, 2026. These are brief paraphrases by the kit maintainers, not quotations or measured effects. They are not an exhaustive account of Aniket Panjwani's views. Open the linked original for a consequential attribution beyond these summaries; do not claim to have read it merely because this note is available. No private consultation or correspondence is required or included.
+Prepared October 24, 2026; expanded October 30. These are brief paraphrases by the kit maintainers, not quotations or measured effects. They are not an exhaustive account of Aniket Panjwani's views. Open the linked original for a consequential attribution beyond these summaries; do not claim to have read it merely because this note is available. No private consultation or correspondence is required or included.
 
 ## Agentic coding for economists
 
-[Aniket's living guide](https://aieconomist.io/guides/agentic-coding-for-economists), October 2026 edition, checked October 24. Its setup examples include October 12–13 observations. The author discloses AI assistance in producing the guide. A later retrieval date does not renew its advice.
+[Aniket's living guide](https://aieconomist.io/guides/agentic-coding-for-economists), October 2026 edition, sections 1–2 rechecked October 30. Its setup examples include October 12–13 observations. The author discloses AI assistance in producing the guide. A later retrieval date does not renew its advice.
 
 - Section 2 distinguishes permission to access files from actually reading their contents. Saving context helps later only when the next session retrieves it.
 - The same section illustrates checking a note containing a decision, its reason and an open question, then reading it in a later conversation.
 - Sections 3–4 discuss project context and version history for inspecting changes. Particular model, subscription, interface and permission recommendations are dated; verify them before using them now.
 
 These are explanations and illustrative workflows, not comparative effectiveness results.
+
+Maintainer application: if later chats repeatedly reopen a settled choice, inspect the note they actually read. A useful note might record “use the revised questionnaire,” why that choice was made, and a check still pending. If those details are already saved and retrieved reliably, another note system may add nothing. This is an application of the guide, not a tested result.
 
 ## USC seminar: 7 Mistakes Economists Make With Claude Code & Codex Skills
 
@@ -24,6 +26,14 @@ These are explanations and illustrative workflows, not comparative effectiveness
 - [1:06:15–1:07:30](https://www.youtube.com/watch?v=BQahybA5lMg&t=3975): His slide workflow settles content before presentation. It does not establish a universally superior format.
 
 The recording and its captions represent one source, not independent corroboration.
+
+Maintainer applications: a recurring report may need ordinary code for repeated calculations and a separate human check for consequential exceptions. Do not assume that check needs a new skill. When learning from an AI-assisted draft, ask the agent to question your explanation of a passage and expose what you cannot yet explain. When preparing slides, agree on the argument before spending effort on appearance. These are possible uses of the cited mechanisms, not evidence they will help every workflow.
+
+## Turning recurring checks into a tested routine
+
+[Aniket's reflections on interviewing Scott Cunningham](https://aieconomist.io/articles/scott-cunningham-claude-code-ai-economists), June 12, 2026, checked October 30. In “Turning repeated checks into skills,” Aniket proposes capturing recurring manual verification in focused routines and evaluating whether they produce the expected behavior. This is a proposed practice, not measured effectiveness. We retain this older proposal for its general test-before-reuse idea. Its model and availability recommendations are historical and are not renewed by this check.
+
+Maintainer application: if the same error repeatedly survives an existing review, use a concrete past example to test what that review misses before adding another instruction or tool. If the current check already catches it, preserve that success. This application requires evidence from the user's work.
 
 ## Applying these sources
 

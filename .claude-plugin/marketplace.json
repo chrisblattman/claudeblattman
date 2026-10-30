@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Starter kit and skills from claudeblattman.com \u2014 desktop agent workflows for researchers and professionals",
-    "version": "0.3.0-dev.0"
+    "version": "0.3.0-dev.1"
   },
   "plugins": [
     {
       "name": "starter-kit",
       "source": "./plugins/starter-kit",
       "description": "Independent council perspectives, public-source workflow advice, optional outside opinions, setup checks, and session handoffs.",
-      "version": "0.3.0-dev.0",
+      "version": "0.3.0-dev.1",
       "author": {
         "name": "Chris Blattman",
         "url": "https://claudeblattman.com"

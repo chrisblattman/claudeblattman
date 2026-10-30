@@ -2,13 +2,15 @@
 
 Aniket Me suggests ways to improve how you work with AI. It applies public advice from Aniket Panjwani to the work and context you give it. This is an independent adaptation, not Aniket himself or an endorsement by him.
 
-This pilot contains one skill. You do not need the rest of the starter kit, an existing skill library, or a particular level of AI experience. The bundled source notes identify the originals and their dates. They are a starting set, not a continuously updated archive.
+This pilot contains one skill. The October 30 revision, package version **0.3.0-dev.1**, puts more emphasis on clear actions, the work you already do, and whether a suggested change adds anything useful. Its source notes include more examples. These changes have been checked with synthetic tasks; their benefit in real work is still being tested.
+
+You do not need the rest of the starter kit, an existing skill library, or a particular level of AI experience. The bundled source notes identify the originals and their dates. They are a starting set, not a continuously updated archive.
 
 ## Give your agent this link
 
 Open a project in Claude Code or Codex and send:
 
-> Read https://github.com/chrisblattman/claudeblattman/blob/aniket-me-pilot/starter-kit-source/ANIKET-PILOT.md and install Aniket Me for this project. Preserve any existing version. Then help me try it on my work.
+> Read https://github.com/chrisblattman/claudeblattman/blob/aniket-me-pilot/starter-kit-source/ANIKET-PILOT.md and install Aniket Me for this project. If it is already installed, back up that copy and update it to this pilot revision, preserving any local customizations for comparison. Then help me try it on my work.
 
 Both apps use the same skill. The installing agent should read [SKILL.md](skills/aniket-me/SKILL.md) and [references/sources.md](skills/aniket-me/references/sources.md), then copy both files with that relative layout into the appropriate directory below. Use the `aniket-me-pilot` branch, or pin its current commit and use that same commit for both files. Record the commit used so feedback can identify the version. These two Markdown files are the complete skill. No other starter-kit skills, scripts, plugins or global instructions need installing.
 
@@ -21,7 +23,7 @@ If downloading from a GitHub page fails, fetch the files from `https://raw.githu
 | Claude Code | `<your-project>/.claude/skills/aniket-me/` |
 | Codex | `<your-project>/.agents/skills/aniket-me/` |
 
-If a skill with this name already exists, preserve it before any authorized replacement. Check for another same-named skill that could take precedence. Start a fresh session in that project. Verify that the app lists `aniket-me` and reads the intended copy and its source notes. In Claude Code, invoke `/aniket-me`. In Codex, select it from the skill picker or use `$aniket-me`. Then describe the work you want help with.
+For an update, save the existing folder outside the active skill directories before replacing it. Compare any local customizations and preserve them in that backup rather than silently discarding them. Replace both `SKILL.md` and `references/sources.md` from the same new commit; keeping the old files is not an update. Record that commit and check that both installed files match it. Check for another same-named skill that could take precedence. Start a fresh session in that project. Verify that the app lists `aniket-me` and reads the intended copy and its source notes. In Claude Code, invoke `/aniket-me`. In Codex, select it from the skill picker or use `$aniket-me`. Then describe the work you want help with.
 
 If you use an ordinary chat app, attach `SKILL.md` and `references/sources.md` and ask it to follow the attached skill for this conversation. This tries the advice without installing a persistent skill. The agent can only use the work you make available in that chat. CloudBot and other host-specific installation routes have not been tested.
 
@@ -33,7 +35,7 @@ Use a real task or recurring annoyance this week. Start a request with **Aniket 
 
 > Aniket me. I keep explaining the same project decisions when I start a new chat. Here is how I currently keep notes. What would you change?
 
-Choose your own problem. A useful answer might propose one change, refine a practice you already use, or explain why leaving it alone makes sense. You can also try a bare “Aniket me” in a conversation that already contains your work.
+Choose your own problem. A useful answer might propose one change, refine a practice you already use, or explain why leaving it alone makes sense. You can also try a bare “Aniket me” in a conversation that already contains your work. In a new or nearly empty conversation, the agent may need an example of what you do or where you get stuck. An installed skill cannot supply work history that the agent has not seen.
 
 If a suggestion seems worthwhile, try it once during your normal work and note what happened. Advice that sounds good and advice that helps are different observations. There is no need to rebuild your setup for the pilot.
 

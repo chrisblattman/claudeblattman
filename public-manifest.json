@@ -8,7 +8,7 @@
     {
       "bytes": 862,
       "path": ".claude-plugin/marketplace.json",
-      "sha256": "c14304f8ec26bdabff88e9c631ca20346e81aca960b6e4a8719981fd4cb21115"
+      "sha256": "66c15fc1d3e6e2ab7949779c6eaf59cc3cac368e1258e7ba3c11f9d288b622aa"
     },
     {
       "bytes": 565,
@@ -46,9 +46,9 @@
       "sha256": "a1542cdb487fd9f0460ea36fdd5a61a8850ae5fb39975abfa91d676f6e545f95"
     },
     {
-      "bytes": 8305,
+      "bytes": 8565,
       "path": "codex-starter/skills/aniket-me/SKILL.md",
-      "sha256": "099940e8129a23dd212f4ea47c6dcafd3420cb052bb2d8e0395ef21d4414f4f4"
+      "sha256": "eed1dc876e72785670452c0d0bbfdbdd0930393c1074c327a9a157cfd0a71276"
     },
     {
       "bytes": 1333,
@@ -58,12 +58,12 @@
     {
       "bytes": 385,
       "path": "codex-starter/skills/aniket-me/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
-      "bytes": 3656,
+      "bytes": 5514,
       "path": "codex-starter/skills/aniket-me/references/sources.md",
-      "sha256": "13efbf0e7d8188eb352010659dc1c6f4ef40a267f0ef77fe28f15d0cc4eccdf7"
+      "sha256": "9dfa2efe3afa80342604eaced93932d701adad53ef26119bfbcee555206f1f7e"
     },
     {
       "bytes": 2258,
@@ -78,7 +78,7 @@
     {
       "bytes": 385,
       "path": "codex-starter/skills/ask-agents/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 1595,
@@ -103,7 +103,7 @@
     {
       "bytes": 385,
       "path": "codex-starter/skills/council/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 2652,
@@ -158,7 +158,7 @@
     {
       "bytes": 385,
       "path": "codex-starter/skills/done/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 1121,
@@ -173,7 +173,7 @@
     {
       "bytes": 385,
       "path": "codex-starter/skills/kit-hello/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 1657,
@@ -188,7 +188,7 @@
     {
       "bytes": 385,
       "path": "codex-starter/skills/kit-setup/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 8148,
@@ -238,12 +238,12 @@
     {
       "bytes": 1317,
       "path": "plugins/starter-kit-codex/plugin.json",
-      "sha256": "b49dc37bb843f531dd4bb412f9c49efef8d58386de20aa84f8f69387a72e8ab3"
+      "sha256": "d9aaef27e3d84c8bf2cb85c62f23cc53d0b116d4e0f17d29bbbed5870c15a767"
     },
     {
-      "bytes": 8305,
+      "bytes": 8565,
       "path": "plugins/starter-kit-codex/skills/aniket-me/SKILL.md",
-      "sha256": "099940e8129a23dd212f4ea47c6dcafd3420cb052bb2d8e0395ef21d4414f4f4"
+      "sha256": "eed1dc876e72785670452c0d0bbfdbdd0930393c1074c327a9a157cfd0a71276"
     },
     {
       "bytes": 1333,
@@ -253,12 +253,12 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit-codex/skills/aniket-me/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
-      "bytes": 3656,
+      "bytes": 5514,
       "path": "plugins/starter-kit-codex/skills/aniket-me/references/sources.md",
-      "sha256": "13efbf0e7d8188eb352010659dc1c6f4ef40a267f0ef77fe28f15d0cc4eccdf7"
+      "sha256": "9dfa2efe3afa80342604eaced93932d701adad53ef26119bfbcee555206f1f7e"
     },
     {
       "bytes": 2258,
@@ -273,7 +273,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit-codex/skills/ask-agents/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 1595,
@@ -298,7 +298,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit-codex/skills/council/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 2652,
@@ -353,7 +353,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit-codex/skills/done/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 1121,
@@ -368,7 +368,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit-codex/skills/kit-hello/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 1657,
@@ -383,7 +383,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit-codex/skills/kit-setup/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 17171,
@@ -393,7 +393,7 @@
     {
       "bytes": 370,
       "path": "plugins/starter-kit/.claude-plugin/plugin.json",
-      "sha256": "1a6dcec6ba1dc2af09de0c4e3a61d5ac53625ae7639215396ce453fc4c9099fb"
+      "sha256": "7536d1f50f04af991e37223674a318b5df1bca706d599924db0cd8ec0e30a7fa"
     },
     {
       "bytes": 2642,
@@ -436,9 +436,9 @@
       "sha256": "f400bcfc482e1cf4dfb92b7115443247c57134392494b56efd7d23bd711d4a72"
     },
     {
-      "bytes": 8305,
+      "bytes": 8565,
       "path": "plugins/starter-kit/skills/aniket-me/SKILL.md",
-      "sha256": "099940e8129a23dd212f4ea47c6dcafd3420cb052bb2d8e0395ef21d4414f4f4"
+      "sha256": "eed1dc876e72785670452c0d0bbfdbdd0930393c1074c327a9a157cfd0a71276"
     },
     {
       "bytes": 1342,
@@ -448,12 +448,12 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit/skills/aniket-me/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
-      "bytes": 3656,
+      "bytes": 5514,
       "path": "plugins/starter-kit/skills/aniket-me/references/sources.md",
-      "sha256": "13efbf0e7d8188eb352010659dc1c6f4ef40a267f0ef77fe28f15d0cc4eccdf7"
+      "sha256": "9dfa2efe3afa80342604eaced93932d701adad53ef26119bfbcee555206f1f7e"
     },
     {
       "bytes": 2258,
@@ -473,7 +473,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit/skills/ask-agents/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 1330,
@@ -503,7 +503,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit/skills/council/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 2652,
@@ -558,7 +558,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit/skills/done/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 1121,
@@ -573,7 +573,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit/skills/kit-hello/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 1657,
@@ -588,7 +588,7 @@
     {
       "bytes": 385,
       "path": "plugins/starter-kit/skills/kit-setup/references/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
       "bytes": 227,
@@ -621,9 +621,9 @@
       "sha256": "36e8e1215d8f45d891bd233df02e61872d1dae5cb9e7cdae98786017e783f5cb"
     },
     {
-      "bytes": 4810,
+      "bytes": 5712,
       "path": "starter-kit-source/ANIKET-PILOT.md",
-      "sha256": "83a42a855821b731f6cf384563a0594bb2cdce6570072fd9d99ffc193724ad96"
+      "sha256": "b3a34af54f19cd35f786e11161359413538b0af1fff715374e5e7da77538a586"
     },
     {
       "bytes": 2642,
@@ -713,17 +713,17 @@
     {
       "bytes": 385,
       "path": "starter-kit-source/package.json",
-      "sha256": "61143f5a084aaea929324a3e1d0522d5d20903f3a1b462bf33aaf21e1023a723"
+      "sha256": "c0784a66f832a66b58fcd8ac8e930073a2bb245a91aaaf778fc592e027377c38"
     },
     {
-      "bytes": 8305,
+      "bytes": 8565,
       "path": "starter-kit-source/skills/aniket-me/SKILL.md",
-      "sha256": "099940e8129a23dd212f4ea47c6dcafd3420cb052bb2d8e0395ef21d4414f4f4"
+      "sha256": "eed1dc876e72785670452c0d0bbfdbdd0930393c1074c327a9a157cfd0a71276"
     },
     {
-      "bytes": 3656,
+      "bytes": 5514,
       "path": "starter-kit-source/skills/aniket-me/references/sources.md",
-      "sha256": "13efbf0e7d8188eb352010659dc1c6f4ef40a267f0ef77fe28f15d0cc4eccdf7"
+      "sha256": "9dfa2efe3afa80342604eaced93932d701adad53ef26119bfbcee555206f1f7e"
     },
     {
       "bytes": 2258,
@@ -773,6 +773,6 @@
   ],
   "mode": "public-repo-authored",
   "note": "v0.1 records the exact public starter-kit release surface. Broader private-to-public skill emission is deferred.",
-  "release": "starter-kit-v0.3.0-dev.0",
+  "release": "starter-kit-v0.3.0-dev.1",
   "schema_version": 1
 }
