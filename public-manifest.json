@@ -16,6 +16,11 @@
       "sha256": "9eca5360bb22542ad7baa51f5bb9c0c82941502eb3bcd4ec11be366e0274f6f0"
     },
     {
+      "bytes": 2773,
+      "path": ".github/workflows/draft-previews.yml",
+      "sha256": "b7f80428c05c14a89dd824856e488c094a7420f42266ca02c5dd44511759e4ba"
+    },
+    {
       "bytes": 961,
       "path": ".github/workflows/public-release-check.yml",
       "sha256": "ef146a7fd45fb7d15157e1beb4002d4a1479ac78586f5175cb3eb17eb9b2b506"
@@ -556,6 +561,11 @@
       "sha256": "cebdc1ea6e5e28c81b76c7c203d52070a4cc5f47fea4c3b43e0715f035fe9627"
     },
     {
+      "bytes": 2472,
+      "path": "scripts/build-draft-preview.py",
+      "sha256": "d45fdb898d6f93bda1bbe66a9c5f95b981f7ba5d74df2edc3e7ba77c0bf7229a"
+    },
+    {
       "bytes": 1300,
       "path": "scripts/build-staging.sh",
       "sha256": "d7e33bdcb53596ab03f34728303f4b502a1aa984f7de8eb89975f155526ef48f"
@@ -574,6 +584,11 @@
       "bytes": 2794,
       "path": "scripts/page-dossier.py",
       "sha256": "501c2f88352a2325f69927b74a23593741506411cef29ba87e79606fd15814ea"
+    },
+    {
+      "bytes": 3684,
+      "path": "scripts/publish-draft-preview.mjs",
+      "sha256": "b67e49e2cc5be7bb420df8e24591add4cf026bf34c32ece814ee01896da15d1d"
     },
     {
       "bytes": 4917,
