@@ -51,6 +51,18 @@ Most skills accept arguments — text after the command name that gets passed as
 
 ## Skills
 
+### Aniket Me — AI workflow adviser
+
+**What it does:** Applies Aniket Panjwani's public advice to the work you give it. It looks for useful changes to how you work with AI, including better use of practices you already have. This is an independent adaptation, not an endorsement by Aniket.
+
+**Works with:** Claude Code and Codex. The skill includes its source notes and needs no other skills or connectors.
+
+**Install or update:** Give your agent the [Aniket Me guide](https://github.com/chrisblattman/claudeblattman/blob/main/skills/aniket-me/README.md). It explains the two-file installation for each app. Use that guide rather than the older single-file installation commands above.
+
+**Use it:** Start a fresh session, invoke `/aniket-me` in Claude Code or `$aniket-me` in Codex, and describe a recurring problem. For example: “Aniket me. I keep explaining the same project decisions when I start a new chat. Here is how I currently keep notes. What would you change?”
+
+---
+
 ### /done — Session Capture
 `[First Session]`
 

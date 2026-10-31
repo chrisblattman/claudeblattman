@@ -26,9 +26,14 @@
       "sha256": "4b806d844e306633102cbc1818641ac87ba1b5980e98c2832b9861f44ebd93d9"
     },
     {
-      "bytes": 3278,
+      "bytes": 3604,
       "path": "README.md",
-      "sha256": "9bc60860b2b04857f43a13511150545e3c0a1c92d3e0f7e4bedbde985b631993"
+      "sha256": "917d9231822f11c0703aedb966098516042e406c7bac000bb66bce7cacb6d3fa"
+    },
+    {
+      "bytes": 34368,
+      "path": "docs/hyperlinks/skill-reference.md",
+      "sha256": "0fbb6758b072650c36bbf0240573cb0066598d78100b1a646b1a83773bce8b51"
     },
     {
       "bytes": 4827,
@@ -561,9 +566,9 @@
       "sha256": "6c1429244c9883c4a5b7e1f3ec95219410925ee7cc340c21ea8f8e4ccbbc8ae5"
     },
     {
-      "bytes": 2670,
+      "bytes": 2730,
       "path": "scripts/emit-public.sh",
-      "sha256": "1dd87a78fa8b7e990baf7b60873f1fbbdf768b4c90e96e8f4e77ab406c45a6c1"
+      "sha256": "aae48b0b8ee82b33e875a39655581ea553bf064ef9b5173dd6d07a72b5ee3352"
     },
     {
       "bytes": 2794,
@@ -596,9 +601,24 @@
       "sha256": "121b2cdb2f55f0d189f6819bc2af1b201fe839f470ceac46e2153ca76f10d64e"
     },
     {
-      "bytes": 7002,
+      "bytes": 7304,
       "path": "skills/README.md",
-      "sha256": "8f453c156b265565ea31b42f1b86174214358dc1327f1e6835c7d34e14d2c6bf"
+      "sha256": "e9f3b5303882e545c73c83bcc05804f6adccd82949011a98dd81fe0c25296ed5"
+    },
+    {
+      "bytes": 2624,
+      "path": "skills/aniket-me/README.md",
+      "sha256": "dcd4ece41eb5d9223504448364bdfe5d1c13d3d143601fd7f56df9c75a52be11"
+    },
+    {
+      "bytes": 8565,
+      "path": "skills/aniket-me/SKILL.md",
+      "sha256": "eed1dc876e72785670452c0d0bbfdbdd0930393c1074c327a9a157cfd0a71276"
+    },
+    {
+      "bytes": 5514,
+      "path": "skills/aniket-me/references/sources.md",
+      "sha256": "9dfa2efe3afa80342604eaced93932d701adad53ef26119bfbcee555206f1f7e"
     },
     {
       "bytes": 925,

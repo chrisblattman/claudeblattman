@@ -32,6 +32,10 @@ See the [package guide](starter-kit-source/PACKAGE-README.md) for installation, 
 
 The older `skills/` folder is an advanced reference library. Overlapping council/review/done entries point to the bundled workflows rather than maintaining conflicting implementations. Website walkthrough edits are handled separately from this package branch.
 
+## Aniket Me
+
+[Aniket Me](skills/aniket-me/README.md) applies Aniket Panjwani's public advice to help improve how you work with AI. Give Claude Code or Codex the linked guide to install or update this self-contained skill, then try it on your work. Browse the [skill library](skills/README.md) for other available workflows.
+
 ## Repo Structure
 
 ```

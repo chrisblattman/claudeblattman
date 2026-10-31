@@ -1,6 +1,6 @@
 # Skills & Agents
 
-Downloadable skills (slash commands) and agents for Claude Code.
+Downloadable skills (slash commands) and agents. Most entries use Claude Code. [Aniket Me](aniket-me/README.md) works with both Claude Code and Codex and has its own installation guide.
 
 > **First-time desktop users:** start with the [Desktop Agent Starter Kit](../docs/starter-kit/index.md). The files below are an advanced/reference library from a broader setup. Some skills assume Gmail, Calendar, Granola, project configs, or account-specific templates and are not part of the starter kit.
 
@@ -30,6 +30,7 @@ Restart Claude Code after adding new commands.
 
 | Skill | Command | Dependencies | Description |
 |-------|---------|-------------|-------------|
+| [**Aniket Me**](aniket-me/README.md) | `/aniket-me` or `$aniket-me` | Bundled public source notes | Applies Aniket Panjwani's public advice to help improve how you work with AI |
 | **Check-In Session** | `/checkin` | Gmail MCP, Calendar MCP, goals.yaml | Interactive daily check-in: inbox triage, reminder triage, meeting prep, email drafting, priorities |
 | **Session Capture** | `/done` | None | Captures decisions, questions, and follow-ups from the current session |
 | **Goals Review** | `/goals-review` | goals.yaml | Review and update quarterly objectives, progress scores, and deadlines |
