@@ -18,9 +18,9 @@ I'm a political economist at the [Harris School of Public Policy](https://harris
 
 ## The team behind this site
 
-These guides grow out of the AI workflows I use for research, administration, and everyday life. **Shay Houseknecht** worked with me on the October 2026 site refresh, turning those workflows into practical walkthroughs and reworking the site's content and organization.
+These guides grow out of the AI workflows I use for research, administration, and everyday life. **Shay Houseknecht** worked with me on the October 2026 site refresh, turning my personal workflows with AI into practical walkthroughs.
 
-We build and revise the site with help from AI tools. My research assistants also help maintain and improve the workflows. The site draws on others who share their approaches publicly; you'll find those influences on the [Resources](resources.md) page.
+We build and revise this site with the same AI tools we teach you to use. My research assistants help test, maintain, and improve the workflows. I also ask collaborators and other principal investigators what they need help with and which guidance would be useful. The site draws on others who share their approaches publicly; you'll find those influences on the [Resources](resources.md) page.
 
 ## About the project
 
