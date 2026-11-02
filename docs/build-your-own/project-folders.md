@@ -460,9 +460,9 @@ When a task depends on current prices, opening hours, or availability, use curre
 
     ---
 
-    When to use ChatGPT vs Claude — and when it matters for project folders.
+    Choose your desktop agent and try it on a real project.
 
-    [:octicons-arrow-right-24: ChatGPT vs Claude](picking-your-agent.md)
+    [:octicons-arrow-right-24: Choose an agent](../starter-kit/newcomers.md)
 
 -   **Go deeper**
 
@@ -470,7 +470,7 @@ When a task depends on current prices, opening hours, or availability, use curre
 
     When project folders aren't enough, Claude Code turns recurring tasks into automated workflows.
 
-    [:octicons-arrow-right-24: Get Started](../hyperlinks/setup-overview.md)
+    [:octicons-arrow-right-24: Get Started](../starter-kit/newcomers.md)
 
 </div>
 

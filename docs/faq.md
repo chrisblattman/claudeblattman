@@ -1,5 +1,5 @@
 ---
-description: Short answers to the questions that come up most — which app to use, whether you need both, and what the jargon actually means.
+description: Practical answers about choosing your AI, using skills, and giving your agent useful instructions.
 ---
 
 # FAQ
@@ -8,105 +8,62 @@ description: Short answers to the questions that come up most — which app to u
 
 ### Should I use Codex or Claude?
 
-If you already pay for Claude, use Claude. If you don't, use Codex — it runs on an ordinary ChatGPT
-account, including the free one. See [Your first session](starter-kit/newcomers.md) for the install.
+Start with either. If you already use one, keep it. If you already pay for Claude or ChatGPT, check what your plan includes before buying something else. The [first-session guide](starter-kit/newcomers.md#1-choose-an-agent) walks you through choosing and opening your app, and explains why I currently prefer Codex.
 
-Either one will do everything on this site. The practical differences are that Claude's Code tab
-needs a paid plan (Pro or above), while Codex works on a free ChatGPT account; and the starter kit's
-shortcuts install through Claude's own interface, whereas Codex's setup route is clumsier. Neither
-is better at the work.
+I find Claude and Codex both good generalists. Their interfaces and connections differ, so start with the one that fits how you work. You can add another later.
 
 ### Do I need both Codex and Claude?
 
-No. Chris uses both; one is enough to start, and the second adds a useful second opinion
-rather than a missing capability.
+One is enough to start, including for a council of independent subagents. For important work, I recommend trying a second AI: I find the extra perspective worth paying for.
+
+Start with an inexpensive subscription for a month and use it on work that matters to you. Then decide whether to upgrade or add a third. [Using different AI models](workflows/council-models.md) explains how to connect them and make them your default council.
 
 ### Should I pay for Grok and Gemini?
 
-Mostly no. Gemini has one narrow advantage — large-context work inside Google Workspace, where it
-can read across a folder of documents in one go. Grok's case is weaker still. Neither replaces the
-main tool; both are worth having only if you already pay for them for another reason, or if you want
-a [cross-vendor second opinion](build-your-own/ai-integration.md) on something high-stakes.
+I use them for different reasons. Gemini often gives me different results and perspectives from Claude and Codex, so I include it in my default council. I use Grok for narrow questions about AI integrations and best practices, drawing on X/Twitter posts. It is not a regular member of my council.
+
+You do not need my whole setup to get started. The [model comparison](workflows/council-models.md#what-is-each-model-good-at) explains what I get from each.
 
 ## Using the tools
 
 ### What are agents?
 
-The distinction the whole site rests on is on the
-[homepage](index.md) — a chatbot answers in a window, an agent works on the files already on your
-computer and can work through several steps without you in between.
+An agent can work with your files and tools and carry out several steps toward a result. You give it a task, supply context, and correct its work as you go. A subagent is a separate worker your main agent starts and manages for you.
+
+Try a real task in the [first-session guide](starter-kit/newcomers.md). The [council walkthrough](starter-kit/occasional.md) shows how to get several independent attempts and a review of the result.
 
 ### What are plugins?
 
-A bundle of shortcuts someone else has already written, that you install in one go. The
-[starter kit](starter-kit/occasional.md#set-up-once) is one: it bundles reusable skills, including `/council` and `/done`. Council handles structuring the task and coordinating independent review.
+A plugin bundles skills and their supporting files so you can install them together. A skill is a saved set of instructions for your agent.
 
-The practical reason to care is that a plugin updates. If Chris improves `/council`, you get the
-better version without doing anything, which is not true of a file you copied once.
+The [starter kit](starter-kit/occasional.md#set-up-once) is one such bundle. `/council` develops the work with independent members and brings their findings together. `/adversarial-review` examines the draft with fresh reviewers. `/done` saves a handoff for your next session.
+
+Ask your AI to help install the kit and explain what it adds. Plugins also give you a way to receive updates; ask the agent to check your installed version and how updates work in your app.
 
 ### What is a symlink?
 
-A shortcut that makes one file appear in two places at once. The file lives in one place; the
-symlink is a stand-in that points at it, and anything opening the stand-in gets the real file.
+A symlink is a pointer to a file or folder somewhere else. Opening the pointer takes you to the original. Editing through either path changes the same file.
 
-It comes up here for one reason. Some tools insist on finding a file at a fixed location — your
-`CLAUDE.md` instructions file, for instance, is expected in a particular folder. If you work on two
-computers, you want the real file in a synced folder (Dropbox, iCloud) so both machines share it,
-*and* you want each machine's tool to find it where it expects. A symlink does both: one real file,
-syncing normally, with a pointer sitting in the expected spot.
+This can help when an app expects an instructions file in a particular place, but you want to keep the actual file in a synced folder. You set up a pointer on each computer so the app can find that shared file.
 
-It is not a copy. Edit either path and you have edited the same file, which is the point — two
-copies drift apart, and then you have two sets of instructions disagreeing with each other.
+Ask your agent to handle the setup:
 
-You don't need to make one by hand. Ask your agent: *"Set up a symlink so the real CLAUDE.md lives
-in my synced folder but Claude still finds it in the usual place."* It knows how, it will show you
-what it's about to do first, and you can check afterwards by asking whether the link resolves.
+```text
+Help me keep my standing instructions in my synced folder and connect them where this app expects to find them. Check that the connection works.
+```
 
 ### What are Git and GitHub?
 
-**Git** is a tool that tracks every version of a set of files, so you can see what changed, when,
-and go back. **GitHub** is a website that hosts those tracked folders — called **repositories**,
-or repos — so other people can read and copy them. Git is the mechanism; GitHub is the public
-shelf it sits on.
+**Git** records saved versions of a project's files. Each saved checkpoint is called a **commit**. **GitHub** hosts these projects, called **repositories**, so people can share and work on them together. Repositories can be public or private.
 
-Programmers live in both. You don't have to.
+My skills and templates live in a public GitHub repository. You can give your agent a link and ask it to read the instructions and help you use the files. The [Templates](templates.md) page has examples.
 
-The reason either appears on this site is that my skills and templates live in a GitHub
-repository, which is simply the most sensible place to keep files that change and that other
-people copy. For you, a repo is a folder on a web page. You can read any file in it, and every
-file has a "raw" address — a plain-text URL with nothing but the file's contents.
-
-That raw address is the whole trick, because **you can hand it to your agent instead of
-downloading anything**:
-
-```
-Fetch https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/claude-md-template.md and save it as CLAUDE.md in this folder.
-```
-
-No account, no install, no terminal. The [Templates](templates.md) page lists what's there and
-gives you the prompt for each one.
-
-One thing worth knowing even if you never use GitHub yourself: Git is also the best undo you can
-give a project. If a folder is tracked by Git, every change is recoverable — which is a stronger
-promise than asking an agent to put something back. You don't need to learn Git to get that; you
-can ask your agent to set it up and to commit your work at the end of a session.
+Git is also useful for keeping a history of your own work. Ask your agent to set it up and save checkpoints at useful milestones. You can return to those saved versions; Git does not automatically preserve every unsaved change.
 
 ### What is prompt engineering?
 
-Writing your request in a particular structure — a role, a task, constraints, an output format,
-sometimes tagged sections — so the model performs better. For a while it was a real skill.
+It means shaping a request to help an AI produce a useful result. For the work on this site, start by explaining what you want in ordinary language, as you would to a colleague. You can dictate several paragraphs; you do not need a polished prompt.
 
-In an agent app it has mostly stopped being your job. You describe what you want in ordinary prose,
-the way you'd brief a colleague, and the system does the structuring internally. Typing a formatted
-prompt by hand now buys you very little.
+Give the agent the result you want, who it is for, the relevant material, constraints, and what good looks like. Examples and corrections help too. If you do not know the best approach, ask it to suggest one and ask you the questions that would change it.
 
-Two things did not go away:
-
-- **Task specification.** What outcome you want, which files matter, what constraints apply, what
-  "done" looks like. No amount of model improvement guesses that for you — it's the whole of step 4
-  on the [councils](starter-kit/occasional.md#3-describe-one-real-task) page.
-- **Standing preferences.** How you like things written, formats you always want, things you never
-  want. Those belong in a file the agent reads every session, not retyped into each request.
-
-If you're still working in a chatbot window rather than an agent, structure does still help — which
-is its own argument for moving.
+The [council walkthrough](starter-kit/occasional.md#3-describe-one-real-task) shows how to do this. Preferences you want applied repeatedly belong in [standing instructions](build-your-own/agents-md.md) or your [voice guides](build-your-own/voice.md), so you do not have to explain them from scratch each time.

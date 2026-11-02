@@ -349,13 +349,9 @@
          under the category in mkdocs.yml, so it is the first anchor in the
          category's nested list.
 
-         Swapping the <label> for an <a> rather than wiring a click handler
-         onto it, so the row is a real link — focusable, middle-clickable, and
-         announced as a link rather than as a form control for a checkbox that
-         exists only to drive the mobile drawer.
-
-         The landing page's own row is then hidden: it would be the same
-         destination twice in a row, directly beneath itself. */
+         Keep the label as the mobile drawer toggle and add a real link for
+         desktop. CSS switches between them at Material's drawer breakpoint.
+         On desktop only, hide the duplicate landing-page row. */
       function cbCategoryLinks() {
         var sec = document.querySelector(
           '.md-sidebar--primary .md-nav--primary > .md-nav__list > ' +
@@ -370,14 +366,15 @@
             if (!label && ch.tagName === 'LABEL' &&
                 ch.classList.contains('md-nav__link')) { label = ch; }
           });
-          if (!label) return;
+          if (!label || cat.querySelector(':scope > .cb-cat-link')) return;
           var landing = cat.querySelector('.md-nav__list a.md-nav__link');
           if (!landing) return;
           var a = document.createElement('a');
           a.className = 'md-nav__link cb-cat-link';
           a.href = landing.getAttribute('href');
           a.textContent = (label.textContent || '').trim();
-          label.parentNode.replaceChild(a, label);
+          label.classList.add('cb-cat-toggle');
+          label.parentNode.insertBefore(a, label);
           var row = landing.closest('.md-nav__item');
           if (row) { row.classList.add('cb-landing-row'); }
         });

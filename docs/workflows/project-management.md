@@ -47,7 +47,7 @@ This isn't required. You can skip straight to Layer 1 and organize projects on t
 
 ## Layer 1: Organize the Project Folder
 
-**Skill:** [`/setup-project-management`](../hyperlinks/skill-reference.md#setup-project-management-project-setup)
+**Skill:** [`/setup-project-management`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/setup-project-management.md)
 
 The foundation. Before Claude Code can help manage a project, it needs a structured place to look.
 
@@ -95,7 +95,7 @@ Once the project folder exists, the next step is to stop losing information. Mee
 
 ## Layer 3: The Weekly Review
 
-**Skill:** [`/weekly-review`](../hyperlinks/skill-reference.md#weekly-review-weekly-project-review) `[PM]`
+**Skill:** [`/weekly-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/weekly-review.md) `[PM]`
 
 This is where the system comes alive. The weekly review pulls from every source and produces two outputs: a high-level dashboard and a detailed weekly log.
 
@@ -157,7 +157,7 @@ The dashboard prioritizes strategic objectives first, then operational objective
 
 ## Layer 4: Proposals and Reports on Demand
 
-**Skills:** [`/proposal-write`](../hyperlinks/skill-reference.md#proposal-write-proposal-drafting) and [`/proposal-revise`](../hyperlinks/skill-reference.md#proposal-revise-proposal-revision) `[PM]`
+**Skills:** [`/proposal-write`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/proposal-write.md) and [`/proposal-revise`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/proposal-revise.md) `[PM]`
 
 Because the Google Doc hub contains the research design, project history, all prior proposals (successful, unsuccessful, pending), and the weekly review keeps everything current — Claude Code can draft almost anything.
 
@@ -254,4 +254,4 @@ curl -o ~/.claude/agents/review-methodology.md \
   https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/agents/review-methodology.md
 ```
 
-Restart Claude Code after installing. For full customization details, see each skill's entry in the [Skill Library](../hyperlinks/skill-reference.md).
+Restart Claude Code after installing. For customization instructions, read the relevant [skill files on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills).

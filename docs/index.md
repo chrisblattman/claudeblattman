@@ -14,23 +14,15 @@ social:
 <p class="home-tagline">AI for professionals who don't code</p>
 </div>
 
-<p class="home-byline">By <a href="https://chrisblattman.com">Chris Blattman</a>, political economist at UChicago Harris.</p>
+<p class="home-byline">By <a href="https://chrisblattman.com">Chris Blattman</a>, political economist at UChicago.</p>
 
-<p class="home-lede">In January 2026 I started building AI workflows with Claude Code. What seemed impossible then is running today.</p>
+<p class="home-lede">In January 2026 I started playing with Claude Code. I had no idea what I was doing, but a little advice from colleagues and my own experimentation ultimately changed how I work.</p>
 
-I now use AI for help I always wanted from an executive assistant, a project manager, and a
-research collaborator. It helps me stay on top of commitments, get back into complicated projects,
-and work through ideas. Family vacations and broken water heaters count too.
+Now I use AI as an executive assistant, a project manager, and a research collaborator. It helps me stay on top of commitments, get back into complicated projects, and work through ideas. It also plans family vacations and home repairs.
 
-“Claude Blattman” is my name for this evolving setup. Here I share what I use and how to build
-something useful for yourself. You can begin with one task; you don't need to reproduce my whole system.
+I appreciated the nudge I got from colleagues, and so I built this guide to help others. Beginners start with the checklist below, with more advanced skills available through the menu.
 
-Getting this working took an investment. At first I spent as much time explaining, correcting,
-and trying again as I would have spent doing the job myself. Some recurring tasks took weeks
-to get right. Now the background is there, the routines are familiar, and starting the next
-report or preparing for the next meeting takes much less effort.
-
-[Read the full essay: How I put AI to work](how-i-use-ai.md)
+[Read my essay on my AI approach and principles](how-i-use-ai.md)
 
 ## My absolute essentials, and where to start
 
@@ -56,9 +48,6 @@ Tick off what you’ve tackled. Use the links for anything new, then move to the
 | **5. Teach it your voice** | |
 | <label><input type="checkbox"><span>Have you gotten it to sound like you?</span></label> | [Tell it how](build-your-own/voice.md) |
 | <label><input type="checkbox"><span>Have you set up continuous improvement?</span></label> | [Build a system](how-i-improve-the-work.md) |
-| **6. Organize your digital life** | |
-| <label><input type="checkbox"><span>Are your files a digital mess?</span></label> | [Fix it once](workflows/cloud-storage-guide.md) |
-| <label><input type="checkbox"><span>Are all your projects organized?</span></label> | [Help your AI out](workflows/organize-projects.md) |
 
 </div>
 
@@ -76,3 +65,6 @@ and work at your own pace.
   [Project management and research](workflows/projects-and-research.md)
 - **Stay on top of everyday life.** Get help with messages, meetings, household decisions and travel.
   [The executive assistant workflows](workflows/executive-assistant.md)
+
+- **Improve your AI setup.** Organize your files and projects, connect your apps, and build useful routines.
+  [Improve your AI setup](workflows/best-practices.md)

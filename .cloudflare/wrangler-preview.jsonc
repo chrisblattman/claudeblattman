@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "claudeblattman-preview",
+  "main": "preview-worker.mjs",
+  "compatibility_date": "2026-10-27",
+  "assets": {
+    "directory": "../site",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  },
+  "previews": {}
+}

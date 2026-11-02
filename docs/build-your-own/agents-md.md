@@ -332,6 +332,6 @@ The same pattern works for the global file — Claude's at `~/.claude/CLAUDE.md`
 With your CLAUDE.md in place:
 
 1. **[Connect external services](mcp-setup.md)** — Give Claude access to email, docs, and calendar
-2. **[Explore skills](../hyperlinks/skill-reference.md)** — Download tools that automate common workflows
+2. **[Explore skills](https://github.com/chrisblattman/claudeblattman/tree/main/skills)** — Download tools that automate common workflows
 
 <label class="page-done"><input type="checkbox"> Yay, my agent knows who I am!</label>

@@ -18,17 +18,11 @@ I tend to think about this in terms of the cost of a research assistant: how muc
 
 ## What is each model good at?
 
-For councils, I start by treating Claude, Codex, and Gemini as generalists. I want each to take a fresh look at the whole task. I don’t need to decide in advance that one is the writer and another is the critic. I use Grok for specific outside questions rather than as a regular council member.
+**Claude and Codex:** Both are good generalists. I give them much the same jobs and often get similar answers. Codex seems a little better at web searches. I also get a lot of use out of ChatGPT's Deep Research, so I have another reason to keep that subscription.
 
-To decide which earns a place in your own workflow, try them on work you can judge:
+**Gemini:** This is the one I keep in the council because it often comes back with something different. Claude and Codex can leave the same gaps. Gemini helps me see what they might have missed.
 
-- **Writing and revision:** which gives you a draft you can actually use, and responds well to your corrections?
-- **Research and checking:** which finds useful evidence, supports its claims, and catches something important the others missed?
-- **Getting the work done:** which can use your files and tools, make the requested changes, and check the result with the least back-and-forth?
-
-You can ask your main AI to arrange the comparison and bring the results together. Read the actual work before deciding which subscription to keep.
-
-<!-- Editorial follow-up: replace or expand this practical comparison framework with a dated four-provider strengths guide after review. The October 28 CURRENT_FINDINGS.md supports task-specific capabilities, not permanent vendor roles or a general ranking. -->
+**Grok:** I pay for a small subscription mostly for searching X/Twitter. It is the best tool I've found for that, and a lot of the new AI tools and ways of using them turn up there first. I send it narrow questions about connecting tools or improving how I use them. I don't usually give it a whole project or a seat on the council.
 
 <div class="checklist" markdown>
 

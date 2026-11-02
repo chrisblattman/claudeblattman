@@ -39,9 +39,9 @@ This cycle is what turns a collection of tools into a system that compounds over
 
 You should have:
 
-- A working Claude Code installation ([Install guides](install-mac.md))
+- A working Claude Code installation ([Install guides](../starter-kit/newcomers.md))
 - A configured CLAUDE.md file ([Setup guide](../build-your-own/agents-md.md))
-- Some experience using existing skills ([Skill Library](skill-reference.md))
+- Some experience using existing skills ([skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills))
 - Comfort reading and editing markdown files
 
 You don't need to know how to code. Skills are written in markdown (structured text), not a programming language.

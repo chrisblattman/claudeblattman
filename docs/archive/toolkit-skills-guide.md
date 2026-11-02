@@ -53,7 +53,7 @@ Subdirectories create namespaced commands: `prompt-references/formatting-core.md
      https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/done.md
 
    # Option 2: Copy from this site
-   # Copy the code block from the Skill Library page and save to a file
+   # Copy the skill instructions from GitHub and save to a file
    ```
 
 3. **Restart Claude Code** (new commands are loaded at startup)
@@ -162,7 +162,7 @@ The [Build Your Own](../build-your-own/building-skills.md) section goes deeper i
 
 ## Tips
 
-**Start by using skills before building them.** Install 2-3 from the [Skill Library](../hyperlinks/skill-reference.md), use them for a week, and notice what works and what you'd change. That's the best way to learn what makes a good skill.
+**Start by using skills before building them.** Install 2-3 from the [skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills), use them for a week, and notice what works and what you'd change. That's the best way to learn what makes a good skill.
 
 **Skills should do one thing well.** A skill that tries to triage email, update your calendar, and draft responses will be fragile. Three focused skills are better than one bloated one.
 
@@ -174,5 +174,5 @@ The [Build Your Own](../build-your-own/building-skills.md) section goes deeper i
 
 ## What's Next
 
-- **[Skill Library](../hyperlinks/skill-reference.md)** — Browse and download pre-built skills
+- **[skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills)** — Browse and download pre-built skills
 - **[Building Skills](../build-your-own/building-skills.md)** — Learn to create your own

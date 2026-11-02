@@ -185,7 +185,7 @@ To replicate the full workflow described in this case study, you need:
 
 | Tool | Required for | Setup guide |
 |------|-------------|-------------|
-| Claude Code | Everything | [Install (Mac)](../../hyperlinks/install-mac.md) / [Install (Windows)](../../hyperlinks/install-windows.md) |
+| Claude Code | Everything | [Install the desktop app](../../starter-kit/newcomers.md#2-install-the-app) |
 | Gmail MCP | Document collection from email | [MCP Setup](../../build-your-own/mcp-setup.md) |
 | Google Sheets MCP | Charitable contribution export | [MCP Setup](../../build-your-own/mcp-setup.md) |
 | `openpyxl` (Python) | Generating formatted spreadsheets | `pip3 install openpyxl` |

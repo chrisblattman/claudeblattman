@@ -72,7 +72,7 @@ hide:
 
     An honest comparison from someone who pays for and uses both daily. When each one wins.
 
-    [:octicons-arrow-right-24: Read more](../build-your-own/picking-your-agent.md)
+    [:octicons-arrow-right-24: Read more](../starter-kit/newcomers.md)
 
 -   **:material-cash-check: The Cost Reality**
 
