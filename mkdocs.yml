@@ -163,8 +163,7 @@ nav:
       - Templates: templates.md
   - About:
     - My AI principles: how-i-use-ai.md
-    - About Claude Blattman: about.md
-    - About Chris Blattman: about-chris.md
+    - About Chris' team: about.md
     - Resources: resources.md
   - FAQ: faq.md
 
@@ -198,6 +197,7 @@ plugins:
   - meta
   - redirects:
       redirect_maps:
+        about-chris.md: about.md
         hyperlinks/setup-overview.md: starter-kit/newcomers.md
         hyperlinks/install-mac.md: starter-kit/newcomers.md
         hyperlinks/install-windows.md: starter-kit/newcomers.md

@@ -24,6 +24,7 @@ plugins:
   - meta
   - redirects:
       redirect_maps:
+        about-chris.md: about.md
         hyperlinks/setup-overview.md: starter-kit/newcomers.md
         hyperlinks/install-mac.md: starter-kit/newcomers.md
         hyperlinks/install-windows.md: starter-kit/newcomers.md
