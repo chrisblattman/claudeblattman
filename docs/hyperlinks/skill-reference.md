@@ -212,7 +212,7 @@ curl -o ~/.claude-assistant/config/goals.yaml \
 
 **What it does:** Dispatches Claude WebSearch, Codex CLI, and Gemini 2.5 Pro CLI in parallel on the same research prompt. Three raw reports land in the project folder, indexed in a federated `research-archive/INDEX.md`. ChatGPT Deep Research, Grok, Perplexity, and Gemini's browser Deep Research are available as opt-in paste-loop arms via `--tool chatgpt|grok|perplexity|gemini-browser`.
 
-**MCP dependencies:** None. Requires Codex CLI and Gemini CLI installed (see [AI integration](../build-your-own/ai-integration.md) for setup).
+**MCP dependencies:** None. This reference version requires Codex CLI and Gemini CLI. Ask your agent to check its dependencies; the current [Different AI models](../workflows/council-models.md) guide covers the starter kit’s connections.
 
 **Install:**
 ```bash
@@ -238,7 +238,7 @@ done
 
 **Customization:** Routing config (project-folder mapping), depth defaults, vendor-arm thresholds, archive paths.
 
-**Learn more:** [The deep research workflow](../workflows/deep-research.md) · [AI integration](../build-your-own/ai-integration.md)
+**Learn more:** [The deep research workflow](../workflows/deep-research.md) · [Different AI models](../workflows/council-models.md)
 
 ---
 
@@ -296,7 +296,7 @@ curl -o ~/.claude/agents/proposal-critic-agent.md \
 
 **Customization:** Critic / synthesis model (config block at top of `council.md`), persona library in `~/.claude/agents/`, default panel sizes.
 
-**Learn more:** [The council pattern](../build-your-own/council.md) · [Cross-vendor critics](../build-your-own/ai-integration.md)
+**Learn more:** [The council pattern](../build-your-own/council.md) · [Cross-vendor critics](../workflows/council-models.md)
 
 ---
 

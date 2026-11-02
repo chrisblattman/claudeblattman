@@ -167,8 +167,8 @@ Codex or Gemini — same prompt, different vendor, dispatched in the same parall
 failures this way that no all-Claude panel surfaced, mostly around empirical claims Claude wanted to
 believe.
 
-Setup, flags, and the manual paste-loop for tools without CLIs (Grok, ChatGPT Deep Research,
-Perplexity) live on the [AI integration](ai-integration.md) page.
+For help connecting other AI models and choosing your default council, follow the
+[Different AI models](../workflows/council-models.md) guide.
 
 ---
 
@@ -198,6 +198,6 @@ Prefer individual files, or want to see what each one does before installing? Se
 
 - **[Deep Research](../workflows/deep-research.md)** — the gather-and-synthesize workflow that produces the kind of input most worth running a council on.
 - **[Continuous Improvement](../hyperlinks/continuous-improvement.md)** — the worked tips-pipeline specialization where five fixed personas (catalog conflict, maintenance tax, compounder, first-run, skeptic) decide what enters my CLAUDE.md. The general pattern, applied to one specific domain — and it predates the four-critic cap in the shipped skill.
-- **[AI integration](ai-integration.md)** — cross-vendor critics (Codex, Gemini) as council members; setup, flags, manual paste-loop for tools without CLIs.
+- **[AI integration](../workflows/council-models.md)** — connect other AI models and choose your default council.
 - **[Fresh-chat review](../hyperlinks/plan-review-browser.md)** — a manual route when independent agents are unavailable.
 - **[The council workflow](../workflows/first-session-skills.md)** — where `/council` fits in the broader loop.

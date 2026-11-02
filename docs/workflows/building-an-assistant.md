@@ -101,7 +101,7 @@ Each skill works on its own — you can install just `/triage-inbox` and get val
 
 To build EA capabilities, you need:
 
-1. **Claude Code installed and configured** — [Install guide (Mac)](../hyperlinks/install-mac.md) or [Install guide (Windows)](../hyperlinks/install-windows.md)
+1. **Claude Code installed and configured** — [Start from scratch](../starter-kit/newcomers.md)
 2. **CLAUDE.md with your role, preferences, and projects** — [Setup guide](../build-your-own/agents-md.md)
 3. **Gmail MCP configured** (minimum) — [MCP guide](../build-your-own/mcp-setup.md)
 4. **Google Calendar MCP configured** (recommended) — same [MCP guide](../build-your-own/mcp-setup.md)

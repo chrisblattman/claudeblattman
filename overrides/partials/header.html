@@ -63,6 +63,7 @@
         to match this search field. X lives in the footer, where extra.social
         already renders it. -#}
   </nav>
+  <p class="cb-mobile-tagline">{{ config.site_name.split('·')[-1] | trim }}</p>
   {% if "navigation.tabs.sticky" in features %}
     {% if "navigation.tabs" in features %}
       {% include "partials/tabs.html" %}

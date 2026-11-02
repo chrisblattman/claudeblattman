@@ -447,7 +447,7 @@ A typical `mcp-servers.json` might configure servers like these:
 | `whatsapp` | `node src/main.ts` | WhatsApp Web protocol |
 | `zotero` | `npx mcp-zotero` | Zotero cloud API |
 | `overleaf` | `node overleaf-mcp-server.js` | Overleaf project access |
-| `apple-mcp` | `bunx apple-mcp@latest` | Apple apps via osascript (archived — [see limitations](../../build-your-own/mcp-setup.md#apple-apps-mac-only)) |
+| `apple-mcp` | `bunx apple-mcp@latest` | Apple apps via osascript (archived — [see limitations](../../build-your-own/mcp-setup.md#mcp-servers)) |
 | `granola` | `granola-mcp-server` | Meeting summaries |
 
 Each server is a separate process running on your machine. When Claude Code starts, it launches all configured servers and collects their tool definitions.

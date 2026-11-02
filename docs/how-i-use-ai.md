@@ -44,7 +44,7 @@ This also applies when a workflow fails. I don’t need to know which instructio
 
 [Multi-agent work](starter-kit/occasional.md#why-three-agents) is central to how I use AI. For difficult work, I would be much less comfortable relying on a single agent’s first answer. I want several attempts, different lines of investigation, and people—or their imperfect AI equivalents—looking for what the others missed.
 
-Sometimes I ask several separate instances of the same AI to tackle a question. Sometimes I use [different AIs](build-your-own/ai-integration.md#why-mix-vendors). I call this a [council](starter-kit/occasional.md). Each can work independently before another pass compares the results. Useful disagreement gets preserved: one reviewer may spot a bad assumption that every other reviewer accepted.
+Sometimes I ask several separate instances of the same AI to tackle a question. Sometimes I use [different AIs](workflows/council-models.md). I call this a [council](starter-kit/occasional.md). Each can work independently before another pass compares the results. Useful disagreement gets preserved: one reviewer may spot a bad assumption that every other reviewer accepted.
 
 There are two different jobs here. I might divide a large investigation into distinct questions, so agents can research different parts. Or I might give several agents the same plan to assess independently. Dividing the work broadens what gets examined. Independent reviews give me several chances to discover a problem. Asking one chat to play several characters does not give me the same separation.
 

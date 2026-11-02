@@ -8,6 +8,19 @@ Pick something you actually want to get done. A family trip to plan, or a decisi
 
 You don’t need to code or use a terminal. You do need to give the agent a runway: point it in the right direction, supply the information it needs, and keep correcting the course. The aim is to get the plane to take off and land.
 
+<details class="council-details" markdown="1">
+<summary>Why I currently use Codex — October 2026</summary>
+
+Codex fits the way I work right now. I move between a desktop, a laptop, and my phone, and I find the mobile and cross-machine experience especially useful. I also like being able to look at a document or page beside the conversation and give feedback where I see the problem, through edits, comments, or annotations, depending on what I'm working on.
+
+ChatGPT is another big part of that setup. I rely heavily on Deep Research in the browser. That's a separate part of my workflow, rather than a feature I am claiming every Codex task includes.
+
+My university provides Claude at very low cost to me, which is great. The university has also been supportive of using these tools. Institutional accounts still limit some integrations, and my personal Codex setup gives me more flexibility. I use it to coordinate other AIs through Ask Agents and related skills I've set up.
+
+Those are my reasons. They aren't a reason to abandon an app that already works for you, and my own preference could change in a few months.
+
+</details>
+
 <div class="checklist" markdown>
 
 ## Set up your tool
@@ -16,7 +29,7 @@ You don’t need to code or use a terminal. You do need to give the agent a runw
 
 Start with **Claude Code** or **Codex**, OpenAI’s agent. If you already use one, keep it. If you already pay for Claude or ChatGPT, check what your plan includes before buying something else. You can add a second AI later.
 
-The [guide to choosing an agent](../build-your-own/picking-your-agent.md) has more detail. For today, the useful decision is which app you’ll open and use.
+For today, the useful decision is which app you’ll open and use.
 
 <label class="step-done"><input type="checkbox"> I’ve chosen an agent.</label>
 

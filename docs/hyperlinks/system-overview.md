@@ -39,7 +39,7 @@ This cycle is what turns a collection of tools into a system that compounds over
 
 You should have:
 
-- A working Claude Code installation ([Install guides](install-mac.md))
+- A working Claude Code installation ([Install guides](../starter-kit/newcomers.md))
 - A configured CLAUDE.md file ([Setup guide](../build-your-own/agents-md.md))
 - Some experience using existing skills ([Skill Library](skill-reference.md))
 - Comfort reading and editing markdown files

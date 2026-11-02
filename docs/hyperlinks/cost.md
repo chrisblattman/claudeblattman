@@ -78,6 +78,6 @@ If you're not sure whether this is worth it, here's a low-risk sequence:
 1. **Week 1:** Sign up for Claude Pro ($20/mo) and work through [your first session](../starter-kit/newcomers.md). Then use it for one real work task daily.
 2. **Week 2:** Try Wispr Flow (free trial available). See if dictation changes how you interact with AI.
 3. **Week 3:** If you're getting value, try Granola for your next few meetings.
-4. **Week 4:** If you want to go deeper, install Claude Code ([Install Guide](install-mac.md)) and try the Toolkit path.
+4. **Week 4:** If you want to go deeper, install Claude Code ([Install Guide](../starter-kit/newcomers.md)) and try the Toolkit path.
 
 At each step, you can stop. You don't need the full stack to get value. The chatbot alone, used well, is worth the subscription for most knowledge workers.

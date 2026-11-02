@@ -246,6 +246,7 @@
    See overrides/main.html.
    ============================ */
 
+@media screen and (min-width: 76.25em) {
 /* The section's own heading, and every page row inside it — at either depth.
    Build Your Own is flat (section > pages). Workflows is nested
    (section > category > pages), so the category's own label and its pages both
@@ -414,6 +415,8 @@ html[data-cb-sidebar="section"] .md-sidebar--primary
   content: "\2713\00a0";
   font-weight: 700;
   color: var(--cb-accent-text);
+}
+
 }
 
 /* ============================
@@ -2433,6 +2436,7 @@ html[data-cb-sidebar="section"] .md-sidebar--primary
    the structure; this column's job is the page you are reading.
    ============================ */
 
+@media screen and (min-width: 76.25em) {
 .md-sidebar--primary .md-nav__title,
 .md-sidebar--primary .md-nav__link,
 .md-sidebar--primary .md-nav__container {
@@ -2463,6 +2467,8 @@ html[data-cb-sidebar="page"] .md-sidebar--primary .md-nav.md-nav--secondary {
 .md-sidebar--primary .md-nav__list {
   margin-left: 0;
   padding-left: 0;
+}
+
 }
 
 /* ============================
@@ -2810,4 +2816,31 @@ html[data-cb-sidebar="page"] .md-sidebar--primary .md-nav.md-nav--secondary {
   color: var(--cb-accent-text);
   border-color: var(--cb-accent-text);
   background-color: transparent;
+}
+
+/* Keep the complete site navigation in phone and tablet drawers. Desktop
+   category links supplement the original toggle labels instead of replacing them. */
+@media screen and (max-width: 76.234375em) {
+  /* A fading closed drawer must not intercept header or page clicks. */
+  .md-overlay { pointer-events: none; }
+  [data-md-toggle="drawer"]:checked ~ .md-overlay { pointer-events: auto; }
+  .md-sidebar--primary[hidden] { display: block; }
+  .md-sidebar--primary .cb-cat-link { display: none; }
+  .md-sidebar--primary .cb-sidebar-count,
+  .md-sidebar--primary .cb-sidebar-reset { display: none; }
+}
+@media screen and (min-width: 76.25em) {
+  html[data-cb-sidebar="section"] .md-sidebar--primary label.cb-cat-toggle { display: none; }
+}
+.cb-mobile-tagline { display: none; }
+@media screen and (max-width: 599px) {
+  .cb-mobile-tagline {
+    display: block;
+    margin: 0;
+    padding: .15rem .8rem .4rem;
+    color: var(--md-primary-bg-color);
+    font-size: .65rem;
+    line-height: 1.3;
+    text-align: center;
+  }
 }

@@ -56,9 +56,6 @@ Tick off what you’ve tackled. Use the links for anything new, then move to the
 | **5. Teach it your voice** | |
 | <label><input type="checkbox"><span>Have you gotten it to sound like you?</span></label> | [Tell it how](build-your-own/voice.md) |
 | <label><input type="checkbox"><span>Have you set up continuous improvement?</span></label> | [Build a system](how-i-improve-the-work.md) |
-| **6. Organize your digital life** | |
-| <label><input type="checkbox"><span>Are your files a digital mess?</span></label> | [Fix it once](workflows/cloud-storage-guide.md) |
-| <label><input type="checkbox"><span>Are all your projects organized?</span></label> | [Help your AI out](workflows/organize-projects.md) |
 
 </div>
 
@@ -76,3 +73,6 @@ and work at your own pace.
   [Project management and research](workflows/projects-and-research.md)
 - **Stay on top of everyday life.** Get help with messages, meetings, household decisions and travel.
   [The executive assistant workflows](workflows/executive-assistant.md)
+
+- **Improve your AI setup.** Organize your files and projects, connect your apps, and build useful routines.
+  [Improve your AI setup](workflows/best-practices.md)

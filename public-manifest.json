@@ -36,14 +36,14 @@
       "sha256": "917d9231822f11c0703aedb966098516042e406c7bac000bb66bce7cacb6d3fa"
     },
     {
-      "bytes": 34368,
+      "bytes": 34460,
       "path": "docs/hyperlinks/skill-reference.md",
-      "sha256": "0fbb6758b072650c36bbf0240573cb0066598d78100b1a646b1a83773bce8b51"
+      "sha256": "6975031514ae49720d6529727ad1e7d6444531ee945b47ad0d431f173c483f77"
     },
     {
-      "bytes": 4827,
+      "bytes": 4675,
       "path": "docs/index.md",
-      "sha256": "29d7769bf71249b5eb87d2f89f17e7dba6e154d430a556262b0e7286b7bfff0c"
+      "sha256": "466eec3c1fd338575cf20270ff4343f40d7f2d88a0b140908553ad8b2ab2347b"
     },
     {
       "bytes": 4627,
@@ -56,9 +56,9 @@
       "sha256": "3d8abddacb199f97aab7ec90a7f53e698d53fcdafa90531fc1061b25045f4416"
     },
     {
-      "bytes": 11443,
+      "bytes": 12489,
       "path": "docs/starter-kit/newcomers.md",
-      "sha256": "e764dcc5ed2bb1c62cfbe0811243f66e1b8218039e9478aa7eed3477986fb35f"
+      "sha256": "30428c771bcfe017d3fbeb4a7cc69e41b164f0f98fc68a0978d59cf0b9ceb1ad"
     },
     {
       "bytes": 23793,
@@ -66,19 +66,19 @@
       "sha256": "5178ac6c9c46f6a8a390fce0b63f13ea963b6098479841ece986fec592ff402a"
     },
     {
-      "bytes": 13209,
+      "bytes": 12922,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "9516be9003bca34cfbe3aacf15083216367e342f572cc84ca1d31bdaa0510fae"
+      "sha256": "467ed0d7f530dbe5211a33dc23abdd0b6e43d358ac245a5242daf3bc5cb25f27"
     },
     {
-      "bytes": 99957,
+      "bytes": 101069,
       "path": "docs/stylesheets/extra.css",
-      "sha256": "13246aab663a2614d8ff991b9d51eb926d5db12b7efc4aa2240ab95d40b4a2ad"
+      "sha256": "9cef5dbc941a47e2b741920fb49b4b6721605fe29b0f5835df2b49a881d947aa"
     },
     {
-      "bytes": 13439,
+      "bytes": 13610,
       "path": "mkdocs.yml",
-      "sha256": "1e685a00903e8fdad38c225f5d037f21f7e01ac125fbda82e83275c31838cbc4"
+      "sha256": "c62f89f92e1c419897f5ece7d2d2a6da1dd665d904d160eca4b6226ae6f2a5b6"
     },
     {
       "bytes": 17171,

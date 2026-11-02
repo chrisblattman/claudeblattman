@@ -26,7 +26,7 @@ rather than a missing capability.
 Mostly no. Gemini has one narrow advantage — large-context work inside Google Workspace, where it
 can read across a folder of documents in one go. Grok's case is weaker still. Neither replaces the
 main tool; both are worth having only if you already pay for them for another reason, or if you want
-a [cross-vendor second opinion](build-your-own/ai-integration.md) on something high-stakes.
+a [cross-vendor second opinion](workflows/council-models.md) on something high-stakes.
 
 ## Using the tools
 

@@ -13,7 +13,7 @@ The stages build on one another, but there is no timetable. Follow the order whe
 starting point, or go straight to the work you need help with. The times beside the tasks are
 rough estimates.
 
-Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Work and everyday life](../workflows/executive-assistant.md) for a task, and [Customize your workflow](../workflows/best-practices.md) for connections, instructions, skills, and [templates](../templates.md). The checklist below brings those guides together. Data analysis, coding rules, and academic expenses are still forthcoming; their linked pages are labeled as placeholders.
+Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Work and everyday life](../workflows/executive-assistant.md) for a task, and [Improve your AI setup](../workflows/best-practices.md) for connections, instructions, skills, and [templates](../templates.md). The checklist below brings those guides together. Data analysis, coding rules, and academic expenses are still forthcoming; their linked pages are labeled as placeholders.
 
 <div class="checklist" markdown>
 
@@ -22,22 +22,19 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 <div class="week-card" markdown>
 ### Stage 1 — Set up, and introduce yourself { #week-1-set-up-and-introduce-yourself }
 
-<label class="step-done"><input type="checkbox"> Decide which agent to use: [Picking your agent](../build-your-own/picking-your-agent.md) <span class="est">(2 min)</span></label>
+<label class="step-done"><input type="checkbox"> Decide which agent to use: [Choose an agent](newcomers.md#1-choose-an-agent) <span class="est">(2 min)</span></label>
 <label class="step-done"><input type="checkbox"> Work through [your first session](newcomers.md) <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> Build your [CLAUDE.md / AGENTS.md](../build-your-own/agents-md.md) file <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> Decide whether any [research tools](../build-your-own/external-tools.md) are worthwhile to you <span class="est">(5 min)</span></label>
-<label class="step-done"><input type="checkbox"> Get comfortable in [VS Code](../hyperlinks/vscode-setup.md), where you can see the files you're working on <span class="est">(15 min)</span></label>
+<label class="step-done"><input type="checkbox"> Get comfortable in [the desktop app](from-terminal.md), where you can see the work beside your conversation <span class="est">(15 min)</span></label>
 <label class="step-done"><input type="checkbox"> Skim the [FAQ](../faq.md) so you know what's answered there <span class="est">(5 min)</span></label>
 
-<!-- EDITORIAL — two page-level jobs this week now depends on, both BACKLOG:
+<!-- EDITORIAL — page-level job this week depends on, BACKLOG:
      · "Build your CLAUDE.md / AGENTS.md" is ONE row here but TWO pages today.
        downloads/real-claude-md-example.md is to be merged into
        toolkit/claude-md.md. Until that lands the annotated example is
        unreachable from this plan. See N10.
-     · setup/vscode-setup.md needs renaming and rewriting: drop Claude-in-VS-Code
-       and every terminal reference, and write it for someone who has never
-       opened an editor or seen a Markdown file. The 15 min assumes the rewrite.
-       See N11. -->
+ -->
 </div>
 
 <div class="week-card" markdown>
@@ -86,7 +83,7 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 
 <label class="step-done"><input type="checkbox"> Write a one-page [project brief](../templates.md#project-brief-project-briefmd) for one live project, and read it before you trust it <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> [Create council agents](../build-your-own/council.md) with roles suited to your work <span class="est">(20 min)</span></label>
-<label class="step-done"><input type="checkbox"> Set up [cross-vendor review](../build-your-own/ai-integration.md) <span class="est">(35 min)</span></label>
+<label class="step-done"><input type="checkbox"> Set up [cross-vendor review](../workflows/council-models.md) <span class="est">(35 min)</span></label>
 </div>
 
 <div class="week-card" markdown>

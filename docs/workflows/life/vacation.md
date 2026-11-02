@@ -280,8 +280,8 @@ You probably don't need these. Add them only when you feel recurring pain in one
 
     ---
 
-    When to use ChatGPT vs Claude — and when it matters for project folders.
+    Choose your desktop agent and try it on a real project.
 
-    [:octicons-arrow-right-24: ChatGPT vs Claude](../../build-your-own/picking-your-agent.md)
+    [:octicons-arrow-right-24: Choose an agent](../../starter-kit/newcomers.md)
 
 </div>
