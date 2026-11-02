@@ -13,7 +13,7 @@ The stages build on one another, but there is no timetable. Follow the order whe
 starting point, or go straight to the work you need help with. The times beside the tasks are
 rough estimates.
 
-Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Work and everyday life](../workflows/executive-assistant.md) for a task, and [Improve your AI setup](../workflows/best-practices.md) for connections, instructions, skills, and [templates](../templates.md). The checklist below brings those guides together. Data analysis, coding rules, and academic expenses are still forthcoming; their linked pages are labeled as placeholders.
+Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Everyday life](../workflows/executive-assistant.md) for a task, and [Improve your AI setup](../workflows/best-practices.md) for connections, instructions, skills, and [templates](../templates.md). The checklist below brings those guides together. Data analysis, coding rules, and academic expenses are still forthcoming; their linked pages are labeled as placeholders.
 
 <div class="checklist" markdown>
 

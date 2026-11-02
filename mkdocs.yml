@@ -137,7 +137,7 @@ nav:
       - Weekly review: workflows/weekly-review.md
       - Manage sub-projects: workflows/sub-project-routing.md
       - "Example: project dashboard": workflows/examples/project-overview-example.md
-    - Work and everyday life:
+    - Everyday life:
       - workflows/executive-assistant.md
       - Build an AI executive assistant: workflows/building-an-assistant.md
       - Meeting follow-up: workflows/meeting-workflow.md

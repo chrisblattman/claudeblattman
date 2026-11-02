@@ -2,7 +2,7 @@
 description: The jobs that aren't research but eat the week anyway — meetings, inbox noise, tax season, and the decision folders for shopping, travel and health.
 ---
 
-# Work and everyday life
+# Everyday life
 
 The jobs that aren't research but eat the week anyway. Read the overview first; the rest are
 worked examples you can copy.
