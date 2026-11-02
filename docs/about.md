@@ -14,7 +14,7 @@ I'm a political economist at the [Harris School of Public Policy](https://harris
 
 - I write about research, conflict, policy, and increasingly about AI tools on [X/Twitter (@cblatts)](https://twitter.com/cblatts) and at [chrisblattman.com](https://chrisblattman.com/).
 - I've written a book about the causes of war and peace: [*Why We Fight*](https://chrisblattman.com/why-we-fight/).
-- I also share practical advice for [students](https://chrisblattman.com/undergrad-ma/), [PhD researchers](https://chrisblattman.com/phd-advice/), and [faculty](https://chrisblattman.com/advice-professors/), including [how to write well](https://chrisblattman.com/writing/).
+- For over a decade I've written practical advice on [my blog](https://chrisblattman.com/) for [students](https://chrisblattman.com/undergrad-ma/), [PhD researchers](https://chrisblattman.com/phd-advice/), and [faculty](https://chrisblattman.com/advice-professors/), including [how to write well](https://chrisblattman.com/writing/).
 
 ## The team behind this site
 
