@@ -17,7 +17,6 @@ If you are getting started, follow the [essentials checklist](../index.md#my-abs
 | [Write persistent instructions](../build-your-own/agents-md.md) | Save context and preferences for future sessions |
 | [Set rules and guidelines](../build-your-own/rules.md) | Make recurring expectations explicit |
 | [Create a skill](../build-your-own/building-skills.md) | Turn a repeated task into reusable instructions |
-| [Customize council agents](../build-your-own/council.md) | Adapt the reviewers to your work |
 | [Connect different agents](council-models.md) | Set up outside opinions across AI services |
 | [Set up continual improvement](../how-i-improve-the-work.md) | Turn feedback on drafts into better guidance for future work |
 | [Scout and curate new AI tips](../hyperlinks/continuous-improvement.md) | Collect useful ideas and decide which to adopt in your workflow |

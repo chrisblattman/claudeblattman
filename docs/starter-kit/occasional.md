@@ -147,7 +147,7 @@ You don’t have to learn the installation procedure before you start. Ask it to
 === "Codex"
 
     1. Open **Plugins** in the app’s sidebar, or **Settings → Plugins** in versions that put it there.
-    2. Search for **Starter Kit for Codex**, open its details, and choose **Install** or the **+** button. If it is not listed, give the agent the GitHub link above so it can check the repository installation route.
+    2. Search for **Starter Kit for Codex**, open its details, and choose **Install** or the **+** button. If it is not listed, give the agent the [GitHub repository link](https://github.com/chrisblattman/claudeblattman) so it can check the repository installation route.
     3. Start a new chat in your project folder. Type `/kit-hello`, select the matching skill, and send it to check the installation.
 
 If the controls in your version look different, use the current [Claude installation guide](https://code.claude.com/docs/en/discover-plugins) or [Codex plugins guide](https://learn.chatgpt.com/docs/plugins), or ask the agent to walk you through them.

@@ -18,17 +18,11 @@ I tend to think about this in terms of the cost of a research assistant: how muc
 
 ## What is each model good at?
 
-For councils, I start by treating Claude, Codex, and Gemini as generalists. I want each to take a fresh look at the whole task. I don’t need to decide in advance that one is the writer and another is the critic. I use Grok for specific outside questions rather than as a regular council member.
+**Claude and Codex:** I find both good generalists, and they tend to give me similar output. Codex seems to do a little better at web searches in my experience. I also like paying for a ChatGPT subscription because it gives me access to Deep Research, which I rely on heavily for my work.
 
-To decide which earns a place in your own workflow, try them on work you can judge:
+**Gemini:** I find it gives me genuinely different results and perspectives from the other two. That is why I like having it in my default council: it helps fill gaps Claude and Codex leave.
 
-- **Writing and revision:** which gives you a draft you can actually use, and responds well to your corrections?
-- **Research and checking:** which finds useful evidence, supports its claims, and catches something important the others missed?
-- **Getting the work done:** which can use your files and tools, make the requested changes, and check the result with the least back-and-forth?
-
-You can ask your main AI to arrange the comparison and bring the results together. Read the actual work before deciding which subscription to keep.
-
-<!-- Editorial follow-up: replace or expand this practical comparison framework with a dated four-provider strengths guide after review. The October 28 CURRENT_FINDINGS.md supports task-specific capabilities, not permanent vendor roles or a general ranking. -->
+**Grok:** I pay for a small subscription because it is the best tool I've found for searching X/Twitter posts, where I find many of the newest AI approaches and workflows. I usually send it particular, narrow questions about AI integrations and best practices, rather than asking it to carry out work as a regular council member.
 
 <div class="checklist" markdown>
 

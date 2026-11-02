@@ -165,7 +165,7 @@ See [Patterns](../hyperlinks/patterns.md) for the full catalog.
 
 - **[Agents vs Skills](../hyperlinks/agents-vs-skills.md)** — When to use a subagent instead
 - **[Patterns](../hyperlinks/patterns.md)** — Reusable design patterns and quality checklist
-- **[Skill Library](../hyperlinks/skill-reference.md)** — Study existing skills as examples
+- **[skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills)** — Study existing skills as examples
 - **[Skill Design Patterns](../hyperlinks/downloads/skill-patterns.md)** — Downloadable reference with archetypes, quality checklist, and performance logging conventions (February 2026)
 
 <label class="page-done"><input type="checkbox"> I built a skill!</label>

@@ -155,7 +155,6 @@ nav:
       - Write persistent instructions: build-your-own/agents-md.md
       - Set rules and guidelines: build-your-own/rules.md
       - Create a skill: build-your-own/building-skills.md
-      - Customize council agents: build-your-own/council.md
       # A second link keeps this label distinct from Essentials > Build a system.
       - Set up continual improvement: /how-i-improve-the-work/
       - Scout and curate new AI tips: hyperlinks/continuous-improvement.md
@@ -197,6 +196,8 @@ plugins:
   - meta
   - redirects:
       redirect_maps:
+        build-your-own/council.md: starter-kit/occasional.md
+        hyperlinks/skill-reference.md: starter-kit/occasional.md
         about-chris.md: about.md
         hyperlinks/setup-overview.md: starter-kit/newcomers.md
         hyperlinks/install-mac.md: starter-kit/newcomers.md
@@ -223,7 +224,7 @@ plugins:
         essentials/notebooklm.md: hyperlinks/notebooklm.md
         essentials/wispr-flow.md: hyperlinks/wispr-flow.md
         setup/index.md: starter-kit/newcomers.md
-        setup/skill-reference.md: hyperlinks/skill-reference.md
+        setup/skill-reference.md: starter-kit/occasional.md
         setup/vscode-setup.md: starter-kit/newcomers.md
         system/agents-vs-skills.md: hyperlinks/agents-vs-skills.md
         system/continuous-improvement.md: hyperlinks/continuous-improvement.md
@@ -246,10 +247,10 @@ plugins:
         system/building-skills.md: build-your-own/building-skills.md
         toolkit/claude-md.md: build-your-own/agents-md.md
         toolkit/mcp-setup.md: build-your-own/mcp-setup.md
-        workflows/council.md: build-your-own/council.md
+        workflows/council.md: starter-kit/occasional.md
         quickstart.md: hyperlinks/essentials-overview.md
         setup/modes.md: starter-kit/newcomers.md
-        toolkit/skills-guide.md: hyperlinks/skill-reference.md
+        toolkit/skills-guide.md: starter-kit/occasional.md
         workflows/tips-pipeline.md: hyperlinks/continuous-improvement.md
         # /workflows/ is a live URL on main, so the hub cannot just vanish.
         # Three category pages replaced it; general best practices is the one
@@ -268,7 +269,7 @@ plugins:
         downloads/prompt-assistant-instructions.md: hyperlinks/prompting.md#make-the-ai-do-this-for-you
         downloads/prompt-preferences-template.md: hyperlinks/prompting.md#save-your-preferences-and-test-changes
         essentials/folders/work.md: build-your-own/project-folders.md
-        skills/school-digest-raw-materials.md: hyperlinks/skill-reference.md
+        skills/school-digest-raw-materials.md: starter-kit/occasional.md
   - social:
       cards_layout_options:
         background_color: "#263238"

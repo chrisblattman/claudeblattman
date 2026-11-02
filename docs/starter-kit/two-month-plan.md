@@ -82,7 +82,6 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 ### Stage 5 — Brief a project, and challenge the work { #week-5-brief-a-project-and-challenge-the-work }
 
 <label class="step-done"><input type="checkbox"> Write a one-page [project brief](../templates.md#project-brief-project-briefmd) for one live project, and read it before you trust it <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> [Create council agents](../build-your-own/council.md) with roles suited to your work <span class="est">(20 min)</span></label>
 <label class="step-done"><input type="checkbox"> Set up [cross-vendor review](../workflows/council-models.md) <span class="est">(35 min)</span></label>
 </div>
 
@@ -122,16 +121,16 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 <label class="step-done"><input type="checkbox"> Read [how Chris uses his AI executive assistant](../workflows/building-an-assistant.md) <span class="est">(30 min)</span></label>
 
 <div class="pick-group" markdown>
-<label class="step-done"><input type="checkbox"> Use [the skill library](../hyperlinks/skill-reference.md) to set up one, two, or all of these <span class="est">(~15 min each)</span></label>
+<label class="step-done"><input type="checkbox"> Use [the skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills) to set up one, two, or all of these <span class="est">(~15 min each)</span></label>
 <div class="sub-list" markdown>
-<label class="sub-done"><input type="checkbox"> [`/triage-inbox`](../hyperlinks/skill-reference.md#triage-inbox-smart-inbox-triage) — sorts the inbox and drafts the easy replies</label>
-<label class="sub-done"><input type="checkbox"> [`/checkin`](../hyperlinks/skill-reference.md#checkin-daily-check-in-session) — the interactive daily session that wraps triage</label>
-<label class="sub-done"><input type="checkbox"> [`/morning-brief`](../hyperlinks/skill-reference.md#morning-brief-daily-briefing) — the same thing passively, as a report you read</label>
-<label class="sub-done"><input type="checkbox"> [`/schedule-query`](../hyperlinks/skill-reference.md#schedule-query-calendar-availability) — answers "when am I free" against your calendar</label>
-<label class="sub-done"><input type="checkbox"> [`/pre-meeting-brief`](../hyperlinks/skill-reference.md#pre-meeting-brief-meeting-prep-briefing) — who you're meeting, what happened last time</label>
-<label class="sub-done"><input type="checkbox"> [`/post-meeting`](../hyperlinks/skill-reference.md#post-meeting-meeting-follow-up) — turns notes into actions and follow-up mail</label>
-<label class="sub-done"><input type="checkbox"> [`/goals-review`](../hyperlinks/skill-reference.md#goals-review-goals-review) — keeps the `goals.yaml` the check-in reads from</label>
-<label class="sub-done"><input type="checkbox"> The to-do loop: [`/todo-add`](../hyperlinks/skill-reference.md#todo-add-add-to-do-item), [`/todo-queue`](../hyperlinks/skill-reference.md#todo-queue-todo-queue), [`/todo-review`](../hyperlinks/skill-reference.md#todo-review-to-do-review)</label>
+<label class="sub-done"><input type="checkbox"> [`/triage-inbox`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/triage-inbox.md) — sorts the inbox and drafts the easy replies</label>
+<label class="sub-done"><input type="checkbox"> [`/checkin`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/checkin.md) — the interactive daily session that wraps triage</label>
+<label class="sub-done"><input type="checkbox"> [`/morning-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/morning-brief.md) — the same thing passively, as a report you read</label>
+<label class="sub-done"><input type="checkbox"> [`/schedule-query`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/schedule-query.md) — answers "when am I free" against your calendar</label>
+<label class="sub-done"><input type="checkbox"> [`/pre-meeting-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/pre-meeting-brief.md) — who you're meeting, what happened last time</label>
+<label class="sub-done"><input type="checkbox"> [`/post-meeting`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/post-meeting.md) — turns notes into actions and follow-up mail</label>
+<label class="sub-done"><input type="checkbox"> [`/goals-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/goals-review.md) — keeps the `goals.yaml` the check-in reads from</label>
+<label class="sub-done"><input type="checkbox"> The to-do loop: [`/todo-add`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-add.md), [`/todo-queue`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-queue.md), [`/todo-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-review.md)</label>
 </div>
 </div>
 

@@ -36,11 +36,6 @@
       "sha256": "917d9231822f11c0703aedb966098516042e406c7bac000bb66bce7cacb6d3fa"
     },
     {
-      "bytes": 34460,
-      "path": "docs/hyperlinks/skill-reference.md",
-      "sha256": "6975031514ae49720d6529727ad1e7d6444531ee945b47ad0d431f173c483f77"
-    },
-    {
       "bytes": 4343,
       "path": "docs/index.md",
       "sha256": "5337692c5840f8689e8937135037618444ad683c48f5e3a41752d5848da4302e"
@@ -61,14 +56,14 @@
       "sha256": "52c54b3264b52bd50720a2c70d05d14b610e65fbcfa652fbfd75803a9027a6db"
     },
     {
-      "bytes": 23793,
+      "bytes": 23849,
       "path": "docs/starter-kit/occasional.md",
-      "sha256": "5178ac6c9c46f6a8a390fce0b63f13ea963b6098479841ece986fec592ff402a"
+      "sha256": "137d06839af4e06e7a33ff76592d6e01f95e3be83bb40ab8deea1114c15c2d5c"
     },
     {
-      "bytes": 12913,
+      "bytes": 12951,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "8fbb405f30eb68fc068d46c7d0ba4441155fadd5887f331ff22e2d497578d814"
+      "sha256": "34506cb35ae523cb366aacb8ec289df6e0520af45991b10484be173fa35b6ba2"
     },
     {
       "bytes": 101873,
@@ -76,9 +71,9 @@
       "sha256": "f193466a0931fe184d333fbb9e8669b053bdf6a76cf5bfe7252019837fd2e358"
     },
     {
-      "bytes": 13803,
+      "bytes": 13857,
       "path": "mkdocs.yml",
-      "sha256": "d9221d96fe08bdfb266b3c0d3518830faccaef9d29714b925ebf7ceebcdb0546"
+      "sha256": "9efde567154bdd627529e0e11102a9a92e33b24c4e4fe1b34b55c7942291d96a"
     },
     {
       "bytes": 17171,

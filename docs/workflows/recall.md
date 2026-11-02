@@ -111,7 +111,7 @@ Both skills search local JSONL transcripts. Both are same-machine only. The diff
 The quick rule: use `/conversation-search` for "what did we do last week" style questions that want a summary. Use `/recall` for "find the session where we talked about X" style questions that want a specific match.
 
 !!! note "`/conversation-search` not yet published"
-    `/conversation-search` is a thin Claude Code wrapper over the local JSONL transcript files — sanitization pending. `/recall` (the third-party tool above) ships today; the conversation-search side of the comparison is what I run locally and isn't yet in the [Skill Library](../hyperlinks/skill-reference.md).
+    `/conversation-search` is a thin Claude Code wrapper over the local JSONL transcript files — sanitization pending. `/recall` (the third-party tool above) ships today; the conversation-search side of the comparison is what I run locally and isn't yet in the [skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills).
 
 ---
 

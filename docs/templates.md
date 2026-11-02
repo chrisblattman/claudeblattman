@@ -110,8 +110,8 @@ Fetch these templates from https://raw.githubusercontent.com/chrisblattman/claud
 
 The [starter kit](starter-kit/occasional.md#1-install-the-starter-kit-or-use-plain-language) keeps the core workflows together.
 The repository holds about twenty-five more — daily check-ins, inbox triage, meeting prep and
-follow-up, scheduling, to-do handling, proposal drafting, tax prep. The
-[skill library](hyperlinks/skill-reference.md) describes each one and what it needs.
+follow-up, scheduling, to-do handling, proposal drafting, tax prep. You can browse the
+[skill files on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills) for their instructions and dependencies.
 
 You don't have to take them all, and most people shouldn't. Pick the one that solves a problem
 you actually have this week.

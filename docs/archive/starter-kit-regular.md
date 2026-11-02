@@ -266,7 +266,7 @@ clean is worth more than a promise.
 
     Roles like those aren't in the kit. You write each one once, and because the panel caps at
     four, a new critic **replaces** a default rather than joining it —
-    [how to write your own critic](../build-your-own/council.md#writing-your-own-critic).
+    [how to write your own critic](../starter-kit/occasional.md).
 
     A different *agent* is the stronger independence check when you have one, since a same-family
     critic shares the blind spots of whatever wrote the work.
