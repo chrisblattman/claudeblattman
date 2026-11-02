@@ -40,7 +40,7 @@ export function command(agent,o,out,task) {
   if(agent==='codex')args=['exec','--sandbox','read-only','--skip-git-repo-check','--json','--output-last-message',path.join(out,'codex-final.txt')];
   if(agent==='gemini') {
     if(typeof task!=='string'||!task.trim())throw new Error('Antigravity requires a nonempty task for --print.');
-    args=['--print',task,'--output-format','stream-json','--mode','plan','--print-timeout','2562047h47m16s'];
+    args=['--print',task,'--output-format','stream-json','--print-timeout','2562047h47m16s'];
   }
   if(o.model)args.push('--model',o.model);
   if(o.effort){
