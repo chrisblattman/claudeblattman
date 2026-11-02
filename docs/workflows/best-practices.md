@@ -19,6 +19,8 @@ If you are getting started, follow the [essentials checklist](../index.md#my-abs
 | [Create a skill](../build-your-own/building-skills.md) | Turn a repeated task into reusable instructions |
 | [Customize council agents](../build-your-own/council.md) | Adapt the reviewers to your work |
 | [Connect different agents](council-models.md) | Set up outside opinions across AI services |
+| [Set up continual improvement](../how-i-improve-the-work.md) | Turn feedback on drafts into better guidance for future work |
+| [Scout and curate new AI tips](../hyperlinks/continuous-improvement.md) | Collect useful ideas and decide which to adopt in your workflow |
 | [Research tools](../build-your-own/external-tools.md) | Find supporting tools for research tasks |
 | [Templates](../templates.md) | Start with reusable project briefs, instructions, and other files |
 
