@@ -23,7 +23,9 @@ test('requested model and effort survive without fallback or permission bypass',
   const args=command(p,{model:'exact-model',effort:'high'},'/tmp/fixture','Fixture task');
   assert.ok(args.includes('exact-model'));assert.ok(!args.some(a=>/fallback|skip-permissions|bypassPermissions/.test(a)));
  }
- assert.ok(command('gemini',{},'/tmp','Fixture task').includes('plan'));
+ const gemini=command('gemini',{},'/tmp','Fixture task');
+ assert.ok(!gemini.includes('--mode'),'Antigravity must inherit the saved execution mode');
+ assert.ok(!gemini.includes('--settings'),'the runner must not override personal settings');
  assert.ok(command('codex',{},'/tmp').includes('read-only'));
 });
 test('discovery does not require a kit registry and never uses Gemini CLI',()=>{
@@ -114,7 +116,8 @@ test('Antigravity receives the same complete task as Claude and Codex, as one li
  assert.equal(task,claude.input);assert.equal(task,codex.input);assert.ok(task.endsWith(prompt));
  assert.equal(gemini.input,'');assert.ok(!gemini.args.includes('--input-format'));
  assert.equal(gemini.args[gemini.args.indexOf('--output-format')+1],'stream-json');
- assert.equal(gemini.args[gemini.args.indexOf('--mode')+1],'plan');
+ assert.ok(!gemini.args.includes('--mode'));
+ assert.ok(!gemini.args.includes('--settings'));
  assert.equal(gemini.report,'Complete review\n');
 });
 test('Antigravity rejects missing print tasks and still rejects empty successful responses',()=>{

@@ -18,11 +18,11 @@ I tend to think about this in terms of the cost of a research assistant: how muc
 
 ## What is each model good at?
 
-**Claude and Codex:** I find both good generalists, and they tend to give me similar output. Codex seems to do a little better at web searches in my experience. I also like paying for a ChatGPT subscription because it gives me access to Deep Research, which I rely on heavily for my work.
+**Claude and Codex:** Both are good generalists. I give them much the same jobs and often get similar answers. Codex seems a little better at web searches. I also get a lot of use out of ChatGPT's Deep Research, so I have another reason to keep that subscription.
 
-**Gemini:** I find it gives me genuinely different results and perspectives from the other two. That is why I like having it in my default council: it helps fill gaps Claude and Codex leave.
+**Gemini:** This is the one I keep in the council because it often comes back with something different. Claude and Codex can leave the same gaps. Gemini helps me see what they might have missed.
 
-**Grok:** I pay for a small subscription because it is the best tool I've found for searching X/Twitter posts, where I find many of the newest AI approaches and workflows. I usually send it particular, narrow questions about AI integrations and best practices, rather than asking it to carry out work as a regular council member.
+**Grok:** I pay for a small subscription mostly for searching X/Twitter. It is the best tool I've found for that, and a lot of the new AI tools and ways of using them turn up there first. I send it narrow questions about connecting tools or improving how I use them. I don't usually give it a whole project or a seat on the council.
 
 <div class="checklist" markdown>
 
