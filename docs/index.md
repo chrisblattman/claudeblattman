@@ -14,23 +14,15 @@ social:
 <p class="home-tagline">AI for professionals who don't code</p>
 </div>
 
-<p class="home-byline">By <a href="https://chrisblattman.com">Chris Blattman</a>, political economist at UChicago Harris.</p>
+<p class="home-byline">By <a href="https://chrisblattman.com">Chris Blattman</a>, political economist at UChicago.</p>
 
-<p class="home-lede">In January 2026 I started building AI workflows with Claude Code. What seemed impossible then is running today.</p>
+<p class="home-lede">In January 2026 I started playing with Claude Code. I had no idea what I was doing, but a little advice from colleagues and my own experimentation ultimately changed how I work.</p>
 
-I now use AI for help I always wanted from an executive assistant, a project manager, and a
-research collaborator. It helps me stay on top of commitments, get back into complicated projects,
-and work through ideas. Family vacations and broken water heaters count too.
+Now I use AI as an executive assistant, a project manager, and a research collaborator. It helps me stay on top of commitments, get back into complicated projects, and work through ideas. It also plans family vacations and home repairs.
 
-“Claude Blattman” is my name for this evolving setup. Here I share what I use and how to build
-something useful for yourself. You can begin with one task; you don't need to reproduce my whole system.
+I appreciated the nudge I got from colleagues, and so I built this guide to help others. Beginners start with the checklist below, with more advanced skills available through the menu.
 
-Getting this working took an investment. At first I spent as much time explaining, correcting,
-and trying again as I would have spent doing the job myself. Some recurring tasks took weeks
-to get right. Now the background is there, the routines are familiar, and starting the next
-report or preparing for the next meeting takes much less effort.
-
-[Read the full essay: My AI principles](how-i-use-ai.md)
+[Read my essay on my AI approach and principles](how-i-use-ai.md)
 
 ## My absolute essentials, and where to start
 
