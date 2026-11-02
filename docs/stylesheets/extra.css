@@ -2830,17 +2830,20 @@ html[data-cb-sidebar="page"] .md-sidebar--primary .md-nav.md-nav--secondary {
   .md-sidebar--primary .cb-sidebar-reset { display: none; }
 }
 @media screen and (min-width: 76.25em) {
-  html[data-cb-sidebar="section"] .md-sidebar--primary label.cb-cat-toggle { display: none; }
+  html[data-cb-sidebar="section"] .md-sidebar--primary
+    .md-nav__item--active.md-nav__item--section
+    .md-nav__item--nested > label.md-nav__link.cb-cat-toggle { display: none; }
 }
 .cb-mobile-tagline { display: none; }
 @media screen and (max-width: 599px) {
   .cb-mobile-tagline {
     display: block;
     margin: 0;
-    padding: .15rem .8rem .4rem;
+    /* Match the phone wordmark: menu button, gap, then title margin. */
+    padding: .15rem .8rem .4rem 3.1rem;
     color: var(--md-primary-bg-color);
     font-size: .65rem;
     line-height: 1.3;
-    text-align: center;
+    text-align: left;
   }
 }

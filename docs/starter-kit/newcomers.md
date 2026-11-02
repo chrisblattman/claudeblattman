@@ -8,6 +8,16 @@ Pick something you actually want to get done. A family trip to plan, or a decisi
 
 You don’t need to code or use a terminal. You do need to give the agent a runway: point it in the right direction, supply the information it needs, and keep correcting the course. The aim is to get the plane to take off and land.
 
+<div class="checklist" markdown>
+
+## Set up your tool
+
+### 1. Choose an agent
+
+Start with **Claude Code** or **Codex**, OpenAI’s agent. If you already use one, keep it. If you already pay for Claude or ChatGPT, check what your plan includes before buying something else. You can add a second AI later.
+
+For today, the useful decision is which app you’ll open and use.
+
 <details class="council-details" markdown="1">
 <summary>Why I currently use Codex — October 2026</summary>
 
@@ -20,16 +30,6 @@ My university provides Claude at very low cost to me, which is great. The univer
 Those are my reasons. They aren't a reason to abandon an app that already works for you, and my own preference could change in a few months.
 
 </details>
-
-<div class="checklist" markdown>
-
-## Set up your tool
-
-### 1. Choose an agent
-
-Start with **Claude Code** or **Codex**, OpenAI’s agent. If you already use one, keep it. If you already pay for Claude or ChatGPT, check what your plan includes before buying something else. You can add a second AI later.
-
-For today, the useful decision is which app you’ll open and use.
 
 <label class="step-done"><input type="checkbox"> I’ve chosen an agent.</label>
 
