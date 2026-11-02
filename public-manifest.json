@@ -16,9 +16,9 @@
       "sha256": "9eca5360bb22542ad7baa51f5bb9c0c82941502eb3bcd4ec11be366e0274f6f0"
     },
     {
-      "bytes": 2773,
+      "bytes": 2802,
       "path": ".github/workflows/draft-previews.yml",
-      "sha256": "b7f80428c05c14a89dd824856e488c094a7420f42266ca02c5dd44511759e4ba"
+      "sha256": "2f0198cd2df14fa0d3b3d6415c12daea06c9d146835cc71c4e7a0ad0d86f0565"
     },
     {
       "bytes": 961,
@@ -586,9 +586,9 @@
       "sha256": "501c2f88352a2325f69927b74a23593741506411cef29ba87e79606fd15814ea"
     },
     {
-      "bytes": 3684,
+      "bytes": 4341,
       "path": "scripts/publish-draft-preview.mjs",
-      "sha256": "b67e49e2cc5be7bb420df8e24591add4cf026bf34c32ece814ee01896da15d1d"
+      "sha256": "48efd8ccab7815752942421ed623e08122c9cc5affc0dcd5908575fb65cedcbe"
     },
     {
       "bytes": 4917,

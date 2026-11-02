@@ -2,7 +2,7 @@
 
 Use the shared `drafts` branch as the starting point for parallel work. It contains the preview setup. The published site continues to come from `main` through the existing GitHub Pages workflow.
 
-Start a separate branch for each change, such as `draft/chris-homepage` or `draft/shay-workflows`. Push it to this repository. The Draft Preview check builds the site and returns a preview link in its Actions summary. Open a draft pull request when you want feedback. The same check posts the preview link on the pull request and updates it as the branch changes.
+Start a separate branch for each change, such as `draft/chris-homepage` or `draft/shay-workflows`. Push it to this repository and open a draft pull request to request a preview. The Draft Preview check builds the site and posts its link on the pull request and in the Actions summary. Further pushes update the preview and its link. The shared `drafts` branch also builds a preview when it changes.
 
 Each branch gets its own preview. Changes on one branch do not replace another branch's preview or the published site. The banner and Version details link identify the branch and commit being reviewed. Previews are public but request that search engines do not index them. Keep private notes, correspondence and credentials out of public source and build output.
 
