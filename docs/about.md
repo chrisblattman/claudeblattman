@@ -13,7 +13,7 @@ Claude Blattman is a free, open-source resource for building AI workflows. It do
 
 The name is a joke. The tools are real.
 
-For the current account, read [How I use AI](how-i-use-ai.md) and
+For the current account, read [My AI principles](how-i-use-ai.md) and
 [Build a continuous improvement system](how-i-improve-the-work.md). For who's behind it, see
 [About Chris Blattman](about-chris.md).
 

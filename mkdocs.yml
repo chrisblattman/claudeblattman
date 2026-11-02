@@ -162,9 +162,9 @@ nav:
       - Research tools: build-your-own/external-tools.md
       - Templates: templates.md
   - About:
+    - My AI principles: how-i-use-ai.md
     - About Claude Blattman: about.md
     - About Chris Blattman: about-chris.md
-    - How I put AI to work: how-i-use-ai.md
     - Resources: resources.md
   - FAQ: faq.md
 

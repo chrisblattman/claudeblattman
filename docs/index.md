@@ -30,7 +30,7 @@ and trying again as I would have spent doing the job myself. Some recurring task
 to get right. Now the background is there, the routines are familiar, and starting the next
 report or preparing for the next meeting takes much less effort.
 
-[Read the full essay: How I put AI to work](how-i-use-ai.md)
+[Read the full essay: My AI principles](how-i-use-ai.md)
 
 ## My absolute essentials, and where to start
 
