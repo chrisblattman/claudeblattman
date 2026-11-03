@@ -1,10 +1,14 @@
-# Skills & Agents
+# Skill library
 
-Downloadable skills (slash commands) and agents. Most entries use Claude Code. [Aniket Me](aniket-me/README.md) works with both Claude Code and Codex and has its own installation guide.
+AI for professionals who don't code.
 
-> **First-time desktop users:** start with the [Desktop Agent Starter Kit](../docs/starter-kit/index.md). The files below are an advanced/reference library from a broader setup. Some skills assume Gmail, Calendar, Granola, project configs, or account-specific templates and are not part of the starter kit.
+[claudeblattman.com](https://claudeblattman.com) · [Start here](https://claudeblattman.com/starter-kit/newcomers/) · [Council and review](https://claudeblattman.com/starter-kit/occasional/)
 
-The overlapping `council.md`, `review-plan.md`, and `done.md` files are migration notices. Install the shared kit for these workflows; do not install the legacy files as a second implementation. The broader library is selected reference material and is not a synchronized copy of a personal skill collection.
+A skill is a saved set of instructions that teaches your AI agent to do a recurring job your way, such as recording a session's decisions or reviewing a draft. You install it once, then ask for it by name. You don't need to write code to use one.
+
+**New here?** Install the [starter kit](https://claudeblattman.com/starter-kit/occasional/) instead of individual files. It includes the core workflows and setup skills for Claude Code and Codex, installed together. [Aniket Me](aniket-me/README.md) is a separate maintained skill with its own guide.
+
+The rest of this page is a reference library from my own setup. Most entries are older Claude Code commands that depend on particular accounts, files or helper scripts. Read one to borrow ideas, or ask your agent to help adapt it. They are not a package to install wholesale. The `council.md`, `review-plan.md` and `done.md` files are only notices pointing to the starter kit.
 
 ## Choose an installation route
 
