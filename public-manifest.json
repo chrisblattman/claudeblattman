@@ -36,9 +36,9 @@
       "sha256": "917d9231822f11c0703aedb966098516042e406c7bac000bb66bce7cacb6d3fa"
     },
     {
-      "bytes": 4666,
+      "bytes": 4635,
       "path": "docs/index.md",
-      "sha256": "debb5f3840c5ec2d8241103cd30fffef4ddb6a76e95406430e76b7716f57a504"
+      "sha256": "81222d4a1c8404b7e324048b0570cc3cbf621bb98b68591634273e7b948fe6a7"
     },
     {
       "bytes": 4624,
@@ -61,9 +61,9 @@
       "sha256": "137d06839af4e06e7a33ff76592d6e01f95e3be83bb40ab8deea1114c15c2d5c"
     },
     {
-      "bytes": 12126,
+      "bytes": 12053,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "2926592b044a44c5ac46b7d8d2297a45c2a353afbd72827544af3f9c88178f9a"
+      "sha256": "2d0c27b1458a1411c5ceaf03fd3452f8345b79d9d10864e31fdff500ae1db022"
     },
     {
       "bytes": 101873,

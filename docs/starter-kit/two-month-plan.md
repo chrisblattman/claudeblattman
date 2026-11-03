@@ -1,17 +1,13 @@
 ---
 title: The master checklist
-description: A checklist of the site's setup guides and workflows, in a suggested order. Track your progress and work at your own pace.
+description: An optional route through the site's guides and workflows. Choose what to try next and keep track of what you've already tried.
 ---
 
 # The master checklist { #the-two-month-plan }
 
-A suggested route through the site's guides and workflows, from the basics to research,
-project management and everyday tasks. Tick things off as you go, and skip what you already know
-or don't need.
+You don’t need to complete this checklist. It brings the site’s guides together in a suggested order, if you’d like a route to follow. Pick what’s useful, skip the rest, and tick off what you’ve tried so you can find your place when you return.
 
-The stages build on one another, but there is no timetable. Follow the order when you want a
-starting point, or go straight to the work you need help with. The times beside the tasks are
-rough estimates.
+There is no timetable. The times beside the tasks are rough estimates.
 
 Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Everyday life](../workflows/executive-assistant.md) for a task, and [Improve your AI setup](../workflows/best-practices.md) for connections, instructions, and skills. The checklist below brings those guides together. Data analysis, coding rules, and academic expenses are still forthcoming; their linked pages are labeled as placeholders.
 
