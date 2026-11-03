@@ -4,7 +4,10 @@ hide:
 description: How the weekly review skill updates a living project dashboard in Google Docs — three-marker boundaries, batch writes, and the placeholder trick that stops Google Docs from mangling emoji.
 ---
 
-# Weekly Review: The Mechanics
+# Automate a weekly review to keep track of tasks and next steps
+
+!!! warning "Reference workflow"
+    The public `weekly-review.md` is an example to read and adapt. Its three Python helpers for transcript normalization and Google Doc writes are not bundled in this repository. Review and configure those dependencies before using the workflow on your files or accounts. The public command file alone is not a complete installation.
 
 A weekly project review that writes to a Google Doc sounds simple. In practice it fails in three specific ways until you solve them: the doc grows arbitrarily, the API writes cost a fortune in call overhead, and Google Docs silently corrupts anything that contains emoji. Here's how `/weekly-review` handles each.
 
@@ -93,5 +96,4 @@ The skill is a tool. It's for the 80% of projects where a living Google Doc is t
 
 - **[Project Management](project-management.md)** — the full four-layer system `/weekly-review` lives inside.
 - **[Meeting workflow](meeting-workflow.md)** — how transcripts get captured in the first place.
-- **[Session management](session-management.md)** — why I run `/weekly-review` in a dedicated session rather than between other tasks.
 - **[What's new in April 2026](../changelog.md)**.

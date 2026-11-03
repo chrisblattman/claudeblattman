@@ -2,7 +2,7 @@
 hide:
   - toc
 ---
-# Using Claude Code for Tax Season
+# Use agents to help you prepare your taxes
 
 *Claude Blattman — not quite a CPA.*
 

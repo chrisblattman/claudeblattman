@@ -5,14 +5,13 @@ description: Workflows for work that runs for months — re-entering a cold proj
 # Projects and research
 
 For work that runs for months and that you return to after forgetting where you left it. Start
-with [Catch up on a project](project-management.md).
+with [Catch up on a project](project-management.md). If the project needs a clearer home and reusable context first, see [Organize your projects](organize-projects.md).
 
 | Workflow | What it's for |
 |---|---|
 | **[Catch up on a project](project-management.md)** | Re-entering a project cold and finding what's stale or contradictory |
-| **[Save and resume work](session-management.md)** | Leave a clear handoff and pick up where you stopped |
-| **[Find past work](recall.md)** | Recover decisions and useful material from earlier sessions |
 | **[Weekly review](weekly-review.md)** | One pass across every project, into a living dashboard |
+| **[Find past work](recall.md)** | Recover decisions and useful material from earlier sessions |
 | **[Sub-project routing](sub-project-routing.md)** | Keeping handoffs in the right folder when one project has many strands |
 | **[Deep research](deep-research.md)** | A bounded question, real sources, and checked citations |
 | **[The data analysis workflow](data-analysis.md)** | The agent writes the code, runs it, and you check what came out — *not written yet* |

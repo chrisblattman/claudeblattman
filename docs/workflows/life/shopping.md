@@ -1,6 +1,6 @@
-# Example: Shopping Decisions
+# Build a personal shopper
 
-*This is a detailed example of [AI Project Folders](../../build-your-own/project-folders.md).*
+*This is a detailed example of [Organize your projects](../../workflows/organize-projects.md).*
 
 ---
 
@@ -213,9 +213,9 @@ The guardrails in the instructions file aren't arbitrary. Each one exists becaus
 
     ---
 
-    The universal build guide, starter template, and how to apply this to any domain.
+    Gather reusable context and organize the files, preferences, and current work for a project.
 
-    [:octicons-arrow-right-24: AI Project Folders](../../build-your-own/project-folders.md)
+    [:octicons-arrow-right-24: Organize your projects](../../workflows/organize-projects.md)
 
 -   **See the vacation example**
 

@@ -1,19 +1,15 @@
 ---
 title: The master checklist
-description: A checklist of the site's setup guides and workflows, in a suggested order. Track your progress and work at your own pace.
+description: An optional route through the site's guides and workflows. Choose what to try next and keep track of what you've already tried.
 ---
 
 # The master checklist { #the-two-month-plan }
 
-A suggested route through the site's guides and workflows, from the basics to research,
-project management and everyday tasks. Tick things off as you go, and skip what you already know
-or don't need.
+You don’t need to complete this checklist. It brings the site’s guides together in a suggested order, if you’d like a route to follow. Pick what’s useful, skip the rest, and tick off what you’ve tried so you can find your place when you return.
 
-The stages build on one another, but there is no timetable. Follow the order when you want a
-starting point, or go straight to the work you need help with. The times beside the tasks are
-rough estimates.
+There is no timetable. The times beside the tasks are rough estimates.
 
-Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Everyday life](../workflows/executive-assistant.md) for a task, and [Improve your AI setup](../workflows/best-practices.md) for connections, instructions, skills, and [templates](../templates.md). The checklist below brings those guides together. Data analysis, coding rules, and academic expenses are still forthcoming; their linked pages are labeled as placeholders.
+Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Everyday life](../workflows/executive-assistant.md) for a task, and [Improve your AI setup](../workflows/best-practices.md) for connections, instructions, and skills. The checklist below brings those guides together. Data analysis, coding rules, and academic expenses are still forthcoming; their linked pages are labeled as placeholders.
 
 <div class="checklist" markdown>
 
@@ -25,7 +21,7 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 <label class="step-done"><input type="checkbox"> Decide which agent to use: [Choose an agent](newcomers.md#1-choose-an-agent) <span class="est">(2 min)</span></label>
 <label class="step-done"><input type="checkbox"> Work through [your first session](newcomers.md) <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> Build your [CLAUDE.md / AGENTS.md](../build-your-own/agents-md.md) file <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Decide whether any [research tools](../build-your-own/external-tools.md) are worthwhile to you <span class="est">(5 min)</span></label>
+<label class="step-done"><input type="checkbox"> Decide whether any [research tools](../build-your-own/mcp-setup.md#research-tools) are worthwhile to you <span class="est">(5 min)</span></label>
 <label class="step-done"><input type="checkbox"> Get comfortable in [the desktop app](from-terminal.md), where you can see the work beside your conversation <span class="est">(15 min)</span></label>
 
 <!-- EDITORIAL — page-level job this week depends on, BACKLOG:
@@ -39,26 +35,22 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 <div class="week-card" markdown>
 ### Stage 2 — Learn the loop, and connect your sources { #week-2-learn-the-loop-and-connect-your-sources }
 
-<label class="step-done"><input type="checkbox"> Learn the session moves first: [start-task, HANDOFF, done](../workflows/session-management.md) <span class="est">(30 min)</span></label>
+<label class="step-done"><input type="checkbox"> Save a handoff for your next session with [/done](occasional.md#7-save-where-you-landed) <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> Run a plan past [a council](occasional.md) on something that matters <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> Read [The council workflow](../workflows/first-session-skills.md) for more detail on the loop <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> [Connect your apps](../build-your-own/mcp-setup.md) — mail, documents, messages <span class="est">(10 min)</span></label>
 <label class="step-done"><input type="checkbox"> Start [dictating](../hyperlinks/wispr-flow.md) instead of typing <span class="est">(5 min)</span></label>
 <label class="step-done"><input type="checkbox"> Start [transcribing your meetings](../hyperlinks/granola.md) into the project folder <span class="est">(30 min)</span></label>
 
-<!-- EDITORIAL: session-management teaches a start-task skill Shay believes Chris
-     no longer uses. Audit before this week ships — BACKLOG N14. -->
 </div>
 
 <div class="week-card" markdown>
 ### Stage 3 — Get your files in order { #week-3-get-your-files-in-order }
 
-<label class="step-done"><input type="checkbox"> Set up or reorganise one live project folder using the [AI project folder system](../build-your-own/project-folders.md) <span class="est">(40 min)</span></label>
+<label class="step-done"><input type="checkbox"> Set up or reorganise one live project folder using the [AI project folder system](../workflows/organize-projects.md) <span class="est">(40 min)</span></label>
 <label class="step-done"><input type="checkbox"> Find something you said last month with [search past sessions](../workflows/recall.md) <span class="est">(10 min)</span></label>
 <label class="step-done"><input type="checkbox"> Consider [organizing your cloud storage](../workflows/cloud-storage-guide.md) for better co-working with AI <span class="est">(3 hours)</span></label>
 
-<!-- EDITORIAL: essentials/folders/work.md folds into project-folders.md as the
-     worked example for row 1 — BACKLOG N12. -->
 </div>
 
 <div class="week-card" markdown>
@@ -80,7 +72,7 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 <div class="week-card" markdown>
 ### Stage 5 — Brief a project, and challenge the work { #week-5-brief-a-project-and-challenge-the-work }
 
-<label class="step-done"><input type="checkbox"> Write a one-page [project brief](../templates.md#project-brief-project-briefmd) for one live project, and read it before you trust it <span class="est">(30 min)</span></label>
+<label class="step-done"><input type="checkbox"> Write a one-page [project brief](https://github.com/chrisblattman/claudeblattman/blob/main/templates/project-brief-template.md) for one live project, and read it before you trust it <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> Set up [cross-vendor review](../workflows/council-models.md) <span class="est">(35 min)</span></label>
 </div>
 

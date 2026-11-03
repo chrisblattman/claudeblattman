@@ -4,4 +4,4 @@ Start with [Council and review](../starter-kit/occasional.md): install the skill
 
 The companion guides cover [connecting different AI models and changing your defaults](council-models.md), and [using deep research to find and assess evidence](deep-research.md).
 
-The [session guide](session-management.md) covers saving and resuming your work.
+The [handoff step](../starter-kit/occasional.md#7-save-where-you-landed) covers saving your work for the next session.

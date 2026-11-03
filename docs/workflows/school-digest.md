@@ -1,4 +1,4 @@
-# Organizational Noise Canceling
+# Cut through inbox noise
 
 <span class="badge badge-intermediate">Intermediate</span>
 <span class="badge badge-time">< 1 hour to set up</span>

@@ -56,7 +56,7 @@ Help me keep my standing instructions in my synced folder and connect them where
 
 **Git** records saved versions of a project's files. Each saved checkpoint is called a **commit**. **GitHub** hosts these projects, called **repositories**, so people can share and work on them together. Repositories can be public or private.
 
-My skills and templates live in a public GitHub repository. You can give your agent a link and ask it to read the instructions and help you use the files. The [Templates](templates.md) page has examples.
+My skills and templates live in a public GitHub repository. You can give your agent a link and ask it to read the instructions and help you use the files. The [project organization guide](workflows/organize-projects.md) shows how to put those files to work.
 
 Git is also useful for keeping a history of your own work. Ask your agent to set it up and save checkpoints at useful milestones. You can return to those saved versions; Git does not automatically preserve every unsaved change.
 

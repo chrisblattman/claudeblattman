@@ -7,6 +7,7 @@ Convert collected tips, reference pack recommendations, and session follow-ups i
 
 **Required:**
 - A tips log (e.g., `~/.claude-assistant/tips/collected-tips-log.md`) — populated by `/tips-curate` or by hand
+- The companion file at `~/.claude/skill-references/tips-integrate/scanning-rules.md`, installed using the public README. Check that it exists before scanning or changing any target. If it is missing, stop and explain which file is needed.
 
 **Optional (for the 5-persona council in Phase 1.5):**
 - The `proposal-critic-agent.md` file (bundled at `agents/proposal-critic-agent.md` on this site — copy to `~/.claude/agents/`)
@@ -51,7 +52,7 @@ Rewriting skill/config files is per-item confirm — show each proposed edit and
 
 ### Phase 1: Scan Sources
 
-**Read `references/scanning-rules.md` first** — it has tag-to-target mappings, the direct-vs-investigation heuristic, and source-specific parsing logic. Follow those rules for all parsing details below.
+**Read `~/.claude/skill-references/tips-integrate/scanning-rules.md` first** — it has tag-to-target mappings, the direct-vs-investigation heuristic, and source-specific parsing logic. Follow those rules for all parsing details below.
 
 **Context budget (IMPORTANT):**
 - Tips/session log: only entries since `last_run` (first run: last 30 days)
@@ -118,7 +119,7 @@ After all agents return (or max 3 have returned):
 
 Operates only on the top-7 council output from Phase 1.5 (or all candidates if Phase 1.5 was skipped).
 
-Use the direct-vs-investigation heuristic from `references/scanning-rules.md`. **When in doubt, choose Type B** — vague direct edits are worse than honest "needs research" tasks.
+Use the direct-vs-investigation heuristic from `~/.claude/skill-references/tips-integrate/scanning-rules.md`. **When in doubt, choose Type B** — vague direct edits are worse than honest "needs research" tasks.
 
 **Type A — Direct** (names a specific existing file + concrete bounded change <10 lines):
 ```

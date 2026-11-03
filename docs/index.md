@@ -57,9 +57,7 @@ On a computer, click **Star** at the top right of the GitHub page. On a phone, l
 
 ## The master checklist
 
-A suggested route through the site's guides and workflows, from your first session to research,
-project management and everyday tasks. Track what you've tried, skip what you already know,
-and work at your own pace.
+An optional checklist to help you choose what to try next and keep track of what you’ve already tried. Follow the suggested order, or jump to whatever would be useful for your work.
 
 [Open the master checklist](starter-kit/two-month-plan.md){ .md-button .master-checklist-button }
 

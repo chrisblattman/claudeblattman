@@ -228,7 +228,7 @@ Install skills roughly in this order. Each works independently, but this sequenc
 
 | Order | Skill | Works best with | What It Does |
 |:-----:|-------|----------|-------------|
-| 1 | `/done` | Nothing | Session capture — decisions, follow-ups, handoff notes |
+| 1 | `/done` | Shared starter kit | Session capture — decisions, follow-ups, handoff notes |
 | 2 | `/triage-inbox` | email-policy, triage-config | Smart inbox triage — categorize, label, archive |
 | 3 | `/checkin` | `/triage-inbox`, goals.yaml | Interactive daily session (wraps triage + briefing) |
 | 4 | `/morning-brief` | email-policy, calendar-policy, triage-config | Daily briefing (standalone alternative to checkin) |
@@ -248,8 +248,9 @@ Install skills roughly in this order. Each works independently, but this sequenc
     mkdir -p ~/.claude/commands ~/.claude-assistant/config \
       ~/.claude-assistant/state ~/.claude-assistant/logs
 
-    # EA skills (dependency order)
-    for skill in done triage-inbox checkin morning-brief schedule-query \
+    # Install /done through the starter kit, not the retired standalone notice.
+    # Older EA command examples (dependency order)
+    for skill in triage-inbox checkin morning-brief schedule-query \
       todo-add todo-review todo-queue post-meeting goals-review; do
       curl -o ~/.claude/commands/$skill.md \
         https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/$skill.md
@@ -266,15 +267,9 @@ Don't install everything at once. Start with these three and use them for a week
 
 ### 1. Session Capture (`/done`)
 
-The easiest win. No config needed. Run it at the end of every Claude Code session.
+Use the shared starter kit's `done` workflow to save decisions, follow-ups and a handoff. Follow [the kit installation guide](../starter-kit/occasional.md#1-install-the-starter-kit-or-use-plain-language), then open a fresh session and invoke the installed skill.
 
-```bash
-mkdir -p ~/.claude/commands
-curl -o ~/.claude/commands/done.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/done.md
-```
-
-Restart Claude Code, then try: `/done`
+The older `skills/done.md` file is a migration notice. Downloading it alone does not install this workflow. If you already customized a standalone command, back it up and compare it with the kit's migration guidance before replacing it.
 
 ### 2. Inbox Triage (`/triage-inbox`)
 

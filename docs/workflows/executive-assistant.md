@@ -13,7 +13,7 @@ worked examples you can copy.
 | **[Meeting follow-up](meeting-workflow.md)** | Transcript in, the things you owe people out |
 | **[Noise cancelling: school digest](school-digest.md)** | Turning a firehose of email into the three things that matter |
 | **[Tax season](../tax-workflow/index.md)** | A long case study, including [what the AI got wrong](../tax-workflow/case-study/what-ai-got-wrong.md) |
-| **[Shopping decisions](life/shopping.md)** | A worked example of a decision folder |
+| **[Build a personal shopper](life/shopping.md)** | A worked example of a decision folder |
 | **[Vacation planning](life/vacation.md)** | The same pattern, applied to a trip |
 | **[Health and fitness](life/health.md)** | The same pattern again, on personal data |
 | **[Expense processing](life/academic-expenses.md)** | Receipts, reimbursements and records — *not written yet* |

@@ -1,6 +1,6 @@
-# Example: Health & Fitness
+# Stay on top of your health & fitness
 
-*This is a detailed example of [AI Project Folders](../../build-your-own/project-folders.md).*
+*This is a detailed example of [Organize your projects](../../workflows/organize-projects.md).*
 
 ---
 
@@ -105,7 +105,7 @@ Compare this to [shopping](shopping.md), where the instructions file alone is en
 
 ## Building Your Own Health Profile
 
-Use the same three-step process from the [main guide](../../build-your-own/project-folders.md#build-your-first-file):
+Use the context-building approach from the [main guide](../../workflows/organize-projects.md#build-your-first-file):
 
 1. **Narrate your situation** — dump your health context: conditions, medications, training, goals, injuries, what's worked and what hasn't
 2. **Let the AI interview you** — it will ask about medication interactions, training constraints, monitoring tools, recovery patterns, family history
@@ -125,9 +125,9 @@ Use the same three-step process from the [main guide](../../build-your-own/proje
 
     ---
 
-    The universal build guide, starter template, and how to apply this to any domain.
+    Gather reusable context and organize the files, preferences, and current work for a project.
 
-    [:octicons-arrow-right-24: AI Project Folders](../../build-your-own/project-folders.md)
+    [:octicons-arrow-right-24: Organize your projects](../../workflows/organize-projects.md)
 
 -   **See the shopping example**
 

@@ -23,7 +23,7 @@ hide:
 
     Build a reusable planning system for any recurring task — vacations, shopping, health, professional workflows.
 
-    [:octicons-arrow-right-24: Read more](../build-your-own/project-folders.md)
+    [:octicons-arrow-right-24: Read more](../workflows/organize-projects.md)
 
 -   **:material-shield-check-outline: Stress-Test Any Plan**
 

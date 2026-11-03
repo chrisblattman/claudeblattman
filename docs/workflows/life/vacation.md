@@ -1,6 +1,6 @@
-# Example: Vacation Planning
+# Get help planning a vacation, from ideation to logistics
 
-*This is a detailed example of [AI Project Folders](../../build-your-own/project-folders.md).*
+*This is a detailed example of [Organize your projects](../../workflows/organize-projects.md).*
 
 ---
 
@@ -264,9 +264,9 @@ You probably don't need these. Add them only when you feel recurring pain in one
 
     ---
 
-    The universal build guide, starter template, and how to apply this to any domain.
+    Gather reusable context and organize the files, preferences, and current work for a project.
 
-    [:octicons-arrow-right-24: AI Project Folders](../../build-your-own/project-folders.md)
+    [:octicons-arrow-right-24: Organize your projects](../../workflows/organize-projects.md)
 
 -   **Level up your prompts**
 

@@ -66,10 +66,14 @@ plugins:
         essentials/folders/health.md: workflows/life/health.md
         essentials/folders/shopping.md: workflows/life/shopping.md
         essentials/folders/vacation.md: workflows/life/vacation.md
-        essentials/session-management.md: workflows/session-management.md
+        essentials/session-management.md: starter-kit/occasional.md
+        workflows/session-management.md: starter-kit/occasional.md
         toolkit/executive-assistant.md: workflows/building-an-assistant.md
         essentials/chatgpt-vs-claude.md: starter-kit/newcomers.md
-        essentials/project-folders.md: build-your-own/project-folders.md
+        essentials/project-folders.md: workflows/organize-projects.md
+        build-your-own/project-folders.md: workflows/organize-projects.md
+        build-your-own/external-tools.md: build-your-own/mcp-setup.md#research-tools
+        templates.md: workflows/best-practices.md
         essentials/voice.md: build-your-own/voice.md
         system/ai-integration.md: workflows/council-models.md
         system/building-skills.md: build-your-own/building-skills.md
@@ -88,5 +92,5 @@ plugins:
         downloads/prompting-guide.md: hyperlinks/prompting.md
         downloads/prompt-assistant-instructions.md: hyperlinks/prompting.md#make-the-ai-do-this-for-you
         downloads/prompt-preferences-template.md: hyperlinks/prompting.md#save-your-preferences-and-test-changes
-        essentials/folders/work.md: build-your-own/project-folders.md
+        essentials/folders/work.md: workflows/organize-projects.md
         skills/school-digest-raw-materials.md: starter-kit/occasional.md

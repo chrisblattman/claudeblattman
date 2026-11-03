@@ -88,3 +88,18 @@ Ask: “Is there a supported connection for [app] in the AI I'm using? If there 
 <label class="step-done"><input type="checkbox"> I know how to ask for help when a connection needs attention.</label>
 
 </div>
+
+
+## Bring research tools into your workflow { #research-tools }
+
+Add a tool when you have a job for it. For research, two useful examples are a notebook for working through sources and a reference manager for keeping them organized.
+
+**Gemini Notebook (formerly NotebookLM)** lets you collect sources in a notebook and ask questions about them. You can bring the resulting notes or report back into your project. See [the notebook guide](../hyperlinks/notebooklm.md) and [Google's introduction](https://support.google.com/gemininotebook/answer/16206563). Using a separate research notebook does not by itself connect it to your agent.
+
+**Zotero** organizes references, attached PDFs, and notes. If you already use it, ask your agent how to work with the library you have. It can investigate an available connector or help you export the relevant references and files. The [Zotero guide](https://www.zotero.org/support/quick_start_guide) explains its library and export features.
+
+```text
+I keep my research in [app]. Help me use the relevant sources for [project]. Check whether you can connect to it. If not, help me bring over the files or notes we need.
+```
+
+[Dictation](../hyperlinks/wispr-flow.md) and [meeting transcription](../hyperlinks/granola.md) have their own guides. Start with the tools you already use and add others when they help with a real task.
