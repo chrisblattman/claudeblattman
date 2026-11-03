@@ -1,52 +1,15 @@
 ---
-description: The agent writes the analysis code, runs it, and you check what came out — cleaning, exploration, review of AI-written code, and reproducibility. Not yet written.
+description: Using an agent to clean data, write and run analysis code, and check the results. Not written yet.
 ---
 
 # The data analysis workflow
 
 !!! warning "Not written yet"
-    This page is a placeholder. It is linked from **stage 6** of the
-    [master checklist](../starter-kit/two-month-plan.md), which budgets 45
-    minutes for it. Nothing below is drafted copy.
+    We plan to add a guide to using an agent for data work: cleaning and documenting a dataset, writing and running analysis code, and checking what comes out. Until then, the [AI resources for economists](../resources.md#ai-for-economists) collect tools and guides from other researchers.
 
-There is currently **no data-analysis content anywhere on this site** — this
-page would be the first.
-
-## What this page needs to cover
-
-Shay's framing: *"ask the agent to write the code and do the data analysis from
-scratch… maybe that includes both writing the code, having the agent run the
-code, and looking at it."* So at minimum:
-
-1. **Writing the code** — plan first, as everywhere else on this site. AI-written
-   analysis code is exactly the case that
-   [the working loop](../starter-kit/occasional.md) calls out as worth a
-   council review.
-2. **Running it** — what the agent runs itself, and what you run.
-3. **Looking at what came out** — checking results against something you
-   already know, not just reading the code.
-
-Candidate scope, from four distinct jobs with different risk profiles:
-
-| | What it covers |
-|---|---|
-| Cleaning and documenting | Messy file → documented dataset with a codebook |
-| Exploration | "What's in this dataset" — what agents are genuinely good at |
-| Analysis code review | The agent writes it, a council checks it, you verify against a hand calculation |
-| Replication | Making someone else's code run, or making yours reproducible |
-
-## The blocker
-
-**The restricted-data question is unresolved.** This audience's data is often
-human-subjects data, and the site currently handles that with a prohibition —
-keep it out of the folder. A data-analysis page written for researchers cannot
-just repeat that. It is the page where the alternative route has to exist:
-bounded tasks, agent-written scripts you run yourself, mock data with the same
-structure, local models where policy requires it.
-
-Open since the Aniket critique. **Decide this before drafting.**
+If your data come from people, check your data agreement and ethics approval before you give an agent access. [When work restricts AI agents](../starter-kit/agents-at-work.md) has options for learning with approved tools.
 
 ## Related
 
-- [Coding rules](coding-rules.md) — the standing instructions this assumes
-- [Deep research](deep-research.md) — the other half of stage 6
+- [Coding rules](coding-rules.md), also not written yet
+- [Deep research](deep-research.md), the other half of stage 6 of the [master checklist](../starter-kit/two-month-plan.md)

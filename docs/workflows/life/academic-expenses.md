@@ -1,25 +1,10 @@
 ---
-description: A decision folder for academic expenses — receipts, reimbursements, grant lines and what's claimable. Not yet written.
+description: A folder and workflow for processing expenses: receipts, reimbursements and records. Not written yet.
 ---
 
-# Academic expenses
+# Expense processing
 
 !!! warning "Not written yet"
-    This page is a placeholder. It is one of the life widgets offered in
-    **stage 8** of the [master checklist](../../starter-kit/two-month-plan.md).
-    Nothing below is drafted copy.
+    This page will show a folder and workflow for processing expenses: collecting receipts, saving them as PDFs, preparing reimbursement requests and tracking what has been paid. The [tax season](../../tax-workflow/index.md) guide covers related record-keeping.
 
-## What this page needs
-
-Shay: build this one out from the expenses folder he already keeps. So it
-follows the same shape as the other worked folders —
-[shopping](shopping.md), [vacation](vacation.md),
-[health and fitness](health.md) — applied to academic spending.
-
-- What goes in the folder: receipts, card statements, grant budget lines,
-  reimbursement forms, travel approvals.
-- What you ask the agent to do with it, and how often.
-- Where it overlaps [tax season](../../tax-workflow/index.md) and where it
-  doesn't.
-- **Screen the real example for anything confidential** before publishing —
-  the same caution as the other folder examples.
+Until it's ready, the [shopping](shopping.md), [vacation](vacation.md) and [health and fitness](health.md) folders show the same pattern applied to other parts of life.

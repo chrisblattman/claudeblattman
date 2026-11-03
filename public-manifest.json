@@ -36,9 +36,9 @@
       "sha256": "917d9231822f11c0703aedb966098516042e406c7bac000bb66bce7cacb6d3fa"
     },
     {
-      "bytes": 4343,
+      "bytes": 4666,
       "path": "docs/index.md",
-      "sha256": "5337692c5840f8689e8937135037618444ad683c48f5e3a41752d5848da4302e"
+      "sha256": "debb5f3840c5ec2d8241103cd30fffef4ddb6a76e95406430e76b7716f57a504"
     },
     {
       "bytes": 4624,
@@ -51,9 +51,9 @@
       "sha256": "3d8abddacb199f97aab7ec90a7f53e698d53fcdafa90531fc1061b25045f4416"
     },
     {
-      "bytes": 12489,
+      "bytes": 12520,
       "path": "docs/starter-kit/newcomers.md",
-      "sha256": "52c54b3264b52bd50720a2c70d05d14b610e65fbcfa652fbfd75803a9027a6db"
+      "sha256": "fd008cc4cd9dc8bb5d3336673395815afae3406ad5055d06172035f98ef53e3b"
     },
     {
       "bytes": 23849,
@@ -61,9 +61,9 @@
       "sha256": "137d06839af4e06e7a33ff76592d6e01f95e3be83bb40ab8deea1114c15c2d5c"
     },
     {
-      "bytes": 12686,
+      "bytes": 12126,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "ee54f33738aa40ed4408d5f09dc99ebb794fe8f344ec81630fefc0a1495120ef"
+      "sha256": "2926592b044a44c5ac46b7d8d2297a45c2a353afbd72827544af3f9c88178f9a"
     },
     {
       "bytes": 101873,
@@ -71,9 +71,9 @@
       "sha256": "f193466a0931fe184d333fbb9e8669b053bdf6a76cf5bfe7252019837fd2e358"
     },
     {
-      "bytes": 13829,
+      "bytes": 13980,
       "path": "mkdocs.yml",
-      "sha256": "3a2d3c587494b527257a979877e1be376633d87095efbcfd4e19b099944b9056"
+      "sha256": "6a175f57aacfb5c5297d4032d067148a5fcd153b30ec6895891af2528db4161b"
     },
     {
       "bytes": 17171,

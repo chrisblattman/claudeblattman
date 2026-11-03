@@ -1,7 +1,7 @@
 ---
-description: The projects, posts, docs and tools that shaped this site — reference implementations, official documentation, what I use day to day, and AI resources for economists and researchers.
+description: People, guides and tools that shaped this site, with practical resources for professionals and additional material for researchers.
 ---
-# Resources
+# Resources and Influences
 
 A curated collection of the resources, tools, and reference implementations that shaped this project. Each entry includes a brief summary of what's useful and why I found it worth your time.
 
@@ -12,6 +12,12 @@ Thanks to [Anup Malani](https://www.law.uchicago.edu/faculty/malani) for being m
 ## Reference Implementations
 
 These are the projects and posts that most influenced how I built my system. If you want to see how other people are doing this, start here.
+
+<h3 id="aniket-panjwani">Aniket Panjwani — AI Economist</h3>
+
+Aniket's advice has been an important influence on how I use AI. His [guide to agentic coding](https://aieconomist.io/guides/agentic-coding-for-economists) covers working with agents, organizing project context and improving recurring workflows. Its examples focus on economists, but many of the habits apply more broadly.
+
+[Aniket Me](https://github.com/chrisblattman/claudeblattman/blob/main/skills/aniket-me/README.md) is a skill I developed to apply his public advice to the work you give your agent. It includes links to the original sources and works with Claude Code and Codex. It is an independent adaptation, not Aniket himself or an endorsement by him.
 
 <h3 id="boris-tane-how-i-use-claude-code">Boris Tane — How I Use Claude Code</h3>
 

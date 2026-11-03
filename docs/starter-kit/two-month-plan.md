@@ -27,7 +27,6 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 <label class="step-done"><input type="checkbox"> Build your [CLAUDE.md / AGENTS.md](../build-your-own/agents-md.md) file <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> Decide whether any [research tools](../build-your-own/mcp-setup.md#research-tools) are worthwhile to you <span class="est">(5 min)</span></label>
 <label class="step-done"><input type="checkbox"> Get comfortable in [the desktop app](from-terminal.md), where you can see the work beside your conversation <span class="est">(15 min)</span></label>
-<label class="step-done"><input type="checkbox"> Skim the [FAQ](../faq.md) so you know what's answered there <span class="est">(5 min)</span></label>
 
 <!-- EDITORIAL — page-level job this week depends on, BACKLOG:
      · "Build your CLAUDE.md / AGENTS.md" is ONE row here but TWO pages today.
@@ -86,15 +85,9 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 
 <label class="step-done"><input type="checkbox"> Connect your agent to a dedicated [Deep Research](../workflows/deep-research.md) tool <span class="est">(30 min)</span></label>
 <label class="step-done"><input type="checkbox"> Research a real project question with [Deep Research](../workflows/deep-research.md), check its sources, and give the findings to your council <span class="est">(45 min)</span></label>
-<label class="step-done"><input type="checkbox"> Set up your [coding rules](../workflows/coding-rules.md) <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Run the [data analysis workflow](../workflows/data-analysis.md) — the agent writes the code, runs it, and you check what came out <span class="est">(45 min)</span></label>
+<label class="step-done"><input type="checkbox"> Set up your [coding rules](../workflows/coding-rules.md) — *guide coming later* <span class="est">(30 min)</span></label>
+<label class="step-done"><input type="checkbox"> Run the [data analysis workflow](../workflows/data-analysis.md) — the agent writes the code, runs it, and you check what came out (*guide coming later*) <span class="est">(45 min)</span></label>
 
-<!-- EDITORIAL — rows 3 and 4 point at STUB pages created 7 Oct. They exist and
-     are in the nav, but carry a "not written yet" warning and an outline only.
-     Both need writing before this can publish. BACKLOG N17.
-     The 30 and 45 min are my estimates, not Shay's — revisit once written.
-     Also dropped from this week: workflows/examples/research-design-example.md,
-     which was here before the rework and is not in Shay's list of four. -->
 </div>
 
 <div class="week-card" markdown>
@@ -135,7 +128,7 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 <div class="sub-list" markdown>
 <label class="sub-done"><input type="checkbox"> [Noise cancelling](../workflows/school-digest.md)</label>
 <label class="sub-done"><input type="checkbox"> [Tax season](../tax-workflow/index.md) — background reading: [academic tax basics](../tax-workflow/reference/academic-tax-basics.md)</label>
-<label class="sub-done"><input type="checkbox"> [Academic expenses](../workflows/life/academic-expenses.md)</label>
+<label class="sub-done"><input type="checkbox"> [Expense processing](../workflows/life/academic-expenses.md)</label>
 <label class="sub-done"><input type="checkbox"> [Shopping decisions](../workflows/life/shopping.md)</label>
 <label class="sub-done"><input type="checkbox"> [Vacation planning](../workflows/life/vacation.md)</label>
 <label class="sub-done"><input type="checkbox"> [Health and fitness](../workflows/life/health.md)</label>

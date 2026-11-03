@@ -158,8 +158,10 @@ nav:
   - About:
     - My AI principles: how-i-use-ai.md
     - About Chris' team: about.md
-    - Resources: resources.md
-  - FAQ: faq.md
+    - Resources and Influences: resources.md
+  - AI Concerns: ai-concerns.md
+  # FAQ hidden from navigation on purpose. /faq/ and its anchors stay live
+  # because other guides still link to them.
 
 markdown_extensions:
   - admonition
