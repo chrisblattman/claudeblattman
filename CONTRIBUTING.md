@@ -6,14 +6,15 @@ This guide is primarily for site maintainers, but contributions from others are 
 
 ## How the Site Works
 
-The site is built with [MkDocs Material](https://squidfork.github.io/mkdocs-material/). Content is written in Markdown files inside the `docs/` folder. Every push to `main` automatically deploys the site via GitHub Actions (~2 minutes).
+The site is built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/). Content is written in Markdown files inside the `docs/` folder. Approved changes merged into `main` deploy through GitHub Actions.
 
 **The workflow:**
-1. Edit a markdown file in `docs/`
-2. Commit and push to `main`
-3. Site updates automatically
+1. Start a small branch from the agreed current base, preserving other authors' unfinished work.
+2. Edit the relevant files, run the checks, and push that branch.
+3. Open a pull request and inspect its automatic draft-preview link.
+4. Coordinate review and publishing with the maintainer. Merging into `main` publishes the changes.
 
-That's it. No build step, no deploy command, no special tools required.
+See [Editing drafts and sharing previews](DRAFT_EDITING.md) for the branch, preview and publication boundaries.
 
 ---
 
@@ -25,9 +26,9 @@ That's it. No build step, no deploy command, no special tools required.
 2. Click the pencil icon (Edit this file)
 3. Make your changes
 4. Write a commit message describing what you changed
-5. Click "Commit changes"
+5. Commit to a new branch and open a pull request for review
 
-The site will rebuild and deploy automatically.
+Pull requests from branches in this repository receive a preview. Forked contributions need a maintainer to coordinate the preview. The live site changes only after the publishing merge.
 
 ### Using a Local Clone (More Powerful)
 
@@ -36,15 +37,18 @@ git clone https://github.com/chrisblattman/claudeblattman.git
 cd claudeblattman
 
 # Optional: preview locally
-pip install mkdocs-material
+pip install -r requirements.txt
 mkdocs serve
 # Open http://localhost:8000
 
-# Make changes, then push
-git add -A
+# Make changes on a separate branch
+git switch -c draft/your-change
+git add path/to/changed-file
 git commit -m "Description of changes"
-git push
+git push -u origin draft/your-change
 ```
+
+Open a pull request and review its preview before publishing. Use a fresh independent clone for each collaborator rather than sharing a checkout through a file-sync folder.
 
 ---
 
@@ -63,15 +67,13 @@ Every content page should start with a clear `# Title` heading. The site-wide an
 ## Adding a New Skill to the Library
 
 1. **Sanitize the skill** (see Sanitization Checklist below)
-2. Save the generic version to `skills/[skill-name].md`
-3. Add a section to `docs/toolkit/skill-library.md` following the existing format:
-   - What it does
-   - MCP dependencies
-   - Installation instructions
-   - Full skill file in a code block
-   - Customization points
-4. Update `mkdocs.yml` if adding a new page (not needed if just adding to skill-library.md)
-5. Commit and push
+2. Save a maintained standalone skill in `skills/<skill-name>/SKILL.md`, with `name` and `description` metadata. Keep any required references, scripts, licence and source attribution in that folder.
+3. Add it to `skills/README.md` with its purpose, actual dependencies, supported apps and installation/update guide. Distinguish a tested package from an example to read and adapt. Do not advertise missing helpers as bundled files.
+4. Test a fresh install, invocation, reference access and update in the apps you claim to support. Preserve users' customizations and check for older same-named commands or plugins.
+5. If a website recommendation is added, link to its guide and update `mkdocs.yml` as needed. The former exhaustive Skill Library page is retired.
+6. Run the existing release checks, open a pull request and review its preview before publishing.
+
+The starter kit has one source in `starter-kit-source/`. Use the repository's package builder and checks for changes to that bundle, rather than editing the generated Claude and Codex copies independently. Older flat files in `skills/` remain reference material unless deliberately promoted to maintained packages.
 
 ---
 
@@ -200,5 +202,5 @@ Check [Discussions](https://github.com/chrisblattman/claudeblattman/discussions)
 |-----------|------|
 | Weekly | Check GitHub Discussions for new questions |
 | Monthly | Add new resources from collected tips |
-| Per skill update | Sanitize, push generic version, update skill library page |
+| Per skill update | Review public content and dependencies, test supported installation paths, update the catalogue and open a PR |
 | Quarterly | Review all content for staleness, update "current as of" dates |

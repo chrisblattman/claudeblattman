@@ -41,7 +41,7 @@ Stage 3 is where this loop differs from a typical "save tips and try them later"
 
 The fix is structural disagreement. Five personas in parallel, each told to score from one specific lens and not balance — Maintenance Tax notices that a tip depends on a single-maintainer repo, Catalog Conflict notices it duplicates an existing rule, First-Run notices that the "obvious" first step actually requires three design decisions. The composite scores them; the user approves. The council ranks but does not gate.
 
-The general pattern is a separate, reusable skill. [`/council`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/council.md) dispatches a parallel panel of critics on any plan, draft, or decision — useful for stress-testing a research design, a grant proposal, or a hiring call. The tips pipeline uses a specialized version: five fixed personas, defined in [`proposal-critic-agent`](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md) and tuned for evaluating workflow tips.
+The shared starter kit provides the general [Council and review workflows](../starter-kit/occasional.md): independent agents develop the work, then fresh reviewers challenge the result. The older `skills/council.md` file is a migration notice, not an installable implementation. The tips pipeline below is a separate legacy example with five fixed personas, defined in [`proposal-critic-agent`](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md) and tuned for evaluating workflow tips.
 
 ---
 
@@ -302,7 +302,7 @@ The kinds of workflows and resources the pipeline is designed to capture and eva
 ## See also
 
 - **[Collected Tips & Research Log](downloads/collected-tips-log.md)** — A snapshot of my own tips log. Searchable by keyword, tag, or date.
-- **[`/council`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/council.md)** — the general-purpose council skill, for plans, drafts, and decisions outside the tips pipeline.
+- **[Council and review](../starter-kit/occasional.md)** — the maintained starter-kit workflows for developing work and challenging it with fresh reviewers.
 - **[The proposal-critic agent](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md)** — full persona definitions.
 - **[Council review](../starter-kit/occasional.md)** — Pairs well with the pipeline: curate ideas, then review plans before implementing.
 - **[Skill Design Patterns](downloads/skill-patterns.md)** — How production skills are structured, if you want to build your own.

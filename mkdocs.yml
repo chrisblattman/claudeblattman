@@ -156,7 +156,7 @@ nav:
       - Set rules and guidelines: build-your-own/rules.md
       - Create a skill: build-your-own/building-skills.md
       # A second link keeps this label distinct from Essentials > Build a system.
-      - Set up continual improvement: /how-i-improve-the-work/
+      - Set up continual improvement: how-i-improve-the-work.md
       - Scout and curate new AI tips: hyperlinks/continuous-improvement.md
       - Research tools: build-your-own/external-tools.md
       - Templates: templates.md

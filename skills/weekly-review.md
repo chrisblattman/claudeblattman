@@ -3,6 +3,8 @@
 
 Generate a comprehensive weekly summary for the current research project, pulling from multiple sources.
 
+> **Public reference, not a complete install.** This file describes a workflow that uses three external Python helpers: `normalize-transcripts.py`, `replace-dashboard.py`, and `insert-weekly-log.py`. Those helpers are not included in this public repository. Set up and review suitable helpers and account connections before running this workflow.
+
 ## Overview
 
 This skill collects data from WhatsApp, meeting transcripts, and Gmail, then generates:
@@ -11,12 +13,14 @@ This skill collects data from WhatsApp, meeting transcripts, and Gmail, then gen
 
 ## Prerequisites
 
+Before fetching, normalizing, archiving or writing anything, verify the three helper files at the configured `WEEKLY_REVIEW_HELPERS` path and the intended account/project configuration. If any helper is missing, stop and report the missing dependency. Do not invent a bundled scripts directory, silently skip that work, or substitute a different account. The public file alone does not provide those dependencies.
+
 The skill expects three env vars on each machine (set in `~/.zprofile` or equivalent):
 
 ```bash
 export GOOGLE_WORKSPACE_MCP_USER_EMAIL="<your@email>"     # account to authenticate as
 export GOOGLE_WORKSPACE_MCP_CREDENTIALS_FILE="<path>"     # optional; defaults to ~/.google_workspace_mcp/credentials/<email>.json
-export WEEKLY_REVIEW_HELPERS="<path>"                     # optional; defaults to the skill's bundled scripts directory
+export WEEKLY_REVIEW_HELPERS="<path>"                     # required for a public adaptation; point to reviewed local helpers
 ```
 
 If `GOOGLE_WORKSPACE_MCP_USER_EMAIL` is unset on a machine that has only one credentials file, scripts fall back to the legacy default. **Multi-account machines must set the env var explicitly** — the helper scripts do NOT silently glob-pick the first credentials file (this prevents silent wrong-account writes).
@@ -52,7 +56,7 @@ If you have a transcript export tool (e.g., `granola-fetch`, Otter export):
    - Strip surrounding quotes from folder names before passing to CLI
 3. **Normalize transcripts (v1.9 — fixes RTF/PDF handling).** Run the bundled `normalize-transcripts.py`:
    ```bash
-   python3 [skill-bundled-scripts]/normalize-transcripts.py \
+   python3 "$WEEKLY_REVIEW_HELPERS/normalize-transcripts.py" \
      --folder "[transcripts_folder]" --json-output --apply
    ```
    This converts any `.rtf` (via `textutil`) or `.pdf` (via `pdftotext`) for which there's no full `.txt` sibling, archives the originals, and replaces hollow `.txt` stubs when a converted sidecar is available. The script is idempotent and a no-op when there's nothing to do.
@@ -210,7 +214,7 @@ Proceed directly to Step 6 — do NOT display content in terminal for review. Us
 1. **Preparation** — Generate text with `[RED]`/`[GREEN]`/`[YELLOW]` ASCII placeholders; strip `**` markdown bold markers (bold is applied via API, not text)
 2. **Dashboard Replacement** — v1.9 — call the bundled `replace-dashboard.py`. Handles multi-tab `tabId` correctly (the MCP's `batch_update_doc` does not):
    ```bash
-   python3 [skill-bundled-scripts]/replace-dashboard.py \
+   python3 "$WEEKLY_REVIEW_HELPERS/replace-dashboard.py" \
      --document-id "$GOOGLE_DOC_ID" --tab-id "t.0" \
      --start-marker "=== PROJECT STATUS DASHBOARD ===" \
      --end-marker "=== DASHBOARD END ===" \
@@ -221,7 +225,7 @@ Proceed directly to Step 6 — do NOT display content in terminal for review. Us
 3. **Verification** — Confirm all 3 markers intact after dashboard write
 4. **Weekly Log Prepend** — v1.9 — call the bundled `insert-weekly-log.py`:
    ```bash
-   python3 [skill-bundled-scripts]/insert-weekly-log.py \
+   python3 "$WEEKLY_REVIEW_HELPERS/insert-weekly-log.py" \
      --document-id "$GOOGLE_DOC_ID" --tab-id "t.0" \
      --marker "=== WEEKLY SUMMARIES START ===" \
      --content-file /tmp/weekly-log-$(date +%s).txt \
@@ -287,7 +291,7 @@ Legacy-format files are archived as-is. No automatic renaming.
 
 5. **Transcript formats**: Support for Granola, Zoom `.vtt`, manual markdown, RTF/PDF normalization. Add new format parsers as needed.
 
-6. **Helper scripts location**: The bundled `normalize-transcripts.py`, `replace-dashboard.py`, and `insert-weekly-log.py` live in the skill's `scripts/` folder. Override the location with `WEEKLY_REVIEW_HELPERS` env var if you've moved them.
+6. **Helper scripts location**: The original workflow expects `normalize-transcripts.py`, `replace-dashboard.py`, and `insert-weekly-log.py`. This public repository does not include them. Set `WEEKLY_REVIEW_HELPERS` to the directory containing your reviewed local helpers and verify all three files before use.
 
 ## Error Handling
 

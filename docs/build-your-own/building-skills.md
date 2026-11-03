@@ -1,6 +1,6 @@
 # Building Skills
 
-Skills are the building blocks of a self-improving Claude Code system. This page covers how to create them from scratch.
+Skills save a repeatable way of working in Claude Code or Codex. Each maintained skill lives in its own folder, with instructions in `SKILL.md` and any references or scripts beside it. This page shows how to build one from work you already do.
 
 ---
 
@@ -16,40 +16,56 @@ The best skills come from noticing what you do repeatedly. Pay attention to:
 
 ### 2. Do It Manually First
 
-Before formalizing anything, do the task with Claude Code through normal conversation. Do it 3-4 times. Each time, notice:
+Before formalizing anything, do the task through normal conversation. Repeat it enough to see which instructions help. Each time, notice:
 
 - What instructions you give
-- What Claude gets right and wrong
+- What the agent gets right and wrong
 - What you have to correct or clarify
 - What context you always have to re-provide
 
 ### 3. Write the Skill
 
-Create a `.md` file with:
+Create a folder named after the skill, with a `SKILL.md` file inside. Start the file with metadata that says what it does and when to use it:
 
 ```markdown
-# Skill Name
+---
+name: your-skill
+description: Describe the task this skill handles and when to use it.
+---
+
+# Your skill
 
 [1-2 sentence description of what this skill does and when to use it]
 
-## Arguments
+## Inputs
 
-`$ARGUMENTS` can include:
-- [What the user can pass in]
+Read the user's accompanying request for:
+- [The details the user can provide]
 
 ## Instructions
 
 ### Step 1: [First action]
-[What Claude should do]
+[What the agent should do]
 
 ### Step 2: [Second action]
-[What Claude should do]
+[What the agent should do]
 
 ### Step 3: [Output]
-[What Claude should show the user]
+[What the agent should show the user]
 ```
 
-Save to `~/.claude/commands/your-skill.md`. Restart Claude Code.
+For a project-specific skill, use the folder for your app:
+
+| App | File inside your project |
+| --- | --- |
+| Claude Code | `.claude/skills/your-skill/SKILL.md` |
+| Codex | `.agents/skills/your-skill/SKILL.md` |
+
+The name in the metadata should match the folder name. A simple skill needs only `SKILL.md`. Add `references/`, `scripts/` or `assets/` only when it needs supporting material, and keep paths relative to the skill folder. See the [Agent Skills specification](https://agentskills.io/specification).
+
+Open a fresh session in that project. Check that the app lists the intended skill. Invoke `/your-skill` in Claude Code or select `$your-skill` in Codex, and try a real task. If the skill uses a reference, check that the agent actually reads it.
+
+Older Claude Code commands in `.claude/commands/` still work in that app. For new skills, use the folder format. Before replacing an existing command, back it up and preserve its customizations. Check for a same-named installed skill or plugin rather than assuming the new file will be the one that runs.
 
 ### 4. Test and Iterate
 
@@ -75,7 +91,7 @@ Once the skill works reliably:
 
 ### Arguments (`$ARGUMENTS`)
 
-The user's input after the command name. `/done quick` passes `quick` as `$ARGUMENTS`.
+Explain which inputs the skill accepts. Claude Code can substitute the text after a slash command through `$ARGUMENTS`. In Codex, describe how to read the user's accompanying request rather than relying on that Claude-specific substitution.
 
 Common patterns:
 ```markdown
@@ -87,14 +103,14 @@ Common patterns:
 - `depth:light/standard/deep` — control thoroughness
 ```
 
-### `@` References
+### Supporting references
 
-Load external files into the skill's context:
+Keep reference material beside the instructions and tell the agent when to read it:
 
 ```markdown
 ## Reference Files
-@~/.claude/commands/my-references/style-guide.md
-@~/.claude/commands/my-references/voice-rules.md
+Before drafting, read `references/style-guide.md` and
+`references/voice-rules.md` relative to this skill folder.
 ```
 
 Use for:

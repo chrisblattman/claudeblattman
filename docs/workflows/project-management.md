@@ -97,6 +97,8 @@ Once the project folder exists, the next step is to stop losing information. Mee
 
 **Skill:** [`/weekly-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/weekly-review.md) `[PM]`
 
+The public file is a reference example. It requires project/account configuration and three Python helpers that are not included in this repository. Read its prerequisites before adapting it. Downloading the command alone does not install a working weekly review.
+
 This is where the system comes alive. The weekly review pulls from every source and produces two outputs: a high-level dashboard and a detailed weekly log.
 
 **What it does:**
@@ -237,9 +239,8 @@ mkdir -p ~/.claude/commands ~/.claude/agents
 curl -o ~/.claude/commands/setup-project-management.md \
   https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/setup-project-management.md
 
-# Layer 3: Weekly review
-curl -o ~/.claude/commands/weekly-review.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/weekly-review.md
+# Layer 3: Weekly review is a reference example with external helpers.
+# Read its prerequisites before adapting it; it is not installed by this block.
 
 # Layer 4: Proposal writing and revision
 curl -o ~/.claude/commands/proposal-write.md \

@@ -6,6 +6,9 @@ description: How the weekly review skill updates a living project dashboard in G
 
 # Weekly Review: The Mechanics
 
+!!! note "Reference workflow"
+    The public `weekly-review.md` is an example to read and adapt. Its three Python helpers for transcript normalization and Google Doc writes are not bundled in this repository. Review and configure those dependencies before using the workflow on your files or accounts. The public command file alone is not a complete installation.
+
 A weekly project review that writes to a Google Doc sounds simple. In practice it fails in three specific ways until you solve them: the doc grows arbitrarily, the API writes cost a fortune in call overhead, and Google Docs silently corrupts anything that contains emoji. Here's how `/weekly-review` handles each.
 
 The [Project Management](project-management.md#layer-3-the-weekly-review) page covers what the weekly review produces and why it earns its keep. This page covers how it actually writes to the doc without breaking.

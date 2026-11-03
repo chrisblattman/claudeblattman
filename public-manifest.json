@@ -71,9 +71,9 @@
       "sha256": "f193466a0931fe184d333fbb9e8669b053bdf6a76cf5bfe7252019837fd2e358"
     },
     {
-      "bytes": 13857,
+      "bytes": 13858,
       "path": "mkdocs.yml",
-      "sha256": "9efde567154bdd627529e0e11102a9a92e33b24c4e4fe1b34b55c7942291d96a"
+      "sha256": "f26395127a4931dc40fb055a820d79e05b9d4a6229269bd731445424b46fe56f"
     },
     {
       "bytes": 17171,
@@ -611,9 +611,9 @@
       "sha256": "121b2cdb2f55f0d189f6819bc2af1b201fe839f470ceac46e2153ca76f10d64e"
     },
     {
-      "bytes": 7304,
+      "bytes": 8543,
       "path": "skills/README.md",
-      "sha256": "e9f3b5303882e545c73c83bcc05804f6adccd82949011a98dd81fe0c25296ed5"
+      "sha256": "2e12b61102a0e306dda93af45c039a6233ea8c914552344b675acdf047d4aa01"
     },
     {
       "bytes": 2624,
