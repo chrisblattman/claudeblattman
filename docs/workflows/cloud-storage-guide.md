@@ -1,4 +1,4 @@
-# Organizing Your Cloud Storage with Claude Code: A Practical Guide
+# Organize your cloud storage, for yourself and for your agents
 
 *Based on a real multi-day workflow organizing files across Dropbox, Google Drive, Box, and local disk*
 

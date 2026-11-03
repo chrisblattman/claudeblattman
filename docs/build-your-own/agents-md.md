@@ -1,4 +1,4 @@
-# Your CLAUDE.md / AGENTS.md file
+# Write persistent instructions to your CLAUDE.md/AGENTS.md file
 
 A `CLAUDE.md` file is a personal instruction document that Claude Code reads automatically every time you start a session. It tells Claude who you are, how you work, what tools you use, and what you need help with.
 

@@ -1,4 +1,4 @@
-# Continuous Improvement
+# Scout and curate new AI tips
 
 Tips arrive every day — X especially, but also blogs, newsletters, Slack, the occasional email from a friend who just discovered something. It's a firehose. The temptation is to drink from it. The result is churn.
 

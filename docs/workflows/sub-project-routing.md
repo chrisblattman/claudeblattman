@@ -146,6 +146,5 @@ One sign it's *not* ready: a project that does one thing. A paper that's only a 
 
 ## Related
 
-- **[Session management](session-management.md)** — how `/done` and `SessionStart` hooks fit into the broader session-discipline loop.
 - **[Project Management](project-management.md)** — the layer above sub-project routing, covering folder structure, transcripts, and weekly review.
 - **[What's new in April 2026](../changelog.md)**.

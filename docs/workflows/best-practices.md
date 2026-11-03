@@ -1,5 +1,5 @@
 ---
-description: Adapt your AI workflow with connected apps, reusable instructions, skills, council agents, and templates.
+description: Adapt your AI workflow with connected apps, reusable instructions, skills, and council agents.
 ---
 
 # Improve your AI setup
@@ -12,16 +12,13 @@ If you are getting started, follow the [essentials checklist](../index.md#my-abs
 | --- | --- |
 | [Organize cloud storage](cloud-storage-guide.md) | Bring order to files scattered across storage services |
 | [Organize your projects](organize-projects.md) | Give each project a home the agent can navigate |
-| [Inside a project folder](../build-your-own/project-folders.md) | See how to organize the material within a project |
 | [Connect your apps](../build-your-own/mcp-setup.md) | Give the agent access to the tools and sources the work needs |
 | [Write persistent instructions](../build-your-own/agents-md.md) | Save context and preferences for future sessions |
 | [Set rules and guidelines](../build-your-own/rules.md) | Make recurring expectations explicit |
 | [Create a skill](../build-your-own/building-skills.md) | Turn a repeated task into reusable instructions |
 | [Connect different agents](council-models.md) | Set up outside opinions across AI services |
-| [Set up continual improvement](../how-i-improve-the-work.md) | Turn feedback on drafts into better guidance for future work |
+| [Fix and update your skills](maintain-skills.md) | Repair failures and adapt workflows as agents improve |
 | [Scout and curate new AI tips](../hyperlinks/continuous-improvement.md) | Collect useful ideas and decide which to adopt in your workflow |
-| [Research tools](../build-your-own/external-tools.md) | Find supporting tools for research tasks |
-| [Templates](../templates.md) | Start with reusable project briefs, instructions, and other files |
 
 For the walkthroughs, start with [Council and review](../starter-kit/occasional.md), then [Different AI models](council-models.md) and [Deep research](deep-research.md).
 

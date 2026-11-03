@@ -65,7 +65,7 @@ Try a clear request first. If the output misses your format or style, show a sma
 
 Explain what to copy from the example. “Match the structure and level of detail; don't reuse these facts.” That helps avoid a polished answer carrying details from the wrong project.
 
-For writing you do repeatedly, build a [voice file with annotated examples](../build-your-own/voice.md). For recurring planning, save your preferences in a [project file](../build-your-own/project-folders.md).
+For writing you do repeatedly, build a [voice file with annotated examples](../build-your-own/voice.md). For recurring planning, save your preferences in a [project file](../workflows/organize-projects.md).
 
 <span id="use-tags-to-separate-instructions-from-content"></span>
 <span id="order-matters-long-content-first-question-last"></span>
@@ -193,7 +193,7 @@ For current project controls, see [ChatGPT's project instructions](https://help.
 
 [Download the editable prompt-preferences template](../assets/prompting/prompt-preferences-template.txt){ download="prompt-preferences-template.txt" }. It covers your preferred formats, writing style, recurring tasks, boundaries, tools, and how to maintain the file. Fill in what matters and delete the rest.
 
-Think of three places to save what works: general prompting preferences, a [project folder](../build-your-own/project-folders.md) for a recurring task, and—if you later use an agent—an [agent instruction file](../build-your-own/agents-md.md). Start with the layer you need.
+Think of three places to save what works: general prompting preferences, a [project folder](../workflows/organize-projects.md) for a recurring task, and—if you later use an agent—an [agent instruction file](../build-your-own/agents-md.md). Start with the layer you need.
 
 Keep the **rules** separate from the **request**. “Keep my emails direct and friendly” belongs in preferences. “Reply to this invitation declining Friday” belongs in today's message.
 

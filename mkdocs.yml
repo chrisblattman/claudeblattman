@@ -130,11 +130,10 @@ nav:
   - Workflows:
     - Projects and research:
       - workflows/projects-and-research.md
-      - Deep research: workflows/deep-research.md
       - Catch up on a project: workflows/project-management.md
-      - Save and resume work: workflows/session-management.md
-      - Find past work: workflows/recall.md
       - Weekly review: workflows/weekly-review.md
+      - Deep research: workflows/deep-research.md
+      - Find past work: workflows/recall.md
       - Manage sub-projects: workflows/sub-project-routing.md
       - "Example: project dashboard": workflows/examples/project-overview-example.md
     - Everyday life:
@@ -143,23 +142,19 @@ nav:
       - Meeting follow-up: workflows/meeting-workflow.md
       - Cut through inbox noise: workflows/school-digest.md
       - Tax season: tax-workflow/index.md
-      - Shopping decisions: workflows/life/shopping.md
+      - Build a personal shopper: workflows/life/shopping.md
       - Vacation planning: workflows/life/vacation.md
       - Health and fitness: workflows/life/health.md
     - Improve your AI setup:
       - workflows/best-practices.md
       - Organize cloud storage: workflows/cloud-storage-guide.md
       - Organize your projects: workflows/organize-projects.md
-      - Inside a project folder: build-your-own/project-folders.md
       - Connect your apps: build-your-own/mcp-setup.md
       - Write persistent instructions: build-your-own/agents-md.md
       - Set rules and guidelines: build-your-own/rules.md
       - Create a skill: build-your-own/building-skills.md
-      # A second link keeps this label distinct from Essentials > Build a system.
-      - Set up continual improvement: how-i-improve-the-work.md
+      - Fix and update your skills: workflows/maintain-skills.md
       - Scout and curate new AI tips: hyperlinks/continuous-improvement.md
-      - Research tools: build-your-own/external-tools.md
-      - Templates: templates.md
   - About:
     - My AI principles: how-i-use-ai.md
     - About Chris' team: about.md
@@ -238,10 +233,14 @@ plugins:
         essentials/folders/health.md: workflows/life/health.md
         essentials/folders/shopping.md: workflows/life/shopping.md
         essentials/folders/vacation.md: workflows/life/vacation.md
-        essentials/session-management.md: workflows/session-management.md
+        essentials/session-management.md: starter-kit/occasional.md
+        workflows/session-management.md: starter-kit/occasional.md
         toolkit/executive-assistant.md: workflows/building-an-assistant.md
         essentials/chatgpt-vs-claude.md: starter-kit/newcomers.md
-        essentials/project-folders.md: build-your-own/project-folders.md
+        essentials/project-folders.md: workflows/organize-projects.md
+        build-your-own/project-folders.md: workflows/organize-projects.md
+        build-your-own/external-tools.md: build-your-own/mcp-setup.md#research-tools
+        templates.md: workflows/best-practices.md
         essentials/voice.md: build-your-own/voice.md
         system/ai-integration.md: workflows/council-models.md
         system/building-skills.md: build-your-own/building-skills.md
@@ -268,7 +267,7 @@ plugins:
         downloads/prompting-guide.md: hyperlinks/prompting.md
         downloads/prompt-assistant-instructions.md: hyperlinks/prompting.md#make-the-ai-do-this-for-you
         downloads/prompt-preferences-template.md: hyperlinks/prompting.md#save-your-preferences-and-test-changes
-        essentials/folders/work.md: build-your-own/project-folders.md
+        essentials/folders/work.md: workflows/organize-projects.md
         skills/school-digest-raw-materials.md: starter-kit/occasional.md
   - social:
       cards_layout_options:

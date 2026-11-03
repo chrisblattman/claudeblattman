@@ -258,7 +258,7 @@ From the newest meeting-log entry, draft a short follow-up email to the attendee
 ### 7. Fold the decisions into the project brief
 
 A `PROJECT-BRIEF.md` is one page holding where the project stands and which decisions govern it.
-If the project doesn't have one yet, the [template](../templates.md#project-brief-project-briefmd)
+If the project doesn't have one yet, the [template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/project-brief-template.md)
 and its prompt will start one. Meetings are what make it go stale. Every week or two, propose
 first:
 

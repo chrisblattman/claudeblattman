@@ -114,5 +114,4 @@ Two fixes: use markdown section headers (`##`, `###`) as structural navigation. 
 
 ## Related
 
-- **[Session management](../workflows/session-management.md)** — same spirit applied to running sessions.
 - **[What's new in April 2026](../changelog.md)**.

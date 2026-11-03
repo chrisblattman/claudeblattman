@@ -1,4 +1,4 @@
-# Building Skills
+# Turn repeatable workflows into skills
 
 Skills save a repeatable way of working in Claude Code or Codex. Each maintained skill lives in its own folder, with instructions in `SKILL.md` and any references or scripts beside it. This page shows how to build one from work you already do.
 

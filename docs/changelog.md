@@ -37,7 +37,7 @@ Each piece has its own page below.
 
 ### Session management
 
-How to run long sessions without losing your place. Decision matrix for `/rewind` vs `/compact <hint>` vs `/clear` vs starting fresh. Covers the four `/rewind` restore modes, when compaction hints actually steer the summary, and the real hook names (there's no `PostCompact` hook — compaction-aware reinjection ties to `SessionStart`). [Read more →](workflows/session-management.md)
+How to run long sessions without losing your place. Decision matrix for `/rewind` vs `/compact <hint>` vs `/clear` vs starting fresh. Covers the four `/rewind` restore modes, when compaction hints actually steer the summary, and the real hook names (there's no `PostCompact` hook — compaction-aware reinjection ties to `SessionStart`). This older session-management guide has been retired. See the current [handoff guidance](starter-kit/occasional.md#7-save-where-you-landed).
 
 ### Sub-project routing
 

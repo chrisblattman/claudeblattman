@@ -45,7 +45,7 @@ Go back and forth as many times as you need. Tell it what's missing, what it mis
 
 [Chatbots done right](../hyperlinks/chatbots.md) walks through choosing a model, giving it context, improving drafts through conversation, and saving useful preferences. [Getting better answers](../hyperlinks/prompting.md) helps turn a rough request into a clear task, with worked examples and a reusable preferences template. Both guides work in an ordinary browser chat.
 
-For recurring work, set up [a project](../build-your-own/project-folders.md) with the background and instructions you'll use again. For writing, give it [examples of your voice](../build-your-own/voice.md). When a plan deserves another look, try [a review in a fresh chat](../hyperlinks/plan-review-browser.md).
+For recurring work, set up [a project](../workflows/organize-projects.md) with the background and instructions you'll use again. For writing, give it [examples of your voice](../build-your-own/voice.md). When a plan deserves another look, try [a review in a fresh chat](../hyperlinks/plan-review-browser.md).
 
 If typing gets in your way, try [dictating your requests](../hyperlinks/wispr-flow.md). For a collection of documents, [NotebookLM](../hyperlinks/notebooklm.md) offers another way to work through the sources, where your workplace permits it.
 

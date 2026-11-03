@@ -135,6 +135,5 @@ Three patterns where I reach for it:
 
 ## Related
 
-- **[Session management](session-management.md)** — how `/recall` fits into the `/rewind` / `/compact` / `/clear` / `/done` decision matrix.
 - **Claude's memory tool** — persistent context across conversations. Complement, not substitute.
 - **[What's new in April 2026](../changelog.md)** — the context for why this update shipped.

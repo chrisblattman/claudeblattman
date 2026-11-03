@@ -115,7 +115,7 @@ Your saved context can include your role, current projects, preferred level of d
 
 Projects can keep instructions and reference material together. Memory is a separate feature whose behavior depends on the product and settings. Don't assume it remembers everything accurately: save important decisions explicitly and supply the current version when it matters. [ChatGPT project help](https://help.openai.com/en/articles/10169521-projects-in-chatgpt) and [Claude project help](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects) explain their controls.
 
-The [project-folder guide](../build-your-own/project-folders.md) walks through this using family travel. Keep lasting preferences in the reusable file; put this trip's dates and bookings in the individual brief. Afterward, add the few lessons that would change your next decision.
+The [project-folder guide](../workflows/organize-projects.md) shows how to gather and save reusable context. Keep lasting preferences in the reusable file; put this trip's dates and bookings in the individual brief. Afterward, add the few lessons that would change your next decision.
 
 <span id="the-next-level-teach-it-your-voice"></span>
 
