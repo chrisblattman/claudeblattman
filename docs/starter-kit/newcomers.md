@@ -18,7 +18,7 @@ Start with **Claude Code** or **Codex**, OpenAI’s agent. If you already use on
 
 For today, the useful decision is which app you’ll open and use.
 
-<details class="council-details" markdown="1">
+<details class="council-details" id="why-i-currently-use-codex" markdown="1">
 <summary>Why I currently use Codex — October 2026</summary>
 
 Codex fits the way I work right now. I move between a desktop, a laptop, and my phone, and I find the mobile and cross-machine experience especially useful. I also like being able to look at a document or page beside the conversation and give feedback where I see the problem, through edits, comments, or annotations, depending on what I'm working on.

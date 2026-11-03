@@ -1,30 +1,13 @@
 ---
-description: Standing instructions for when the agent writes code — language and style, what it may run, how results get checked. Not yet written.
+description: Standing instructions for when the agent writes code. Not written yet.
 ---
 
 # Coding rules
 
 !!! warning "Not written yet"
-    This page is a placeholder. It is linked from **stage 6** of the
-    [master checklist](../starter-kit/two-month-plan.md), which budgets 30
-    minutes for it. Nothing below is drafted copy.
+    This page will cover standing instructions for when an agent writes code: which language and packages to use, what the agent may run on its own, and how results get checked before you rely on them. For now, the general guide to [rules and guidelines](../build-your-own/rules.md) applies. The [AI resources for economists](../resources.md#ai-for-economists) include coding tools from other researchers.
 
-## What this page needs to cover
+## Related
 
-- Where coding rules live, and how they relate to the general
-  [rules and guidelines](../build-your-own/rules.md) that apply to every
-  session. Decide whether this is its own page or a section of that one.
-- Language and environment: which language, which version, which packages are
-  allowed, and what the agent should do when it wants a new dependency.
-- House style: naming, file layout, comments, where scripts go.
-- **What the agent may run, and what only you run.** This is the load-bearing
-  one for anyone working with real data.
-- How output gets checked before it's trusted — reproducibility, seeds, a
-  record of what was run against which data.
-
-## Open questions
-
-- Overlaps **N16** in the backlog, which revamps `build-your-own/rules.md`.
-  These two should be written together or the boundary will blur.
-- Needs the restricted-data decision that
-  [the data analysis workflow](data-analysis.md) also waits on.
+- [The data analysis workflow](data-analysis.md), also not written yet
+- [Write persistent instructions](../build-your-own/agents-md.md)

@@ -51,6 +51,10 @@ Tick off what you’ve tackled. Use the links for anything new, then move to the
 
 </div>
 
+If this guide has been useful, [give the toolkit a star on GitHub](https://github.com/chrisblattman/claudeblattman). It helps other people find it.
+
+On a computer, click **Star** at the top right of the GitHub page. On a phone, look for **Star** or **☆** near the repository name. You'll need to be signed in to GitHub.
+
 ## The master checklist
 
 A suggested route through the site's guides and workflows, from your first session to research,

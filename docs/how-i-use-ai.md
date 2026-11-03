@@ -11,7 +11,7 @@ AI has become the team I always wanted: an executive assistant, a project manage
 
 I had plenty of work for this team. Thousands of unread emails were serving as my to-do list. So were items in my calendar. I was behind on referee reports and recommendation letters, and going into meetings trying to reconstruct where we had left off. I needed to be on top of my projects to keep everyone else on top of them.
 
-AI even helped me write this essay. I've been trying to teach it to write like me. I dictated the ideas and examples, gave it my previous writing as a guide, and went back and forth over what it got wrong. AI wrote the first draft. It doesn't get my voice quite right, but iterating with it is much faster for me than writing from scratch. I get more done, and the basic idea gets out there.
+AI even helped me write this essay. I've been trying to [teach it to write like me](build-your-own/voice.md). I dictated the ideas and examples, gave it my previous writing as a guide, and went back and forth over what it got wrong. AI wrote the first draft. It doesn't get my voice quite right, but iterating with it is much faster for me than writing from scratch. I get more done, and the basic idea gets out there.
 
 This is one example of what the help looks like. At the very least, I get a first draft I can rewrite or a first answer I can work on.
 
@@ -21,11 +21,11 @@ The biggest gains have come from using independent agents and improving the way 
 
 ## Build up incrementally, one task or project at a time
 
-Try one or two useful tasks in the first couple of days. Get used to explaining what you want, reacting to what comes back, and trying again. Then build from one task or project to the next. Reproducing my entire setup is a terrible first assignment.
+Try one or two useful tasks in the first couple of days. Get used to explaining what you want, reacting to what comes back, and trying again. Then [build from one task or project to the next](starter-kit/two-month-plan.md). Reproducing my entire setup is a terrible first assignment.
 
 The jobs that have mattered to me suggest several places to begin:
 
-- **Get obligations out of your inbox.** Working with AI, I shifted the commitments sitting in my unread email and calendar into Apple Reminders on my phone. This grew into an executive assistant project that helps me triage messages and reminders. A first attempt could be much smaller: take a few messages, identify what actually requires action, and put the confirmed tasks somewhere you will see them.
+- **Get obligations out of your inbox.** Working with AI, I shifted the commitments sitting in my unread email and calendar into Apple Reminders on my phone. This grew into [an executive assistant project](workflows/building-an-assistant.md) that helps me triage messages and reminders. A first attempt could be much smaller: take a few messages, identify what actually requires action, and put the confirmed tasks somewhere you will see them.
 
 - **Get on top of one ongoing project.** My research projects have large teams, complicated histories, and results or decisions that need my attention every week. AI helps me prepare to give useful directions. You might begin with the notes from the last meeting and two recent updates, then ask what needs deciding at the next meeting and what information is missing.
 
@@ -49,7 +49,7 @@ When something breaks, I describe the problem and ask AI to investigate. I don't
 
 For a difficult question, I want more than one agent’s first answer. I want different approaches, different arguments, and someone looking for what the others missed.
 
-Sometimes I ask separate instances of the same AI to tackle a question. Sometimes I use different AIs. They work independently, then another agent brings the results together. I call this a council, and I use councils for a great deal of my work. Asking one chat to play several characters doesn't give me the same independent attempts. I want to see useful disagreements, including the concern that only one reviewer raised.
+Sometimes I ask separate instances of the same AI to tackle a question. Sometimes I use different AIs. They work independently, then another agent brings the results together. [I call this a council](starter-kit/occasional.md), and I use councils for a great deal of my work. Asking one chat to play several characters doesn't give me the same independent attempts. I want to see useful disagreements, including the concern that only one reviewer raised.
 
 I use these agents for different jobs. I can divide an investigation into separate questions, ask for competing ways to frame an argument, or have several reviewers examine the same plan. An alternative I reject can still help me figure out what I think.
 
@@ -57,7 +57,7 @@ Several agents can still repeat the same mistake. I ask them to examine disagree
 
 ## Have a fresh council challenge the plan, then revise it
 
-Once we have what looks like a good plan, I often ask a fresh council to find what's wrong with it. I give feedback too, and that cycle of planning, criticism, and revision accounts for a large part of the improvement I get from these tools.
+Once we have what looks like a good plan, I often ask [a fresh council to find what's wrong with it](starter-kit/occasional.md#review). I give feedback too, and that cycle of planning, criticism, and revision accounts for a large part of the improvement I get from these tools.
 
 The sequence looks something like this:
 
@@ -85,7 +85,7 @@ A review improves the task in front of me. Examples and corrections can make the
 
 Referee reports show how the process develops. I read the paper and dictate my comments. AI can help me examine a claim I am uncertain about, then turn my comments into a draft using my previous reports as examples. I edit that draft myself and say how I used AI. The confidentiality rules that apply to a report still govern what I can give a tool.
 
-Finishing the report is also a chance to improve the next one. Correcting the current conversation doesn't necessarily change the next one. So I ask AI to compare my edited version with its draft and work out what it should do differently. Then I ask it to save useful lessons in the instructions or examples it will use again.
+Finishing the report is also a chance to improve the next one. Correcting the current conversation doesn't necessarily change the next one. So I ask AI to compare my edited version with its draft and work out what it should do differently. Then I ask it to [save useful lessons](how-i-improve-the-work.md) in the instructions or examples it will use again.
 
 I also ask where the lesson belongs. A correction to a project’s budget should stay with that project. A recurring problem with my voice might belong in the writing instructions. AI can help decide what to save and where. Otherwise, I'll be explaining the same mistake next time.
 
@@ -101,7 +101,7 @@ Even the organization can become unnecessary. I used to put more effort into rol
 
 ## Organization pays off, especially when you work in projects
 
-Each research project has a home, with its papers, correspondence and decisions. So do the committees I sit on, home repairs and family vacations. When I open a project, I want to pick up where we left off.
+[Each research project has a home](workflows/organize-projects.md), with its papers, correspondence and decisions. So do the committees I sit on, home repairs and family vacations. When I open a project, I want to pick up where we left off.
 
 My projects in Codex largely reflect how I've organized my hard drive. I already had a reasonably organized collection of folders in Dropbox. One of the jobs I gave AI in the first months was helping me reorganize that Dropbox. It wasn't my first task.
 
@@ -111,7 +111,7 @@ Being organized doesn't mean putting every old document into every conversation.
 
 A lot of my work now happens in desktop tools with access to those folders, though keeping related work together in a chatbot project is useful too. You can begin by supplying the notes and documents for one meeting, then ask what else is missing. You don't need to reorganize your whole drive first.
 
-For a team meeting, I want to know what we were supposed to accomplish, what the new results mean, and what needs my attention. Preparation can turn into an investigation of a research question. Before exploring a new subject or deciding whether to write about it, I might want a researched briefing of two pages, five, or twenty. Having the project’s history available helps me ask better questions without reconstructing everything each time.
+For a team meeting, I want to know what we were supposed to accomplish, what the new results mean, and what needs my attention. Preparation can turn into an investigation of a research question. Before exploring a new subject or deciding whether to write about it, I might want [a researched briefing](workflows/deep-research.md) of two pages, five, or twenty. Having the project’s history available helps me ask better questions without reconstructing everything each time.
 
 ## Choose how much access to give it
 

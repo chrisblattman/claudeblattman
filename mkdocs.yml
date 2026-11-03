@@ -156,15 +156,17 @@ nav:
       - Set rules and guidelines: build-your-own/rules.md
       - Create a skill: build-your-own/building-skills.md
       # A second link keeps this label distinct from Essentials > Build a system.
-      - Set up continual improvement: /how-i-improve-the-work/
+      - Set up continual improvement: how-i-improve-the-work.md
       - Scout and curate new AI tips: hyperlinks/continuous-improvement.md
       - Research tools: build-your-own/external-tools.md
       - Templates: templates.md
   - About:
     - My AI principles: how-i-use-ai.md
     - About Chris' team: about.md
-    - Resources: resources.md
-  - FAQ: faq.md
+    - Resources and Influences: resources.md
+  - AI Concerns: ai-concerns.md
+  # FAQ hidden from navigation on purpose. /faq/ and its anchors stay live
+  # because templates.md and agents-md.md link to them.
 
 markdown_extensions:
   - admonition
