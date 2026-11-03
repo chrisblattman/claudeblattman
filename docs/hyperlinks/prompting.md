@@ -212,6 +212,8 @@ When you improve a reusable prompt, keep the earlier version and a one-line note
 | Unsupported claims | Ask for source locations and verify them. Remove claims it cannot support. |
 | Wrong direction | Correct the assumption before asking for another draft; start fresh with a checked summary if needed. |
 
+If you use an agent app such as Claude Code or Codex, a skill can apply one of these fixes for a whole session. When I want answers that lead with the next action and number the steps, I use a version of [i-have-adhd](https://github.com/ayghri/i-have-adhd). Its author designed it for readers with ADHD and says no diagnosis is needed.
+
 Before sending a substantial request, check five things: **clear job, sufficient context, real constraints, usable output, and a way to check success**. Improve the prompt when it helps, but also consider whether the model, missing information, or unavailable tools are the problem.
 
 [Back to Chatbots done right](chatbots.md) · [Back to Get ahead of the curve](../starter-kit/agents-at-work.md)

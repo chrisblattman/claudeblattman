@@ -88,6 +88,8 @@ I pay particular attention to a recommendation that depends on a setting very di
 You recommend triage. Show me the strongest evidence for that recommendation and the strongest evidence against it. Did the teams in those studies add staff or change anything else at the same time? Explain what we can reasonably borrow for our pilot and what remains an assumption.
 ```
 
+A long report can be hard to take in. I often ask for an explanation pitched at a particular reader, such as a program officer or a new research assistant. I use the free [ELI5 skill](https://github.com/DreambigOu/ELI5) for this. To add it, give your agent the link, ask it to install the skill, and check that it appears in a fresh session.
+
 Open the sources behind the claims that drive your decision. Check that they support what the report says. Several reports may repeat the same underlying study, so ask whether an apparent pattern comes from independent evidence or from several accounts of one result.
 
 If a source is inaccessible, ask the agent to say what it could actually inspect. If an important question is still unanswered, give it a focused follow-up. Another broad search is not always the next useful step. You may need a document from your own team or a measurement from the pilot.

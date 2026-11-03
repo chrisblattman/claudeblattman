@@ -6,7 +6,7 @@ description: Connect your agents, try an outside opinion, and make a council of 
 
 My default council is more than one AI. I ask different models to work on the same task, rather than assigning different personas to the same AI as on the [first page](../starter-kit/occasional.md). I find that they make different suggestions from one another.
 
-At the time of writing (October 2026), my top choices are Claude, Codex by OpenAI (ChatGPT), and Antigravity by Google (Gemini). I use all three. Start by getting an inexpensive, lower-tier subscription to a second AI for your high-value tasks. Try it for a month, then decide whether it’s worth purchasing a higher-tier subscription to use for all your tasks, or even subscribing to a third. I also have an inexpensive Grok subscription for specific questions every so often.
+At the time of writing (October 2026), my top choices are Claude, Codex by OpenAI (ChatGPT), and Antigravity by Google (Gemini). I use all three. I do most of my own work in Codex at the moment, for [reasons I explain on the setup page](../starter-kit/newcomers.md#why-i-currently-use-codex). Start by getting an inexpensive, lower-tier subscription to a second AI for your high-value tasks. Try it for a month, then decide whether it’s worth purchasing a higher-tier subscription to use for all your tasks, or even subscribing to a third. I also have an inexpensive Grok subscription for specific questions every so often.
 
 ## Why would I spend money on this? { #why-i-think-the-subscriptions-pay-for-themselves }
 
