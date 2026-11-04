@@ -66,4 +66,12 @@ Once it works, use it on your next real task. Keep a short note of what changed 
 
 </div>
 
+## Audit your skills periodically { #audit-your-skills }
+
+Every so often, ask your agent to look across the skills you use. Two skills may now do the same job, or an update to an app may have made an old workaround unnecessary. I start by asking for a short list so I can decide what’s worth changing.
+
+```text
+Look through my skills and recent runs. Which skills overlap, have broken connections, or could be simpler now? Give me a short list in priority order and show me an example for each suggestion.
+```
+
 For improving writing guidance through your edits, use the [voice improvement system](../how-i-improve-the-work.md). To build a new skill from work you repeat, see [Turn repeatable workflows into skills](../build-your-own/building-skills.md).

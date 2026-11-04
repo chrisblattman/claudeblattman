@@ -21,11 +21,8 @@ This page keeps its own checkmarks in your browser, separate from the homepage.
 <label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#0"> [Choose your agent](newcomers.md#1-choose-an-agent).</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#4"> Open a project in [the desktop app](from-terminal.md).</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#1"> Give the agent [one real task](newcomers.md#run-the-loop), then work through a revision together.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="work-restrictions"> If your workplace restricts agents, [find a way to practice](agents-at-work.md).</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#1"> Ask [a council](occasional.md) to tackle a task.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="fresh-review"> Give the council your feedback, then ask for [a fresh review of the draft](occasional.md#5-run-adversarial-review).</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#0"> [Save a handoff](occasional.md#7-save-where-you-landed) so you can pick up the work in a new session.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-5-brief-a-project-and-challenge-the-work#1"> If you use more than one AI, [connect a second model to your council](../workflows/council-models.md).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#1"> Start using [councils](occasional.md) to tackle the task and [adversarially review the output](occasional.md#5-run-adversarial-review).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-5-brief-a-project-and-challenge-the-work#1"> Consider [using multiple AIs in your council](../workflows/council-models.md). It’s worth the cost!</label>
 
 </div>
 
@@ -34,8 +31,8 @@ This page keeps its own checkmarks in your browser, separate from the homepage.
 
 <label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#4"> [Dictate a request](../hyperlinks/wispr-flow.md) you would usually type.</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#5"> [Transcribe a meeting](../hyperlinks/granola.md#start-transcribing).</label>
-<label class="step-done"><input type="checkbox" data-progress-key="use-transcript"> [File the transcript with its project](../hyperlinks/granola.md#file-every-transcript-where-the-agent-can-find-it) and use it to draft the follow-up.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#2"> [Build a voice pack](../build-your-own/voice.md) from your own writing.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="use-transcript"> [Process the transcript](../hyperlinks/granola.md#file-every-transcript-where-the-agent-can-find-it): file it with its project and use it for follow-ups.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#2"> [Teach your agent to write and sound like you](../build-your-own/voice.md).</label>
 <label class="step-done"><input type="checkbox" data-progress-key="voice-learning"> [Teach the agent to learn from your edits](../how-i-improve-the-work.md) so the next draft sounds more like you.</label>
 
 </div>
@@ -44,38 +41,44 @@ This page keeps its own checkmarks in your browser, separate from the homepage.
 
 Choose the group that fits what you want to do next.
 
+<span id="week-3-get-your-files-in-order"></span>
+<div class="week-card" markdown>
+### Stage 3 — Get your files in order and connect your apps { #files-and-apps }
+
+<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#2"> [Organize cloud storage](../workflows/cloud-storage-guide.md) so your agent can find your files.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#0"> [Give each project a home](../workflows/organize-projects.md) for its files, decisions, and handoffs.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#3"> [Connect the apps](../build-your-own/mcp-setup.md) that hold your mail, documents, and calendar.</label>
+
+</div>
+
 <span id="week-5-brief-a-project-and-challenge-the-work"></span>
 <span id="week-7-keep-several-projects-moving"></span>
 <div class="week-card" markdown>
-### Stage 3 — Get a project moving { #manage-a-project }
+### Stage 4 — Get a project moving { #manage-a-project }
 
 <label class="step-done"><input type="checkbox" data-progress-key="week-5-brief-a-project-and-challenge-the-work#0"> Give the agent a [one-page brief](https://github.com/chrisblattman/claudeblattman/blob/main/templates/project-brief-template.md) for a live project.</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#0"> [Catch up on a project](../workflows/project-management.md) you’ve been away from.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#2"> [Run a weekly review](../workflows/weekly-review.md) to see which commitments need attention.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#1"> See what the review can produce in the [example project dashboard](../workflows/examples/project-overview-example.md).</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#1"> [Find a decision or draft](../workflows/recall.md) from an earlier session.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#3"> [Split a large project into subprojects](../workflows/sub-project-routing.md) so each has its own handoff.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#2"> [Automate a weekly review](../workflows/weekly-review.md) to see which commitments need attention.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#1"> [Find a decision or conversation](../workflows/recall.md) from an earlier session.</label>
 
 </div>
 
 <span id="week-6-research-and-analysis"></span>
 <div class="week-card" markdown>
-### Stage 4 — Research a question { #research-a-question }
+### Stage 5 — Research a question { #research-a-question }
 
-<label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#3"> Choose [research tools](../build-your-own/mcp-setup.md#research-tools) that can reach the sources you need.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-6-research-and-analysis#0"> [Set up a research tool](../workflows/deep-research.md#get-the-research-skill-ready) for a question you’re working on.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-6-research-and-analysis#1"> [Run the research](../workflows/deep-research.md), check the sources, and give the findings to your council.</label>
-
-Coming later: [coding rules](../workflows/coding-rules.md) and [data analysis](../workflows/data-analysis.md).
+<label class="step-done"><input type="checkbox" data-progress-key="week-6-research-and-analysis#1"> Use an agent to [run your deep research queries](../workflows/deep-research.md).</label>
 
 </div>
 
 <span id="week-8-hand-over-the-rest-of-it"></span>
 <div class="week-card" markdown>
-### Stage 5 — Hand off everyday work { #everyday-work }
+### Stage 6 — Hand off everyday work { #everyday-work }
 
-<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#4"> [Prepare for a meeting and draft the follow-up](../workflows/meeting-workflow.md).</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#0"> See how [an AI executive assistant](../workflows/building-an-assistant.md) handles a working day.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#4"> [Use the pre- and post-meeting workflow](../workflows/meeting-workflow.md).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#0"> [Build an AI executive assistant](../workflows/building-an-assistant.md) to help you manage your email and schedule.</label>
+
+<label class="step-done"><input type="checkbox" data-progress-key="sub#1#0"> [Cut through inbox noise](../workflows/school-digest.md)</label>
 
 <div class="pick-group" markdown>
 <label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#1"> Use [the skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills) to set up one, two, or all of these <span class="est">(~15 min each)</span></label>
@@ -94,30 +97,26 @@ Coming later: [coding rules](../workflows/coding-rules.md) and [data analysis](.
 <div class="pick-group" markdown>
 <label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#2"> Try a task from everyday life <span class="est">(~20 min each)</span></label>
 <div class="sub-list" markdown>
-<label class="sub-done"><input type="checkbox"> [Cut through inbox noise](../workflows/school-digest.md)</label>
-<label class="sub-done"><input type="checkbox"> [Tax season](../tax-workflow/index.md) — background reading: [academic tax basics](../tax-workflow/reference/academic-tax-basics.md)</label>
-<label class="sub-done"><input type="checkbox"> [Expense processing](../workflows/life/academic-expenses.md) (guide coming later)</label>
-<label class="sub-done"><input type="checkbox"> [Shopping decisions](../workflows/life/shopping.md)</label>
-<label class="sub-done"><input type="checkbox"> [Vacation planning](../workflows/life/vacation.md)</label>
-<label class="sub-done"><input type="checkbox"> [Health and fitness](../workflows/life/health.md)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#1"> [Tax season](../tax-workflow/index.md) — background reading: [academic tax basics](../tax-workflow/reference/academic-tax-basics.md)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#2"> [Expense processing](../workflows/life/academic-expenses.md) (guide coming later)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#3"> [Shopping decisions](../workflows/life/shopping.md)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#4"> [Vacation planning](../workflows/life/vacation.md)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#5"> [Health and fitness](../workflows/life/health.md)</label>
 </div>
 </div>
 
 </div>
 
-<span id="week-3-get-your-files-in-order"></span>
 <span id="week-4-set-your-rules-your-voice-and-your-first-skill"></span>
 <div class="week-card" markdown>
-### Stage 6 — Improve your AI setup { #improve-your-setup }
+### Stage 7 — Improve your AI setup { #improve-your-setup }
 
-<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#2"> [Organize cloud storage](../workflows/cloud-storage-guide.md) so your agent can find your files.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#0"> [Give each project a home](../workflows/organize-projects.md) for its files, decisions, and handoffs.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#3"> [Connect the apps](../build-your-own/mcp-setup.md) that hold your mail, documents, and calendar.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#2"> [Write standing instructions](../build-your-own/agents-md.md) your agent can use across sessions.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#2"> Write your [`CLAUDE.md` or `AGENTS.md` file](../build-your-own/agents-md.md) to give your agents standing instructions across sessions.</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#0"> [Set rules and guidelines](../build-your-own/rules.md) for the work you do regularly.</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#1"> [Turn a repeat task into a skill](../build-your-own/building-skills.md).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="audit-skills"> [Run skill audits periodically](../workflows/maintain-skills.md#audit-your-skills) to decide what to fix, combine, or retire.</label>
 <label class="step-done"><input type="checkbox" data-progress-key="maintain-skills"> [Fix or update a skill](../workflows/maintain-skills.md) when it stops working well.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="scout-tips"> [Scout and curate new AI tips](../hyperlinks/continuous-improvement.md) and try one on your own work.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="scout-tips"> [Scout and curate new AI tips](../hyperlinks/continuous-improvement.md) to add to your workflow.</label>
 
 </div>
 

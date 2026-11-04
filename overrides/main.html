@@ -635,7 +635,7 @@
         [].slice.call(grp.querySelectorAll('.sub-done input')).forEach(function (sub, i) {
           if (sub.dataset.cbBound) return;
           sub.dataset.cbBound = '1';
-          var k = 'sub#' + g + '#' + i;
+          var k = sub.dataset.progressKey || 'sub#' + g + '#' + i;
           sub.checked = !!state[k];
           var mark = function () {
             var l = sub.closest('.sub-done');
