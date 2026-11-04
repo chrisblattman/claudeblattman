@@ -12,4 +12,4 @@ If your data come from people, check your data agreement and ethics approval bef
 ## Related
 
 - [Coding rules](coding-rules.md), also not written yet
-- [Deep research](deep-research.md), the other half of stage 6 of the [next-steps checklist](../starter-kit/two-month-plan.md)
+- [Deep research](deep-research.md), part of the [research checklist](../starter-kit/two-month-plan.md#research-a-question)
