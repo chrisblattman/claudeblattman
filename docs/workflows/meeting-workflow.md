@@ -105,6 +105,5 @@ The workflow is a default, not a rule. When it fits, it fits cleanly. When it do
 ## Related
 
 - **[Weekly Review: the mechanics](weekly-review.md)** — how meeting records aggregate into a project dashboard.
-- **[Sub-project routing](sub-project-routing.md)** — if your project has parallel workstreams, the meeting handoff routes to the right sub-folder.
 - **[Project Management](project-management.md)** — the broader system these meeting skills live inside.
 - **[What's new in April 2026](../changelog.md)**.

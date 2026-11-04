@@ -67,6 +67,7 @@ plugins:
         essentials/folders/shopping.md: workflows/life/shopping.md
         essentials/folders/vacation.md: workflows/life/vacation.md
         essentials/session-management.md: starter-kit/occasional.md
+        workflows/sub-project-routing.md: workflows/organize-projects.md
         workflows/session-management.md: starter-kit/occasional.md
         toolkit/executive-assistant.md: workflows/building-an-assistant.md
         essentials/chatgpt-vs-claude.md: starter-kit/newcomers.md

@@ -4,7 +4,7 @@ description: Ask a useful research question, inspect the evidence, and put the f
 
 # Are you taking advantage of deep research?
 
-[← Back to the next-steps checklist](../starter-kit/two-month-plan.md#week-6-research-and-analysis)
+[← Back to the next-steps checklist](../starter-kit/two-month-plan.md#research-a-question)
 
 I use `/deep-research` to search for information that will help my council do a better-informed job. It gathers and assesses evidence: what others have tried, what happened, and how well their experience applies to my situation. Those findings become research inputs for `/council` as it develops a proposal, compares approaches, or recommends what to do.
 
