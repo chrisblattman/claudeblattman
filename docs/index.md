@@ -28,9 +28,9 @@ I appreciated the nudge I got from colleagues, and so I built this guide to help
 
 <ul class="home-featured__links">
 <li><a href="how-i-use-ai/">My AI principles</a></li>
-<li><a href="why-i-use-codex/">Why I currently use Codex</a></li>
+<li><a href="why-i-use-codex/">Why Claude Blattman switched to Codex</a></li>
 <li><a href="workflows/maintain-skills/">Refreshing your existing skills</a></li>
-<li><a href="https://github.com/chrisblattman/claudeblattman">Star on GitHub</a></li>
+<li>Find this helpful? Please <a href="https://github.com/chrisblattman/claudeblattman">star it on GitHub</a>.</li>
 </ul>
 
 </section>
@@ -68,11 +68,11 @@ If this guide has been useful, [give the toolkit a star on GitHub](https://githu
 
 On a computer, click **Star** at the top right of the GitHub page. On a phone, look for **Star** or **☆** near the repository name. You'll need to be signed in to GitHub.
 
-## The master checklist
+## Next steps for intermediate and advanced users { #the-master-checklist }
 
-An optional checklist to help you choose what to try next and keep track of what you’ve already tried. Follow the suggested order, or jump to whatever would be useful for your work.
+Use this optional checklist to find workflows and skills you haven’t tried, improve your setup, and choose what to learn next. Skip what you already know and focus on what would help your work.
 
-[Open the master checklist](starter-kit/two-month-plan.md){ .md-button .master-checklist-button }
+[Explore the next steps](starter-kit/two-month-plan.md){ .md-button .master-checklist-button }
 
 ## What would you like help with?
 

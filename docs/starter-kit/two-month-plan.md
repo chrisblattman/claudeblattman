@@ -1,11 +1,11 @@
 ---
-title: The master checklist
-description: An optional route through the site's guides and workflows. Choose what to try next and keep track of what you've already tried.
+title: Next steps for intermediate and advanced users
+description: An optional checklist for intermediate and advanced AI users. Skip familiar steps, find useful workflows and skills, and track what you've tried.
 ---
 
-# The master checklist { #the-two-month-plan }
+# Next steps for intermediate and advanced users { #the-two-month-plan }
 
-You don’t need to complete this checklist. It brings the site’s guides together in a suggested order, if you’d like a route to follow. Pick what’s useful, skip the rest, and tick off what you’ve tried so you can find your place when you return.
+This optional checklist is for intermediate and advanced users who already work with AI and want to get more from it. Some early steps revisit the basics. Skip what you already know, choose what would help your work, and tick off what you’ve tried so you can find your place when you return.
 
 There is no timetable. The times beside the tasks are rough estimates.
 

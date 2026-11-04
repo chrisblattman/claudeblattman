@@ -2,13 +2,9 @@
 description: Why Codex is currently my main workspace for coordinating other AIs, and how I moved between Claude and Codex.
 ---
 
-# Why I currently use Codex
+# Why Claude Blattman switched to Codex
 
-I use Codex as my main workspace, including to coordinate other AIs through [Ask Agents and councils](starter-kit/occasional.md).
-
-I started this site using Claude. Since then, I've moved back and forth between Claude and Codex, and have settled on Codex for the time being. The name has stuck. “Codex Blattman” doesn't quite roll off the tongue.
-
-These are my reasons as of November 2026:
+I started this site using Claude, but over the last few months I've switched to Codex. Everyone will have their own priorities. Here's why I switched.
 
 ## It fits how I work across devices
 
@@ -22,4 +18,8 @@ I rely heavily on Deep Research in the browser. That's a separate part of my wor
 
 My university provides Claude at very low cost to me, which is great. The university has also been supportive of using these tools. Institutional accounts still limit some integrations, and my personal Codex setup gives me more flexibility.
 
-These are personal reasons, and my preference could change again in a few months. If an app already works well for you, you can use the approaches on this site there too. To bring other models into your work, see [Different AI models](workflows/council-models.md).
+I use it as my main workspace, including to coordinate other AIs through [Ask Agents and councils](starter-kit/occasional.md).
+
+My preference could change again in a few months. If an app already works well for you, you can use the approaches on this site there too. To bring other models into your work, see [Different AI models](workflows/council-models.md).
+
+*Updated November 2026.*

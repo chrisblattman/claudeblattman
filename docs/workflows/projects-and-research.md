@@ -17,4 +17,4 @@ with [Catch up on a project](project-management.md). If the project needs a clea
 | **[The data analysis workflow](data-analysis.md)** | The agent writes the code, runs it, and you check what came out — *not written yet* |
 | **[Example: project dashboard](examples/project-overview-example.md)** | What the weekly review produces after a few months of running it |
 
-These are stages 6 and 7 of the [master checklist](../starter-kit/two-month-plan.md).
+These are stages 6 and 7 of the [next-steps checklist](../starter-kit/two-month-plan.md).

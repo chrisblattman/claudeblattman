@@ -126,7 +126,7 @@ nav:
     - Teach it your voice:
       - Build your voice pack: build-your-own/voice.md
       - Build a system: how-i-improve-the-work.md
-    - The master checklist: starter-kit/two-month-plan.md
+    - Next steps for intermediate and advanced users: starter-kit/two-month-plan.md
   - Workflows:
     - Projects and research:
       - workflows/projects-and-research.md
@@ -157,7 +157,7 @@ nav:
       - Scout and curate new AI tips: hyperlinks/continuous-improvement.md
   - About:
     - My AI principles: how-i-use-ai.md
-    - Why I currently use Codex: why-i-use-codex.md
+    - Why Claude Blattman switched to Codex: why-i-use-codex.md
     - About Chris' team: about.md
     - Resources and Influences: resources.md
   - AI Concerns: ai-concerns.md

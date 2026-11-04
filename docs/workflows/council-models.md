@@ -159,4 +159,4 @@ Use a council to diagnose why my cross-app connections aren’t working and help
 
 </div>
 
-[Continue with the master checklist →](../starter-kit/two-month-plan.md)
+[Continue with the next-steps checklist →](../starter-kit/two-month-plan.md)

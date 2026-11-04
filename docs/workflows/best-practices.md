@@ -6,7 +6,7 @@ description: Adapt your AI workflow with connected apps, reusable instructions, 
 
 Give your AI a better place to work: organize the files and projects it needs, connect your apps, and save the instructions that make a useful routine repeatable.
 
-If you are getting started, follow the [essentials checklist](../index.md#my-absolute-essentials-and-where-to-start). The [master checklist](../starter-kit/two-month-plan.md) puts setup and customization into a suggested order.
+If you are getting started, follow the [essentials checklist](../index.md#my-absolute-essentials-and-where-to-start). The [next-steps checklist](../starter-kit/two-month-plan.md) puts setup and customization into a suggested order.
 
 | Guide | What it helps you do |
 | --- | --- |
