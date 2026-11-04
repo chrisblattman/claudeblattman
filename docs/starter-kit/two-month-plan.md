@@ -77,7 +77,6 @@ Choose the group that fits what you want to do next.
 
 <label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#4"> [Use the pre- and post-meeting workflow](../workflows/meeting-workflow.md).</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#0"> [Build an AI executive assistant](../workflows/building-an-assistant.md) to help you manage your email and schedule.</label>
-
 <label class="step-done"><input type="checkbox" data-progress-key="sub#1#0"> [Cut through inbox noise](../workflows/school-digest.md)</label>
 
 <div class="pick-group" markdown>
