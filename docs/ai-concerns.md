@@ -24,9 +24,9 @@ You can try a small version in a chatbot: give it a good earlier example and you
 
 ??? question "What about invented facts, citations and confident mistakes?"
 
-    I hear this concern less than I did a year or two ago. My impression is that the systems have improved, and people are learning to use them better. On the kinds of tasks my agents do well, I also feel I see fewer factual and citation errors than in first drafts I used to delegate to people. That's an impression, not a measured comparison.
-
     Mistakes still happen. I don't personally fact-check everything AI produces. For important work, I keep people involved. For less consequential work, I'm happy to accept some errors in return for getting much more done. I don't need every task to be error-free for the help to be valuable.
+
+    I hear this concern less than I did a year or two ago. My impression is that the systems have improved, and people are learning to use them better. On the kinds of tasks my agents do well, I also feel I see fewer factual and citation errors than in first drafts I used to delegate to people. That's an impression, not a measured comparison.
 
     Several agents can repeat the same mistake. Their agreement doesn't make a claim true. I can often tell when a proposal misses my point or a draft sounds nothing like me. Work I can't judge is harder, and adding reviewers doesn't make that difficulty disappear.
 

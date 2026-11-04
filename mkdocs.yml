@@ -35,7 +35,7 @@ extra_css:
   # bundles, so without this the browser happily serves a cached
   # stylesheet after an edit. That cost six rounds of chasing CSS that
   # was already correct, and Shay hit it too.
-  - stylesheets/extra.css?v=989ffb37bb
+  - stylesheets/extra.css?v=d0f9ed2848
 
 # mkdocs serve watches docs/ and mkdocs.yml, but NOT the theme custom_dir. So
 # edits to overrides/*.html triggered no rebuild and `mkdocs serve` kept
@@ -157,6 +157,7 @@ nav:
       - Scout and curate new AI tips: hyperlinks/continuous-improvement.md
   - About:
     - My AI principles: how-i-use-ai.md
+    - Why I currently use Codex: why-i-use-codex.md
     - About Chris' team: about.md
     - Resources and Influences: resources.md
   - AI Concerns: ai-concerns.md

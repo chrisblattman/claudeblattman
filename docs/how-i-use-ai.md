@@ -19,6 +19,8 @@ There is a startup cost. I have to explain the job, provide the background, and 
 
 The biggest gains have come from using independent agents and improving the way we work together. I ask several agents to develop approaches or challenge a draft, add my own judgment, and use what went wrong to make the next attempt better.
 
+I discuss practical reservations about working this way in [AI Concerns](ai-concerns.md), including quality, confidentiality and whether the setup is worth the trouble.
+
 ## Build up incrementally, one task or project at a time
 
 Try one or two useful tasks in the first couple of days. Get used to explaining what you want, reacting to what comes back, and trying again. Then [build from one task or project to the next](starter-kit/two-month-plan.md). Reproducing my entire setup is a terrible first assignment.
