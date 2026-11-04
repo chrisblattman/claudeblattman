@@ -4,9 +4,9 @@ description: Why I switched from Claude to Codex as my main AI workspace, and wh
 
 # Why Claude Blattman switched to Codex
 
-I started this site using Claude, but over the last few months I've moved to Codex. The name has stayed. Codex Blattman doesn't quite roll off the tongue.
+I started this site using Claude, but I now use Codex as my main workspace and coordinate Claude and other AIs through my [Ask Agents and council](starter-kit/occasional.md) skills.
 
-Here's why I switched.
+The name has stayed (Codex Blattman doesn't quite roll off the tongue). Here's why I made Codex my main driver for now.
 
 ## I can work from my phone
 
@@ -14,9 +14,9 @@ I move between a desktop, a laptop, and my phone. Codex makes that much easier. 
 
 By comparison, I've found Claude's mobile experience limited and clunky, at least with my setup. These apps change quickly. [Here's how Codex's mobile connection works](https://learn.chatgpt.com/docs/remote-connections).
 
-## I can work on documents beside the conversation
+## The Codex app's preview pane is invaluable
 
-The preview pane is invaluable. I can look at a PDF, Google Doc, or other document beside the chat and give feedback where I see the problem. Depending on the document, I can edit, comment, or annotate. It saves a surprising amount of explaining what I mean by “that bit halfway down.”
+I can look at a PDF, Google Doc, or other document beside the chat and give feedback where I see the problem. Depending on the document, I can edit, comment, or annotate. It saves a surprising amount of explaining what I mean by “that bit halfway down.”
 
 ## There's no substitute for ChatGPT Deep Research
 
@@ -26,11 +26,11 @@ Confusingly, my [`/deep-research` skill](workflows/deep-research.md) is a differ
 
 ## My personal account gives me more flexibility
 
-My university provides Claude at very low cost to me, which is great, and it has been supportive of these tools. Its account comes with university-wide rules for connections and new features. My workflow also depends on personal accounts such as Gmail, and my own setup gives me more room to experiment, within limits I've set.
+My university provides Claude at low cost to me, which is great, and it has been supportive of these tools. Its account comes with university-wide rules for connections and new features. My workflow also depends on personal accounts such as Gmail, and my own setup gives me more room to experiment, within limits I've set.
 
 ---
 
-Codex is now where I coordinate the other AIs, through [Ask Agents and councils](starter-kit/occasional.md). I still use Claude as one of the AIs on my councils.
+I still use Claude as one of the AIs on my councils.
 
 My preference could change again in a few months. If your app works for you, keep using it. The approaches on this site travel well, and [Different AI models](workflows/council-models.md) explains how to bring other models into your work.
 
