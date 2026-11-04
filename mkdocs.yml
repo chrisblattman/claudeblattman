@@ -35,7 +35,7 @@ extra_css:
   # bundles, so without this the browser happily serves a cached
   # stylesheet after an edit. That cost six rounds of chasing CSS that
   # was already correct, and Shay hit it too.
-  - stylesheets/extra.css?v=d0f9ed2848
+  - stylesheets/extra.css?v=f263385280
 
 # mkdocs serve watches docs/ and mkdocs.yml, but NOT the theme custom_dir. So
 # edits to overrides/*.html triggered no rebuild and `mkdocs serve` kept

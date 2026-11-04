@@ -27,9 +27,10 @@ I appreciated the nudge I got from colleagues, and so I built this guide to help
 ## Featured { #featured .home-featured__heading }
 
 <ul class="home-featured__links">
-<li><a href="how-i-use-ai/">My AI principles</a><p>How I use AI to stay on top of work and life.</p></li>
-<li><a href="why-i-use-codex/">Why I currently use Codex</a><p>One workspace for coordinating several AIs.</p></li>
-<li><a href="workflows/maintain-skills/">Fix and update your skills</a><p>Ask AI to diagnose a workflow and make it useful again.</p></li>
+<li><a href="how-i-use-ai/">My AI principles</a></li>
+<li><a href="why-i-use-codex/">Why I currently use Codex</a></li>
+<li><a href="workflows/maintain-skills/">Refreshing your existing skills</a></li>
+<li><a href="https://github.com/chrisblattman/claudeblattman">Star on GitHub</a></li>
 </ul>
 
 </section>
