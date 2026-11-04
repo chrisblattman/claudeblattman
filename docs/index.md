@@ -16,11 +16,11 @@ social:
 
 <p class="home-byline">By <a href="https://chrisblattman.com">Chris Blattman</a>, political economist at UChicago.</p>
 
-<p class="home-lede">In January 2026 I started playing with Claude Code. I had no idea what I was doing, but a little advice from colleagues and my own experimentation ultimately changed how I work.</p>
+<p class="home-lede">In January 2026 I started playing with Claude Code. I had no idea what I was doing, but a little advice, time, and experimentation changed how I work.</p>
 
-Now I use AI as an executive assistant, a project manager, and a research collaborator. It helps me stay on top of commitments, get back into complicated projects, and work through ideas. It also plans family vacations and home repairs.
+Now I use AI as an executive assistant, project manager, and research collaborator. It helps me stay on top of commitments, manage complicated projects, and work through ideas. It also plans family vacations and home repairs.
 
-I appreciated the nudge I got from colleagues, and so I built this guide to help others. Beginners can start with the essentials below. For more advanced skills, try the next steps or browse the workflows.
+I appreciated the help from colleagues, and so I built this site to help others. Beginners can start with the essentials, advanced users with the next steps or added workflows.
 
 <section class="home-featured" aria-labelledby="featured" markdown>
 
