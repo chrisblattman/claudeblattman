@@ -19,9 +19,9 @@ Start with **Claude Code** or **Codex**, OpenAI’s agent. If you already use on
 For today, the useful decision is which app you’ll open and use.
 
 <details class="council-details" id="why-i-currently-use-codex" markdown="1">
-<summary>Why I currently use Codex — November 2026</summary>
+<summary>Why Claude Blattman switched to Codex — November 2026</summary>
 
-I started with Claude and now use Codex as my main workspace, including to coordinate other AIs. [Read why I currently use Codex](../why-i-use-codex.md), and why my preference could change again.
+I started with Claude and now use Codex as my main workspace, including to coordinate other AIs. [Read why I switched to Codex](../why-i-use-codex.md), and why my preference could change again.
 
 </details>
 

@@ -126,7 +126,7 @@ nav:
     - Teach it your voice:
       - Build your voice pack: build-your-own/voice.md
       - Build a system: how-i-improve-the-work.md
-    - The master checklist: starter-kit/two-month-plan.md
+    - Next steps for intermediate and advanced users: starter-kit/two-month-plan.md
   - Workflows:
     - Projects and research:
       - workflows/projects-and-research.md
@@ -136,7 +136,7 @@ nav:
       - Find past work: workflows/recall.md
       - Manage sub-projects: workflows/sub-project-routing.md
       - "Example: project dashboard": workflows/examples/project-overview-example.md
-    - Everyday life:
+    - Work and personal life:
       - workflows/executive-assistant.md
       - Build an AI executive assistant: workflows/building-an-assistant.md
       - Meeting follow-up: workflows/meeting-workflow.md
@@ -157,7 +157,7 @@ nav:
       - Scout and curate new AI tips: hyperlinks/continuous-improvement.md
   - About:
     - My AI principles: how-i-use-ai.md
-    - Why I currently use Codex: why-i-use-codex.md
+    - Why Claude Blattman switched to Codex: why-i-use-codex.md
     - About Chris' team: about.md
     - Resources and Influences: resources.md
   - AI Concerns: ai-concerns.md

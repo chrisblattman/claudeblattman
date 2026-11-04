@@ -20,7 +20,7 @@ social:
 
 Now I use AI as an executive assistant, a project manager, and a research collaborator. It helps me stay on top of commitments, get back into complicated projects, and work through ideas. It also plans family vacations and home repairs.
 
-I appreciated the nudge I got from colleagues, and so I built this guide to help others. Beginners start with the checklist below, with more advanced skills available through the menu.
+I appreciated the nudge I got from colleagues, and so I built this guide to help others. Beginners can start with the essentials below. For more advanced skills, try the next steps or browse the workflows.
 
 <section class="home-featured" aria-labelledby="featured" markdown>
 
@@ -28,9 +28,9 @@ I appreciated the nudge I got from colleagues, and so I built this guide to help
 
 <ul class="home-featured__links">
 <li><a href="how-i-use-ai/">My AI principles</a></li>
-<li><a href="why-i-use-codex/">Why I currently use Codex</a></li>
+<li><a href="why-i-use-codex/">Why Claude Blattman switched to Codex</a></li>
 <li><a href="workflows/maintain-skills/">Refreshing your existing skills</a></li>
-<li><a href="https://github.com/chrisblattman/claudeblattman">Star on GitHub</a></li>
+<li>Find this helpful? Please <a href="https://github.com/chrisblattman/claudeblattman">star it on GitHub</a>.</li>
 </ul>
 
 </section>
@@ -68,18 +68,14 @@ If this guide has been useful, [give the toolkit a star on GitHub](https://githu
 
 On a computer, click **Star** at the top right of the GitHub page. On a phone, look for **Star** or **☆** near the repository name. You'll need to be signed in to GitHub.
 
-## The master checklist
+## Next steps for intermediate and advanced users { #the-master-checklist }
 
-An optional checklist to help you choose what to try next and keep track of what you’ve already tried. Follow the suggested order, or jump to whatever would be useful for your work.
+An optional checklist of workflows, skills and setup improvements to try next. Skip what you already know.
 
-[Open the master checklist](starter-kit/two-month-plan.md){ .md-button .master-checklist-button }
+[Explore the next steps](starter-kit/two-month-plan.md){ .md-button .master-checklist-button }
 
 ## What would you like help with?
 
-- **Keep a project moving.** Bring its history, decisions and next actions together.
-  [Project management and research](workflows/projects-and-research.md)
-- **Stay on top of everyday life.** Get help with messages, meetings, household decisions and travel.
-  [The executive assistant workflows](workflows/executive-assistant.md)
-
-- **Improve your AI setup.** Organize your files and projects, connect your apps, and build useful routines.
-  [Improve your AI setup](workflows/best-practices.md)
+- **[Projects and research](workflows/projects-and-research.md).** Keep a project moving by bringing its history, decisions and next actions together.
+- **[Work and personal life](workflows/executive-assistant.md).** Get help with messages, meetings, household decisions and travel.
+- **[Improve your AI setup](workflows/best-practices.md).** Organize your files and projects, connect your apps, and build useful routines.
