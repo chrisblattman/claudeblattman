@@ -5,11 +5,13 @@ description: An optional checklist for intermediate and advanced AI users. Skip 
 
 # Next steps for intermediate and advanced users { #the-two-month-plan }
 
-This optional checklist is for intermediate and advanced users who already work with AI and want to get more from it. Some early steps revisit the basics. Skip what you already know, choose what would help your work, and tick off what you’ve tried so you can find your place when you return.
+This optional checklist is for intermediate and advanced users who want more from AI. The early stages revisit the basics, so skip what you already know. Tick off what you’ve tried and you’ll find your place when you return.
+
+Already have the basics? [Skip to the bigger work](#month-two-the-bigger-work).
 
 There is no timetable. The times beside the tasks are rough estimates.
 
-Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Everyday life](../workflows/executive-assistant.md) for a task, and [Improve your AI setup](../workflows/best-practices.md) for connections, instructions, and skills. The checklist below brings those guides together. Data analysis, coding rules, and academic expenses are still forthcoming; their linked pages are labeled as placeholders.
+Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Work and personal life](../workflows/executive-assistant.md) for a task, and [Improve your AI setup](../workflows/best-practices.md) for connections, instructions, and skills. The checklist below brings those guides together. Data analysis, coding rules, and expense processing are still forthcoming. Their linked pages are labeled as placeholders.
 
 <div class="checklist" markdown>
 

@@ -2,9 +2,9 @@
 description: The jobs that aren't research but eat the week anyway — meetings, inbox noise, tax season, and the decision folders for shopping, travel and health.
 ---
 
-# Everyday life
+# Work and personal life { #everyday-life }
 
-The jobs that aren't research but eat the week anyway. Read the overview first; the rest are
+The jobs that aren't research but eat the week anyway. Read the overview first. The rest are
 worked examples you can copy.
 
 | Workflow | What it's for |

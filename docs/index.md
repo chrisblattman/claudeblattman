@@ -20,7 +20,7 @@ social:
 
 Now I use AI as an executive assistant, a project manager, and a research collaborator. It helps me stay on top of commitments, get back into complicated projects, and work through ideas. It also plans family vacations and home repairs.
 
-I appreciated the nudge I got from colleagues, and so I built this guide to help others. Beginners start with the checklist below, with more advanced skills available through the menu.
+I appreciated the nudge I got from colleagues, and so I built this guide to help others. Beginners can start with the essentials below. For more advanced skills, try the next steps or browse the workflows.
 
 <section class="home-featured" aria-labelledby="featured" markdown>
 
@@ -70,16 +70,12 @@ On a computer, click **Star** at the top right of the GitHub page. On a phone, l
 
 ## Next steps for intermediate and advanced users { #the-master-checklist }
 
-Use this optional checklist to find workflows and skills you haven’t tried, improve your setup, and choose what to learn next. Skip what you already know and focus on what would help your work.
+An optional checklist of workflows, skills and setup improvements to try next. Skip what you already know.
 
 [Explore the next steps](starter-kit/two-month-plan.md){ .md-button .master-checklist-button }
 
 ## What would you like help with?
 
-- **Keep a project moving.** Bring its history, decisions and next actions together.
-  [Project management and research](workflows/projects-and-research.md)
-- **Stay on top of everyday life.** Get help with messages, meetings, household decisions and travel.
-  [The executive assistant workflows](workflows/executive-assistant.md)
-
-- **Improve your AI setup.** Organize your files and projects, connect your apps, and build useful routines.
-  [Improve your AI setup](workflows/best-practices.md)
+- **[Projects and research](workflows/projects-and-research.md).** Keep a project moving by bringing its history, decisions and next actions together.
+- **[Work and personal life](workflows/executive-assistant.md).** Get help with messages, meetings, household decisions and travel.
+- **[Improve your AI setup](workflows/best-practices.md).** Organize your files and projects, connect your apps, and build useful routines.
