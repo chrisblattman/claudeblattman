@@ -19,15 +19,9 @@ Start with **Claude Code** or **Codex**, OpenAI’s agent. If you already use on
 For today, the useful decision is which app you’ll open and use.
 
 <details class="council-details" id="why-i-currently-use-codex" markdown="1">
-<summary>Why I currently use Codex — October 2026</summary>
+<summary>Why I currently use Codex — November 2026</summary>
 
-Codex fits the way I work right now. I move between a desktop, a laptop, and my phone, and I find the mobile and cross-machine experience especially useful. I also like being able to look at a document or page beside the conversation and give feedback where I see the problem, through edits, comments, or annotations, depending on what I'm working on.
-
-ChatGPT is another big part of that setup. I rely heavily on Deep Research in the browser. That's a separate part of my workflow, rather than a feature I am claiming every Codex task includes.
-
-My university provides Claude at very low cost to me, which is great. The university has also been supportive of using these tools. Institutional accounts still limit some integrations, and my personal Codex setup gives me more flexibility. I use it to coordinate other AIs through Ask Agents and related skills I've set up.
-
-Those are my reasons. They aren't a reason to abandon an app that already works for you, and my own preference could change in a few months.
+I started with Claude and now use Codex as my main workspace, including to coordinate other AIs. [Read why I currently use Codex](../why-i-use-codex.md), and why my preference could change again.
 
 </details>
 

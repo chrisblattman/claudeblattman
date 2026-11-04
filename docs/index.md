@@ -22,9 +22,22 @@ Now I use AI as an executive assistant, a project manager, and a research collab
 
 I appreciated the nudge I got from colleagues, and so I built this guide to help others. Beginners start with the checklist below, with more advanced skills available through the menu.
 
-[Read my essay on my AI approach and principles](how-i-use-ai.md)
+<section class="home-featured" aria-labelledby="featured" markdown>
 
-## My absolute essentials, and where to start
+## Featured { #featured .home-featured__heading }
+
+<ul class="home-featured__links">
+<li><a href="how-i-use-ai/">My AI principles</a></li>
+<li><a href="why-i-use-codex/">Why I currently use Codex</a></li>
+<li><a href="workflows/maintain-skills/">Refreshing your existing skills</a></li>
+<li><a href="https://github.com/chrisblattman/claudeblattman">Star on GitHub</a></li>
+</ul>
+
+</section>
+
+<span id="my-absolute-essentials-and-where-to-start"></span>
+
+## My absolute essentials for new and intermediate users
 
 Tick off what you’ve tackled. Use the links for anything new, then move to the next section.
 
