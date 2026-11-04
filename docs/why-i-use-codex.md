@@ -26,7 +26,7 @@ Confusingly, my [`/deep-research` skill](workflows/deep-research.md) is a differ
 
 ## My personal account gives me more flexibility
 
-My university provides Claude at very low cost to me, which is great, and it has been supportive of these tools. One snag was my personal Gmail. The university's approved Google connection required a university account. My personal setup lets me connect the accounts I actually use, within limits I've set.
+My university provides Claude at very low cost to me, which is great, and it has been supportive of these tools. Its account comes with university-wide rules for connections and new features. My workflow also depends on personal accounts such as Gmail, and my own setup gives me more room to experiment, within limits I've set.
 
 ---
 
