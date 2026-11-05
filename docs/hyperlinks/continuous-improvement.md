@@ -13,25 +13,24 @@ Six questions I keep running into:
 
 This is the system I built for myself. It might work for you. You may want to adapt it. Either way, here it is.
 
-It's a four-stage loop that runs weekly. Each stage is one skill; the loop closes itself.
+I use three skills to collect ideas, decide which are useful, and put selected improvements to work. Run them when you have something worth investigating; they do not run on a schedule unless you arrange that separately.
 
-1. **Discover** — pull tips from X bookmarks, forward articles to a self-email label, and run a [Grok DeepSearch](https://grok.com/) shaped by the gaps in your existing log.
-2. **Curate** — rate each tip High / Medium / Low, append to a single growing log file, dedupe against history.
-3. **Integrate** — five critics argue in parallel; the top three auto-apply to CLAUDE.md, skills, agents, or rules. The rest get filed for later.
-4. **Applied** — the change lands in your config, the loop starts again, and your setup is slightly better than it was last week.
+1. **Scout** — prepare a search from gaps in your existing tips log. Ask it to consult Grok if you want it to run the search too.
+2. **Curate** — collect tips from saved reports, X bookmarks or email. Compare them with what you already saved, assess their value, and file selected findings in one shared log.
+3. **Integrate** — turn the useful ideas into concrete changes or investigations. For larger batches, five independent critics help rank them.
+4. **Apply** — review the proposed changes and have the agent apply the ones you choose. Keep the results for the next round.
 
 ```mermaid
 graph LR
-    D["1. Discover<br/>X bookmarks &middot; self-email<br/>Grok DeepSearch"]
-    C["2. Curate<br/>rate &middot; log &middot; dedupe"]
-    I["3. Integrate<br/>5-critic council"]
-    A["4. Applied<br/>CLAUDE.md &middot; skills<br/>agents &middot; rules"]
-    D --> C --> I --> A
-    A -.->|next week| D
+    S["Scout<br/>prepare · optionally search"]
+    C["Curate<br/>reports · bookmarks · email"]
+    I["Integrate<br/>rank · propose"]
+    A["Apply selected changes<br/>instructions · skills · rules"]
+    S --> C --> I --> A
+    A -.->|next round| S
 ```
 
-!!! warning "Manual, not automated."
-    No cron, no hook. The pipeline runs when I run it (or when a backlog trips a nudge). `/tips-curate` is the only stage that reaches into the next: when more than 15 high-quality tips accumulate since the last integrate run, it offers to invoke `/tips-integrate` in the same session.
+`/tips-curate` offers to invoke `/tips-integrate` when more than 15 High tips await a decision. You can also run integration on a smaller batch whenever you want.
 
 ---
 
@@ -39,9 +38,9 @@ graph LR
 
 Stage 3 is where this loop differs from a typical "save tips and try them later" practice. One Claude rating its own tips is peer-reviewing your own paper. The model anchors on the framing of the tip and produces convergent praise. I tried that for a few months and ended up with a config full of plausible-sounding additions that didn't compound and weren't worth their maintenance.
 
-The fix is structural disagreement. Five personas in parallel, each told to score from one specific lens and not balance — Maintenance Tax notices that a tip depends on a single-maintainer repo, Catalog Conflict notices it duplicates an existing rule, First-Run notices that the "obvious" first step actually requires three design decisions. The composite scores them; the user approves. The council ranks but does not gate.
+The fix is structural disagreement. Five personas in parallel, each told to score from one specific lens and not balance — Maintenance Tax notices that a tip depends on a single-maintainer repo, Catalog Conflict notices it duplicates an existing rule, First-Run notices that the "obvious" first step actually requires three design decisions. The composite scores them; the user approves. The council helps rank the options; you decide which changes to make.
 
-The shared starter kit provides the general [Council and review workflows](../starter-kit/occasional.md): independent agents develop the work, then fresh reviewers challenge the result. The older `skills/council.md` file is a migration notice, not an installable implementation. The tips pipeline below is a separate legacy example with five fixed personas, defined in [`proposal-critic-agent`](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md) and tuned for evaluating workflow tips.
+The shared starter kit provides the general [Council and review workflows](../starter-kit/occasional.md). This tips workflow uses five specialist critics whose instructions are [bundled with Tips Integrate](https://github.com/chrisblattman/claudeblattman/tree/main/skills/tips-integrate/references). It skips that panel for batches of five or fewer actionable ideas.
 
 ---
 
@@ -55,9 +54,9 @@ The shared starter kit provides the general [Council and review workflows](../st
 | **First-Run** | Is the 30-minute first step concrete? |
 | **Skeptic** | Real practitioner use, or engagement farming? |
 
-Each persona scores every candidate tip 1–5 with a single-sentence rationale and a `BLOCKING: yes/no` flag. Five personas × N tips = a stack of structured opinions, not a vote.
+Each persona scores every candidate tip 1–5 with a single-sentence rationale and a concrete blocking concern or `BLOCKING: none`. Five personas × N tips = a stack of structured opinions, not a vote.
 
-!!! example "What one critic actually says"
+!!! example "An illustrative critic response"
     ```
     TIP: 2026-04-12::Use XML tags around few-shot examples
     PERSONA: Maintenance Tax
@@ -67,23 +66,17 @@ Each persona scores every candidate tip 1–5 with a single-sentence rationale a
     BLOCKING: none
     ```
 
-??? example "Composite scoring (for the curious)"
-    From `/tips-integrate` v2.1, verbatim:
+??? example "How the ranking works"
+    The score is the mean of the returned critic scores, minus 0.1 for each blocker. The agent shows missing perspectives and disagreements alongside the ranking. At least three of the five critics must return; otherwise it stops and retains the batch for a later attempt.
 
-    ```
-    composite = mean(5 persona scores) − 0.1 × blocker_count
-    ```
-
-    Additive penalty, not multiplicative — a tip with all five blockers retains most of its mean. The council ranks; the user gates. **Top 3 auto-apply** (each file write is still per-item confirm — you see the diff and can skip). **Items 4–7** get a single one-tap approval line. **Items 8–15** are surfaced with full council detail, never silently dismissed; you can promote any of them with `promote 10`.
-
-    A minimum of 3 of 5 personas must return for the council to proceed; if the `proposal-critic-agent.md` file isn't installed, the skill falls back to single-critic mode and prints a one-line note.
+    The top seven become concrete proposals, starting with the first three. Remaining candidates stay visible. A score does not authorize an edit: the agent shows the proposed changes and applies those you approve, or those already covered by your request.
 
 ---
 
 <a id="example-from-email-to-proposal"></a>
 ## A tip's journey, end to end
 
-The same tip the Maintenance Tax critic scored above, walked through the full loop:
+Here is an illustrative tip, walked through the full loop:
 
 === "1. Discover"
     A blog post crosses my feed. I forward it to myself with `@toself` in the subject — works from my phone, my laptop, anywhere. Gmail tags it automatically.
@@ -97,7 +90,7 @@ The same tip the Maintenance Tax critic scored above, walked through the full lo
     ```
 
 === "2. Curate"
-    On Sunday, `/tips-curate` fetches every unread `@ToSelf` email, classifies each, fetches link content where it can, and rates the result High / Medium / Low. The approved entry lands in the [tips log](#the-tips-log):
+    When I run it with the email connection configured, `/tips-curate` reads unread `@ToSelf` email, classifies each, fetches link content where it can, and rates the result High / Medium / Low. The approved entry lands in the [tips log](#the-tips-log):
 
     ```markdown
     ## 2026-04-12
@@ -122,11 +115,11 @@ The same tip the Maintenance Tax critic scored above, walked through the full lo
     First-Run:         5   (one CLAUDE.md line; clear retrofit list)
     Skeptic:           3   (one author, but evidence is concrete)
 
-    composite = 4.2 − 0 = 4.2  →  rank #2  →  auto-apply band
+    composite = 4.2 − 0 = 4.2  →  rank #2  →  first proposals to review
     ```
 
 === "4. Applied"
-    Top 3 auto-apply, with a per-item confirm on each file write. I see the diff:
+    The agent proposes a direct change. I see the diff:
 
     ```diff
      ## Skill authoring rules
@@ -136,7 +129,7 @@ The same tip the Maintenance Tax critic scored above, walked through the full lo
      - Skills under 300 lines unless layered structure required.
     ```
 
-    I press `y`. The change lands in CLAUDE.md. The state file records the integration so the same tip never resurfaces.
+    I ask it to apply the change. It updates the file, checks the result, and records the completed integration so the same tip is not proposed again.
 
 Investigation tasks (Type B — tips that need design work before any file change) take a different exit: instead of a direct edit, the council writes a one-line entry to your [learning catalog's INBOX](#the-learning-catalog) for triage at your own pace.
 
@@ -161,87 +154,83 @@ Most weeks produce one or two direct edits. Most of the council's output is *inv
 ---
 
 <a id="the-four-steps"></a>
-## The four skills
+## The three skills
 
-### `/tips-bookmarks` — pull from the firehose
+### `/tips-scout` — prepare a useful search
 
-Pulls X/Twitter bookmarks via `twitter-cli`, classifies each, dedupes against the log, and appends new items. Replaces the manual copy-paste-email step that catches Twitter content via the curate path otherwise. [Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-bookmarks.md)
+Reads the last 14 days of the shared tips log and any configured active tasks, then prepares a search prompt that emphasizes gaps and questions relevant to your work. It saves that prompt. Invoking the skill alone does not call another AI.
 
-!!! tip "Or use the Gmail path"
-    The pipeline works without `/tips-bookmarks`. `/tips-curate` already covers email-forwarded Twitter posts via the message body — Twitter URLs always fail under WebFetch, so the body text is what gets classified. `/tips-bookmarks` just removes the forwarding friction if you bookmark heavily on X. Pick whichever fits your habit.
+To ask Grok to run it too:
 
-### `/tips-scout` — seed a search worth running
+```text
+/tips-scout Prepare this week's search and ask Grok to run it. Save the response so I can curate the findings.
+```
 
-Reads the last 14 days of the tips log and your active TODOs to find your *coverage gaps*, then customizes a base Grok DeepSearch prompt: BOOST categories you're under-covered on, DE-EMPHASIZE ones you're saturated on, inject your active investigation topics as bonus targets. The result is a paste-ready prompt that won't surface ground you already covered.
+That uses the starter kit's `/ask-agents` connection to the official Grok subscription tool. It is a source-search consultation, not a claim to invoke a separate DeepSearch mode. If the connection is missing, the agent saves the prompt and explains what needs connecting. It does not silently switch providers or ask you to paste into a browser.
 
-[Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-scout.md)
+[Tips Scout folder →](https://github.com/chrisblattman/claudeblattman/tree/main/skills/tips-scout)
 
-### `/tips-curate` — rate and file
+### `/tips-curate` — collect, assess and file
 
-Fetches unread `@ToSelf` emails in batches of five, classifies each (`worth-reviewing` / `not-relevant` / `needs-manual`), fetches link content where it can, rates High / Medium / Low against four quality questions, and appends approved items to `collected-tips-log.md`. Marks emails read but leaves `needs-manual` items unread so they stay visible.
+Handles bookmarks, email tips and saved research reports in one workflow. The former `/tips-bookmarks` skill is now part of this one. You can use any of these sources; they do not all need to be connected.
 
-The v1.5 backlog nudge fires at the end of every run: if more than 15 HIGH tips have accumulated since the last `/tips-integrate`, the skill offers to invoke it in the same session. Replaces a standing biweekly calendar ritual that fired with empty queues some weeks and sat dormant during high-flow weeks.
+```text
+/tips-curate Read the scout report we just saved and suggest what is worth keeping.
+```
 
-[Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-curate.md)
+Naming a report processes that report alone. A general `/tips-curate` request checks configured bookmarks and tips email. It compares URLs and underlying claims with the shared log, preserves source links, and proposes High, Medium or Low ratings. It also notes whether an idea applies to Claude, Codex, both, or belongs on a watch list.
 
-### `/tips-integrate` — convene the council
+After you select what to keep, it saves the entries and verifies them before marking source items processed. Failed or deferred items remain available. `/tips-curate dryrun` shows proposed results without saving files or changing email/bookmark state.
 
-Six phases: pre-checks, scan sources since `last_run`, **the council (Phase 1.5)**, generate proposals on the top 7, auto-apply / approve / surface, then log. Each council persona is a parallel `Task` dispatch to `proposal-critic-agent` with a different persona injected — five Sonnet runs at ~35K tokens each.
+[Tips Curate folder →](https://github.com/chrisblattman/claudeblattman/tree/main/skills/tips-curate)
 
-Single-critic fallback runs automatically if `proposal-critic-agent.md` isn't installed in `~/.claude/agents/`. The council was added in v2.1 because single-critic ranking under-weighted maintenance tails — surface-appealing tips kept getting auto-proposed despite obvious six-month rot.
+### `/tips-integrate` — turn ideas into changes
 
-[Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-integrate.md) · [Council agent →](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md)
+Reads the tips and configured instructions, skills and other targets. For larger batches, five fresh critics rank up to 15 candidates. For five or fewer, it goes straight to proposals. It shows concrete edits for ideas that can be applied now and queues investigations for those that need more work.
+
+```text
+/tips-integrate Show me which saved tips would be most useful for my setup and what you would change.
+```
+
+The agent applies selected changes, checks them and records what happened. An investigation queued for later is not counted as an implemented improvement. Deferred and overflow items remain pending rather than disappearing after a run.
+
+[Tips Integrate folder →](https://github.com/chrisblattman/claudeblattman/tree/main/skills/tips-integrate)
 
 ---
 
 ## Setup
 
-You need [Gmail MCP configured](../build-your-own/mcp-setup.md) and a Gmail label called `@ToSelf`:
+Ask your agent to install the whole skill folders, including their supporting references:
 
-1. In Gmail → left sidebar → **+ Create new label** → name it `@ToSelf`
-2. Optional filter: search bar filter icon → **Subject:** `@toself` → **Create filter** → **Apply label:** `@ToSelf`
+```text
+Help me set up tips-scout, tips-curate and tips-integrate from the skills folder at github.com/chrisblattman/claudeblattman. Keep my existing customizations. Use one shared tips log across my AI apps, and walk me through connecting the sources I want to use.
+```
 
-Now any email with `@toself` in the subject gets tagged automatically. Forward interesting articles, email yourself quick notes, or manually label anything you want processed later. Works from any device.
+These are public adaptations of my workflow. They include the critic instructions and a starting search prompt, but your accounts, log and target files need configuring. Live connections depend on your app and setup.
+
+The default tips folder is `~/.claude-assistant/tips/`; reuse an existing location if you have one. Keep logs and state outside the installed skill folders so an update does not replace them. Start with `/tips-curate dryrun`, then save a small batch and try `/tips-integrate dryrun` before applying changes.
+
+### Optional email collection
+
+If you want to forward tips to yourself, connect your email and create a Gmail label called `@ToSelf`. An optional filter can apply that label to messages whose subject contains `@toself`. The agent can help set this up. Saved reports work without an email connection; bookmark collection needs a connection that can read your saved posts.
 
 ---
 
 ## When to run
 
-| Skill | Frequency | Trigger |
-|-------|-----------|---------|
-| `/tips-scout` | Weekly | Before `/tips-curate`, to generate a search prompt |
-| `/tips-curate` | Weekly | When you have unread @ToSelf emails |
-| `/tips-integrate` | Opportunistic | When `/tips-curate` flags >15 HIGH-quality tips since last run |
+| Skill | When it is useful |
+|-------|-------------------|
+| `/tips-scout` | You want to look for ideas relevant to your current work. |
+| `/tips-curate` | You have new bookmarks, tips email or a research report to sort through. |
+| `/tips-integrate` | You are ready to decide which ideas to put into practice. |
 
-No rigid schedule. The integrate skill warns you if tips are stale.
-
----
-
-## Install
-
-Minimum-viable adoption, in order:
-
-1. Install [`/tips-curate`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-curate.md) and [`/tips-integrate`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-integrate.md) from the [skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills). `/tips-scout` is the upstream feeder — add it once curate is working.
-2. Copy `proposal-critic-agent.md` to `~/.claude/agents/`. Without it, `/tips-integrate` runs single-critic; the council needs the agent file present.
-
-    ```bash
-    curl -o ~/.claude/agents/proposal-critic-agent.md \
-      https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/agents/proposal-critic-agent.md
-    ```
-
-3. Create the `@ToSelf` Gmail label per the [Setup](#setup) section above.
-4. Run `/tips-curate dryrun` first to see classifications without writing anything. Then a real `/tips-curate`. Don't run `/tips-integrate` until you have at least a dozen High tips logged — the council needs material to rank.
-
-??? tip "Adapt to your setup before first run"
-    The public skill files use generic paths like `~/.claude-assistant/tips/` and `~/.claude-assistant/catalog/`. Search each file for these paths and update them to match your directory structure. Also check the Gmail label name in `/tips-curate` — the default is `@ToSelf`.
-
-    On first run, expect mostly Type B (investigation) proposals. Type A (direct edit) proposals only fire when the skill finds matching config files in your setup. As your system grows, so do the direct edit targets.
+There is no minimum backlog or fixed schedule. If you use both Claude and Codex, keep one shared log; the route attached to each idea helps the agent choose the right place to apply it.
 
 ---
 
 ## The tips log
 
-The curate step writes approved tips to a dated, tagged markdown file that grows over time. Each entry records what you found, where it came from, and what to do about it. The [worked journey above](#a-tips-journey-end-to-end) shows the exact format — date, tags like `[prompting]` or `[skill-design]`, source link, insight, and a concrete next action.
+The curate step writes approved tips to a dated, tagged markdown file that grows over time. Each entry records what you found, where it came from, and what to do about it. The [worked journey above](#a-tips-journey-end-to-end) illustrates the format — date, tags like `[prompting]` or `[skill-design]`, source link, insight, and a concrete next action.
 
 After six months mine had 85+ entries. You don't need to remember what you read last month — search the log by keyword or tag, or point Claude at it and ask "what do I have on agent patterns?" The log becomes institutional memory that survives across sessions.
 
@@ -290,12 +279,12 @@ The kinds of workflows and resources the pipeline is designed to capture and eva
 
 **`/tips-curate`:** Tips log location, Gmail label name, batch size, quality thresholds — all configurable by editing the skill file directly.
 
-**`/tips-integrate`:** Source selection, state file location, target config files, pruning intervals — same approach, edit the markdown.
+**`/tips-integrate`:** Source selection, target files, and investigation destination. Keep state and pending decisions when changing the configuration.
 
 ---
 
 !!! tip "The other input channel: your own corrections"
-    This pipeline is *proactive* — scheduled discovery. Your system also learns *reactively*: when you override a classification, substantially edit a draft, or manually do something a skill should handle, a self-improvement protocol proposes targeted config changes on the spot. Scheduled scouting from outside, continuous feedback from inside.
+    You can also improve your setup from what happens during work. The [continuous improvement guide](../how-i-improve-the-work.md) explains how to capture corrections and use them to revise your writing guidance.
 
 ---
 
@@ -303,7 +292,7 @@ The kinds of workflows and resources the pipeline is designed to capture and eva
 
 - **[Collected Tips & Research Log](downloads/collected-tips-log.md)** — A snapshot of my own tips log. Searchable by keyword, tag, or date.
 - **[Council and review](../starter-kit/occasional.md)** — the maintained starter-kit workflows for developing work and challenging it with fresh reviewers.
-- **[The proposal-critic agent](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md)** — full persona definitions.
+- **[The bundled tips critics](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-integrate/references/proposal-critics.md)** — full persona definitions.
 - **[Council review](../starter-kit/occasional.md)** — Pairs well with the pipeline: curate ideas, then review plans before implementing.
 - **[Skill Design Patterns](downloads/skill-patterns.md)** — How production skills are structured, if you want to build your own.
 - **[Building skills](../build-your-own/building-skills.md)** — Patterns the council looks for when scoring "Compounder".

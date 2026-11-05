@@ -8,7 +8,7 @@
     {
       "bytes": 874,
       "path": ".claude-plugin/marketplace.json",
-      "sha256": "9e94afb823c8b5b9e4da2e8edf32aea0d9eb5883a779bea145e3e49d8df7ac56"
+      "sha256": "2b7a6879aee908ad066ae300f1059a2dfe7cc47a62bda171eb63442ac7156773"
     },
     {
       "bytes": 565,
@@ -21,9 +21,9 @@
       "sha256": "2f0198cd2df14fa0d3b3d6415c12daea06c9d146835cc71c4e7a0ad0d86f0565"
     },
     {
-      "bytes": 961,
+      "bytes": 1015,
       "path": ".github/workflows/public-release-check.yml",
-      "sha256": "ef146a7fd45fb7d15157e1beb4002d4a1479ac78586f5175cb3eb17eb9b2b506"
+      "sha256": "4f95228e8d4c5d38ca022433db5da331da794b200aafb3f82c6535c27c0c1472"
     },
     {
       "bytes": 685,
@@ -33,7 +33,7 @@
     {
       "bytes": 3604,
       "path": "README.md",
-      "sha256": "917d9231822f11c0703aedb966098516042e406c7bac000bb66bce7cacb6d3fa"
+      "sha256": "4ce30f950e753bc7d48a973dcf7dadbecb35ceaf2e1129032368b11566e41393"
     },
     {
       "bytes": 4997,
@@ -61,9 +61,9 @@
       "sha256": "137d06839af4e06e7a33ff76592d6e01f95e3be83bb40ab8deea1114c15c2d5c"
     },
     {
-      "bytes": 12188,
+      "bytes": 12248,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "3120a4c19b4bed25902a2b695fee9a523c3ad8036db3624990a11ff9f86e502f"
+      "sha256": "8dcaeb583103596f740d20c3924519020e3fb825c6638cd5de4d15ce948785d5"
     },
     {
       "bytes": 102753,
@@ -83,12 +83,12 @@
     {
       "bytes": 381,
       "path": "plugins/starter-kit-claude/.claude-plugin/plugin.json",
-      "sha256": "3da7451b5ec6335b7fc53f41979ca50f07ea04559eb45973fbd2a063d51fdecf"
+      "sha256": "81b8b49518c36fdfa7bc1011857433d316fab96bc8bf4d0eca3b63d2ec1d5949"
     },
     {
-      "bytes": 6124,
+      "bytes": 7021,
       "path": "plugins/starter-kit-claude/CROSS-CLIENT.md",
-      "sha256": "7d54e6b0e34f17982a021f6c9ab7621cac8aac651ec9da00ea0fa9c9df148679"
+      "sha256": "7992999b50321272fff67b3ccc63915688454811e44b73e238a0350305fd0b77"
     },
     {
       "bytes": 1071,
@@ -98,12 +98,12 @@
     {
       "bytes": 4470,
       "path": "plugins/starter-kit-claude/README.md",
-      "sha256": "c3b694d945fa7071a4261c2b992533499de170389d3dfd0f1750009bea27ebfc"
+      "sha256": "a63a3952cc0b7c7ca112c97e7b68f58ce4dfc7f18349874b1404593e910d3308"
     },
     {
-      "bytes": 3468,
+      "bytes": 4325,
       "path": "plugins/starter-kit-claude/RELEASE-NOTES.md",
-      "sha256": "ae694979f391aa864d003ecd83b8d1ccae8289a26e545675260d9ccbc0e5c9d2"
+      "sha256": "a0ecd7d50c05e6a19a8f4e6ed1b4685fc7f122f17e409c70074c70af23ddce35"
     },
     {
       "bytes": 356,
@@ -158,7 +158,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/adversarial-review/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 20487,
@@ -193,7 +193,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/ask-agents/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 6640,
@@ -228,7 +228,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/council/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 20487,
@@ -251,9 +251,14 @@
       "sha256": "f8081d8908ba0d4a4f0a122a9bd500a8e0a99a94cc6dfbc3d991f1442306cdc0"
     },
     {
-      "bytes": 1241,
+      "bytes": 5246,
       "path": "plugins/starter-kit-claude/skills/done/SKILL.md",
-      "sha256": "b5d3923530216bfd8bd343db31c7e956ee221efb41e9070df3d1659953cf02d3"
+      "sha256": "02aa861e63f3481f735fd449e795634d0f58a2a95029063ffe63553db79a96df"
+    },
+    {
+      "bytes": 2909,
+      "path": "plugins/starter-kit-claude/skills/done/references/handoff-template.md",
+      "sha256": "5c2eb9b47299330f2ebeae4b3494e72b024194fa8f86076c3fe237d06a8175e3"
     },
     {
       "bytes": 2138,
@@ -263,7 +268,17 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/done/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
+    },
+    {
+      "bytes": 1171,
+      "path": "plugins/starter-kit-claude/skills/done/references/watch-list-check.md",
+      "sha256": "36f72dadaff570c3de8987a49b9799ec4f48d8110f2a23d078633d271bdab9bb"
+    },
+    {
+      "bytes": 3889,
+      "path": "plugins/starter-kit-claude/skills/done/scripts/continuity-write.py",
+      "sha256": "d075f3c8efb1cc9c2414ceddf2ea6abbef0d5e8a7960c29bd3323fbb5223485b"
     },
     {
       "bytes": 1761,
@@ -278,7 +293,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/kit-hello/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 7396,
@@ -293,7 +308,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/kit-setup/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 6024,
@@ -313,7 +328,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-claude/skills/prompt/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 1699,
@@ -321,9 +336,9 @@
       "sha256": "d34eb557420a77c9d7df63987537d7e4472f2d0e61064a56595f10306151585e"
     },
     {
-      "bytes": 6124,
+      "bytes": 7021,
       "path": "plugins/starter-kit-codex/CROSS-CLIENT.md",
-      "sha256": "7d54e6b0e34f17982a021f6c9ab7621cac8aac651ec9da00ea0fa9c9df148679"
+      "sha256": "7992999b50321272fff67b3ccc63915688454811e44b73e238a0350305fd0b77"
     },
     {
       "bytes": 1071,
@@ -333,12 +348,12 @@
     {
       "bytes": 4470,
       "path": "plugins/starter-kit-codex/README.md",
-      "sha256": "c3b694d945fa7071a4261c2b992533499de170389d3dfd0f1750009bea27ebfc"
+      "sha256": "a63a3952cc0b7c7ca112c97e7b68f58ce4dfc7f18349874b1404593e910d3308"
     },
     {
-      "bytes": 3468,
+      "bytes": 4325,
       "path": "plugins/starter-kit-codex/RELEASE-NOTES.md",
-      "sha256": "ae694979f391aa864d003ecd83b8d1ccae8289a26e545675260d9ccbc0e5c9d2"
+      "sha256": "a0ecd7d50c05e6a19a8f4e6ed1b4685fc7f122f17e409c70074c70af23ddce35"
     },
     {
       "bytes": 17171,
@@ -348,7 +363,7 @@
     {
       "bytes": 1345,
       "path": "plugins/starter-kit-codex/plugin.json",
-      "sha256": "5e7a8e13c396cce04ebbb0bb648013beed127b2d16990a956f0fd951a74339e4"
+      "sha256": "83fb88d070a0dd53239549817adbef4beaceba4638be73e48978e4415d18135b"
     },
     {
       "bytes": 3573,
@@ -388,7 +403,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/adversarial-review/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 20487,
@@ -423,7 +438,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/ask-agents/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 6640,
@@ -458,7 +473,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/council/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 20487,
@@ -481,9 +496,14 @@
       "sha256": "f8081d8908ba0d4a4f0a122a9bd500a8e0a99a94cc6dfbc3d991f1442306cdc0"
     },
     {
-      "bytes": 1241,
+      "bytes": 5246,
       "path": "plugins/starter-kit-codex/skills/done/SKILL.md",
-      "sha256": "b5d3923530216bfd8bd343db31c7e956ee221efb41e9070df3d1659953cf02d3"
+      "sha256": "02aa861e63f3481f735fd449e795634d0f58a2a95029063ffe63553db79a96df"
+    },
+    {
+      "bytes": 2909,
+      "path": "plugins/starter-kit-codex/skills/done/references/handoff-template.md",
+      "sha256": "5c2eb9b47299330f2ebeae4b3494e72b024194fa8f86076c3fe237d06a8175e3"
     },
     {
       "bytes": 2369,
@@ -493,7 +513,17 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/done/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
+    },
+    {
+      "bytes": 1171,
+      "path": "plugins/starter-kit-codex/skills/done/references/watch-list-check.md",
+      "sha256": "36f72dadaff570c3de8987a49b9799ec4f48d8110f2a23d078633d271bdab9bb"
+    },
+    {
+      "bytes": 3889,
+      "path": "plugins/starter-kit-codex/skills/done/scripts/continuity-write.py",
+      "sha256": "d075f3c8efb1cc9c2414ceddf2ea6abbef0d5e8a7960c29bd3323fbb5223485b"
     },
     {
       "bytes": 1761,
@@ -508,7 +538,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/kit-hello/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 7396,
@@ -523,7 +553,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/kit-setup/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 6024,
@@ -543,7 +573,7 @@
     {
       "bytes": 425,
       "path": "plugins/starter-kit-codex/skills/prompt/references/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 1699,
@@ -571,9 +601,9 @@
       "sha256": "6c1429244c9883c4a5b7e1f3ec95219410925ee7cc340c21ea8f8e4ccbbc8ae5"
     },
     {
-      "bytes": 2730,
+      "bytes": 2632,
       "path": "scripts/emit-public.sh",
-      "sha256": "aae48b0b8ee82b33e875a39655581ea553bf064ef9b5173dd6d07a72b5ee3352"
+      "sha256": "37aa86bc7d6493c3fa0984f4173c0573c2dc5b8b90d252306acba830b3850aac"
     },
     {
       "bytes": 2794,
@@ -601,6 +631,11 @@
       "sha256": "345145a0c71abb3d38d891cd354897cc5b8b4f0c461a936a6edc5726b1dc457d"
     },
     {
+      "bytes": 4104,
+      "path": "scripts/test-continuity-write.py",
+      "sha256": "18ba5a26d674df113221134211594c4c70dfeb069d0ee2f0108410724c71b903"
+    },
+    {
       "bytes": 3210,
       "path": "scripts/test-release-scanner.py",
       "sha256": "ff694ee63e1c162cac7374fd27592fff82ed1350454254a52e760da9e810e10b"
@@ -611,9 +646,9 @@
       "sha256": "fd3fca8a5bf9a04334e5ccd245255083ba0751dc80f2a40bee03e9b376f82727"
     },
     {
-      "bytes": 8894,
+      "bytes": 10074,
       "path": "skills/README.md",
-      "sha256": "0fe9f039c68fe6de1cf24708fc251cc6388a147ef13950b0da17b4bee07ec748"
+      "sha256": "704972e8a5c9029bfbaa91d92b7df6a5361dcb7d4b7d77ab506c9c984ce0270d"
     },
     {
       "bytes": 2624,
@@ -631,34 +666,204 @@
       "sha256": "9dfa2efe3afa80342604eaced93932d701adad53ef26119bfbcee555206f1f7e"
     },
     {
-      "bytes": 925,
-      "path": "skills/council.md",
-      "sha256": "cc0d7f6cada9a9cbc0417c80d479ead9c1b13f662c78a9bc39c425b655a5be27"
+      "bytes": 6493,
+      "path": "skills/announcement-digest/SKILL.md",
+      "sha256": "ad0b57f89a9c64b08c60ec01762f48c0ff198b486e826b0f611871039da7776d"
     },
     {
-      "bytes": 907,
-      "path": "skills/done.md",
-      "sha256": "188ca262e56a2452a8548faadf27464aa1da6239b5441cd6b3341930cf344000"
+      "bytes": 19437,
+      "path": "skills/checkin/SKILL.md",
+      "sha256": "7780427d2148f38603707cf35f218d1c964646ea415bcca416ed9920f9596f45"
     },
     {
-      "bytes": 977,
-      "path": "skills/review-plan.md",
-      "sha256": "71c3d2fb8f50c91bf6cb9b94f4be95fff3e932cb614937dc16b83c36b0bb556c"
+      "bytes": 784,
+      "path": "skills/council/README.md",
+      "sha256": "05fe77c219bbeb44dcd9b81bec221fb6e96760ba7b35eea6593942b8f6be18aa"
     },
     {
-      "bytes": 6124,
+      "bytes": 20658,
+      "path": "skills/deep-research/SKILL.md",
+      "sha256": "7d54742298bec1d5cf642e9fab57d3d25469557275ab5d90821ee21a28c9a438"
+    },
+    {
+      "bytes": 2343,
+      "path": "skills/deep-research/references/claude-subagent-template.md",
+      "sha256": "05ce99eeb3e04794feaf8553e758906c37b138159fa8d54d17c24de7307d0a14"
+    },
+    {
+      "bytes": 10101,
+      "path": "skills/deep-research/references/config.md",
+      "sha256": "50b72b5405d0a7eb721b2121c1b1abb5f52475b54fe2c4c12f6226cca2c5a640"
+    },
+    {
+      "bytes": 1874,
+      "path": "skills/deep-research/references/dr-prompt-schema.md",
+      "sha256": "524dd206e5efef0ee415a4e8170f147ced752e545dd6f8378845bccf71278fb6"
+    },
+    {
+      "bytes": 3591,
+      "path": "skills/deep-research/references/paste-loop-ux.md",
+      "sha256": "038ba9ef6d219fbbee8696ebaebe16c626cd8d994c898a6bf16974a909ac49d9"
+    },
+    {
+      "bytes": 775,
+      "path": "skills/done/README.md",
+      "sha256": "a546e57859c2d7727e63b815745c357cb8ed6491d99b07c3cb9ea118a6f45d62"
+    },
+    {
+      "bytes": 6182,
+      "path": "skills/dr-synthesize/SKILL.md",
+      "sha256": "db9c93dd8909eaece954a349eaf6b493d4a1f479912ebc27d8b4a8db372c6e68"
+    },
+    {
+      "bytes": 5932,
+      "path": "skills/goals-review/SKILL.md",
+      "sha256": "b572003d980f3272ea8eb05d578c47dc07ade3861dbb3e552e3a8204d0c9caed"
+    },
+    {
+      "bytes": 25393,
+      "path": "skills/morning-brief/SKILL.md",
+      "sha256": "79c94b5b7d9bed8dd5210dc70b7bf6474852cf4894e9316a51272483514ad091"
+    },
+    {
+      "bytes": 12223,
+      "path": "skills/post-meeting/SKILL.md",
+      "sha256": "2ef79e5e10ccfeb0f16e3b68bc5d980d06fc886a997e958246adfc81b3fafd26"
+    },
+    {
+      "bytes": 24072,
+      "path": "skills/pre-meeting-brief/SKILL.md",
+      "sha256": "7a8a29aa0286e88a05c524af0241267d22ed5e2a0e198c90dd7e85a8d8b4a581"
+    },
+    {
+      "bytes": 842,
+      "path": "skills/prompt-only/README.md",
+      "sha256": "2301b64cf121022c911002bd6ad786281d7d92e009cead3d0eef73244119c424"
+    },
+    {
+      "bytes": 844,
+      "path": "skills/prompt-refine/README.md",
+      "sha256": "7c876111acf008f6ca148d605999eac4a6aebf6b0f53993b52cc5665a827ec45"
+    },
+    {
+      "bytes": 837,
+      "path": "skills/prompt/README.md",
+      "sha256": "3cc4381552cc4f0fede407fff69993882efce9dccd5bf11a90ce4129cc6713f7"
+    },
+    {
+      "bytes": 7904,
+      "path": "skills/proposal-revise/SKILL.md",
+      "sha256": "d63e2dafe737c906c9304a88917a73c996ff3e6e1fad8ee2b241ead2ffa30287"
+    },
+    {
+      "bytes": 15402,
+      "path": "skills/proposal-write/SKILL.md",
+      "sha256": "1d87f4cf3df31d885a78c66c285a171c311fbb0b3d0a76d783a85f934822ecab"
+    },
+    {
+      "bytes": 817,
+      "path": "skills/review-plan/README.md",
+      "sha256": "d5e5475569fa684e2b235aa72efb713292c968602a1de89515fd6963c33cf305"
+    },
+    {
+      "bytes": 9304,
+      "path": "skills/schedule-query/SKILL.md",
+      "sha256": "8f8aa11aafbd12ac34f122f5e871ad6204233a6d90ec22380201f34785caf42d"
+    },
+    {
+      "bytes": 6698,
+      "path": "skills/setup-project-management/SKILL.md",
+      "sha256": "e02d6eb746cb55ec5230bae9b4fc871acee09c25d0c2f6c21047d635d5f42a47"
+    },
+    {
+      "bytes": 9964,
+      "path": "skills/tax-guide/SKILL.md",
+      "sha256": "2f2ad4cec002d4d6ff8df3f8a1e6399ae8500d6219fe9f8c318c4c81f8b0a8c3"
+    },
+    {
+      "bytes": 545,
+      "path": "skills/tips-bookmarks/README.md",
+      "sha256": "24d15c88bd7da5db825d0e3e02049e147f9ffcb5749f4da2adf96aa9b7b203e6"
+    },
+    {
+      "bytes": 6705,
+      "path": "skills/tips-curate/SKILL.md",
+      "sha256": "24152bc098d4a37220dfec8dfdd77640f27573c8374d1f9b0da6c6853a281279"
+    },
+    {
+      "bytes": 2458,
+      "path": "skills/tips-curate/references/log-and-state.md",
+      "sha256": "e0b9d4c2d6408f7fdea202709b94cd687b986de4c128c5f77b06660ee7ac38e0"
+    },
+    {
+      "bytes": 8039,
+      "path": "skills/tips-integrate/SKILL.md",
+      "sha256": "db7aa22597e6ab6b41099db19a56f2f500d4d68e006893e3dde035555880bae6"
+    },
+    {
+      "bytes": 5352,
+      "path": "skills/tips-integrate/references/proposal-critics.md",
+      "sha256": "48216b9ddcbc40f0fce5523dd78e83fb93ed36c282517e56dfc95ddba20e0ef1"
+    },
+    {
+      "bytes": 3695,
+      "path": "skills/tips-integrate/references/scanning-rules.md",
+      "sha256": "fdff3b450c5f0de29f3288350b9e9f06a48d95b6ed0f74873057fbe6ff4e9f39"
+    },
+    {
+      "bytes": 2333,
+      "path": "skills/tips-integrate/references/state.md",
+      "sha256": "ebaa0f1ac21d95b73422bc7c9bb6f652c1c6434e4fef03e8affd2053f0acaa7d"
+    },
+    {
+      "bytes": 5120,
+      "path": "skills/tips-scout/SKILL.md",
+      "sha256": "3e9e9aa5ee90fa013e766252cb9a0e67e12f9bb1654d28ca6be777e923ec0b85"
+    },
+    {
+      "bytes": 1652,
+      "path": "skills/tips-scout/references/base-prompt.md",
+      "sha256": "cab6f570d5f1317e9a00f663d391b6abd4df2827726665c10671feac6e5c2c48"
+    },
+    {
+      "bytes": 3422,
+      "path": "skills/todo-add/SKILL.md",
+      "sha256": "6419ac73d776653c74d4fdff54dba87acf6df90599b9261b04671afcd2ee6b9a"
+    },
+    {
+      "bytes": 8507,
+      "path": "skills/todo-queue/SKILL.md",
+      "sha256": "24225102ba6ff4d57a76017b5602c4c79578918d1e1911edcc1a1c34903233ba"
+    },
+    {
+      "bytes": 4072,
+      "path": "skills/todo-review/SKILL.md",
+      "sha256": "550d525c2a9dbea8f8e8b79461020dad5b54eaee19e485eb50e456bd8a26e306"
+    },
+    {
+      "bytes": 29950,
+      "path": "skills/triage-inbox/SKILL.md",
+      "sha256": "544291e2cb5ea2730c340ed0fcf7ed0006474408ed7ea1d1b4f2d73a135893e8"
+    },
+    {
+      "bytes": 19092,
+      "path": "skills/weekly-review/SKILL.md",
+      "sha256": "d7d8b4e6cc83730fa2a61de1f3c38dc00c5b04606c5507da7000b821de189cc1"
+    },
+    {
+      "bytes": 7021,
       "path": "starter-kit-source/MAINTENANCE.md",
-      "sha256": "7d54e6b0e34f17982a021f6c9ab7621cac8aac651ec9da00ea0fa9c9df148679"
+      "sha256": "7992999b50321272fff67b3ccc63915688454811e44b73e238a0350305fd0b77"
     },
     {
       "bytes": 4470,
       "path": "starter-kit-source/PACKAGE-README.md",
-      "sha256": "c3b694d945fa7071a4261c2b992533499de170389d3dfd0f1750009bea27ebfc"
+      "sha256": "a63a3952cc0b7c7ca112c97e7b68f58ce4dfc7f18349874b1404593e910d3308"
     },
     {
-      "bytes": 3468,
+      "bytes": 4325,
       "path": "starter-kit-source/RELEASE-NOTES.md",
-      "sha256": "ae694979f391aa864d003ecd83b8d1ccae8289a26e545675260d9ccbc0e5c9d2"
+      "sha256": "a0ecd7d50c05e6a19a8f4e6ed1b4685fc7f122f17e409c70074c70af23ddce35"
     },
     {
       "bytes": 356,
@@ -723,7 +928,7 @@
     {
       "bytes": 425,
       "path": "starter-kit-source/package.json",
-      "sha256": "d74426a4992e6b4bccbad19f91b14e26b6d22fb2b0b154d7df51593ec04b0cf1"
+      "sha256": "697519989d1025f2ed628a0a9e423fbd31e99a04c451cd1bfd2a379dd4ce96e4"
     },
     {
       "bytes": 2414,
@@ -771,9 +976,24 @@
       "sha256": "f8081d8908ba0d4a4f0a122a9bd500a8e0a99a94cc6dfbc3d991f1442306cdc0"
     },
     {
-      "bytes": 1241,
+      "bytes": 5246,
       "path": "starter-kit-source/skills/done/SKILL.md",
-      "sha256": "b5d3923530216bfd8bd343db31c7e956ee221efb41e9070df3d1659953cf02d3"
+      "sha256": "02aa861e63f3481f735fd449e795634d0f58a2a95029063ffe63553db79a96df"
+    },
+    {
+      "bytes": 2909,
+      "path": "starter-kit-source/skills/done/references/handoff-template.md",
+      "sha256": "5c2eb9b47299330f2ebeae4b3494e72b024194fa8f86076c3fe237d06a8175e3"
+    },
+    {
+      "bytes": 1171,
+      "path": "starter-kit-source/skills/done/references/watch-list-check.md",
+      "sha256": "36f72dadaff570c3de8987a49b9799ec4f48d8110f2a23d078633d271bdab9bb"
+    },
+    {
+      "bytes": 3889,
+      "path": "starter-kit-source/skills/done/scripts/continuity-write.py",
+      "sha256": "d075f3c8efb1cc9c2414ceddf2ea6abbef0d5e8a7960c29bd3323fbb5223485b"
     },
     {
       "bytes": 1761,
@@ -803,6 +1023,6 @@
   ],
   "mode": "public-repo-authored",
   "note": "Records the public starter-kit release surface and generated packages; contains no private source copies.",
-  "release": "starter-kit-v0.3.0",
+  "release": "starter-kit-v0.3.1",
   "schema_version": 1
 }

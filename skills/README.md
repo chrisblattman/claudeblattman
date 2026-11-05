@@ -4,68 +4,76 @@ AI for professionals who don't code.
 
 [claudeblattman.com](https://claudeblattman.com) · [Start here](https://claudeblattman.com/starter-kit/newcomers/) · [Council and review](https://claudeblattman.com/starter-kit/occasional/)
 
-A skill is a saved set of instructions that teaches your AI agent to do a recurring job your way, such as recording a session's decisions or reviewing a draft. You install it once, then ask for it by name. You don't need to write code to use one.
+A skill is a saved set of instructions that teaches your AI agent to do a recurring job. Each skill has its own folder, with an entry file called `SKILL.md` and any bundled supporting files alongside it.
 
-**New here?** Install the [starter kit](https://claudeblattman.com/starter-kit/occasional/) instead of individual files. It includes the core workflows and setup skills for Claude Code and Codex, installed together. [Aniket Me](aniket-me/README.md) is a separate maintained skill with its own guide.
+**New here?** Install the [starter kit](https://claudeblattman.com/starter-kit/occasional/). It bundles the maintained council, adversarial-review, prompt, done and setup workflows for Claude Code and Codex. [Aniket Me](aniket-me/README.md) is a separate maintained skill.
 
-The rest of this page is a reference library from my own setup. Most entries are older Claude Code commands that depend on particular accounts, files or helper scripts. Read one to borrow ideas, or ask your agent to help adapt it. They are not a package to install wholesale. The `council.md`, `review-plan.md` and `done.md` files are only notices pointing to the starter kit.
+The other skills below are examples from my own setup. The folder format makes their instructions and supporting files easier to copy together; it does not remove their dependencies on configured accounts, project files or external helpers. Read the prerequisites before adapting one. They have not all been tested in both apps.
 
-## Choose an installation route
+## Repository layout
 
-- **Starter kit:** use the [current installation guide](https://claudeblattman.com/starter-kit/occasional/) and [package notes](../starter-kit-source/PACKAGE-README.md). It includes the maintained council, adversarial-review, prompt and done workflows.
-- **Aniket Me:** follow its [standalone guide](aniket-me/README.md), including the app-specific folder and update instructions.
-- **Older examples below:** read the workflow and its dependencies before adapting it. These are legacy Claude Code commands, not a complete Codex package or an extension to install wholesale alongside the kit.
-
-For new maintained skills, use one folder per skill containing `SKILL.md` and any supporting files. The starter kit and Aniket Me already use this format. The [skill-building guide](https://claudeblattman.com/build-your-own/building-skills/) shows the layout.
-
-## Legacy Claude Code command example
-
-Skills go in `~/.claude/commands/`. Agents go in `~/.claude/agents/`.
-
-```bash
-# Create directories
-mkdir -p ~/.claude/commands
-mkdir -p ~/.claude/agents
-
-# Download a skill
-curl -o ~/.claude/commands/proposal-write.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-write.md
-
-# Download an agent
-curl -o ~/.claude/agents/review-writing.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/agents/review-writing.md
+```text
+skills/
+├── proposal-write/
+│   └── SKILL.md
+├── deep-research/
+│   ├── SKILL.md
+│   └── references/
+├── tips-integrate/
+│   ├── SKILL.md
+│   └── references/
+└── aniket-me/
+    ├── SKILL.md
+    └── references/
 ```
 
-Restart Claude Code after adding new commands.
+Add `scripts/` or `assets/` inside a skill only when it has files to put there. Unbundled helpers are dependencies, not empty placeholder folders.
+
+The starter kit has one authoritative source in [starter-kit-source/skills/](../starter-kit-source/skills/). The Claude and Codex copies under `plugins/` are generated from it. Edit the source and run the builder; do not maintain those copies separately. The [council](council/README.md), [review-plan](review-plan/README.md) [done](done/README.md), and standalone prompt-family folders here contain retirement notices, not installable skills. The former [tips-bookmarks](tips-bookmarks/README.md) workflow is now part of Tips Curate.
+
+## Install or adapt a standalone skill
+
+Ask your agent:
+
+```text
+Read the [skill name] folder at https://github.com/chrisblattman/claudeblattman/tree/main/skills. Check what it needs, then help me install or adapt it for this app. Copy the whole skill folder, including its supporting files. If I already have it, preserve my customizations and check for another version with the same name.
+```
+
+Use the [Aniket Me guide](aniket-me/README.md) for its tested Claude Code and Codex routes. The other examples were written for Claude Code; their tools and configuration may need adaptation in another app.
+
+For Claude Code, copy a skill folder to `~/.claude/skills/<skill-name>/`, keeping `SKILL.md` and its supporting files together. See [Claude's skill documentation](https://code.claude.com/docs/en/skills). Older files in `~/.claude/commands/` can coexist with folder skills, so check for a same-named command before migrating. Keep customized previous versions outside active skill directories.
+
+Start a fresh session, check which copy loads, and try the workflow on a suitable task. For bundled references, paths are relative to the installed skill folder.
 
 ## Available Skills
 
 | Skill | Command | Dependencies | Description |
 |-------|---------|-------------|-------------|
 | [**Aniket Me**](aniket-me/README.md) | `/aniket-me` or `$aniket-me` | Bundled public source notes | Applies Aniket Panjwani's public advice to help improve how you work with AI |
-| **Check-In Session** | `/checkin` | Gmail MCP, Calendar MCP, goals.yaml | Interactive daily check-in: inbox triage, reminder triage, meeting prep, email drafting, priorities |
-| **Session Capture (starter kit)** | `/done` | Shared starter kit | Use the kit's maintained workflow. The old `done.md` is a migration notice, not a standalone install. |
-| **Goals Review** | `/goals-review` | goals.yaml | Review and update quarterly objectives, progress scores, and deadlines |
-| **Morning Briefing** | `/morning-brief` | Gmail MCP, Calendar MCP | Daily briefing: calendar, reminders, inbox highlights, VIP tracking, goal alignment, optional triage |
-| **Prompt Formatter (legacy reference)** | `/prompt` | formatting-core.md | Use the starter-kit prompt workflow if the kit is installed. The older command overlaps with it. |
-| **Prompt Only (legacy reference)** | `/prompt-only` | formatting-core.md | Historical companion command to read and adapt |
-| **Prompt Refine (legacy reference)** | `/prompt-refine` | formatting-core.md | Historical companion command to read and adapt |
-| **Proposal Revision** | `/proposal-revise` | None | Applies reviewer/collaborator feedback to proposal drafts |
-| **Proposal Writing** | `/proposal-write` | None | Drafts funding proposals from structured inputs and project context |
-| **Meeting Follow-Up** | `/post-meeting` | Gmail MCP, Granola MCP (optional) | Extracts decisions and action items from meeting transcripts, drafts follow-up email |
+| [**Check-In Session**](checkin/SKILL.md) | `/checkin` | Gmail MCP, Calendar MCP, goals.yaml | Interactive daily check-in: inbox triage, reminder triage, meeting prep, email drafting, priorities |
+| [**Session Capture (starter kit)**](../starter-kit-source/skills/done/SKILL.md) | `/done` | Starter kit; Python 3 | Saves a project session log, current handoff and useful artifacts; preserves unrelated unfinished work. |
+| [**Goals Review**](goals-review/SKILL.md) | `/goals-review` | goals.yaml | Review and update quarterly objectives, progress scores, and deadlines |
+| [**Morning Briefing**](morning-brief/SKILL.md) | `/morning-brief` | Gmail MCP, Calendar MCP | Daily briefing: calendar, reminders, inbox highlights, VIP tracking, goal alignment, optional triage |
+| [**Prompt (starter kit)**](../starter-kit-source/skills/prompt/SKILL.md) | `/prompt` | Starter kit | Prepare, refine or execute a prompt; ask for preparation only when you do not want it run. |
+| [**Proposal Revision**](proposal-revise/SKILL.md) | `/proposal-revise` | None | Applies reviewer/collaborator feedback to proposal drafts |
+| [**Proposal Writing**](proposal-write/SKILL.md) | `/proposal-write` | None | Drafts funding proposals from structured inputs and project context |
+| [**Meeting Follow-Up**](post-meeting/SKILL.md) | `/post-meeting` | Gmail MCP, Granola MCP (optional) | Extracts decisions and action items from meeting transcripts, drafts follow-up email |
 | **Council (migration notice)** | `/council` | Shared starter kit | Use the bundled development council; bundled adversarial-review handles critique |
 | **Plan Review (migration notice)** | `/review-plan` | Shared starter kit | Use bundled `/adversarial-review` |
-| **Schedule Query** | `/schedule-query` | Calendar MCP | Checks calendar availability and drafts scheduling replies |
-| **Project Setup** | `/setup-project-management` | None | Initializes project management system for research projects |
-| **Add To-Do** | `/todo-add` | None | Adds a to-do item to the correct list with duplicate checking |
-| **Todo Queue** | `/todo-queue` | Gmail MCP, Apple Reminders | Batch-processes emails into Apple Reminders with timing extraction |
-| **Todo Review** | `/todo-review` | None | Reviews and consolidates to-do items across configured files |
-| **Tax Guide** | `/tax-guide` | None | Personalized Q&A that assesses your tax situation and generates a document checklist, workflow plan, and filing recommendation |
-| **Tips Curate** | `/tips-curate` | Gmail MCP | Processes @ToSelf emails containing tips, quality-filters, and builds a searchable log |
-| **Tips Integrate** | `/tips-integrate` | `agents/proposal-critic-agent.md` (optional but recommended) | Converts collected tips into concrete system improvements. 5-persona critic council ranks candidates; auto-applies top 3 |
-| **Tips Scout** | `/tips-scout` | None | Generates customized Grok DeepSearch prompt based on coverage gaps and active topics |
-| **Inbox Triage** | `/triage-inbox` | Gmail MCP | Smart email classification with label-in-inbox sweep, auto-filter creation, and heuristics Gmail filters can't replicate |
-| **Weekly Review (reference only)** | `/weekly-review` | Google Docs connection, project configuration and external helper scripts | Example workflow. Three required Python helpers are not included in this public repository. |
+| [**Schedule Query**](schedule-query/SKILL.md) | `/schedule-query` | Calendar MCP | Checks calendar availability and drafts scheduling replies |
+| [**Project Setup**](setup-project-management/SKILL.md) | `/setup-project-management` | None | Initializes project management system for research projects |
+| [**Add To-Do**](todo-add/SKILL.md) | `/todo-add` | None | Adds a to-do item to the correct list with duplicate checking |
+| [**Todo Queue**](todo-queue/SKILL.md) | `/todo-queue` | Gmail MCP, Apple Reminders | Batch-processes emails into Apple Reminders with timing extraction |
+| [**Todo Review**](todo-review/SKILL.md) | `/todo-review` | None | Reviews and consolidates to-do items across configured files |
+| [**Tax Guide**](tax-guide/SKILL.md) | `/tax-guide` | None | Personalized Q&A that assesses your tax situation and generates a document checklist, workflow plan, and filing recommendation |
+| [**Tips Curate**](tips-curate/SKILL.md) | `/tips-curate` | Saved reports; optional email/bookmark connections | Deduplicates and assesses tips from all sources in one shared log, with source and host routing. |
+| [**Tips Integrate**](tips-integrate/SKILL.md) | `/tips-integrate` | Shared tips log and configured targets; native subagents for larger batches | Ranks ideas with five bundled critics, applies authorized changes and queues investigations. |
+| [**Tips Scout**](tips-scout/SKILL.md) | `/tips-scout` | Optional tips log/task list; Ask Agents and Grok connection for live consultation | Prepares and saves a search prompt from coverage gaps; calls Grok only when explicitly requested. |
+| [**Inbox Triage**](triage-inbox/SKILL.md) | `/triage-inbox` | Gmail MCP | Smart email classification with label-in-inbox sweep, auto-filter creation, and heuristics Gmail filters can't replicate |
+| [**Weekly Review (reference only)**](weekly-review/SKILL.md) | `/weekly-review` | Google Docs connection, project configuration and external helper scripts | Example workflow. Three required Python helpers are not included in this public repository. |
+| [**Announcement Digest**](announcement-digest/SKILL.md) | `/announcement-digest` | Gmail connection and source rules | Summarize announcement emails |
+| [**Deep Research (reference)**](deep-research/SKILL.md) | `/deep-research` | Configured research tools and archive | Older federated research workflow; not Chris’s current private skill |
+| [**Research Synthesis**](dr-synthesize/SKILL.md) | `/dr-synthesize` | Saved research reports | Combine reports while preserving source links |
 
 ## Available Agents
 
@@ -73,28 +81,24 @@ Restart Claude Code after adding new commands.
 |-------|-------------|-------|
 | **Writing Reviewer** | Reviews academic prose for clarity, structure, and voice | Sonnet |
 | **Methodology Reviewer** | Checks empirical claims, causal language, and identification strategy | Sonnet |
-| **Proposal Critic** | Five-persona adoption critic for skill/tool/workflow tips. Used by `/tips-integrate` Phase 1.5 (one parameterized agent file invoked five times in parallel — Catalog Conflict / Maintenance Tax / Compounder / First-Run / Skeptic) | Sonnet |
+| **Proposal Critic** | Reference five-persona adoption critic. Tips Integrate now bundles its own host-neutral critic instructions; this separate agent is not required. | Sonnet |
 
-## The older prompt family
+## One prompt skill
 
-The older [`prompt.md`](prompt.md), [`prompt-only.md`](prompt-only.md), and [`prompt-refine.md`](prompt-refine.md) share [`formatting-core.md`](prompt-references/formatting-core.md). They remain available as examples.
+The starter kit's `/prompt` already handles preparing a prompt, refining an existing one and authorized execution. The standalone `prompt`, `prompt-only` and `prompt-refine` folders now contain migration notices. Keep personal customizations when retiring an old installed copy; do not install a competing implementation.
 
-Do not install this family as a second implementation of the kit's prompt workflow. Before changing an existing installation, back up its commands and preserve local customizations. Follow the package guide's migration instructions and check which implementation the app loads in a fresh session.
-
-## The Tips Pipeline
-
-`/tips-integrate` is a legacy Claude Code example that also needs its configured tips log and targets. Its companion reference belongs outside the commands directory, so the app does not list that reference as another command. If adapting this example, install both files at the matching paths:
-
-```bash
-# Install the tips-integrate skill + companion
-mkdir -p ~/.claude/commands ~/.claude/skill-references/tips-integrate
-
-curl -o ~/.claude/commands/tips-integrate.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-integrate.md
-
-curl -o ~/.claude/skill-references/tips-integrate/scanning-rules.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-integrate-references/scanning-rules.md
+```text
+/prompt Write a prompt for this task. Don't run it yet: [task]
+/prompt Refine this prompt: [prompt]
 ```
+
+## The tips pipeline
+
+Install the entire [tips-scout](tips-scout/), [tips-curate](tips-curate/) and [tips-integrate](tips-integrate/) folders, including their references. They share one configured tips folder across apps. Existing logs and state are preserved; the default location is `~/.claude-assistant/tips/`.
+
+Scout prepares a prompt by default. An explicit Grok request uses the installed starter kit's Ask Agents connection. Curate can work from saved reports alone; email and bookmark connections are optional. Bookmarks no longer require a fourth skill. Integrate includes the five critic briefs and requires native subagent support for batches larger than five; it does not require installing the old separate Proposal Critic agent.
+
+These are public adaptations with private account configuration and helpers removed. Read their setup requirements and try a dry run before using your existing tips log. Live connector/host acceptance remains to be tested; offline validation does not establish those connections.
 
 ## Templates
 
@@ -103,7 +107,3 @@ curl -o ~/.claude/skill-references/tips-integrate/scanning-rules.md \
 | `claude-md-template.md` | Starter CLAUDE.md file with all common sections |
 | `email-voice-template.md` | Email voice and tone preferences for drafting skills |
 | `goals-yaml-template.yaml` | Goals and priorities tracking file (OKR format with weighted objectives) |
-
-## Customization
-
-The older examples need different tools and configuration. Read their prerequisites and adapt them before use. See [Create a skill](https://claudeblattman.com/build-your-own/building-skills/) for the folder layout and [Council and review](https://claudeblattman.com/starter-kit/occasional/) for the maintained kit workflows.

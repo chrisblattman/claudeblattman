@@ -14,15 +14,15 @@ A system that manages your inbox, tracks your projects, processes your meetings,
 
 | Component | What It Does | Skill |
 |-----------|-------------|-------|
-| **Inbox triage** | Categorizes email by priority, auto-labels and archives low-value mail | [`/triage-inbox`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/triage-inbox.md) |
-| **Morning briefing** | Daily summary: calendar, reminders, inbox highlights, goal alignment | [`/morning-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/morning-brief.md) |
-| **Daily check-in** | Interactive session: triage, reminders, meeting prep, email drafting | [`/checkin`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/checkin.md) |
-| **Schedule management** | Calendar availability, conflict detection, scheduling replies | [`/schedule-query`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/schedule-query.md) |
+| **Inbox triage** | Categorizes email by priority, auto-labels and archives low-value mail | [`/triage-inbox`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/triage-inbox/SKILL.md) |
+| **Morning briefing** | Daily summary: calendar, reminders, inbox highlights, goal alignment | [`/morning-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/morning-brief/SKILL.md) |
+| **Daily check-in** | Interactive session: triage, reminders, meeting prep, email drafting | [`/checkin`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/checkin/SKILL.md) |
+| **Schedule management** | Calendar availability, conflict detection, scheduling replies | [`/schedule-query`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/schedule-query/SKILL.md) |
 | **Session capture** | Records decisions, follow-ups, and handoff notes after each session | [`/done`](../starter-kit/occasional.md) |
-| **To-do management** | Add, review, and batch-process tasks across lists | [`/todo-add`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-add.md), [`/todo-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-review.md), [`/todo-queue`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-queue.md) |
-| **Goals tracking** | Quarterly objectives, progress scores, stalled-goal alerts | [`/goals-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/goals-review.md) |
-| **Meeting prep** | Pulls context from email, chat, calendar, and past meetings to generate a pre-meeting briefing | [`/pre-meeting-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/pre-meeting-brief.md) |
-| **Meeting follow-up** | Extracts decisions and action items from a transcript, drafts follow-up email to attendees | [`/post-meeting`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/post-meeting.md) |
+| **To-do management** | Add, review, and batch-process tasks across lists | [`/todo-add`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-add/SKILL.md), [`/todo-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-review/SKILL.md), [`/todo-queue`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-queue/SKILL.md) |
+| **Goals tracking** | Quarterly objectives, progress scores, stalled-goal alerts | [`/goals-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/goals-review/SKILL.md) |
+| **Meeting prep** | Pulls context from email, chat, calendar, and past meetings to generate a pre-meeting briefing | [`/pre-meeting-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/pre-meeting-brief/SKILL.md) |
+| **Meeting follow-up** | Extracts decisions and action items from a transcript, drafts follow-up email to attendees | [`/post-meeting`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/post-meeting/SKILL.md) |
 | **Noise canceling** | Digest of high-volume announcements (school, employer, nonprofit) | [Example walkthrough](school-digest.md) |
 
 Each skill works on its own — you can install just `/triage-inbox` and get value from day one. But they compound: `/triage-inbox` runs standalone, and `/checkin` wraps triage + briefing into one interactive session. `/post-meeting` captures what happened; `/done` captures what you decided. `/goals-review` adds a strategic layer that aligns everything toward your quarterly objectives. The recommended path: start with triage, add the check-in, then layer on meetings and goals.
@@ -244,16 +244,17 @@ Install skills roughly in this order. Each works independently, but this sequenc
     Only use this after you've installed the config templates (Step 1) and tested your first three skills. Running this before setup is complete will install skills that can't work yet.
 
     ```bash
-    # Last verified: 2026-03-27. If any curl fails, check the GitHub skills folder for current URLs.
-    mkdir -p ~/.claude/commands ~/.claude-assistant/config \
+    # Download these self-contained skill entry files into their own folders.
+    mkdir -p ~/.claude/skills ~/.claude-assistant/config \
       ~/.claude-assistant/state ~/.claude-assistant/logs
 
     # Install /done through the starter kit, not the retired standalone notice.
-    # Older EA command examples (dependency order)
+    # EA skill examples (dependency order)
     for skill in triage-inbox checkin morning-brief schedule-query \
       todo-add todo-review todo-queue post-meeting goals-review; do
-      curl -o ~/.claude/commands/$skill.md \
-        https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/$skill.md
+      mkdir -p ~/.claude/skills/"$skill"
+      curl -fL -o ~/.claude/skills/"$skill"/SKILL.md \
+        https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/$skill/SKILL.md
     done
     ```
 
@@ -269,7 +270,7 @@ Don't install everything at once. Start with these three and use them for a week
 
 Use the shared starter kit's `done` workflow to save decisions, follow-ups and a handoff. Follow [the kit installation guide](../starter-kit/occasional.md#1-install-the-starter-kit-or-use-plain-language), then open a fresh session and invoke the installed skill.
 
-The older `skills/done.md` file is a migration notice. Downloading it alone does not install this workflow. If you already customized a standalone command, back it up and compare it with the kit's migration guidance before replacing it.
+The older `skills/done/README.md` file is a migration notice. Downloading it alone does not install this workflow. If you already customized a standalone command, back it up and compare it with the kit's migration guidance before replacing it.
 
 ### 2. Inbox Triage (`/triage-inbox`)
 
@@ -277,8 +278,9 @@ The highest-value EA skill for most people. Requires Gmail MCP and the config te
 
 ```bash
 mkdir -p ~/.claude-assistant/state ~/.claude-assistant/logs
-curl -o ~/.claude/commands/triage-inbox.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/triage-inbox.md
+mkdir -p ~/.claude/skills/triage-inbox
+curl -fL -o ~/.claude/skills/triage-inbox/SKILL.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/triage-inbox/SKILL.md
 ```
 
 Restart Claude Code, then try: `/triage-inbox noapply` (preview mode — see what it would do before applying)
@@ -358,8 +360,9 @@ Restart Claude Code, then try: `/triage-inbox noapply` (preview mode — see wha
 Your daily interactive session. Wraps triage, calendar review, meeting prep, and email drafting into one 10-15 minute workflow. Requires Gmail MCP and the config templates from Step 1.
 
 ```bash
-curl -o ~/.claude/commands/checkin.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/checkin.md
+mkdir -p ~/.claude/skills/checkin
+curl -fL -o ~/.claude/skills/checkin/SKILL.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/checkin/SKILL.md
 ```
 
 Restart Claude Code, then try: `/checkin quick` (abbreviated version — good for your first run)
@@ -391,7 +394,7 @@ Restart Claude Code, then try: `/checkin quick` (abbreviated version — good fo
 
 ### After You're Comfortable
 
-Once `/triage-inbox` and `/checkin` are running daily, add [`/morning-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/morning-brief.md) if you want a lighter passive report alongside your interactive session. Set up [`/goals-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/goals-review.md) to maintain the `goals.yaml` file that powers goal alignment in both `/checkin` and `/morning-brief`.
+Once `/triage-inbox` and `/checkin` are running daily, add [`/morning-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/morning-brief/SKILL.md) if you want a lighter passive report alongside your interactive session. Set up [`/goals-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/goals-review/SKILL.md) to maintain the `goals.yaml` file that powers goal alignment in both `/checkin` and `/morning-brief`.
 
 If you have a high-volume source that floods your inbox — school announcements, employer updates, nonprofit newsletters — see [Organizational Noise Canceling](school-digest.md) for how to build a digest skill that compresses it into a 30-second read.
 
@@ -412,7 +415,7 @@ Before each meeting, a skill gathers context from your email, chat, calendar, an
 - **Per-source tool call budgets.** Cap the number of tool calls per data source (e.g., max 8 Gmail searches, max 5 WhatsApp queries). When the cap is hit, stop and synthesize what you have. This prevents runaway costs and keeps the skill under 60 seconds.
 
 !!! tip "Build your own version"
-    The [`/pre-meeting-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/pre-meeting-brief.md) skill depends on a specific MCP stack (Gmail + Calendar + Granola + WhatsApp + Google Docs). The published version assumes you have those configured; if you don't, the patterns above are portable. Start simple: a skill that reads your calendar for today's meetings, searches Gmail for recent threads with each attendee, and outputs a one-page brief. Add sources as your integrations grow.
+    The [`/pre-meeting-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/pre-meeting-brief/SKILL.md) skill depends on a specific MCP stack (Gmail + Calendar + Granola + WhatsApp + Google Docs). The published version assumes you have those configured; if you don't, the patterns above are portable. Start simple: a skill that reads your calendar for today's meetings, searches Gmail for recent threads with each attendee, and outputs a one-page brief. Add sources as your integrations grow.
 
 ### Post-Meeting Follow-Up
 
@@ -426,8 +429,9 @@ After a meeting, `/post-meeting` reads the transcript (from [Granola](../hyperli
 
 ```bash
 # Install post-meeting
-curl -o ~/.claude/commands/post-meeting.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/post-meeting.md
+mkdir -p ~/.claude/skills/post-meeting
+curl -fL -o ~/.claude/skills/post-meeting/SKILL.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/post-meeting/SKILL.md
 ```
 
 After a meeting, run `/post-meeting` — it will find the most recent transcript and walk you through the follow-up.

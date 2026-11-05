@@ -141,7 +141,7 @@ The conversation takes 20–40 minutes. You end up with a rules file tailored to
 
 ### 3. Install the skill
 
-Download the [announcement digest skill](https://github.com/chrisblattman/claudeblattman/blob/main/skills/announcement-digest.md) and customize:
+Download the [announcement digest skill](https://github.com/chrisblattman/claudeblattman/blob/main/skills/announcement-digest/SKILL.md) and customize:
 
 - Replace `[YOUR_LABEL]` with your Gmail label
 - Point the config path to your calibrated rules file

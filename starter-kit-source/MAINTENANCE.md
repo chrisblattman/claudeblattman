@@ -12,12 +12,13 @@ Prompt's shared v3.0 workflow and its formatting/refinement references are packa
 python3 scripts/build-all-plugins.py
 python3 scripts/build-all-plugins.py --check
 python3 scripts/test-starter-packages.py
+python3 scripts/test-continuity-write.py
 node --test scripts/test-agent-transport.mjs
 python3 scripts/test-release-scanner.py
 bash scripts/emit-public.sh
 bash scripts/check-public-release.sh
 python3 scripts/build-all-plugins.py --check --package-dir /absolute/private/release-output
-python3 scripts/scan-public.py --archive /absolute/private/release-output/starter-kit-claude-0.3.0.zip --archive /absolute/private/release-output/starter-kit-codex-0.3.0.zip
+python3 scripts/scan-public.py --archive /absolute/private/release-output/starter-kit-claude-0.3.1.zip --archive /absolute/private/release-output/starter-kit-codex-0.3.1.zip
 ```
 
 Use Python 3.11+ for the transport TOML tests (`STARTER_KIT_PYTHON` can select it).
@@ -43,3 +44,9 @@ Both packages have the same seven workflow instructions, shared persona definiti
 Claude additionally has optional `commands/codex.md`, `commands/gemini.md` and `commands/grok.md` shortcuts. They delegate to Ask Agents; Codex users make the same requests through Ask Agents. They are conveniences, not additional workflows or connections. Claude's native named-agent copies are not generated: both hosts use the shared persona text.
 
 `build-all-plugins.py` builds both packages. The former Codex-named build script was only an alias for the same build and has been removed. Claude's package directory/archive includes `claude` explicitly; its published plugin ID remains `starter-kit` to preserve the existing installation identity. Host manifest formats remain different.
+
+## Done continuity capture
+
+Done saves a project log before replacing the current-state handoff, using one capture ID across retries. Its bundled Python 3 helper checks hashes, serializes its own writers with a local lock, and replaces each file atomically. This is not a multi-file transaction or a cloud-sync lock. Interrupted/partial runs retain their capture ID and report incomplete destinations.
+
+The public adaptation follows project-oriented capture: preserve useful artifacts, decisions, unrelated active work and optional explicitly requested retrospective observations. Private global routers, log pruning, scratch deletion and terminal-specific behavior are not shipped. The six continuity-writer regression tests cover duplicate retries, stale writes, locks, partial recovery, symlinks and file modes. Live host acceptance is still required.
