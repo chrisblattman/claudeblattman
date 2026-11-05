@@ -37,12 +37,8 @@ release_surfaces=(
   "mkdocs.yml"
   ".github/workflows"
   "scripts"
-  "skills/README.md"
-  "skills/aniket-me"
+  "skills"
   "docs/hyperlinks/skill-reference.md"
-  "skills/council.md"
-  "skills/review-plan.md"
-  "skills/done.md"
 )
 
 {

@@ -1,4 +1,4 @@
-# Starter Kit 0.3.0
+# Starter Kit 0.3.1
 
 One shared kit for Claude Code and Codex, with seven skills:
 
@@ -20,7 +20,7 @@ Ask Agents supports Claude Code, Codex, Gemini through Antigravity, and official
 
 To change both panel defaults, ask for the exact providers you want. Preferences live in `~/.config/starter-kit/settings.json`, outside the installed package. Resetting them restores local personas. Light means one each of Claude, Codex and Gemini; Full means two each plus a challenge. Custom panels can include Grok. The host orchestrates native and external workers, and uses fresh native workers for chairs. These are portable panels, not claims of private runtime certification. Only Claude and Codex are supported hosts; a provider connection is not a host adapter.
 
-**Validation:** this is the 0.3.0 review candidate. Offline tests cover packaging, archives, preference persistence and failure handling. Live installation, native-worker panels and authenticated provider calls still need acceptance testing before public release. Building does not install or publish the kit.
+**Validation:** this is the 0.3.1 review candidate. Offline tests cover packaging, archives, preference persistence and failure handling. Live installation, native-worker panels and authenticated provider calls still need acceptance testing before public release. Building does not install or publish the kit.
 
 ## Install after release approval
 

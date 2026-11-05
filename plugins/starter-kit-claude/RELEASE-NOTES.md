@@ -1,9 +1,20 @@
-# Unreleased — council worker output paths
+# 0.3.1 — November 5, 2026
+
+- Done now saves a project session log and a bounded current-state handoff, preserving decisions, unrelated unfinished work and links to useful artifacts.
+- Bundled continuity writer adds conflict checks, atomic per-file replacement and idempotent log retries. Optional `retro` records observations without changing standing rules automatically.
+- Both host packages include the same Done references and helper. Private global housekeeping is not included.
+- The existing starter-kit Prompt remains the sole maintained prompt implementation; standalone prompt-family copies are retired.
+
+The continuity writer has six offline regression tests. This update has not been installed into a user's configuration or validated in a live host. The earlier release's provider acceptance limitations still apply.
+
+## Council worker output paths (from the merged Claude update)
 
 - Every council and review worker, native or provider, now ends at `raw/<id>/response.md`; `council.py` writes the exact path into each frozen assignment and `MANIFEST.json`, and `record` reads it by default. Persona and provider panels share one layout.
 - Native Claude Code workers no longer try to save `report.md`. Claude Code refuses subagent writes to `.md` files whose names start with REPORT, SUMMARY, FINDINGS or ANALYSIS, so 0.3.0 worker saves to `report.md` were refused on Claude Code.
 - The provider transport saves `response.md` instead of `report.md`. `result.json` still records the full path.
 - If a native worker cannot save its file, the host saves the returned text verbatim and records it as host-transcribed.
+
+---
 
 # 0.3.0 review candidate — October 29, 2026
 
