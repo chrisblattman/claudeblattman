@@ -30,7 +30,7 @@ Give concrete analytical questions appropriate to the task, such as competing me
 
 Preserve original evidence at its paths; do not replace project access with a narrow copied packet or recursively copy a private project. Declare stable files with `--evidence` and intentionally mutable files or directory navigation pointers with `--live-evidence`. Never infer volatility from the path. The public helper requires declared evidence to exist; it has no optional-evidence or frozen-evidence mode. Report relevant unavailable sources honestly instead of implying inspection. Stable drift prevents a clean complete result; live drift is also disclosed and prevents an unqualified result in this public implementation.
 
-Choose a durable archive before dispatch: `<project>/council/YYYY-MM-DD_topic/`. It retains `MANIFEST.json`, `MANIFEST.md`, `PROMPT.md`, the frozen quality and synthesis instructions, seat prompts, `raw/`, recorded reports, chair packets and the resulting `SYNTHESIS.md` when synthesis succeeds. Temporary files are staging only.
+Choose a durable archive before dispatch: `<project>/council/YYYY-MM-DD_topic/`. It retains `MANIFEST.json`, `MANIFEST.md`, `PROMPT.md`, the frozen quality and synthesis instructions, seat prompts, worker output in `raw/<id>/response.md`, recorded reports in `reports/`, chair packets and the resulting `SYNTHESIS.md` when synthesis succeeds. Temporary files are staging only.
 
 For local runs, the helper freezes one copy of each used persona in the run's `persona-guidelines/` directory and links that copy from the wrapper. These are invocation records, not additional installed persona definitions. Their hashes are checked with the other frozen inputs, so a later plugin update cannot change an existing run's role instructions. A worker must read its linked guidelines and report an access failure rather than guess the role. Apply the Council development or Adversarial review section selected by the wrapper.
 
@@ -85,11 +85,15 @@ Read Ask Agents' transport and authorization contract first. The user's request 
 
 Each worker chooses its useful research depth, source count, retrieval strategy and delivery length within the authorized task and actual host capabilities. Light changes seat count, not the evidence standard. Delegate only genuinely separable specialist checks instead of recreating the whole panel. Before another wave or nested delegation, identify privately the unresolved question, why current work is insufficient, the distinct expected contribution and the completion signal. This is guidance against duplicate work, not another permission gate or an agent, tool, source, time or output ceiling.
 
-Wait for terminal outcomes. Queue workers when native capacity is full. Never expose earlier answers to later independent members. Read `result.json` and the full report file, not just the launcher summary. Preserve substantive responses even when execution or verification fails. Record actual execution IDs and observable model information in `--note`; never invent model telemetry.
+Every seat and stage, native or provider, ends at the same place: `<archive>/raw/<id>/response.md`. The frozen assignment tells a native worker to save it there; the provider transport saves it there itself. Do not choose another filename. The layout is identical for persona and provider panels; only seat IDs differ.
+
+Wait for terminal outcomes. Queue workers when native capacity is full. Never expose earlier answers to later independent members. For provider seats read `result.json`; for every seat read the full `response.md`, not just the launcher summary. Preserve substantive responses even when execution or verification fails. Record actual execution IDs and observable model information in `--note`; never invent model telemetry.
 
 ```text
-python3 <skill>/scripts/council.py record --run <archive> --seat <id> --state succeeded --report-file <exact-report.md> --execution-id <actual-worker-or-session-id>
+python3 <skill>/scripts/council.py record --run <archive> --seat <id> --state succeeded --execution-id <actual-worker-or-session-id>
 ```
+
+`record` reads `raw/<id>/response.md` by default; pass `--report-file` only for an archive created before this layout.
 
 Use `partial`, `failed`, or `blocked` for other outcomes. A provider `available_with_failure` is `partial`, never `succeeded`. For Grok, `succeeded_with_warnings` can be recorded as succeeded with the full warning in `--note`; it is not certified model verification. If the provider omits a session ID, use the actual unique run-directory path as a transport execution reference and label it as such. Repeat `--addendum-file` for separate additional deliveries. No report is overwritten. Stable evidence drift is visible and prevents a clean complete verdict.
 
@@ -105,7 +109,7 @@ The fresh challenge worker tests factual and logical errors, shared assumptions,
 
 ```text
 python3 <skill>/scripts/council.py packet --run <archive> --stage adversary
-python3 <skill>/scripts/council.py record --run <archive> --stage adversary --state succeeded --report-file <report.md> --execution-id <worker-id>
+python3 <skill>/scripts/council.py record --run <archive> --stage adversary --state succeeded --execution-id <worker-id>
 python3 <skill>/scripts/council.py packet --run <archive> --stage synthesis
 ```
 
