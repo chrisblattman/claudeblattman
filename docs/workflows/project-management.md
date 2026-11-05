@@ -47,7 +47,7 @@ This isn't required. You can skip straight to Layer 1 and organize projects on t
 
 ## Layer 1: Organize the Project Folder
 
-**Skill:** [`/setup-project-management`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/setup-project-management.md)
+**Skill:** [`/setup-project-management`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/setup-project-management/SKILL.md)
 
 The foundation. Before Claude Code can help manage a project, it needs a structured place to look.
 
@@ -95,7 +95,7 @@ Once the project folder exists, the next step is to stop losing information. Mee
 
 ## Layer 3: The Weekly Review
 
-**Skill:** [`/weekly-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/weekly-review.md) `[PM]`
+**Skill:** [`/weekly-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/weekly-review/SKILL.md) `[PM]`
 
 The public file is a reference example. It requires project/account configuration and three Python helpers that are not included in this repository. Read its prerequisites before adapting it. Downloading the command alone does not install a working weekly review.
 
@@ -159,7 +159,7 @@ The dashboard prioritizes strategic objectives first, then operational objective
 
 ## Layer 4: Proposals and Reports on Demand
 
-**Skills:** [`/proposal-write`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/proposal-write.md) and [`/proposal-revise`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/proposal-revise.md) `[PM]`
+**Skills:** [`/proposal-write`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/proposal-write/SKILL.md) and [`/proposal-revise`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/proposal-revise/SKILL.md) `[PM]`
 
 Because the Google Doc hub contains the research design, project history, all prior proposals (successful, unsuccessful, pending), and the weekly review keeps everything current — Claude Code can draft almost anything.
 
@@ -233,20 +233,23 @@ This system was developed primarily for quantitative research projects (randomiz
 Install the project management skills with these commands. Each works independently — start with `/setup-project-management` and add the others as you build each layer.
 
 ```bash
-mkdir -p ~/.claude/commands ~/.claude/agents
+mkdir -p ~/.claude/skills ~/.claude/agents
 
 # Layer 1: Project setup
-curl -o ~/.claude/commands/setup-project-management.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/setup-project-management.md
+mkdir -p ~/.claude/skills/setup-project-management
+curl -fL -o ~/.claude/skills/setup-project-management/SKILL.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/setup-project-management/SKILL.md
 
 # Layer 3: Weekly review is a reference example with external helpers.
 # Read its prerequisites before adapting it; it is not installed by this block.
 
 # Layer 4: Proposal writing and revision
-curl -o ~/.claude/commands/proposal-write.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-write.md
-curl -o ~/.claude/commands/proposal-revise.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-revise.md
+mkdir -p ~/.claude/skills/proposal-write
+curl -fL -o ~/.claude/skills/proposal-write/SKILL.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-write/SKILL.md
+mkdir -p ~/.claude/skills/proposal-revise
+curl -fL -o ~/.claude/skills/proposal-revise/SKILL.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-revise/SKILL.md
 
 # QA agents (optional — run after drafting)
 curl -o ~/.claude/agents/review-writing.md \

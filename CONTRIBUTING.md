@@ -73,7 +73,7 @@ Every content page should start with a clear `# Title` heading. The site-wide an
 5. If a website recommendation is added, link to its guide and update `mkdocs.yml` as needed. The former exhaustive Skill Library page is retired.
 6. Run the existing release checks, open a pull request and review its preview before publishing.
 
-The starter kit has one source in `starter-kit-source/`. Use the repository's package builder and checks for changes to that bundle, rather than editing the generated Claude and Codex copies independently. Older flat files in `skills/` remain reference material unless deliberately promoted to maintained packages.
+The starter kit has one source in `starter-kit-source/`. Use the repository's package builder and checks for changes to that bundle, rather than editing the generated Claude and Codex copies independently. The standalone examples in `skills/` use the same folder layout, but remain reference workflows unless deliberately tested and promoted to maintained packages. Retirement notices use README.md, not SKILL.md. Keep the prompt family’s bundled formatting-core.md copies in sync.
 
 ---
 
@@ -141,7 +141,7 @@ CI runs the tracked structured-pattern scanner. Your local pre-push run is the
 fuller gate when `.sanitize-names.local` or `.sanitize-private-blocklist.local`
 exists, because those private denylist files are intentionally not committed.
 
-**Review each hit; not every hit is a leak.** Teaching files that explain ID *formats* are expected and safe — e.g. `skills/todo-queue.md` and `templates/triage-config-template.md` mention `Label_1`/`Label_123` as format examples, and `templates/calendar-policy-template.md` uses bracketed placeholders. A real leak is a *concrete* value (a specific `Label_5527`, a 64-char calendar hash, an actual name/figure), not a "looks like `Label_N`" explanation. The calendar/JID patterns are length-gated to skip bracketed placeholders; `Label_[0-9]+` is deliberately broad — eyeball its hits.
+**Review each hit; not every hit is a leak.** Teaching files that explain ID *formats* are expected and safe — e.g. `skills/todo-queue/SKILL.md` and `templates/triage-config-template.md` mention `Label_1`/`Label_123` as format examples, and `templates/calendar-policy-template.md` uses bracketed placeholders. A real leak is a *concrete* value (a specific `Label_5527`, a 64-char calendar hash, an actual name/figure), not a "looks like `Label_N`" explanation. The calendar/JID patterns are length-gated to skip bracketed placeholders; `Label_[0-9]+` is deliberately broad — eyeball its hits.
 
 **Validate the canary itself periodically:** plant a known bad string (e.g. `Label_99` or a name from `.sanitize-names.local`) in a scratch file under `skills/`, run the canary, confirm it FIRES, then delete the scratch file. A canary that never catches anything may be silently broken.
 

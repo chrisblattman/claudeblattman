@@ -73,9 +73,9 @@ Eight skill files updated or shipped, plus one new agent. Three threads:
 
 The skills the meeting workflow page already references, brought to current versions on a single push.
 
-- **`/post-meeting` v1.0 → v1.7** — hollow-transcript guard, explicit sender choice (you vs. an AI EA identity), and a recipient rule that defaults to the full team minus low-frequency categories. Production-validated end-to-end on a real research-team meeting. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/post-meeting.md)
-- **`/weekly-review` v1.4 → v1.9.1** — strict YAML config parsing (loud failure on malformed `.claude/CLAUDE.md`), bundled helper scripts for multi-tab Google Doc writes, RTF/PDF transcript normalization, per-meeting hollow-transcript handling, document-comment processing. Two council reviews shaped the v1.9 series. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/weekly-review.md)
-- **`/tips-curate` v1.3 → v1.5** — end-of-run backlog check that prompts `/tips-integrate` when unprocessed HIGH-quality tips exceed 15. Replaces a standing biweekly calendar ritual. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-curate.md)
+- **`/post-meeting` v1.0 → v1.7** — hollow-transcript guard, explicit sender choice (you vs. an AI EA identity), and a recipient rule that defaults to the full team minus low-frequency categories. Production-validated end-to-end on a real research-team meeting. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/post-meeting/SKILL.md)
+- **`/weekly-review` v1.4 → v1.9.1** — strict YAML config parsing (loud failure on malformed `.claude/CLAUDE.md`), bundled helper scripts for multi-tab Google Doc writes, RTF/PDF transcript normalization, per-meeting hollow-transcript handling, document-comment processing. Two council reviews shaped the v1.9 series. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/weekly-review/SKILL.md)
+- **`/tips-curate` v1.3 → v1.5** — end-of-run backlog check that prompts `/tips-integrate` when unprocessed HIGH-quality tips exceed 15. Replaces a standing biweekly calendar ritual. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-curate/SKILL.md)
 
 ### `/done` v2.1 — sub-project routing rewritten
 
@@ -85,14 +85,14 @@ The session-capture skill grew the most this month. The v2.x series rewrote rout
 - **Rule 2, fresh active state with a divergence guard:** route to `active-subproject.json` only if the state was modified in the last 24 hours (or marked permanent) AND the session topic actually overlaps with the state's task name. The token-intersection check prevents silent misroutes when state is stale or pointing somewhere irrelevant.
 - **Non-destructive fallback:** when neither rule fires, `/done` writes session content to a project-root `SESSION_LOG.md` instead of overwriting any project-root `HANDOFF.md` you maintain by hand. That destructive path is removed, not guarded.
 
-[Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/done.md)
+[Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/done/README.md)
 
 ### `/council` and the tips pipeline are public
 
 The two pieces I'd flagged as pending in the original Launch 2 list shipped together because they share a dispatch pattern.
 
-- **`/council` v1.2 (NEW publicly)** — parallel critic agents + a separate synthesis pass. Hard cap of 5 critics, single-round only, never majority-votes on narrative output. The `--chef-skill` mode works out of the box (no persona files required) for skill/tool-design reviews. Default panels (plan / paper / decision / grant) require persona agent files in `~/.claude/agents/`. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/council.md)
-- **`/tips-integrate` v1.2 → v2.1** — Phase 1.5 dispatches a 5-persona council (Catalog Conflict / Maintenance Tax / Compounder / First-Run / Skeptic) before generating proposals. Composite scoring is `mean(5 personas) − 0.1 × blocker_count` — additive penalty, no clamping, the council ranks but doesn't dismiss. Top 3 auto-apply, items 4–7 one-tap, items 8–15 visible with full detail. Falls back to single-critic mode when the agent file is missing. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-integrate.md)
+- **`/council` v1.2 (NEW publicly)** — parallel critic agents + a separate synthesis pass. Hard cap of 5 critics, single-round only, never majority-votes on narrative output. The `--chef-skill` mode works out of the box (no persona files required) for skill/tool-design reviews. Default panels (plan / paper / decision / grant) require persona agent files in `~/.claude/agents/`. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/council/README.md)
+- **`/tips-integrate` v1.2 → v2.1** — Phase 1.5 dispatches a 5-persona council (Catalog Conflict / Maintenance Tax / Compounder / First-Run / Skeptic) before generating proposals. Composite scoring is `mean(5 personas) − 0.1 × blocker_count` — additive penalty, no clamping, the council ranks but doesn't dismiss. Top 3 auto-apply, items 4–7 one-tap, items 8–15 visible with full detail. Falls back to single-critic mode when the agent file is missing. [Skill file →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-integrate/SKILL.md)
 - **`agents/proposal-critic-agent.md` (NEW publicly)** — one parameterized agent file invoked five times in parallel, each with a different persona passed in the prompt. Bundled alongside `/tips-integrate`. [Agent file →](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md)
 
 ### Continuous-improvement page consolidated

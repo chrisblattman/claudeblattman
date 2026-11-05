@@ -61,9 +61,9 @@
       "sha256": "137d06839af4e06e7a33ff76592d6e01f95e3be83bb40ab8deea1114c15c2d5c"
     },
     {
-      "bytes": 11005,
+      "bytes": 11065,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "ef0b04c42466af22c3895843368624ce4e3cf2af3abce3c485300923791deeb3"
+      "sha256": "3c5cc1d98d5a1cca63f0a60cfdb9896973cb98631ca613d60435044405e02528"
     },
     {
       "bytes": 102753,
@@ -571,9 +571,9 @@
       "sha256": "6c1429244c9883c4a5b7e1f3ec95219410925ee7cc340c21ea8f8e4ccbbc8ae5"
     },
     {
-      "bytes": 2730,
+      "bytes": 2632,
       "path": "scripts/emit-public.sh",
-      "sha256": "aae48b0b8ee82b33e875a39655581ea553bf064ef9b5173dd6d07a72b5ee3352"
+      "sha256": "37aa86bc7d6493c3fa0984f4173c0573c2dc5b8b90d252306acba830b3850aac"
     },
     {
       "bytes": 2794,
@@ -611,9 +611,9 @@
       "sha256": "121b2cdb2f55f0d189f6819bc2af1b201fe839f470ceac46e2153ca76f10d64e"
     },
     {
-      "bytes": 8894,
+      "bytes": 9628,
       "path": "skills/README.md",
-      "sha256": "0fe9f039c68fe6de1cf24708fc251cc6388a147ef13950b0da17b4bee07ec748"
+      "sha256": "e1854502d71a2ec2b2f347eafb22d9af64c678d20d09a3ff5945cdc58647d27b"
     },
     {
       "bytes": 2624,
@@ -631,19 +631,184 @@
       "sha256": "9dfa2efe3afa80342604eaced93932d701adad53ef26119bfbcee555206f1f7e"
     },
     {
-      "bytes": 925,
-      "path": "skills/council.md",
-      "sha256": "cc0d7f6cada9a9cbc0417c80d479ead9c1b13f662c78a9bc39c425b655a5be27"
+      "bytes": 6493,
+      "path": "skills/announcement-digest/SKILL.md",
+      "sha256": "ad0b57f89a9c64b08c60ec01762f48c0ff198b486e826b0f611871039da7776d"
     },
     {
-      "bytes": 907,
-      "path": "skills/done.md",
-      "sha256": "188ca262e56a2452a8548faadf27464aa1da6239b5441cd6b3341930cf344000"
+      "bytes": 19437,
+      "path": "skills/checkin/SKILL.md",
+      "sha256": "7780427d2148f38603707cf35f218d1c964646ea415bcca416ed9920f9596f45"
     },
     {
-      "bytes": 977,
-      "path": "skills/review-plan.md",
-      "sha256": "71c3d2fb8f50c91bf6cb9b94f4be95fff3e932cb614937dc16b83c36b0bb556c"
+      "bytes": 784,
+      "path": "skills/council/README.md",
+      "sha256": "05fe77c219bbeb44dcd9b81bec221fb6e96760ba7b35eea6593942b8f6be18aa"
+    },
+    {
+      "bytes": 20658,
+      "path": "skills/deep-research/SKILL.md",
+      "sha256": "7d54742298bec1d5cf642e9fab57d3d25469557275ab5d90821ee21a28c9a438"
+    },
+    {
+      "bytes": 2343,
+      "path": "skills/deep-research/references/claude-subagent-template.md",
+      "sha256": "05ce99eeb3e04794feaf8553e758906c37b138159fa8d54d17c24de7307d0a14"
+    },
+    {
+      "bytes": 10101,
+      "path": "skills/deep-research/references/config.md",
+      "sha256": "50b72b5405d0a7eb721b2121c1b1abb5f52475b54fe2c4c12f6226cca2c5a640"
+    },
+    {
+      "bytes": 1874,
+      "path": "skills/deep-research/references/dr-prompt-schema.md",
+      "sha256": "524dd206e5efef0ee415a4e8170f147ced752e545dd6f8378845bccf71278fb6"
+    },
+    {
+      "bytes": 3591,
+      "path": "skills/deep-research/references/paste-loop-ux.md",
+      "sha256": "038ba9ef6d219fbbee8696ebaebe16c626cd8d994c898a6bf16974a909ac49d9"
+    },
+    {
+      "bytes": 775,
+      "path": "skills/done/README.md",
+      "sha256": "a546e57859c2d7727e63b815745c357cb8ed6491d99b07c3cb9ea118a6f45d62"
+    },
+    {
+      "bytes": 6182,
+      "path": "skills/dr-synthesize/SKILL.md",
+      "sha256": "db9c93dd8909eaece954a349eaf6b493d4a1f479912ebc27d8b4a8db372c6e68"
+    },
+    {
+      "bytes": 5932,
+      "path": "skills/goals-review/SKILL.md",
+      "sha256": "b572003d980f3272ea8eb05d578c47dc07ade3861dbb3e552e3a8204d0c9caed"
+    },
+    {
+      "bytes": 25393,
+      "path": "skills/morning-brief/SKILL.md",
+      "sha256": "79c94b5b7d9bed8dd5210dc70b7bf6474852cf4894e9316a51272483514ad091"
+    },
+    {
+      "bytes": 12223,
+      "path": "skills/post-meeting/SKILL.md",
+      "sha256": "2ef79e5e10ccfeb0f16e3b68bc5d980d06fc886a997e958246adfc81b3fafd26"
+    },
+    {
+      "bytes": 24072,
+      "path": "skills/pre-meeting-brief/SKILL.md",
+      "sha256": "7a8a29aa0286e88a05c524af0241267d22ed5e2a0e198c90dd7e85a8d8b4a581"
+    },
+    {
+      "bytes": 2534,
+      "path": "skills/prompt-only/SKILL.md",
+      "sha256": "b43beeb047ed4a24d655a88aab2a0e20a7dc704a61e470af545acfd7930b5683"
+    },
+    {
+      "bytes": 3510,
+      "path": "skills/prompt-only/references/formatting-core.md",
+      "sha256": "1743c76893972a02dcea11d90e9a6c58d9516a28e32ce387bf8d689910b21935"
+    },
+    {
+      "bytes": 4017,
+      "path": "skills/prompt-refine/SKILL.md",
+      "sha256": "66e1c3323b96dc0158f5811e366e1e7b0ae77a410a0438fd5232431ca9940569"
+    },
+    {
+      "bytes": 3510,
+      "path": "skills/prompt-refine/references/formatting-core.md",
+      "sha256": "1743c76893972a02dcea11d90e9a6c58d9516a28e32ce387bf8d689910b21935"
+    },
+    {
+      "bytes": 3016,
+      "path": "skills/prompt/SKILL.md",
+      "sha256": "b26448c4c1a1014bbf5131e745e2a54e22d3d0a730cab95de7e5b85401b937aa"
+    },
+    {
+      "bytes": 3510,
+      "path": "skills/prompt/references/formatting-core.md",
+      "sha256": "1743c76893972a02dcea11d90e9a6c58d9516a28e32ce387bf8d689910b21935"
+    },
+    {
+      "bytes": 7904,
+      "path": "skills/proposal-revise/SKILL.md",
+      "sha256": "d63e2dafe737c906c9304a88917a73c996ff3e6e1fad8ee2b241ead2ffa30287"
+    },
+    {
+      "bytes": 15402,
+      "path": "skills/proposal-write/SKILL.md",
+      "sha256": "1d87f4cf3df31d885a78c66c285a171c311fbb0b3d0a76d783a85f934822ecab"
+    },
+    {
+      "bytes": 817,
+      "path": "skills/review-plan/README.md",
+      "sha256": "d5e5475569fa684e2b235aa72efb713292c968602a1de89515fd6963c33cf305"
+    },
+    {
+      "bytes": 9304,
+      "path": "skills/schedule-query/SKILL.md",
+      "sha256": "8f8aa11aafbd12ac34f122f5e871ad6204233a6d90ec22380201f34785caf42d"
+    },
+    {
+      "bytes": 6698,
+      "path": "skills/setup-project-management/SKILL.md",
+      "sha256": "e02d6eb746cb55ec5230bae9b4fc871acee09c25d0c2f6c21047d635d5f42a47"
+    },
+    {
+      "bytes": 9964,
+      "path": "skills/tax-guide/SKILL.md",
+      "sha256": "2f2ad4cec002d4d6ff8df3f8a1e6399ae8500d6219fe9f8c318c4c81f8b0a8c3"
+    },
+    {
+      "bytes": 8179,
+      "path": "skills/tips-bookmarks/SKILL.md",
+      "sha256": "265b3a5ed584438fd0c1adcd64d8363cdca56156ec20733e607b5efcacbf7917"
+    },
+    {
+      "bytes": 9493,
+      "path": "skills/tips-curate/SKILL.md",
+      "sha256": "722003990d45d0a8ec66719a12b4a8341c6bd49f2bddd1cfc5123e6384947e99"
+    },
+    {
+      "bytes": 14578,
+      "path": "skills/tips-integrate/SKILL.md",
+      "sha256": "654def413471f97d51fa59681bbba0c3401986776c6c0efd382ed9788e5f6959"
+    },
+    {
+      "bytes": 5266,
+      "path": "skills/tips-integrate/references/scanning-rules.md",
+      "sha256": "0c75028ffcd391794edc9eba055441afec34a4617c5dfd99775cc706ec1dc4f0"
+    },
+    {
+      "bytes": 10981,
+      "path": "skills/tips-scout/SKILL.md",
+      "sha256": "77a5fa93764f766b884261c0aa8645c489d65fed5c6b4c86d5212a858817598f"
+    },
+    {
+      "bytes": 3422,
+      "path": "skills/todo-add/SKILL.md",
+      "sha256": "6419ac73d776653c74d4fdff54dba87acf6df90599b9261b04671afcd2ee6b9a"
+    },
+    {
+      "bytes": 8507,
+      "path": "skills/todo-queue/SKILL.md",
+      "sha256": "24225102ba6ff4d57a76017b5602c4c79578918d1e1911edcc1a1c34903233ba"
+    },
+    {
+      "bytes": 4072,
+      "path": "skills/todo-review/SKILL.md",
+      "sha256": "550d525c2a9dbea8f8e8b79461020dad5b54eaee19e485eb50e456bd8a26e306"
+    },
+    {
+      "bytes": 29950,
+      "path": "skills/triage-inbox/SKILL.md",
+      "sha256": "544291e2cb5ea2730c340ed0fcf7ed0006474408ed7ea1d1b4f2d73a135893e8"
+    },
+    {
+      "bytes": 19092,
+      "path": "skills/weekly-review/SKILL.md",
+      "sha256": "d7d8b4e6cc83730fa2a61de1f3c38dc00c5b04606c5507da7000b821de189cc1"
     },
     {
       "bytes": 6124,

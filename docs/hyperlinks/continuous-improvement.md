@@ -41,7 +41,7 @@ Stage 3 is where this loop differs from a typical "save tips and try them later"
 
 The fix is structural disagreement. Five personas in parallel, each told to score from one specific lens and not balance — Maintenance Tax notices that a tip depends on a single-maintainer repo, Catalog Conflict notices it duplicates an existing rule, First-Run notices that the "obvious" first step actually requires three design decisions. The composite scores them; the user approves. The council ranks but does not gate.
 
-The shared starter kit provides the general [Council and review workflows](../starter-kit/occasional.md): independent agents develop the work, then fresh reviewers challenge the result. The older `skills/council.md` file is a migration notice, not an installable implementation. The tips pipeline below is a separate legacy example with five fixed personas, defined in [`proposal-critic-agent`](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md) and tuned for evaluating workflow tips.
+The shared starter kit provides the general [Council and review workflows](../starter-kit/occasional.md): independent agents develop the work, then fresh reviewers challenge the result. The older `skills/council/README.md` file is a migration notice, not an installable implementation. The tips pipeline below is a separate legacy example with five fixed personas, defined in [`proposal-critic-agent`](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md) and tuned for evaluating workflow tips.
 
 ---
 
@@ -165,7 +165,7 @@ Most weeks produce one or two direct edits. Most of the council's output is *inv
 
 ### `/tips-bookmarks` — pull from the firehose
 
-Pulls X/Twitter bookmarks via `twitter-cli`, classifies each, dedupes against the log, and appends new items. Replaces the manual copy-paste-email step that catches Twitter content via the curate path otherwise. [Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-bookmarks.md)
+Pulls X/Twitter bookmarks via `twitter-cli`, classifies each, dedupes against the log, and appends new items. Replaces the manual copy-paste-email step that catches Twitter content via the curate path otherwise. [Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-bookmarks/SKILL.md)
 
 !!! tip "Or use the Gmail path"
     The pipeline works without `/tips-bookmarks`. `/tips-curate` already covers email-forwarded Twitter posts via the message body — Twitter URLs always fail under WebFetch, so the body text is what gets classified. `/tips-bookmarks` just removes the forwarding friction if you bookmark heavily on X. Pick whichever fits your habit.
@@ -174,7 +174,7 @@ Pulls X/Twitter bookmarks via `twitter-cli`, classifies each, dedupes against th
 
 Reads the last 14 days of the tips log and your active TODOs to find your *coverage gaps*, then customizes a base Grok DeepSearch prompt: BOOST categories you're under-covered on, DE-EMPHASIZE ones you're saturated on, inject your active investigation topics as bonus targets. The result is a paste-ready prompt that won't surface ground you already covered.
 
-[Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-scout.md)
+[Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-scout/SKILL.md)
 
 ### `/tips-curate` — rate and file
 
@@ -182,7 +182,7 @@ Fetches unread `@ToSelf` emails in batches of five, classifies each (`worth-revi
 
 The v1.5 backlog nudge fires at the end of every run: if more than 15 HIGH tips have accumulated since the last `/tips-integrate`, the skill offers to invoke it in the same session. Replaces a standing biweekly calendar ritual that fired with empty queues some weeks and sat dormant during high-flow weeks.
 
-[Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-curate.md)
+[Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-curate/SKILL.md)
 
 ### `/tips-integrate` — convene the council
 
@@ -190,7 +190,7 @@ Six phases: pre-checks, scan sources since `last_run`, **the council (Phase 1.5)
 
 Single-critic fallback runs automatically if `proposal-critic-agent.md` isn't installed in `~/.claude/agents/`. The council was added in v2.1 because single-critic ranking under-weighted maintenance tails — surface-appealing tips kept getting auto-proposed despite obvious six-month rot.
 
-[Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-integrate.md) · [Council agent →](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md)
+[Public skill →](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-integrate/SKILL.md) · [Council agent →](https://github.com/chrisblattman/claudeblattman/blob/main/agents/proposal-critic-agent.md)
 
 ---
 
@@ -221,7 +221,7 @@ No rigid schedule. The integrate skill warns you if tips are stale.
 
 Minimum-viable adoption, in order:
 
-1. Install [`/tips-curate`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-curate.md) and [`/tips-integrate`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-integrate.md) from the [skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills). `/tips-scout` is the upstream feeder — add it once curate is working.
+1. Install [`/tips-curate`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-curate/SKILL.md) and [`/tips-integrate`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tips-integrate/SKILL.md) from the [skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills). `/tips-scout` is the upstream feeder — add it once curate is working.
 2. Copy `proposal-critic-agent.md` to `~/.claude/agents/`. Without it, `/tips-integrate` runs single-critic; the council needs the agent file present.
 
     ```bash

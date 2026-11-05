@@ -82,14 +82,14 @@ Choose the group that fits what you want to do next.
 <div class="pick-group" markdown>
 <label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#1"> Use [the skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills) to set up one, two, or all of these <span class="est">(~15 min each)</span></label>
 <div class="sub-list" markdown>
-<label class="sub-done"><input type="checkbox"> [`/triage-inbox`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/triage-inbox.md) — sorts the inbox and drafts the easy replies</label>
-<label class="sub-done"><input type="checkbox"> [`/checkin`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/checkin.md) — the interactive daily session that wraps triage</label>
-<label class="sub-done"><input type="checkbox"> [`/morning-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/morning-brief.md) — the same thing passively, as a report you read</label>
-<label class="sub-done"><input type="checkbox"> [`/schedule-query`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/schedule-query.md) — answers "when am I free" against your calendar</label>
-<label class="sub-done"><input type="checkbox"> [`/pre-meeting-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/pre-meeting-brief.md) — who you're meeting, what happened last time</label>
-<label class="sub-done"><input type="checkbox"> [`/post-meeting`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/post-meeting.md) — turns notes into actions and follow-up mail</label>
-<label class="sub-done"><input type="checkbox"> [`/goals-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/goals-review.md) — keeps the `goals.yaml` the check-in reads from</label>
-<label class="sub-done"><input type="checkbox"> The to-do loop: [`/todo-add`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-add.md), [`/todo-queue`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-queue.md), [`/todo-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-review.md)</label>
+<label class="sub-done"><input type="checkbox"> [`/triage-inbox`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/triage-inbox/SKILL.md) — sorts the inbox and drafts the easy replies</label>
+<label class="sub-done"><input type="checkbox"> [`/checkin`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/checkin/SKILL.md) — the interactive daily session that wraps triage</label>
+<label class="sub-done"><input type="checkbox"> [`/morning-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/morning-brief/SKILL.md) — the same thing passively, as a report you read</label>
+<label class="sub-done"><input type="checkbox"> [`/schedule-query`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/schedule-query/SKILL.md) — answers "when am I free" against your calendar</label>
+<label class="sub-done"><input type="checkbox"> [`/pre-meeting-brief`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/pre-meeting-brief/SKILL.md) — who you're meeting, what happened last time</label>
+<label class="sub-done"><input type="checkbox"> [`/post-meeting`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/post-meeting/SKILL.md) — turns notes into actions and follow-up mail</label>
+<label class="sub-done"><input type="checkbox"> [`/goals-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/goals-review/SKILL.md) — keeps the `goals.yaml` the check-in reads from</label>
+<label class="sub-done"><input type="checkbox"> The to-do loop: [`/todo-add`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-add/SKILL.md), [`/todo-queue`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-queue/SKILL.md), [`/todo-review`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/todo-review/SKILL.md)</label>
 </div>
 </div>
 

@@ -35,13 +35,15 @@ Install `/tax-guide` and answer 8 questions. You'll get a personalized plan: wha
 
 ### Install /tax-guide
 
-Copy [`tax-guide.md`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tax-guide.md) to your Claude Code commands directory:
+Install the [tax-guide skill](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tax-guide/SKILL.md) in its own Claude Code skill folder:
 
 ```bash
-cp tax-guide.md ~/.claude/commands/
+mkdir -p ~/.claude/skills/tax-guide
+curl -fL -o ~/.claude/skills/tax-guide/SKILL.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tax-guide/SKILL.md
 ```
 
-Or create `~/.claude/commands/tax-guide.md` manually and paste the [skill file contents](https://github.com/chrisblattman/claudeblattman/blob/main/skills/tax-guide.md). Then type `/tax-guide` in Claude Code to start.
+Open a fresh session and type `/tax-guide` to start. If you already have an older `tax-guide.md` command, preserve your customizations and move that copy outside the active commands folder before using the replacement.
 
 ??? example "Sample output — W-2 + side consulting profile"
 
