@@ -1,3 +1,10 @@
+# Unreleased — council worker output paths
+
+- Every council and review worker, native or provider, now ends at `raw/<id>/response.md`; `council.py` writes the exact path into each frozen assignment and `MANIFEST.json`, and `record` reads it by default. Persona and provider panels share one layout.
+- Native Claude Code workers no longer try to save `report.md`. Claude Code refuses subagent writes to `.md` files whose names start with REPORT, SUMMARY, FINDINGS or ANALYSIS, so 0.3.0 worker saves to `report.md` were refused on Claude Code.
+- The provider transport saves `response.md` instead of `report.md`. `result.json` still records the full path.
+- If a native worker cannot save its file, the host saves the returned text verbatim and records it as host-transcribed.
+
 # 0.3.0 review candidate — October 29, 2026
 
 - Plugin installation for both hosts; no separate manual Codex installer.

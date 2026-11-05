@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Offline packaging, parity, and council failure-path tests; no model calls."""
 import json
+import re
 import shutil
 from pathlib import Path
 import subprocess
@@ -183,6 +184,41 @@ class Council(unittest.TestCase):
             self.assertIsNone(seat["persona_guidelines"])
             self.assertNotIn("## Persona wrapper", assignment)
             self.assertNotIn("[persona guidelines]", assignment)
+
+    def test_every_worker_saves_to_its_own_response_path(self):
+        # Claude Code refuses subagent writes to these names; no assignment may lead a worker there.
+        blocked = re.compile(r"^(REPORT|SUMMARY|FINDINGS|ANALYSIS).*\.md$", re.IGNORECASE)
+        self.helper = ROOT / "plugins/starter-kit-claude/skills/council/scripts/council.py"
+        for label, extra in (("personas", ["--mode", "local"]), ("providers", ["--providers", "claude,codex"])):
+            with self.subTest(panel=label):
+                self.run = self.base / label
+                self.invoke("plan", "--host", "claude", "--settings", self.base / "settings.json", "--brief-file", self.brief, "--output", self.run, *extra)
+                manifest = json.loads((self.run / "MANIFEST.json").read_text())
+                for seat in manifest["seats"]:
+                    self.assertEqual(seat["response"], f"raw/{seat['id']}/response.md")
+                    self.assertIsNone(blocked.match(Path(seat["response"]).name))
+                    assignment = (self.run / seat["prompt"]).read_text()
+                    self.assertNotIn("report.md", assignment)
+                    if seat["dispatch"] == "native":
+                        self.assertIn(str(self.run.resolve() / seat["response"]), assignment)
+                    else:
+                        self.assertEqual(seat["provider"], "codex")
+                        self.assertIn("do not write report files", assignment)
+                    # The worker (or transport) writes its file; record reads it without --report-file.
+                    output = self.run / seat["response"]
+                    self.invoke("record", "--run", self.run, "--seat", seat["id"], "--state", "succeeded", "--execution-id", "missing-" + seat["id"], ok=False)
+                    output.parent.mkdir()
+                    output.write_text(f"Finding from {seat['id']}: account for half-day capacity.")
+                    self.invoke("record", "--run", self.run, "--seat", seat["id"], "--state", "succeeded", "--execution-id", "worker-" + seat["id"])
+                    self.assertEqual((self.run / "reports" / f"{seat['id']}.md").read_bytes(), output.read_bytes())
+                stage_prompt = Path(self.invoke("packet", "--run", self.run, "--stage", "synthesis").stdout.strip()).read_text()
+                stage_output = self.run / "raw/synthesis-primary/response.md"
+                self.assertIn(str(stage_output.resolve()), stage_prompt)
+                stage_output.parent.mkdir()
+                stage_output.write_text("Recommendation: reduce scope and measure demand first.")
+                self.invoke("record", "--run", self.run, "--stage", "synthesis", "--state", "succeeded", "--execution-id", "chair")
+                self.assertEqual((self.run / "SYNTHESIS.md").read_bytes(), stage_output.read_bytes())
+                self.invoke("status", "--run", self.run)
 
     def test_quality_contract_reaches_all_seats_and_chair_stages_unchanged(self):
         source = (ROOT / "starter-kit-source/skills/council/references/council-synthesis.md").read_text()

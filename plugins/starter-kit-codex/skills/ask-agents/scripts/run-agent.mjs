@@ -150,8 +150,8 @@ async function main() {
   const parsed=parseOutput(o.agent,raw,fs.existsSync(final)?fs.readFileSync(final,'utf8'):'');
   const mismatch=o.model&&parsed.model&&parsed.model!==o.model;
   const success=execution.code===0&&!execution.error&&parsed.ok&&!mismatch&&!!parsed.text.trim();
-  const report=parsed.text.trim()?path.join(out,'report.md'):null;
-  if(report)save('report.md',parsed.text+'\n');
+  const report=parsed.text.trim()?path.join(out,'response.md'):null;
+  if(report)save('response.md',parsed.text+'\n');
   const result={...receipt,state:success?'succeeded':report?'available_with_failure':'failed',finished_at:new Date().toISOString(),exit_code:execution.code,signal:execution.signal,spawn_error:execution.error,session_id:parsed.session,observed_model:parsed.model,model_mismatch:!!mismatch,model_verification:parsed.model?'provider-reported':'unavailable',errors:parsed.errors,unparsed_lines:parsed.malformed,available_report:report,report,report_sha256:report?hash(parsed.text+'\n'):null,raw_sha256:hash(raw),smoke_test:o['smoke-test']?success&&parsed.text.trim()==='starter-kit-ok':null};
   save('result.json',JSON.stringify(result,null,2)+'\n');
   console.log(JSON.stringify({...result,result:path.join(out,'result.json')},null,2));

@@ -147,9 +147,9 @@ async function main() {
   const warnings=telemetryWarnings(r.end);
   if(malformed)warnings.push('unparsed stdout lines retained');
   if(/WARN|ERROR/i.test(fs.readFileSync(path.join(out,'stderr.txt'),'utf8')))warnings.push('runtime diagnostics in stderr; inspect relevant warnings');
-  if(r.text.trim())save('report.md',r.text+'\n');
+  if(r.text.trim())save('response.md',r.text+'\n');
   const state=r.successful&&!spawnError&&!malformed?(warnings.length?'succeeded_with_warnings':'succeeded'):(r.text.trim()?'available_with_failure':'failed');
-  Object.assign(receipt,{state,submission:r.end?'completed_run':events.length?'observed_output':'unknown',observed_models:observed,model_observation_scope:'aggregate_root_and_subagent_usage; not root-served-model proof',root_served_model:null,finished_at:new Date().toISOString(),exit_code:terminal.code,signal:terminal.signal,spawn_error:spawnError,session_id:r.end?.sessionId||receipt.session_id,usage:r.end?.usage||null,model_usage:r.end?.modelUsage||null,reported_inference_cost_usd:r.end?.total_cost_usd??null,usage_is_incomplete:r.end?.usage_is_incomplete??null,warnings,errors:r.errors,tool_events:r.tools,raw_sha256:hash(bytes),available_report:r.text.trim()?path.join(out,'report.md'):null,report_sha256:r.text.trim()?hash(r.text+'\n'):null});
+  Object.assign(receipt,{state,submission:r.end?'completed_run':events.length?'observed_output':'unknown',observed_models:observed,model_observation_scope:'aggregate_root_and_subagent_usage; not root-served-model proof',root_served_model:null,finished_at:new Date().toISOString(),exit_code:terminal.code,signal:terminal.signal,spawn_error:spawnError,session_id:r.end?.sessionId||receipt.session_id,usage:r.end?.usage||null,model_usage:r.end?.modelUsage||null,reported_inference_cost_usd:r.end?.total_cost_usd??null,usage_is_incomplete:r.end?.usage_is_incomplete??null,warnings,errors:r.errors,tool_events:r.tools,raw_sha256:hash(bytes),available_report:r.text.trim()?path.join(out,'response.md'):null,report_sha256:r.text.trim()?hash(r.text+'\n'):null});
   save('result.json',json(receipt));
   console.log(json({state,output_dir:out,result:path.join(out,'result.json'),report:receipt.available_report,session_id:receipt.session_id,warnings}));
   if(!state.startsWith('succeeded'))process.exitCode=1;

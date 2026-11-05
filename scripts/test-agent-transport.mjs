@@ -94,7 +94,7 @@ function fakeRun(agent,output,options={}){
 }
 test('end-to-end fake Claude CLI retrieves report and immutable receipt',()=>{
  const r=fakeRun('claude',lines({type:'system',subtype:'init',model:'exact'},{type:'result',subtype:'success',result:'Complete response',session_id:'session-a'}),{model:'exact'});
- assert.equal(r.status,0);assert.equal(r.report,'Complete response\n');assert.equal(r.receipt.session_id,'session-a');assert.match(r.input,/neutral fixture/);assert.ok(r.args.includes('plan'));
+ assert.equal(r.status,0);assert.equal(r.report,'Complete response\n');assert.equal(path.basename(r.receipt.report),'response.md');assert.equal(r.receipt.session_id,'session-a');assert.match(r.input,/neutral fixture/);assert.ok(r.args.includes('plan'));
 });
 test('end-to-end fake auth failure retains partial substantive output',()=>{
  const r=fakeRun('gemini',lines({event:'result',result:{status:'ERROR',response:'Partial useful finding',error:'authentication required'}}),{exit:1});
