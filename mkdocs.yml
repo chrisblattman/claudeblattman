@@ -134,7 +134,6 @@ nav:
       - Weekly review: workflows/weekly-review.md
       - Deep research: workflows/deep-research.md
       - Find past work: workflows/recall.md
-      - Manage sub-projects: workflows/sub-project-routing.md
       - "Example: project dashboard": workflows/examples/project-overview-example.md
     - Work and personal life:
       - workflows/executive-assistant.md
@@ -237,6 +236,7 @@ plugins:
         essentials/folders/shopping.md: workflows/life/shopping.md
         essentials/folders/vacation.md: workflows/life/vacation.md
         essentials/session-management.md: starter-kit/occasional.md
+        workflows/sub-project-routing.md: workflows/organize-projects.md
         workflows/session-management.md: starter-kit/occasional.md
         toolkit/executive-assistant.md: workflows/building-an-assistant.md
         essentials/chatgpt-vs-claude.md: starter-kit/newcomers.md

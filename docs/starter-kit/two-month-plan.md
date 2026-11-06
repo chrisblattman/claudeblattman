@@ -1,114 +1,86 @@
 ---
 title: Next steps for intermediate and advanced users
-description: An optional checklist for intermediate and advanced AI users. Skip familiar steps, find useful workflows and skills, and track what you've tried.
+description: An optional tracker for the homepage essentials and the workflows you want to try next.
 ---
 
 # Next steps for intermediate and advanced users { #the-two-month-plan }
 
-This optional checklist is for intermediate and advanced users who want more from AI. The early stages revisit the basics, so skip what you already know. Tick off what you’ve tried and you’ll find your place when you return.
+Use this checklist to keep track of what you’ve tried and find something useful for the work in front of you. The first two stages cover the [homepage essentials](../index.md#my-absolute-essentials-and-where-to-start). If you’ve already tried them, [skip straight to the workflows](#month-two-the-bigger-work). Pick whichever stage fits what you’re working on.
 
-Already have the basics? [Skip to the bigger work](#month-two-the-bigger-work).
-
-There is no timetable. The times beside the tasks are rough estimates.
-
-Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the core habits, [Projects and research](../workflows/projects-and-research.md) or [Work and personal life](../workflows/executive-assistant.md) for a task, and [Improve your AI setup](../workflows/best-practices.md) for connections, instructions, and skills. The checklist below brings those guides together. Data analysis, coding rules, and expense processing are still forthcoming. Their linked pages are labeled as placeholders.
+This page keeps its own checkmarks in your browser, separate from the homepage.
 
 <div class="checklist" markdown>
 
-## Build the habit { #month-one-the-habit }
+## The homepage essentials { #month-one-the-habit }
 
+<span id="week-1-set-up-and-introduce-yourself"></span>
+<span id="week-2-learn-the-loop-and-connect-your-sources"></span>
 <div class="week-card" markdown>
-### Stage 1 — Set up, and introduce yourself { #week-1-set-up-and-introduce-yourself }
+### Stage 1 — Learn to use an agent and run the council loop { #use-an-agent }
 
-<label class="step-done"><input type="checkbox"> Decide which agent to use: [Choose an agent](newcomers.md#1-choose-an-agent) <span class="est">(2 min)</span></label>
-<label class="step-done"><input type="checkbox"> Work through [your first session](newcomers.md) <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Build your [CLAUDE.md / AGENTS.md](../build-your-own/agents-md.md) file <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Decide whether any [research tools](../build-your-own/mcp-setup.md#research-tools) are worthwhile to you <span class="est">(5 min)</span></label>
-<label class="step-done"><input type="checkbox"> Get comfortable in [the desktop app](from-terminal.md), where you can see the work beside your conversation <span class="est">(15 min)</span></label>
-
-<!-- EDITORIAL — page-level job this week depends on, BACKLOG:
-     · "Build your CLAUDE.md / AGENTS.md" is ONE row here but TWO pages today.
-       downloads/real-claude-md-example.md is to be merged into
-       toolkit/claude-md.md. Until that lands the annotated example is
-       unreachable from this plan. See N10.
- -->
-</div>
-
-<div class="week-card" markdown>
-### Stage 2 — Learn the loop, and connect your sources { #week-2-learn-the-loop-and-connect-your-sources }
-
-<label class="step-done"><input type="checkbox"> Save a handoff for your next session with [/done](occasional.md#7-save-where-you-landed) <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Run a plan past [a council](occasional.md) on something that matters <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Read [The council workflow](../workflows/first-session-skills.md) for more detail on the loop <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> [Connect your apps](../build-your-own/mcp-setup.md) — mail, documents, messages <span class="est">(10 min)</span></label>
-<label class="step-done"><input type="checkbox"> Start [dictating](../hyperlinks/wispr-flow.md) instead of typing <span class="est">(5 min)</span></label>
-<label class="step-done"><input type="checkbox"> Start [transcribing your meetings](../hyperlinks/granola.md) into the project folder <span class="est">(30 min)</span></label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#0"> [Choose your agent](newcomers.md#1-choose-an-agent).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#4"> Open a project in [the desktop app](from-terminal.md).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#1"> Give the agent [one real task](newcomers.md#run-the-loop), then work through a revision together.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#1"> Start using [councils](occasional.md) to tackle the task and [adversarially review the output](occasional.md#5-run-adversarial-review).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-5-brief-a-project-and-challenge-the-work#1"> Consider [using multiple AIs in your council](../workflows/council-models.md). It’s worth the cost!</label>
 
 </div>
 
 <div class="week-card" markdown>
-### Stage 3 — Get your files in order { #week-3-get-your-files-in-order }
+### Stage 2 — Dictate, use your transcripts, and teach AI your voice { #work-more-efficiently }
 
-<label class="step-done"><input type="checkbox"> Set up or reorganise one live project folder using the [AI project folder system](../workflows/organize-projects.md) <span class="est">(40 min)</span></label>
-<label class="step-done"><input type="checkbox"> Find something you said last month with [search past sessions](../workflows/recall.md) <span class="est">(10 min)</span></label>
-<label class="step-done"><input type="checkbox"> Consider [organizing your cloud storage](../workflows/cloud-storage-guide.md) for better co-working with AI <span class="est">(3 hours)</span></label>
-
-</div>
-
-<div class="week-card" markdown>
-### Stage 4 — Set your rules, your voice, and your first skill { #week-4-set-your-rules-your-voice-and-your-first-skill }
-
-<label class="step-done"><input type="checkbox"> [Set up rules and guidelines](../build-your-own/rules.md) that hold in every session <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Turn something you repeat into a [skill](../build-your-own/building-skills.md) <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> [Teach the AI your voice](../build-your-own/voice.md) <span class="est">(30 min)</span></label>
-
-<!-- EDITORIAL — three page jobs this week assumes, all BACKLOG:
-     · N13 collapses downloads/skill-patterns.md into system/building-skills.md
-     · N15 DONE 19 Oct — voice-pack template folded into build-your-own/voice.md
-     · N16 revamps build-your-own/rules.md, which is 529 words today and
-       nothing like a 30-minute exercise -->
-</div>
-
-## Take on bigger work { #month-two-the-bigger-work }
-
-<div class="week-card" markdown>
-### Stage 5 — Brief a project, and challenge the work { #week-5-brief-a-project-and-challenge-the-work }
-
-<label class="step-done"><input type="checkbox"> Write a one-page [project brief](https://github.com/chrisblattman/claudeblattman/blob/main/templates/project-brief-template.md) for one live project, and read it before you trust it <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Set up [cross-vendor review](../workflows/council-models.md) <span class="est">(35 min)</span></label>
-</div>
-
-<div class="week-card" markdown>
-### Stage 6 — Research and analysis { #week-6-research-and-analysis }
-
-<label class="step-done"><input type="checkbox"> Connect your agent to a dedicated [Deep Research](../workflows/deep-research.md) tool <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Research a real project question with [Deep Research](../workflows/deep-research.md), check its sources, and give the findings to your council <span class="est">(45 min)</span></label>
-<label class="step-done"><input type="checkbox"> Set up your [coding rules](../workflows/coding-rules.md) — *guide coming later* <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Run the [data analysis workflow](../workflows/data-analysis.md) — the agent writes the code, runs it, and you check what came out (*guide coming later*) <span class="est">(45 min)</span></label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#4"> [Dictate a request](../hyperlinks/wispr-flow.md) you would usually type.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#5"> [Transcribe a meeting](../hyperlinks/granola.md#start-transcribing).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="use-transcript"> [Process the transcript](../hyperlinks/granola.md#file-every-transcript-where-the-agent-can-find-it): file it with its project and use it for follow-ups.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#2"> [Teach your agent to write and sound like you](../build-your-own/voice.md).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="voice-learning"> [Teach the agent to learn from your edits](../how-i-improve-the-work.md) so the next draft sounds more like you.</label>
 
 </div>
 
+## Pick a workflow to try { #month-two-the-bigger-work }
+
+Choose the group that fits what you want to do next.
+
+<span id="week-3-get-your-files-in-order"></span>
 <div class="week-card" markdown>
-### Stage 7 — Keep several projects moving { #week-7-keep-several-projects-moving }
+### Stage 3 — Get your files in order and connect your apps { #files-and-apps }
 
-<label class="step-done"><input type="checkbox"> [Catch up on a project](../workflows/project-management.md) that got away from you <span class="est">(30 min)</span></label>
-<label class="step-done"><input type="checkbox"> Look at a finished example: [project dashboard](../workflows/examples/project-overview-example.md) <span class="est">(10 min)</span></label>
-<label class="step-done"><input type="checkbox"> Run one [weekly review](../workflows/weekly-review.md) across everything <span class="est">(15 min)</span></label>
-<label class="step-done"><input type="checkbox"> Split a big project up with [sub-project routing](../workflows/sub-project-routing.md) <span class="est">(20 min)</span></label>
-<label class="step-done"><input type="checkbox"> Use the pre- and post-[meeting workflow](../workflows/meeting-workflow.md) <span class="est">(15 min)</span></label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#2"> [Organize cloud storage](../workflows/cloud-storage-guide.md) so your agent can find your files.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#0"> [Give each project a home](../workflows/organize-projects.md) for its files, decisions, and handoffs.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#3"> [Connect the apps](../build-your-own/mcp-setup.md) that hold your mail, documents, and calendar.</label>
 
-<!-- EDITORIAL: weekly-review.md needs a line at the top saying the project
-     dashboard is what you GET from running the review week after week — the
-     dashboard is the reward, not a separate exercise. BACKLOG N18. -->
 </div>
 
+<span id="week-5-brief-a-project-and-challenge-the-work"></span>
+<span id="week-7-keep-several-projects-moving"></span>
 <div class="week-card" markdown>
-### Stage 8 — Hand over the rest of it { #week-8-hand-over-the-rest-of-it }
+### Stage 4 — Get a project moving { #manage-a-project }
 
-<label class="step-done"><input type="checkbox"> Read [how Chris uses his AI executive assistant](../workflows/building-an-assistant.md) <span class="est">(30 min)</span></label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-5-brief-a-project-and-challenge-the-work#0"> Give the agent a [one-page brief](https://github.com/chrisblattman/claudeblattman/blob/main/templates/project-brief-template.md) for a live project.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#0"> [Catch up on a project](../workflows/project-management.md) you’ve been away from.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#2"> [Automate a weekly review](../workflows/weekly-review.md) to see which commitments need attention.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#1"> [Find a decision or conversation](../workflows/recall.md) from an earlier session.</label>
+
+</div>
+
+<span id="week-6-research-and-analysis"></span>
+<div class="week-card" markdown>
+### Stage 5 — Research a question { #research-a-question }
+
+<label class="step-done"><input type="checkbox" data-progress-key="week-6-research-and-analysis#1"> Use an agent to [run your deep research queries](../workflows/deep-research.md).</label>
+
+</div>
+
+<span id="week-8-hand-over-the-rest-of-it"></span>
+<div class="week-card" markdown>
+### Stage 6 — Hand off everyday work { #everyday-work }
+
+<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#4"> [Use the pre- and post-meeting workflow](../workflows/meeting-workflow.md).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#0"> [Build an AI executive assistant](../workflows/building-an-assistant.md) to help you manage your email and schedule.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="sub#1#0"> [Cut through inbox noise](../workflows/school-digest.md)</label>
 
 <div class="pick-group" markdown>
-<label class="step-done"><input type="checkbox"> Use [the skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills) to set up one, two, or all of these <span class="est">(~15 min each)</span></label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#1"> Use [the skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills) to set up one, two, or all of these <span class="est">(~15 min each)</span></label>
 <div class="sub-list" markdown>
 <label class="sub-done"><input type="checkbox"> [`/triage-inbox`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/triage-inbox/SKILL.md) — sorts the inbox and drafts the easy replies</label>
 <label class="sub-done"><input type="checkbox"> [`/checkin`](https://github.com/chrisblattman/claudeblattman/blob/main/skills/checkin/SKILL.md) — the interactive daily session that wraps triage</label>
@@ -122,23 +94,29 @@ Use [Essentials](../index.md#my-absolute-essentials-and-where-to-start) for the 
 </div>
 
 <div class="pick-group" markdown>
-<label class="step-done"><input type="checkbox"> Build a fun life widget — pick one or two and actually finish them <span class="est">(~20 min each)</span></label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#2"> Try a task from everyday life <span class="est">(~20 min each)</span></label>
 <div class="sub-list" markdown>
-<label class="sub-done"><input type="checkbox"> [Noise cancelling](../workflows/school-digest.md)</label>
-<label class="sub-done"><input type="checkbox"> [Tax season](../tax-workflow/index.md) — background reading: [academic tax basics](../tax-workflow/reference/academic-tax-basics.md)</label>
-<label class="sub-done"><input type="checkbox"> [Expense processing](../workflows/life/academic-expenses.md)</label>
-<label class="sub-done"><input type="checkbox"> [Shopping decisions](../workflows/life/shopping.md)</label>
-<label class="sub-done"><input type="checkbox"> [Vacation planning](../workflows/life/vacation.md)</label>
-<label class="sub-done"><input type="checkbox"> [Health and fitness](../workflows/life/health.md)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#1"> [Tax season](../tax-workflow/index.md) — background reading: [academic tax basics](../tax-workflow/reference/academic-tax-basics.md)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#2"> [Expense processing](../workflows/life/academic-expenses.md) (guide coming later)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#3"> [Shopping decisions](../workflows/life/shopping.md)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#4"> [Vacation planning](../workflows/life/vacation.md)</label>
+<label class="sub-done"><input type="checkbox" data-progress-key="sub#1#5"> [Health and fitness](../workflows/life/health.md)</label>
 </div>
 </div>
 
-<!-- EDITORIAL — two things pending here, BACKLOG N19:
-     · executive-assistant.md must be rewritten as the big-picture overview
-       Shay described: every skill, how they relate, and what a week looks like
-       at what frequency. It is a 4,220-word how-to today, not that page.
-     · "Academic expenses" is a STUB — outline only, still needs writing.
-     · Row 2 has no sub-picks because the skill set isn't decided. Add them
-       once it is; the mechanism is already there. -->
 </div>
+
+<span id="week-4-set-your-rules-your-voice-and-your-first-skill"></span>
+<div class="week-card" markdown>
+### Stage 7 — Improve your AI setup { #improve-your-setup }
+
+<label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#2"> Write your [`CLAUDE.md` or `AGENTS.md` file](../build-your-own/agents-md.md) to give your agents standing instructions across sessions.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#0"> [Set rules and guidelines](../build-your-own/rules.md) for the work you do regularly.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#1"> [Turn a repeat task into a skill](../build-your-own/building-skills.md).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="audit-skills"> [Run skill audits periodically](../workflows/maintain-skills.md#audit-your-skills) to decide what to fix, combine, or retire.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="maintain-skills"> [Fix or update a skill](../workflows/maintain-skills.md) when it stops working well.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="scout-tips"> [Scout and curate new AI tips](../hyperlinks/continuous-improvement.md) to add to your workflow.</label>
+
+</div>
+
 </div>
