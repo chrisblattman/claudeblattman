@@ -20,9 +20,9 @@ Ask Agents supports Claude Code, Codex, Gemini through Antigravity, and official
 
 To change both panel defaults, ask for the exact providers you want. Preferences live in `~/.config/starter-kit/settings.json`, outside the installed package. Resetting them restores local personas. Light means one each of Claude, Codex and Gemini; Full means two each plus a challenge. Custom panels can include Grok. The host orchestrates native and external workers, and uses fresh native workers for chairs. These are portable panels, not claims of private runtime certification. Only Claude and Codex are supported hosts; a provider connection is not a host adapter.
 
-**Validation:** this is the 0.3.1 review candidate. Offline tests cover packaging, archives, preference persistence and failure handling. Live installation, native-worker panels and authenticated provider calls still need acceptance testing before public release. Building does not install or publish the kit.
+**Distribution and validation:** 0.3.1 is published on main. Offline tests cover packaging, archives, preference persistence and failure handling; publication does not establish live host/provider acceptance. See RELEASE-NOTES.md for unreleased branch changes and the checks actually performed. Building does not install or publish the kit. Authenticated Grok execution and broader host installation/update acceptance remain pending.
 
-## Install after release approval
+## Install the published plugin
 
 Claude Code conversation:
 
@@ -38,7 +38,7 @@ codex plugin marketplace add chrisblattman/claudeblattman
 codex plugin add starter-kit-codex@claudeblattman
 ```
 
-Until this candidate is merged/released, those commands may install the prior version. Restart the host and use Kit Hello to check the actual version. Plugin installation is the supported path for both apps. No separate manual installer is included.
+These commands install the published catalog version, not unmerged branch fixes. Restart the host and use Kit Hello to check the actual version. Plugin installation is the supported path for both apps. The separate Grok helper sets up that optional provider CLI; it does not install or update the plugin.
 
 **Prompt:** prepare-only and refine-only requests return a prompt without executing it; explicit format-and-run requests show the assignment and then execute. Council uses full prompt preparation when requested or needed for consequential ambiguity, returning the brief to Council without a duplicate panel. An ordinary Prompt request does not automatically launch Council.
 

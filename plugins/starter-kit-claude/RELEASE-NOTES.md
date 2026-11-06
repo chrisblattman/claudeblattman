@@ -1,3 +1,13 @@
+# Unreleased — Grok onboarding and diagnostics
+
+- Grok discovery includes the official default install path and explains rejected candidates. Explicit binary/Python overrides are authoritative.
+- Compatible installed Python 3.11+ is discovered when no override is set. Isolated capability checks and TOML parsing prevent project import shadowing; normal preflight requires the parser even with no current configuration layers.
+- A bounded Grok setup helper provides metadata checks, fixed-release installation with checksum-before-execution and no-clobber publication, and explicit interactive login using the execution environment/home rules.
+- Both host packages share the helper and exact setup recipe. Existing pins, consumer OAuth boundaries, response retention and provider defaults are preserved.
+- November 6 local verification: both architecture artifacts matched existing pins. The arm64 binary passed version/help/login-help/configuration-inspection probes without authentication. These probes do not establish a working account, actual model execution, streaming behavior or billing. x64 execution remains unverified.
+
+These changes are branch work, not a new published release or an update to existing installations.
+
 # 0.3.1 — November 5, 2026
 
 - Done now saves a project session log and a bounded current-state handoff, preserving decisions, unrelated unfinished work and links to useful artifacts.
@@ -40,4 +50,4 @@ The continuity writer has six offline regression tests. This update has not been
 
 A fresh install in each host, actual native Council and four-reviewer runs, each authenticated external connection, interruption recovery and update behavior with real host state remain untested for this candidate. Live testing is intentionally separate from this package update. Grok's reviewed binary pin currently supports macOS only. No native host package is claimed for Gemini, Antigravity or Grok. No private model/provenance certification is claimed.
 
-This candidate has not been merged to main, published, or installed into an existing user configuration. A later release should replace this candidate note with actual live acceptance evidence.
+Historical status at preparation of the 0.3.0 candidate: it had not yet been merged, published or installed into an existing user configuration. That publication status is superseded by 0.3.1 on main; the acceptance limitations above are not erased by publication.

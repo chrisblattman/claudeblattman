@@ -60,6 +60,8 @@ class Packages(unittest.TestCase):
                 self.assertIn("references/panel-execution.md", (root / "skills" / name / "SKILL.md").read_text())
             for name in ("formatting-core.md", "refine-mode.md"):
                 self.assertEqual((root / "skills/prompt/references" / name).read_bytes(), (ROOT / "starter-kit-source/skills/prompt/references" / name).read_bytes())
+            for name in ("run-agent.mjs", "grok-agent-run.mjs", "grok-setup.mjs"):
+                self.assertEqual((root / "skills/ask-agents/scripts" / name).read_bytes(), (ROOT / "starter-kit-source/adapters/shared" / name).read_bytes())
             for name in ("skeptic", "pre-mortem", "completeness-checker", "chief-of-staff"):
                 self.assertEqual((root / "shared/personas" / (name + ".md")).read_bytes(), (ROOT / "starter-kit-source/agents" / (name + ".md")).read_bytes())
 
