@@ -72,8 +72,8 @@ Start a fresh session, check which copy loads, and try the workflow on a suitabl
 | [**Inbox Triage**](triage-inbox/SKILL.md) | `/triage-inbox` | Gmail MCP | Smart email classification with label-in-inbox sweep, auto-filter creation, and heuristics Gmail filters can't replicate |
 | [**Weekly Review (reference only)**](weekly-review/SKILL.md) | `/weekly-review` | Google Docs connection, project configuration and external helper scripts | Example workflow. Three required Python helpers are not included in this public repository. |
 | [**Announcement Digest**](announcement-digest/SKILL.md) | `/announcement-digest` | Gmail connection and source rules | Summarize announcement emails |
-| [**Deep Research (reference)**](deep-research/SKILL.md) | `/deep-research` | Configured research tools and archive | Older federated research workflow; not Chris’s current private skill |
-| [**Research Synthesis**](dr-synthesize/SKILL.md) | `/dr-synthesize` | Saved research reports | Combine reports while preserving source links |
+| [**Research Council**](research-council/SKILL.md) | `/research-council` | Research-capable workers; Ask Agents for external AIs; fresh synthesis worker for multiple reports | One arm per available Claude, Codex and Gemini; Grok on request. One available AI runs one arm. |
+| [**Deep Research**](deep-research/SKILL.md) | `/deep-research` | Supported browser automation, signed-in ChatGPT/Gemini with Deep Research access, file export and fresh synthesis worker | Actual browser Deep Research in both products by default; saves exports and synthesizes them. |
 
 ## Available Agents
 
@@ -91,6 +91,16 @@ The starter kit's `/prompt` already handles preparing a prompt, refining an exis
 /prompt Write a prompt for this task. Don't run it yet: [task]
 /prompt Refine this prompt: [prompt]
 ```
+
+## Two research workflows
+
+`/research-council` searches through available AI agents. `/deep-research` operates the actual ChatGPT and Gemini Deep Research browser products. Both include synthesis; the old [dr-synthesize folder](dr-synthesize/README.md) is a migration notice. Neither skill is added to the starter kit by this change.
+
+Install each entire folder, including its references. Research Council works with the available provider set; optional external connections come from the starter kit's Ask Agents. Deep Research uses the host's browser tools and the user's signed-in accounts, not those agent connections. Chats belong in a **Deep Research** project/notebook in each product; reports belong in the local working project. If the account cannot support that filing route, the skill reports the blocker.
+
+These are public adaptations. Offline structure and scenario checks do not establish live provider access, browser execution or export success. The [Research Council acceptance checks](research-council/references/acceptance.md) and [Deep Research acceptance checks](deep-research/references/acceptance.md) describe the remaining host tests. No fixed free quota is promised.
+
+When upgrading an older `/deep-research`, preserve personal settings and check which copy the app loads. Ordinary Claude/Codex/Gemini agent research has moved to `/research-council`. In the new browser skill, “both” means ChatGPT and Gemini Deep Research; it no longer means Claude plus Codex. Don't install the retired helper as a third skill.
 
 ## The tips pipeline
 

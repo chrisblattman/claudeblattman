@@ -6,9 +6,9 @@ description: Ask a useful research question, inspect the evidence, and put the f
 
 [← Back to the next-steps checklist](../starter-kit/two-month-plan.md#week-6-research-and-analysis)
 
-I use `/deep-research` to search for information that will help my council do a better-informed job. It gathers and assesses evidence: what others have tried, what happened, and how well their experience applies to my situation. Those findings become research inputs for `/council` as it develops a proposal, compares approaches, or recommends what to do.
+I use research to find information that will help my council do a better-informed job. It gathers and assesses evidence: what others have tried, what happened, and how well their experience applies to my situation. Those findings become research inputs for `/council` as it develops a proposal, compares approaches, or recommends what to do.
 
-My research workflow uses the same habit of independent attempts: several agents investigate a shared question, then a fresh synthesis agent brings their findings together. I want an answer I can use, with sources I can inspect and a clear account of what remains uncertain.
+There are two ways to run it. **`/research-council`** asks the available Claude, Codex and Gemini agents to investigate independently. **`/deep-research`** runs the actual ChatGPT and Gemini Deep Research products in your browser. Both save the reports with your project and synthesize multiple results. With only one available provider, you get one report and a summary.
 
 You can start with research, or ask for it when a council or review exposes a gap. In the pilot proposal from the first two pages, the question might be whether changing how customer requests are assigned would actually reduce response times without adding staff. Research should help you decide what to try and what to measure.
 
@@ -21,19 +21,19 @@ You can start with research, or ask for it when a council or review exposes a ga
 
 ### 1. Get the research skill ready { #get-the-research-skill-ready }
 
-`/deep-research` is an additional skill. It does not ship with the starter kit. In Claude Code or Codex, open your project folder and ask:
+`/research-council` and `/deep-research` are additional skills. Neither ships with the starter kit. In Claude Code or Codex, open your project folder and ask:
 
 ```text
 Check whether I have /deep-research installed. If I do, read its instructions and check that its supporting files and connections are available. If I do not, look for a compatible version in https://github.com/chrisblattman/claudeblattman and help me install it with its supporting files. Explain any missing dependencies before proceeding.
 
-Tell me which agents can do the research and where the reports will be saved in this project.
+Check that you can use the actual ChatGPT and Gemini Deep Research browser modes, file the chats in a Deep Research project or notebook in each app, and save their reports in this project.
 ```
 
-Follow the installation and connection steps the agent gives you. If you need to connect Claude, Codex, or Gemini, use `/kit-setup` as on [page two](council-models.md#connect-another-model). A working connection is one part of setup. The research skill may also need its own supporting files or tools.
+Follow the installation and connection steps the agent gives you. For `/deep-research`, you need a supported browser connection and signed-in accounts with access to the products. It uses both by default, or just the product you name. It checks the account's available features and reports quota or login problems instead of substituting ordinary chat.
 
-My current workflow includes the synthesis. If the version you installed requires a separate synthesis step, ask the agent to arrange that as part of the run so you receive a combined answer along with the individual reports.
+For `/research-council`, use `/kit-setup` to connect other agents as on [page two](council-models.md#connect-another-model). Its default is one arm per available Claude, Codex and Gemini provider. Grok is on request. One available AI means one research arm.
 
-Some apps also have a feature called **Deep Research**. You can use those reports too. Save the report in your project folder and tell your main agent where to find it. The app’s research feature and the `/deep-research` skill are separate tools, so ask which one your agent is using.
+Both skills include synthesis when multiple reports return. These public adaptations still need a live run in your app to verify its connections and exports; the [skill folders](https://github.com/chrisblattman/claudeblattman/tree/main/skills) include acceptance checks. You can also supply completed reports and ask for synthesis without starting new research.
 
 <label class="step-done"><input type="checkbox"> My research skill is ready, and I know where its reports will go.</label>
 
