@@ -20,9 +20,7 @@ I can look at a PDF, Google Doc, or other document beside the chat and give feed
 
 ## There's no substitute for ChatGPT Deep Research
 
-I also rely heavily on ChatGPT Deep Research in the browser. It's separate from Codex, but a big part of why I like the ChatGPT setup. For a thorough search, I haven't found anything that matches it. Even the strongest individual agents haven't been as careful or comprehensive. I still use agents, often several at once, to question the findings and work out what to do with them.
-
-Confusingly, my [`/deep-research` skill](workflows/deep-research.md) is a different thing. It sends several agents after the same question and pulls their findings together.
+I also rely heavily on ChatGPT Deep Research in the browser. It's separate from Codex, but a big part of why I like the ChatGPT setup. For a thorough search, I haven't found anything that matches it. Even the strongest individual agents haven't been as careful or comprehensive. I still use agents, often several at once, to question the findings and work out what to do with them. For that, I use my [`/research-council` skill](workflows/deep-research.md) to send several different agents after the same question and pull their findings together.
 
 ## My personal account gives me more flexibility
 
