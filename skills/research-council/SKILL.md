@@ -28,7 +28,13 @@ Invoking this skill authorizes its default panel and fresh synthesis. A generic 
 
 Use the current project or task folder. Ask for a destination only if it is unclear. Reuse its research convention; otherwise create `research/<date>-<topic>-<unique-id>/`. Keep outputs private unless publication is requested.
 
-Preserve an existing supplied research prompt verbatim. For a rough request, make a concise brief from the stated question, decision, context, comparisons, constraints and desired output. Ask only about information that materially changes the research. Do not require a separate prompt-review skill or broaden the assignment. Archive the dispatched brief as `PROMPT.md`.
+Preserve an existing supplied research prompt verbatim unless the user asks to refine it. For a rough request, make a concise brief from the stated question, decision, context, comparisons, constraints and desired output. Ask only about information that materially changes the research. Do not require a separate prompt-review stage or broaden the assignment.
+
+Compare the brief with the original request: preserve the user's objective, supplied fact status, uncertainty, constraints, evidence and intended operation. Distinguish necessary assumptions from user requirements; do not silently add a method, deliverable or approval step.
+
+For full prompt preparation requested by the user or needed to resolve consequential ambiguity, use the installed Prompt skill in preparation/hold mode before freezing the brief. It returns the brief to this workflow, which retains dispatch authority and continues under the existing authorization. Discover Prompt through the host's installed skills; do not assume a neighboring folder. If it is unavailable, use the concise preparation here and disclose any unresolved ambiguity; if the user explicitly requires Prompt itself, report the missing dependency instead of silently substituting. A clear request, including a dictated one, may pass unchanged without a full Prompt pass. Research workers and synthesizers do not restart preparation. Resume, import and synthesis-only requests keep their existing operation and must not become new research launches.
+
+Archive the dispatched brief as `PROMPT.md`.
 
 Give each arm the same neutral brief and authorized evidence. Ask each to search current sources when relevant, inspect primary evidence, seek counterevidence, attach citations to claims, distinguish inference from evidence, and describe gaps. Providers should be generalists investigating the whole question; use specialist assignments only when requested. Do not prime one arm with another's conclusions.
 

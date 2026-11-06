@@ -6,6 +6,11 @@ A complete live acceptance consumes the accounts' research allowances. Run it on
 
 | Setup / request | Expected decision |
 |---|---|
+| Clear supplied prompt or clear dictated request | Preserve intent and uncertainty; no compulsory Prompt pass or added clarification exchange. |
+| Full preparation requested or consequential ambiguity, Prompt installed | Host calls Prompt in preparation/hold mode; the research workflow alone dispatches after receiving the brief. |
+| Prompt absent | Use inline preparation without claiming Prompt ran; report a blocker if the user explicitly requires that skill. |
+| “I imagine most connections are local, but I’m not sure” | Keep this as an uncertain assumption, not an established fact or required research conclusion. |
+| Resume/import/synthesis-only request during preparation | Preserve the requested operation; no new research jobs or nested council. |
 | Both products accessible | One actual ChatGPT job and one actual Gemini job; independent concurrent research; fresh synthesis after capture. |
 | “Only Gemini” | One Gemini browser job; no ChatGPT or ordinary agent arm. |
 | Default Gemini unavailable before launch | Explicit single-ChatGPT result; record why Gemini was unavailable. |

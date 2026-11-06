@@ -6,6 +6,11 @@ Run these when installing or changing the skill. Use a small public question wit
 
 | Setup / request | Expected decision |
 |---|---|
+| Clear supplied prompt or clear dictated request | Preserve intent and uncertainty; no compulsory Prompt pass or added clarification exchange. |
+| Full preparation requested or consequential ambiguity, Prompt installed | Host calls Prompt in preparation/hold mode; the research workflow alone dispatches after receiving the brief. |
+| Prompt absent | Use inline preparation without claiming Prompt ran; report a blocker if the user explicitly requires that skill. |
+| “I imagine most connections are local, but I’m not sure” | Keep this as an uncertain assumption, not an established fact or required research conclusion. |
+| Resume/import/synthesis-only request during preparation | Preserve the requested operation; no new research jobs or nested council. |
 | Claude, Codex and Gemini available | One fresh arm of each, concurrent where supported; one fresh synthesis. |
 | Only Claude available | One arm, single-provider report and summary; no extra Claude workers. |
 | Codex and Gemini available, Grok also installed | Codex and Gemini only; Grok absent. |

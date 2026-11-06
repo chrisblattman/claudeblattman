@@ -681,14 +681,14 @@
       "sha256": "05fe77c219bbeb44dcd9b81bec221fb6e96760ba7b35eea6593942b8f6be18aa"
     },
     {
-      "bytes": 9305,
+      "bytes": 10494,
       "path": "skills/deep-research/SKILL.md",
-      "sha256": "9a0b62c8f3098b9c9fa903fd97689aaf4af319c90b7e0eab97b7f23e415ac6e1"
+      "sha256": "023a80b4ec9b044cfa22b6489efa8958f5dbfd6a52f9eaf2fd5ae2c06f8f2ab5"
     },
     {
-      "bytes": 5992,
+      "bytes": 6759,
       "path": "skills/deep-research/references/acceptance.md",
-      "sha256": "787464c0152c10b7c19a0c7b2bfab434b31faa27102b4ef2b155b4430bbbd253"
+      "sha256": "da1459ee7fbf0722f4191f3059c66f44d9a61d582323ee8e64d5405b846db9e0"
     },
     {
       "bytes": 11341,
@@ -756,14 +756,14 @@
       "sha256": "1d87f4cf3df31d885a78c66c285a171c311fbb0b3d0a76d783a85f934822ecab"
     },
     {
-      "bytes": 7926,
+      "bytes": 9099,
       "path": "skills/research-council/SKILL.md",
-      "sha256": "0e29442efea23e0f2af92a16cc60a39053854acb6d4a06ad0790412a5a3edfe5"
+      "sha256": "1f681b7fc24444330d3deb1848056f77ef086bd056171e3dd712ef4680d7a08c"
     },
     {
-      "bytes": 3274,
+      "bytes": 4041,
       "path": "skills/research-council/references/acceptance.md",
-      "sha256": "88ee748d7e0334a76f55319d05aec846081c57f03e84812f64a688b52ae23b12"
+      "sha256": "30f72aedbcb83c2bc1849f373c4861196369f02157e969abcb43edf9402e3122"
     },
     {
       "bytes": 8503,
