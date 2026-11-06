@@ -1,18 +1,6 @@
-# Claude Blattman
+[![Claude Blattman — AI for Professionals Who Don't Code. Explore the guides at claudeblattman.com.](.github/assets/website-banner.svg)](https://claudeblattman.com)
 
-**A professor's guide to building AI workflows — from chatbots to self-improving systems.**
-
-Website: [claudeblattman.com](https://claudeblattman.com)
-
----
-
-## What This Is
-
-A free, open-source resource for non-developers who want to build real AI workflows. Three paths:
-
-1. **The Essentials** — Tools and foundations. Chatbots done right, dictation, transcription, prompt engineering.
-2. **The Toolkit** — Claude Code setup, configuration, and downloadable skills. From "what is this?" to a working system.
-3. **Build Your Own** — Creating custom skills, agents, and self-improving workflows.
+Practical AI guides for professionals who don't code. Visit **[claudeblattman.com](https://claudeblattman.com)** for the guides and walkthroughs. This repository holds the starter kit, skill library and website source. It's free and open source.
 
 ## Who It's For
 
@@ -20,47 +8,41 @@ A free, open-source resource for non-developers who want to build real AI workfl
 - Professionals buried in email, meetings, and coordination
 - Anyone who wants to move beyond casual chatbot use
 
-No coding background required. Everything is built with markdown and AI tools.
+No coding background required. Ask your AI to walk you through the guides and help you get started.
 
-## Quick Start
+## Starter Kit
 
-The **Starter Kit 0.3.1 review candidate** contains seven shared skills for Claude Code and Codex: council, adversarial-review, kit-hello, kit-setup, ask-agents, prompt, and done. Both packages are generated from one source.
+The starter kit gives Claude Code and Codex seven skills for developing work with a council, getting a fresh review, improving prompts, connecting other agents and saving a handoff for your next session.
 
-Council develops with three local personas; Adversarial Review uses four fresh reviewers. Each has a fresh synthesis worker. Optional named providers include Claude, Codex, Gemini through Antigravity, and subscription-authenticated Grok Build. Local personas remain the default. Saved panel preferences survive package updates.
+Start with the **[installation walkthrough](https://claudeblattman.com/starter-kit/occasional/#1-install-the-starter-kit-or-use-plain-language)**. For prerequisites, connections to other AIs and updates, see the [package guide](starter-kit-source/PACKAGE-README.md).
 
-See the [package guide](starter-kit-source/PACKAGE-README.md) for installation, prerequisites, connections, migration and current validation limits. Plugin installation is the supported path for both apps. The candidate still needs live acceptance testing; repository marketplace commands install the released branch, not necessarily this candidate.
+**Validation status:** The package is marked 0.3.1; its documentation lists live acceptance testing as pending. See the package guide for current validation limits.
 
-The older `skills/` folder is an advanced reference library. Overlapping council/review/done entries point to the bundled workflows rather than maintaining conflicting implementations. Website walkthrough edits are handled separately from this package branch.
+## More Skills
 
-## Aniket Me
+Browse the **[skill library](skills/README.md)** for standalone skills and reference workflows from my setup. Each guide explains what is ready to install and what needs adapting.
 
-[Aniket Me](skills/aniket-me/README.md) applies Aniket Panjwani's public advice to help improve how you work with AI. Give Claude Code or Codex the linked guide to install or update this self-contained skill, then try it on your work. Browse the [skill library](skills/README.md) for other available workflows.
+**Featured: [Aniket Me](skills/aniket-me/README.md)** applies Aniket Panjwani's public advice to help improve how you work with AI. Give your agent the linked guide to install or update it, then try it on your work.
 
 ## Repo Structure
 
 ```
 claudeblattman/
-├── docs/               # Website source (MkDocs Material)
-├── plugins/starter-kit-claude/ # Claude plugin for the desktop-agent starter kit
-├── plugins/starter-kit-codex/  # Codex plugin from the same shared source
-├── skills/             # Downloadable skill files
-├── agents/             # Downloadable agent files
-├── templates/          # Starter templates (CLAUDE.md, goals.yaml)
-├── mkdocs.yml          # Site configuration
-├── CONTRIBUTING.md     # Maintenance guide
-└── LICENSE             # MIT
+├── docs/                       # Website source (MkDocs Material)
+├── starter-kit-source/         # Shared source for both starter-kit plugins
+├── plugins/starter-kit-claude/  # Generated Claude plugin
+├── plugins/starter-kit-codex/   # Generated Codex plugin
+├── skills/                     # Standalone skills and reference workflows
+├── agents/                     # Downloadable agent files
+├── templates/                  # Starter templates (CLAUDE.md, goals.yaml)
+├── mkdocs.yml                  # Site configuration
+├── CONTRIBUTING.md             # Maintenance guide
+└── LICENSE                     # MIT
 ```
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for how to edit content, add skills, and maintain the site.
-
-## Release Notes
-
-The starter kit is versioned separately from the broader docs. Each public
-starter-kit release should have a matching tag such as `starter-kit-v0.1.0` and
-a current `public-manifest.json`. If a plugin release needs rollback, install
-from the last known-good tag and avoid changing the marketplace/plugin names.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to edit content, add skills and maintain the site, and [Editing drafts](DRAFT_EDITING.md) for sharing previews. The [starter-kit release notes](starter-kit-source/RELEASE-NOTES.md) describe package changes and validation status.
 
 ## License
 
