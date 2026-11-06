@@ -133,6 +133,5 @@ This recovery path is why I run `/done` before any risky operation. Thirty secon
 ## Related
 
 - **[`/recall`](recall.md)** — when you need to retrieve content from a past session rather than manage the current one.
-- **[Sub-project routing](sub-project-routing.md)** — how `/done` handoffs get routed to the right folder in multi-task projects.
 - **[Dial-back discipline](../hyperlinks/dial-back-discipline.md)** — related craft on keeping your own skill prompts honest.
 - **[What's new in April 2026](../changelog.md)**.

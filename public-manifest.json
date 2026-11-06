@@ -61,9 +61,9 @@
       "sha256": "137d06839af4e06e7a33ff76592d6e01f95e3be83bb40ab8deea1114c15c2d5c"
     },
     {
-      "bytes": 12248,
+      "bytes": 11065,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "8dcaeb583103596f740d20c3924519020e3fb825c6638cd5de4d15ce948785d5"
+      "sha256": "3c5cc1d98d5a1cca63f0a60cfdb9896973cb98631ca613d60435044405e02528"
     },
     {
       "bytes": 102753,
@@ -71,9 +71,9 @@
       "sha256": "f263385280a846f74a8fddb8d9b44627a0221db86925fe131bb0ffdf9dc5d95e"
     },
     {
-      "bytes": 14079,
+      "bytes": 14090,
       "path": "mkdocs.yml",
-      "sha256": "cc7cd4b2121620500928afe9f7734de0b6f73d5812e45731bd5659a9883fcdc5"
+      "sha256": "8b3df6e700deec670fb2532196f4134e23a7c68bb7132f0f7ecc2602f350c15f"
     },
     {
       "bytes": 17171,

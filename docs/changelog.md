@@ -41,7 +41,7 @@ How to run long sessions without losing your place. Decision matrix for `/rewind
 
 ### Sub-project routing
 
-When a project has three or four parallel workstreams — say, a paper, a grant revision, a trip itinerary, and an RA pipeline — I don't want their context bleeding into each other. `/start-task` plus `.claude/active-subproject.json` handle the routing. Handoffs land in the right folder, and SessionStart knows which sub-task is active. [Read more →](workflows/sub-project-routing.md)
+When a project has three or four parallel workstreams — say, a paper, a grant revision, a trip itinerary, and an RA pipeline — I don't want their context bleeding into each other. `/start-task` plus `.claude/active-subproject.json` handle the routing. Handoffs land in the right folder, and SessionStart knows which sub-task is active. [Current guide to organizing projects →](workflows/organize-projects.md)
 
 ### Meeting workflow end-to-end
 

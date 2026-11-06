@@ -18,5 +18,4 @@ worked examples you can copy.
 | **[Health and fitness](life/health.md)** | The same pattern again, on personal data |
 | **[Expense processing](life/academic-expenses.md)** | Receipts, reimbursements and records — *not written yet* |
 
-This is stage 8 of the [next-steps checklist](../starter-kit/two-month-plan.md) — read the first one,
-then pick one or two of the rest and actually build them.
+Pick a task you can use this week. You can track it in the [everyday work checklist](../starter-kit/two-month-plan.md#everyday-work).
