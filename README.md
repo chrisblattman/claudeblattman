@@ -1,8 +1,6 @@
-# Claude Blattman
+[![Claude Blattman — AI for Professionals Who Don't Code. Explore the guides at claudeblattman.com.](.github/assets/website-banner.svg)](https://claudeblattman.com)
 
-**A professor's guide to building AI workflows — from chatbots to self-improving systems.**
-
-Website: [claudeblattman.com](https://claudeblattman.com)
+This repository contains the downloadable skills and website source.
 
 ---
 
