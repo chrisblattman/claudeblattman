@@ -51,7 +51,17 @@ Both skills are in the [GitHub skills folder](https://github.com/chrisblattman/c
 
 For **Research Council**, the [connection walkthrough](council-models.md#connect-another-model) and `/kit-setup` help connect other AIs. You can start with the AI you already use.
 
-For **Deep Research**, let your agent connect to a browser where you are signed into ChatGPT and Gemini. You may need to sign in yourself or approve browser access. Once that is working, the agent should handle the research sessions and downloads. You should not normally need to copy the prompt between apps or bring the reports back by hand. If you do, ask your agent to diagnose why browser control or report retrieval isn’t working.
+For **Deep Research**, the agent runs the skill's setup right after installing it, before you ask any research question. Setup finds a browser where you're signed in to ChatGPT and Gemini and works out how to control it. Then it gives you one short checklist of anything only you can do:
+
+- install the Claude in Chrome extension (recommended);
+- turn on a browser setting;
+- click Allow on a macOS prompt;
+- sign in;
+- approve one permission rule so Claude doesn't ask before every browser step.
+
+Setup checks that Deep Research mode turns on in each product without sending anything, and saves what works. After that, `/deep-research` should run on its own and handle the research sessions and downloads. You can rerun it any time with `/deep-research setup`.
+
+The browser tools from both Anthropic and OpenAI work best in Chrome. If you normally use Safari, you can keep it for everything else and use Chrome just for ChatGPT and Gemini. If your organization blocks Claude in Chrome, setup uses a Mac-only fallback or, if nothing else works, asks you to press Send yourself.
 
 <label class="step-done"><input type="checkbox"> My research skill is installed and its connections work.</label>
 

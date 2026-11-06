@@ -18,7 +18,10 @@ skills/
 │   └── SKILL.md
 ├── deep-research/
 │   ├── SKILL.md
-│   └── references/
+│   ├── references/
+│   ├── adapters/      # Claude Code and Codex route order
+│   ├── routes/        # one recipe per browser-control route
+│   └── scripts/
 ├── tips-integrate/
 │   ├── SKILL.md
 │   └── references/

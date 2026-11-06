@@ -19,11 +19,11 @@ Formats are examples. Keep each native export unchanged; a Markdown conversion l
 `RUN.md` records:
 
 - Run ID, question, destination, exact brief identity and chosen products.
-- Per product: requested/observed model and effort when requested or exposed, start/update/completion times, durable chat/task URL, supplied attachments and unavailable inputs.
+- Per product: route, browser and whether it came from saved settings or a fresh probe; requested/observed model and effort when requested or exposed, start/update/completion times, durable chat/task URL, supplied attachments and unavailable inputs.
 - The **Deep Research** container's name, type and URL/identity, plus filing state (`pending`, `verified`, `blocked`). An unavailable folder must not be reported as created. Research completion and successful filing are separate facts.
 - Each observed research state and useful recovery history, including whether an export is complete, in progress, failed or unknown. Unresolved export details belong under `capture-incomplete`; no credentials or auth tokens.
 - Report location, original hash/size, capture format/method, conversion limitations and source checks.
-- For every temporary Gemini Google Doc, including duplicates: exact Doc URL/ID, creation context establishing this run's ownership, associated report/export, verified local capture of its content, and individual cleanup status (`pending`, `trashed`, `blocked`, or `not-applicable`). A trashed Doc is provenance, not the delivered report link.
+- For every temporary Gemini Google Doc, including duplicates: exact Doc URL/ID, creation context establishing this run's ownership, associated report/export, verified local capture of its content, and individual cleanup status (`pending`, `trashed`, `retained (host confirmation rule)`, `blocked`, or `not-applicable`). A trashed Doc is provenance, not the delivered report link.
 - Synthesis state and any explicitly skipped or failed arm.
 
 Use these research states accurately:
@@ -31,7 +31,8 @@ Use these research states accurately:
 | State | Meaning / next action |
 |---|---|
 | `planned` | Not submitted; inspect access, mode and folder first. |
-| `submission-unknown` | Submission may have succeeded; inspect the same chat before any retry. |
+| `submitting` | Recorded just before Send. If the run is interrupted here, treat it as `submission-unknown`. |
+| `submission-unknown` | Submission may have succeeded; check the Deep Research container on the same route for a chat created after `submitting` before any retry. |
 | `awaiting-input` | Clarification, plan or user action pending. |
 | `running` | Product's own progress indicates active research. |
 | `capture-incomplete` | Report is complete in the product but the full export is not safely saved. |

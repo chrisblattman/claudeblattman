@@ -1,6 +1,6 @@
 # Browser procedures
 
-Use the host's supported browser or computer-control tools and their operating instructions. Discover controls from the live page. These procedures describe the workflow, not fixed selectors or a guarantee that every account has the same interface.
+Use the route chosen in [browser routes](browser-routes.md) and its recipe in `routes/`, plus the host's own tool instructions. Discover controls from the live page. These procedures describe the workflow, not fixed selectors or a guarantee that every account has the same interface.
 
 ## Common preflight and filing
 
@@ -12,7 +12,7 @@ Use the host's supported browser or computer-control tools and their operating i
 - The folder groups chats; the current local project/task still owns the report files. Don't broaden this run to other topics or reports stored in the shared container. Record unavoidable inherited context if it affects independence.
 - Inspect visible research entitlement and limits. Don't copy assumed monthly caps from another account, estimate them from local logs, or switch to API billing. A quota rejection is a recorded unavailable arm, not a reason to use a different product.
 
-For multiline briefs, use the browser tool’s paste or fill operation, then inspect the full composer and click Send explicitly. Native simulated typing can interpret newlines as Enter and submit a partial prompt. If that happens, inspect the existing job and use its Update control for the omitted scope; record the deviation rather than starting another job.
+For multiline briefs, enter the whole brief in one operation using the route's text-entry method (a paste or insert, never key-by-key typing), then read back the full composer and click Send explicitly. Text entry differs by product and route: see the route recipe. Native simulated typing can interpret newlines as Enter and submit a partial prompt. If that happens, inspect the existing job and use its Update control for the omitted scope; record the deviation rather than starting another job.
 
 ## ChatGPT
 
@@ -31,7 +31,7 @@ For multiline briefs, use the browser tool’s paste or fill operation, then ins
 4. Track the research to a completed report. Resume the same chat if interrupted. Do not infer completion from an ordinary assistant turn.
 5. Use the report's **Share & export** controls. If a usable native download is offered, save it. Otherwise use **Export to Docs** and wait through **Creating document…** rather than clicking Export again. If the browser blocks the new tab, open that individual blocked Doc link instead of changing persistent pop-up settings. Verify the resulting Doc's account, title and report content. Record the exact URL/ID and creation context of every Doc this run creates, including accidental duplicates; do not identify them by title alone. Export the tracked Doc with a supported authenticated Drive/Docs tool or its own download menu, preferring Markdown and a format that retains headings, tables and source links.
 6. Prefer a sufficient supported Docs/Drive operation under the host's tool-routing rules, and confirm that it can access the exact tracked Doc in the intended account. A returned file reference is not a local download: complete its supported retrieval and verify the local file. If connector access fails, use the signed-in browser route or ask for that exact report export; do not widen sharing or switch accounts to repair the connector. Do not reuse private OAuth-cache scripts or read authentication tokens.
-7. Once the complete native export is saved in the local project folder, reopen it and verify its task identity, report body and full source list as described below. Then move each verified temporary Google Doc created by this run to **Trash**, using its recorded exact URL/ID through supported Docs/Drive or browser controls, such as **File → Move to trash** when offered. For each Doc, including duplicates, establish its origin and verify that the local capture preserves the content it represents. Verify its Trash state and record the individual cleanup result in `RUN.md`. This depends on the corresponding Gemini capture, not ChatGPT's download. Do not permanently delete Docs or empty Trash. If capture is pending, incomplete or unverified, the Doc's identity is uncertain, or it is a pre-existing/user-supplied document, retain it. If cleanup fails, keep the local report and record cleanup as blocked; do not rerun the research or claim deletion succeeded.
+7. Once the complete native export is saved in the local project folder, reopen it and verify its task identity, report body and full source list as described below. Then, unless the host adapter says to retain them (Codex does), move each verified temporary Google Doc created by this run to **Trash**, using its recorded exact URL/ID through supported Docs/Drive or browser controls, such as **File → Move to trash** when offered. For each Doc, including duplicates, establish its origin and verify that the local capture preserves the content it represents. Verify its Trash state and record the individual cleanup result in `RUN.md`. This depends on the corresponding Gemini capture, not ChatGPT's download. Do not permanently delete Docs or empty Trash. If capture is pending, incomplete or unverified, the Doc's identity is uncertain, or it is a pre-existing/user-supplied document, retain it. If cleanup fails, keep the local report and record cleanup as blocked; do not rerun the research or claim deletion succeeded.
 
 ## Capture and recovery
 
@@ -45,7 +45,7 @@ Gemini's Copy control can omit the full Works cited section even when it copies 
 
 If export fails, recover the existing report and retry a bounded number of times after checking the failure. Never ask the product to reprint a long report into chat, stitch partial replies, or transcribe screenshots. If the native route still fails, mark `capture-incomplete`, leave the task accessible, and ask the user for its export. Do not silently synthesize without this unresolved arm.
 
-Close only tabs opened by this run, and only after report capture and filing are verified. Leave pre-existing user tabs and blocked tasks alone. Retain research conversations and local exports; only verified temporary Gemini Google Docs are moved to Trash as described above.
+Close only tabs opened by this run, and only after report capture and filing are verified. Leave pre-existing user tabs and blocked tasks alone. Retain research conversations and local exports; only verified temporary Gemini Google Docs are moved to Trash as described above, and not under Codex, which retains them.
 
 ## Reference documentation
 

@@ -1,17 +1,23 @@
 ---
 name: deep-research
-description: Run actual ChatGPT and Gemini Deep Research through their signed-in browser interfaces, retrieve complete exports, and synthesize the reports. Use for browser Deep Research, resuming its runs, or importing its completed reports. Ordinary agentic research belongs to research-council.
+description: Run actual ChatGPT and Gemini Deep Research through their signed-in browser interfaces, retrieve complete exports, and synthesize the reports. Use for browser Deep Research, resuming its runs, importing its completed reports, or setting up browser access right after installing it. Ordinary agentic research belongs to research-council.
 ---
 
 # Deep Research
 
 Launch the actual **ChatGPT Deep Research** and **Gemini Deep Research** products, follow their progress, export the full reports, and save the research with the project. Use supported browser/computer tools to do this for the user; manual prompt copying is a fallback for a concrete access problem.
 
-Read [browser procedures](references/browser-procedures.md) before touching either product and [reports and synthesis](references/reports-and-synthesis.md) before capturing results. All references are relative to this skill folder. No private scripts, separate synthesis skill, or API keys are required.
+Read [browser routes](references/browser-routes.md) and your host's adapter ([Claude Code](adapters/claude-code.md) or [Codex](adapters/codex.md)) to choose how to operate the browser. Read [browser procedures](references/browser-procedures.md) before touching either product and [reports and synthesis](references/reports-and-synthesis.md) before capturing results. All references are relative to this skill folder. No private scripts, separate synthesis skill, or API keys are required.
+
+**Runs are autonomous.** Browser access is set up once, when the skill is installed. Later runs reuse the saved route (`local/settings.json`) and need the user only for a sign-in, CAPTCHA, quota block or new permission prompt.
+
+## Setup
+
+**Right after installing or updating this skill, run [setup](references/setup.md) in the same session**, without waiting for the first research request. Also run it on `/deep-research setup` or "recheck setup", and before a research run that finds no `local/settings.json`. Setup detects the browser route, puts every one-time step into one checklist, verifies Deep Research mode without sending anything, and saves the result. It launches no research.
 
 ## Select products
 
-**Default: ChatGPT and Gemini Deep Research.** A named product or explicitly saved preference overrides that default. A current request outranks project preferences, which outrank personal preferences. No first-run settings questionnaire is required. Save future preferences in the user's existing instructions only when asked.
+**Default: ChatGPT and Gemini Deep Research.** A named product or explicitly saved preference overrides that default. A current request outranks project preferences, which outrank personal preferences. Choosing products needs no questionnaire; browser access is handled once by setup. Save future preferences in the user's existing instructions only when asked.
 
 - “Only ChatGPT” or “only Gemini” runs one product. “Both” runs both browser products.
 - Check the signed-in browser, visible Deep Research availability and any displayed allowance before starting. Never assume free access, a fixed monthly quota, or that an app subscription guarantees access. Record an unknown balance as unknown; an enabled mode may still be used within the user's request, without promising it is free.
@@ -39,14 +45,14 @@ Use a **Deep Research** container in each app: a ChatGPT Project and a Gemini No
 
 ## Run the browser products
 
-1. Discover supported browser tools and follow their instructions. Prefer an already signed-in browser. Inspect current controls rather than hardcoded selectors, coordinates or obsolete model names.
+1. Use each product's saved route from `local/settings.json` ([browser routes](references/browser-routes.md)). If the file is missing, run [setup](references/setup.md) first. If a saved route fails, re-probe in the adapter's order and update the file. Follow the route's recipe in `routes/` and its host's own tool instructions. Inspect current controls; selectors recorded in the routes are hints, not fixed contracts.
 2. Select the requested Deep Research mode and verify visible activation. Start from Chat for ChatGPT's browser research route. An ordinary model saying “I'll research” is not product activation.
-3. Submit each brief **once** and save the durable conversation/task URL as soon as available. If submission is uncertain, inspect the same conversation; do not resend blindly.
+3. Submit each brief **once** under the [submission guard](references/browser-routes.md#submission-guard-autonomous): record `submitting` before Send, save the durable conversation/task URL as soon as available, and if the outcome is uncertain, check the Deep Research container on the same route before any retry. Never resend from another browser or route.
 4. Read the proposed plan and answer clarifications from the brief. Proceed with an aligned plan under the existing research request. Correct scope drift; ask the user only for a material choice the brief cannot answer.
 5. Start both products without waiting for the first report to finish, so their server-side research can run concurrently. Browser interactions remain sequential if the tool requires it. Do not add ordinary research arms while waiting.
 6. Track each product's own status: a plan, running research, completed report, failure or quota block. The outer chat finishing is not enough. Reopen the same task after a display error or interruption. Keep the user informed at meaningful milestones, and don't end with a promise to monitor later unless a supported continuation is actually arranged.
 7. Export completed reports using the product's own controls. ChatGPT: prefer Markdown, with native Word/PDF acceptable if Markdown is unavailable. Gemini: use its report export, including Export to Docs and an authorized Docs/Drive export if needed. Preserve originals and all source links. Do not ask the model to reprint the report in chat, stitch “continue” replies, or reconstruct it from screenshots.
-8. Verify the saved file belongs to this task and is complete; then record it as captured. A newly downloaded file's timestamp alone is insufficient when several jobs are running. If capture fails, recover/export the **same report**, not another paid research run. For Gemini, after verifying the complete export in the local project folder, move only this run's verified temporary Google Doc exports to Trash and verify each cleanup, following the browser procedures.
+8. Verify the saved file belongs to this task and is complete; then record it as captured. A newly downloaded file's timestamp alone is insufficient when several jobs are running. If capture fails, recover/export the **same report**, not another paid research run. For Gemini, after verifying the complete export in the local project folder, move only this run's verified temporary Google Doc exports to Trash and verify each cleanup, following the browser procedures. Under Codex, retain them instead (its browser policy requires confirmation at the moment of any deletion).
 
 A submitted job awaiting input, running, of unknown status, or awaiting export is **unresolved**. Do not silently omit it from synthesis. Preserve state and resume it; if user action is required, identify the exact step and link to the task. The user can explicitly skip a blocked arm. A confirmed terminal failure can be reported as such without pretending the job succeeded.
 

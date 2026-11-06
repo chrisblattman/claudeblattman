@@ -38,6 +38,21 @@ A complete live acceptance consumes the accounts' research allowances. Run it on
 | Gemini Doc cleanup fails | Record cleanup as blocked; retain captured report and continue without claiming deletion. |
 | One captured report, other running | No silent synthesis omission. |
 | Supplied exports only | Preserve originals, record provenance and synthesize without new jobs. |
+| Skill just installed or updated | Installing agent runs setup in the same session: detection, one checklist, mode check without Send, saved settings; no research launched. |
+| `/deep-research setup` or "recheck setup" | Run setup only; no research; update `local/settings.json`. |
+| Research run, no `local/settings.json` | Run setup first, then continue the run. |
+| Update replaces the skill folder | `local/` is preserved; no setup repeated unless a saved route fails. |
+| Claude Code default permission mode, Apple Events route | Setup proposes one allow rule for the skill's script; added only with approval; declined is recorded and not asked again. |
+| Saved route still works | Use `local/settings.json`; no re-probe, no setup checklist, no user interaction. |
+| Saved route fails (tool gone, signed out, account differs) | Re-probe in the adapter's order, update the saved settings, continue autonomously when another route works. |
+| Claude host, Claude in Chrome never set up, no block found | Setup's checklist offers it once, with the Chrome recommendation and Set up / Org blocks it / Skip; the answer is recorded. |
+| Setup close step on a window it didn't open | Script refuses (a tab outside the expected URL prefix); nothing closed. |
+| Claude in Chrome blocked by org policy or unsupported sign-in | Record `blocked-by-org` or `unsupported-auth`; never re-show setup; use the next route. |
+| Codex host, Chrome extension fails | Follow Codex troubleshooting, then computer use or handoff; never AppleScript/shell substitutes. |
+| Apple Events setting off in the chosen browser | Show that browser's exact enable step; never change the setting. |
+| Interrupted after `submitting` | Treat as `submission-unknown`; check the container on the same route; no resend from another browser. |
+| Gemini Docs under Codex | Retain each Doc, record `retained (host confirmation rule)`; no deletion prompt during an autonomous run. |
+| Safari MCP enabled | Not a route (isolated, logged-out automation Safari); do not run it alongside Apple Events. |
 | Two reports use the same source | No double-counted corroboration or fixed provider weights. |
 
 ## Live acceptance still required
@@ -51,3 +66,20 @@ A complete live acceptance consumes the accounts' research allowances. Run it on
 7. Repeat a temporary install/update check for each host claimed as supported. Saved user defaults should survive package replacement.
 
 Record checks as passed, failed, blocked or not run. The published folder alone does not establish that all accounts, hosts and browser versions support this workflow.
+
+## Route matrix
+
+Record each live result as host, route, browser, product, step reached and date. Status as of 2026-11-06:
+
+| Host | Route | Browser | ChatGPT | Gemini |
+|---|---|---|---|---|
+| Claude Code desktop | Apple Events JS | Chrome 156 | Project found, mode on, brief entered, submitted, research started; export untested | Notebook found, mode on, text entry by `insertText` verified (paste failed); not submitted |
+| Claude Code desktop | Apple Events JS | Safari 27.2 | Project found, mode on, brief entered; not submitted | Untested |
+| Claude Code | Safari MCP | Safari 27.2 | Rejected: logged-out automation instance | Rejected: logged-out automation instance |
+| Claude Code CLI | Claude in Chrome | Chrome | Untested (used by an earlier private version) | Untested |
+| Codex app | Chrome extension | Chrome | Untested | Untested |
+| Codex | Computer use | Safari / Chrome | Untested | Untested |
+| Any | Handoff | Any | Untested | Untested |
+| Any | chrome-devtools-mcp `--autoConnect` | Chrome 144+ | Candidate, untested; not enabled | Candidate, untested; not enabled |
+
+Setup on a fresh install has not yet been run end to end. Windows and Linux are untested on every route.
