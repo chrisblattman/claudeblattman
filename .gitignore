@@ -36,3 +36,6 @@ ENGINE_VERSION
 .github/skills/
 .github/agents/
 PRODUCT.md
+
+# Per-user Deep Research route settings (written at first run, never published)
+skills/deep-research/local/

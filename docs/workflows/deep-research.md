@@ -1,44 +1,80 @@
 ---
-description: Ask a useful research question, inspect the evidence, and put the findings to work in your project.
+description: Choose between a research council and browser Deep Research, let your agent run the search, and put the findings to work.
 ---
 
 # Are you taking advantage of deep research?
 
 [← Back to the next-steps checklist](../starter-kit/two-month-plan.md#research-a-question)
 
-I use `/deep-research` to search for information that will help my council do a better-informed job. It gathers and assesses evidence: what others have tried, what happened, and how well their experience applies to my situation. Those findings become research inputs for `/council` as it develops a proposal, compares approaches, or recommends what to do.
+Before I decide what to do, I often need to know what other people have tried. What worked? What didn’t? How much applies to my problem? I ask AI to investigate, then bring the findings to a council to help work out what to do with them.
 
-My research workflow uses the same habit of independent attempts: several agents investigate a shared question, then a fresh synthesis agent brings their findings together. I want an answer I can use, with sources I can inspect and a clear account of what remains uncertain.
-
-You can start with research, or ask for it when a council or review exposes a gap. In the pilot proposal from the first two pages, the question might be whether changing how customer requests are assigned would actually reduce response times without adding staff. Research should help you decide what to try and what to measure.
+I use two skills for this: **`/research-council` for independent web searches, and `/deep-research` for ChatGPT and Gemini’s dedicated Deep Research tools.** You ask from your project; the agent runs the research and brings back the reports.
 
 <div class="checklist" markdown>
 
-## Set up once
+## Choose your research tools
 
-<span id="run-a-research-task"></span>
+### 1. Choose how to investigate { #choose-your-research-skill }
+
+<div class="council-kit-summary" markdown>
+
+| Skill | When to use it |
+| --- | --- |
+| `/research-council` | Have your connected agents search the web independently, check sources, and combine their findings into a research report. |
+| `/deep-research` | Get reports from ChatGPT and Gemini’s dedicated Deep Research products. Your agent operates the browser, downloads the reports, saves them to your project folder, and combines them. |
+
+</div>
+
+`/research-council` works like a council, with a more specific job: search the web, read the original sources, and look for evidence that challenges the answer as well as supports it. A fresh agent brings the reports together. Your working council can then use that evidence to develop a proposal or plan.
+
+**`/research-council` uses the AIs you have connected:** one fresh researcher from each available Claude, Codex and Gemini. If you’ve [set up multiple AIs](council-models.md#connect-another-model) for `/council` or `/ask-agents`, it uses those same connections.
+
+Grok joins when you ask for it. I find it especially useful for searching X/Twitter, where people discuss new tools and approaches long before there is much written elsewhere. These very AI workflows are a good example.
+
+**`/deep-research` uses ChatGPT and Gemini by default.** You can ask for just one. The agent operates their Deep Research tools in your browser, so you need access to those products. A Codex or Antigravity connection alone doesn’t provide it.
+
+Not every question needs Deep Research. Requests in both [ChatGPT](https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt) and [Gemini](https://support.google.com/gemini/answer/15719111) are limited. I’ve kept the skills separate because I don’t want to use that allowance every time I ask for a web search.
+
+**Using Claude as your main driving agent?** Confusingly, my Claude setup includes a skill called `/anthropic-skills:deep-research`. Despite the name, it is closer to our `/research-council` skill: Claude subagents investigate different parts of the question, rather than operating the real Deep Research products in ChatGPT or Gemini. With only one AI connected, our `/research-council` skill falls back to just one agent: one researcher going after the whole question. Therefore, if this is your setup, you may get a more detailed answer from Claude’s specialist approach, especially when the question has several parts. It is an option if you don’t want to pay for or connect other AIs.
+
+<label class="step-done"><input type="checkbox"> I’ve chosen how I want to run the research.</label>
+
+### 2. Ask your AI to set it up { #get-the-research-skill-ready }
+
 <span id="install-and-setup"></span>
 
-### 1. Get the research skill ready { #get-the-research-skill-ready }
-
-`/deep-research` is an additional skill. It does not ship with the starter kit. In Claude Code or Codex, open your project folder and ask:
+**As always, ask your AI to walk you through it.** Open your project in Claude Code or Codex and ask:
 
 ```text
-Check whether I have /deep-research installed. If I do, read its instructions and check that its supporting files and connections are available. If I do not, look for a compatible version in https://github.com/chrisblattman/claudeblattman and help me install it with its supporting files. Explain any missing dependencies before proceeding.
-
-Tell me which agents can do the research and where the reports will be saved in this project.
+Walk me through the research guide at claudeblattman.com. Help me install the two research skills and check that their connections work. Run the /deep-research setup after installing it, without starting a research request.
 ```
 
-Follow the installation and connection steps the agent gives you. If you need to connect Claude, Codex, or Gemini, use `/kit-setup` as on [page two](council-models.md#connect-another-model). A working connection is one part of setup. The research skill may also need its own supporting files or tools.
+Both are in the [GitHub skills folder](https://github.com/chrisblattman/claudeblattman/tree/main/skills), separate from the starter kit. Have the agent install the whole folders, including their supporting files.
 
-My current workflow includes the synthesis. If the version you installed requires a separate synthesis step, ask the agent to arrange that as part of the run so you receive a combined answer along with the individual reports.
+For **`/research-council`**, you can start with the AI you already use. To add others, ask it to follow the [connection walkthrough](council-models.md#connect-another-model) and use `/kit-setup`.
 
-Some apps also have a feature called **Deep Research**. You can use those reports too. Save the report in your project folder and tell your main agent where to find it. The app’s research feature and the `/deep-research` skill are separate tools, so ask which one your agent is using.
+For **`/deep-research`**, setup happens in the installation conversation. The agent finds your signed-in browser, checks that it can select Deep Research and enter text, and saves the settings for next time. It gives you one checklist of anything you need to do. **These checks don’t submit a research request or use your allowance.** To check the setup again later, ask for `/deep-research setup`.
 
-<label class="step-done"><input type="checkbox"> My research skill is ready, and I know where its reports will go.</label>
+**After installation and setup, start a new session in your project.** Check that `/deep-research` refers to our browser workflow. If Claude only offers `/anthropic-skills:deep-research`, you’re seeing the other skill. Ask your agent to check that ours is installed and available.
 
-## Investigate something you need to know
+<details class="council-details" markdown="1">
+<summary>What might setup ask me to do?</summary>
 
+Let the agent work out how to control the browser. In **Claude Code**, setup recommends Claude in Chrome. On a Mac, it can also control Safari or Chrome through Apple Events. It may ask you to change a browser setting or approve permissions so it can work without stopping at every step.
+
+In **Codex**, setup tries its Chrome extension in the desktop app, then supported computer use, which can also work with Safari. You may need to connect the browser tools or sign in to ChatGPT and Gemini. If you prefer Safari for everyday browsing, you can keep it and use Chrome just for research.
+
+You can also use Deep Research in the [Gemini app](https://support.google.com/gemini/answer/15719111?co=GENIE.Platform%3DiOS&hl=en), which is different from Antigravity. I find automating that route more trouble than it’s worth; browser controls work pretty well.
+
+If browser control fails, ask the agent to diagnose it. It can help you run the research manually if necessary, but should tell you what prevented it from doing the job.
+
+</details>
+
+<label class="step-done"><input type="checkbox"> My two research skills are ready, and I’ve started a new session.</label>
+
+## Research a real question
+
+<span id="run-a-research-task"></span>
 <span id="deep-research-federated-multi-vendor-synthesizable"></span>
 <span id="why-this-is-its-own-workflow"></span>
 <span id="the-three-problems-it-solves"></span>
@@ -53,63 +89,86 @@ Some apps also have a feature called **Deep Research**. You can use those report
 <span id="failure-modes"></span>
 <span id="see-also"></span>
 
-### 2. Give it a question that matters to your work { #ask-a-bounded-question }
+### 3. Tell it what you need to learn { #ask-a-bounded-question }
 
-Tell the agent what you are trying to decide. You can dictate this in ordinary language, just as you would a council request. You do not need a polished research brief before you start.
+Tell it what you are trying to decide, what you already know, and what worries you. I dictate this because I give much more context when I don’t have to type it all out. The agent turns the request into a brief for the researchers.
 
-The useful ingredients are:
-
-- **The decision.** What will you do with the answer? In our example, choose what to change during a six-week pilot.
-- **Your situation.** Point to the proposal, notes, and other relevant files. Explain the constraints, such as no additional staff.
-- **The comparison.** Say what alternatives you are considering and whose experience would be relevant.
-- **The result you need.** Ask for a recommendation, the evidence behind it, and the questions you will still need to answer yourself.
+Like `/council`, both skills can use `/prompt` (bundled in the starter kit) behind the scenes when the question needs more preparation. You don’t need to run it separately. If you already have a research prompt, they use it as written unless you ask for changes.
 
 For example:
 
 ```text
-/deep-research Help me decide what to test in a six-week pilot to reduce response times for existing customers without adding staff. Read the proposal and process description in this project folder.
+/research-council I’m interested in the easiest way to measure respondents’ networks because I’m worried about spillover effects in our study. Read the study design and draft questionnaire in this project.
 
-Look for evidence on triage and changes to how requests are assigned in comparable teams. Compare the options, including implementation effort and effects on service quality. Distinguish measured results from vendor claims, and look for evidence against the approaches that initially seem promising.
+I care about ease for the respondent: this is an online survey, and I don’t want extra questions to discourage people from finishing. I imagine most of the relevant connections will be within [the group or community we’re studying], but I’m not sure how much that assumption matters.
 
-Recommend what is worth trying in our setting. Link to the sources you inspected, explain where the evidence is weak, and identify what we should measure ourselves. Save the research brief, individual reports, and synthesis in this project folder.
+What approaches have other studies used? Compare how much effort they ask of respondents and what they let us learn about possible spillovers. Help me decide what’s worth including in our survey.
 ```
 
-Read the research brief before the agents get far into the work. Correct anything that changes the question you meant to ask. If it is heading toward a general report on customer service, bring it back to the decision: what should this team try, within these constraints?
-
-<label class="step-done"><input type="checkbox"> I have asked a research question that will help me make a decision.</label>
-
-### 3. Read the answer and follow up { #read-the-synthesis-then-inspect-the-evidence }
-
-Start with the synthesis. It should give you the strongest findings, important disagreements, and remaining gaps, with links back to the sources and individual reports. You do not need to run another council simply to combine those reports.
-
-I pay particular attention to a recommendation that depends on a setting very different from mine, or to a disagreement that would change what I do next. Ask the agent to explain those points. In the pilot example:
+To use ChatGPT and Gemini’s Deep Research, start the same request with `/deep-research`. You can leave out either one:
 
 ```text
-You recommend triage. Show me the strongest evidence for that recommendation and the strongest evidence against it. Did the teams in those studies add staff or change anything else at the same time? Explain what we can reasonably borrow for our pilot and what remains an assumption.
+/deep-research [Insert the same dictated message about the question and context.] Skip Gemini for this run.
 ```
 
-A long report can be hard to take in. I often ask for an explanation pitched at a particular reader, such as a program officer or a new research assistant. I use the free [ELI5 skill](https://github.com/DreambigOu/ELI5) for this. To add it, give your agent the link, ask it to install the skill, and check that it appears in a fresh session.
+<details class="council-details" markdown="1">
+<summary>Where do the chats and reports go?</summary>
 
-Open the sources behind the claims that drive your decision. Check that they support what the report says. Several reports may repeat the same underlying study, so ask whether an apparent pattern comes from independent evidence or from several accounts of one result.
+The browser skill files its chats in a **Deep Research** project in ChatGPT and a **Deep Research** notebook in Gemini. It finds or creates them and tells you if filing is blocked.
 
-If a source is inaccessible, ask the agent to say what it could actually inspect. If an important question is still unanswered, give it a focused follow-up. Another broad search is not always the next useful step. You may need a document from your own team or a measurement from the pilot.
+Both skills save the question, individual reports and synthesis as local files in your working project. The browser skill preserves the original exports as well.
 
-<label class="step-done"><input type="checkbox"> I have followed up on the important claims and inspected their sources.</label>
+For Gemini, the agent exports the report to a Google Doc, downloads that document to your project folder, and checks that the complete report and its sources are there. Claude then moves the temporary Google Doc to Trash; Codex leaves it in Drive and tells you it can be deleted separately. This is cumbersome, but I find it to be the best way to automate exports from Gemini.
 
-### 4. Use the findings to improve the work { #put-the-findings-to-work }
+If a browser session or download is interrupted, ask the agent to resume the existing research. It should recover the same report rather than start the question over.
 
-Bring the answer back to your project. If there is a substantial decision or revision to make, give the research to your council:
+</details>
+
+<label class="step-done"><input type="checkbox"> I’ve asked a research question that will help with my work.</label>
+
+### 4. Read the answer and follow up { #read-the-synthesis-then-inspect-the-evidence }
+
+When the reports come back, a fresh agent brings them together. You get an answer, the disagreements and gaps that matter, and links to the reports and sources. With one report, you get that report and a short summary. This is part of the skill; there’s no separate step to arrange.
+
+I want the synthesis to explain why a finding deserves weight. It shouldn’t count votes or assume a Deep Research report is better. Three reports citing the same study are still drawing on one study.
+
+Start with the synthesis, then ask about anything that would change your decision. For the network questions:
 
 ```text
-/council Use the research synthesis and its cited evidence to revise the pilot proposal. Explain which recommendations change and why. Keep the no-extra-staff constraint. Turn the remaining assumptions into things we can measure during the pilot. Point me to the revised proposal.
+Which of these approaches has actually been used in an online survey? What do we know about completion rates and how long the questions take? If we ask fewer questions, what would we lose in our ability to measure possible spillovers?
 ```
 
-Read the proposal, add your judgment, and ask for changes where needed. When it is ready, use `/adversarial-review` to examine it. Ask the reviewers to check that the recommendations follow from the research and still answer the original request.
+Follow up on the claims that matter for your decision, and open the sources when you need a closer look. If the answer is hard to follow, ask for an explanation. If it misses the point, tell it. The first report gives you something to work with.
 
-For a straightforward finding, you can simply ask your main agent to apply it. Research does not commit you to another full round of council and review. The point is to improve the work you came to do.
+<details class="council-details" markdown="1">
+<summary>Can I combine agent research and Deep Research?</summary>
 
-Keep the brief, individual reports, and synthesis with that project. When you finish, use `/done` and ask it to record what the research changed, the questions still open, and the paths to those files. The next session should be able to pick up the work without repeating the search.
+Yes, but ask for both explicitly. Neither skill automatically adds the other. For example:
 
-<label class="step-done"><input type="checkbox"> I have used the findings, checked the revised work, and saved a handoff.</label>
+```text
+Use /research-council and /deep-research to investigate the same question independently. Start both, then combine their completed reports into one final synthesis. Keep the individual reports too.
+```
+
+There is no fixed weighting between the two kinds of report. Ask the synthesizer to compare the evidence, explain disagreements, and identify which findings are useful for your question.
+
+If you already have reports, ask the agent to combine those without starting new research.
+
+</details>
+
+<label class="step-done"><input type="checkbox"> I’ve read the findings and followed up on the important questions.</label>
+
+### 5. Put the findings to work { #put-the-findings-to-work }
+
+Once you have your research, use the [council workflow](../starter-kit/occasional.md) as usual. Now the council has better information to work with:
+
+```text
+/council Use the research to propose network questions for our online survey. Keep the burden on respondents low, and explain what we can and can’t learn about spillovers with your proposed questions. What should we test before adding them to the survey?
+```
+
+Add your judgment, revise, and use `/adversarial-review` when you want a fresh examination of the result. For a smaller change, just ask your main agent to apply what you learned.
+
+When you finish, use `/done` to save where you got to, what the research changed, and what remains open. The reports stay with the project so you can return to them in the next session.
+
+<label class="step-done"><input type="checkbox"> I’ve used the research to move my work forward.</label>
 
 </div>

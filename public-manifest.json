@@ -26,9 +26,9 @@
       "sha256": "4f95228e8d4c5d38ca022433db5da331da794b200aafb3f82c6535c27c0c1472"
     },
     {
-      "bytes": 685,
+      "bytes": 794,
       "path": ".gitignore",
-      "sha256": "4b806d844e306633102cbc1818641ac87ba1b5980e98c2832b9861f44ebd93d9"
+      "sha256": "e6f4f3f0c91d59cbd43491aa06eaed5283040a3f847f5e2fc6a663788031cc10"
     },
     {
       "bytes": 3112,
@@ -666,9 +666,9 @@
       "sha256": "f1161944a2566fcd9a207c99b2da1e0e58f8a38b76f52b075eed6551bb9c3b76"
     },
     {
-      "bytes": 10372,
+      "bytes": 12302,
       "path": "skills/README.md",
-      "sha256": "d5bfd1cfd9b99f94c884b6aea81d0086fb2e9383f93cfff880cf850163415ca6"
+      "sha256": "b1ae16358c68c610bcdd961d0c1f1c68bba37ed259e7c35e5ba75eeb7444ff91"
     },
     {
       "bytes": 2624,
@@ -736,29 +736,69 @@
       "sha256": "05fe77c219bbeb44dcd9b81bec221fb6e96760ba7b35eea6593942b8f6be18aa"
     },
     {
-      "bytes": 20658,
+      "bytes": 11968,
       "path": "skills/deep-research/SKILL.md",
-      "sha256": "7d54742298bec1d5cf642e9fab57d3d25469557275ab5d90821ee21a28c9a438"
+      "sha256": "3ac9684a5df90763dafa30438839a6348e02a5eac6caa01969a7b84546a7a47e"
     },
     {
-      "bytes": 2343,
-      "path": "skills/deep-research/references/claude-subagent-template.md",
-      "sha256": "05ce99eeb3e04794feaf8553e758906c37b138159fa8d54d17c24de7307d0a14"
+      "bytes": 2894,
+      "path": "skills/deep-research/adapters/claude-code.md",
+      "sha256": "a1cce2ac722f0ca2cf24fe99cad19f663f640647c17d5f9693c7e82d76768a3a"
     },
     {
-      "bytes": 10101,
-      "path": "skills/deep-research/references/config.md",
-      "sha256": "50b72b5405d0a7eb721b2121c1b1abb5f52475b54fe2c4c12f6226cca2c5a640"
+      "bytes": 1356,
+      "path": "skills/deep-research/adapters/codex.md",
+      "sha256": "368bd7080e0f3b7265ed926ace5aed471642ea58c53a5ee4c90863421dcb3c10"
     },
     {
-      "bytes": 1874,
-      "path": "skills/deep-research/references/dr-prompt-schema.md",
-      "sha256": "524dd206e5efef0ee415a4e8170f147ced752e545dd6f8378845bccf71278fb6"
+      "bytes": 10014,
+      "path": "skills/deep-research/references/acceptance.md",
+      "sha256": "0c1c626db57dcd435dcaf765dbed99df05075d1ede7c33d1d836f4b36bc8b774"
     },
     {
-      "bytes": 3591,
-      "path": "skills/deep-research/references/paste-loop-ux.md",
-      "sha256": "038ba9ef6d219fbbee8696ebaebe16c626cd8d994c898a6bf16974a909ac49d9"
+      "bytes": 11612,
+      "path": "skills/deep-research/references/browser-procedures.md",
+      "sha256": "42fdd2489fd4f121cb9e03c70356c8bf7dfb34d950a9daa5d860545eb88e9f41"
+    },
+    {
+      "bytes": 6261,
+      "path": "skills/deep-research/references/browser-routes.md",
+      "sha256": "34a9d95c3e9d06fe2a49f252dd46f8cdb41f95806a0b458b6af4c1c12943836a"
+    },
+    {
+      "bytes": 6153,
+      "path": "skills/deep-research/references/reports-and-synthesis.md",
+      "sha256": "2747d94030caa380fdb05bcaec912182e3e454dfee30bf7af733836cb5c168c6"
+    },
+    {
+      "bytes": 5738,
+      "path": "skills/deep-research/references/setup.md",
+      "sha256": "f0bb73740e424afc5f53849fc20ff25f8f1ba1f0f10ac0a73fdf7e76d526d2e3"
+    },
+    {
+      "bytes": 5677,
+      "path": "skills/deep-research/routes/apple-events-macos.md",
+      "sha256": "f500e7363ca7d6424b5535a8e9a3fd4d243a11e3551996e29e277cbdad0a1a9a"
+    },
+    {
+      "bytes": 1697,
+      "path": "skills/deep-research/routes/claude-in-chrome.md",
+      "sha256": "8b95ec79d40b730df0e0c450c677c8b2d220fa917e26996273ce6b374e1845ba"
+    },
+    {
+      "bytes": 1120,
+      "path": "skills/deep-research/routes/codex-chrome.md",
+      "sha256": "6045ebcbbb1b80809aff766e8e82e44f46d0905bb8244f38852d11c16a52c681"
+    },
+    {
+      "bytes": 1172,
+      "path": "skills/deep-research/routes/codex-computer-use.md",
+      "sha256": "e8b52ee8814a464cc7f3a674630bdd80160454e6ab268bc472e26c31eb24f49e"
+    },
+    {
+      "bytes": 5354,
+      "path": "skills/deep-research/scripts/browser-js.sh",
+      "sha256": "98443ca3c6fc513668cd611d8c310cc306d357b712d642d0ee5551ea4e683b55"
     },
     {
       "bytes": 775,
@@ -766,9 +806,9 @@
       "sha256": "a546e57859c2d7727e63b815745c357cb8ed6491d99b07c3cb9ea118a6f45d62"
     },
     {
-      "bytes": 6182,
-      "path": "skills/dr-synthesize/SKILL.md",
-      "sha256": "db9c93dd8909eaece954a349eaf6b493d4a1f479912ebc27d8b4a8db372c6e68"
+      "bytes": 790,
+      "path": "skills/dr-synthesize/README.md",
+      "sha256": "d21df42fae99a368695c10b7b360a772d642705e25048011b98c1f2f1aaaf2a4"
     },
     {
       "bytes": 5932,
@@ -814,6 +854,21 @@
       "bytes": 15402,
       "path": "skills/proposal-write/SKILL.md",
       "sha256": "1d87f4cf3df31d885a78c66c285a171c311fbb0b3d0a76d783a85f934822ecab"
+    },
+    {
+      "bytes": 9099,
+      "path": "skills/research-council/SKILL.md",
+      "sha256": "1f681b7fc24444330d3deb1848056f77ef086bd056171e3dd712ef4680d7a08c"
+    },
+    {
+      "bytes": 4041,
+      "path": "skills/research-council/references/acceptance.md",
+      "sha256": "30f72aedbcb83c2bc1849f373c4861196369f02157e969abcb43edf9402e3122"
+    },
+    {
+      "bytes": 8503,
+      "path": "skills/research-council/references/execution.md",
+      "sha256": "761f7ed8543fdb2927f0f1721ffa11b4fd21c2d74b1bc0ef4e041a02ba73b17e"
     },
     {
       "bytes": 817,
