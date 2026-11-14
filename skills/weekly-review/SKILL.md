@@ -1,316 +1,135 @@
 ---
 name: weekly-review
-description: "Prepare a weekly project review from configured sources. Reference workflow requiring external helper scripts that are not bundled here."
+description: Refresh one project's dashboard and dated history from selected new evidence, preserving human corrections and identifying changes needed in the underlying project plan. Use on request or as the task inside an explicitly configured schedule.
 ---
 
-# Weekly Project Review
-*v1.9.1 — Stricter YAML config parsing (loud failure on malformed `.claude/CLAUDE.md`); helper scripts for multi-tab Google Doc writes (`replace-dashboard.py`, `insert-weekly-log.py`); RTF/PDF transcript normalization (`normalize-transcripts.py`); hollow-transcript handling per-meeting; document-comment processing (read, apply corrections, reply, resolve).*
+# Weekly Review
 
-Generate a comprehensive weekly summary for the current research project, pulling from multiple sources.
+Public adaptation v2.1, 2026-11-12. Adds a strict session-only `nochange` preview and a required comparison of new evidence with Tab 2. Retains the shared workflow's baseline-first synthesis and bounded dashboard/history updates, with portable source discovery and explicit correction handling. This is a reference instruction workflow; it does not bundle a Google Docs writer, private prefetch scripts, authentication, or a scheduler.
 
-> **Public reference, not a complete install.** This file describes a workflow that uses three external Python helpers: `normalize-transcripts.py`, `replace-dashboard.py`, and `insert-weekly-log.py`. Those helpers are not included in this public repository. Set up and review suitable helpers and account connections before running this workflow.
+## Tab roles and user-chosen names
 
-## Overview
+Use **Tab 1** for the current dashboard and dated meeting/review history, and **Tab 2** for the research design or project plan. These are workflow roles, not required tab titles. Users may name or rename either tab. Resolve each role to its verified document tab ID from the project's configuration and actual document structure. Do not select a tab by its name or ordinal position alone, rename it to match a template, or assume `t.0` is Tab 1. For local documents, map the same roles to their agreed file paths.
 
-This skill collects data from WhatsApp, meeting transcripts, and Gmail, then generates:
-1. **Tab 1 content**: High-level project dashboard (updated directly in Google Doc)
-2. **Tab 2 content**: Detailed weekly log with thematic synthesis across all sources
+Older versions called the detailed weekly log "Tab 2" and used `tab2only` for that log. That is not this version's meaning of Tab 2. If adapting an older configuration or receiving `tab2only`, establish the intended output before writing. Keep dated history in the configured Tab 1 history region.
 
-## Prerequisites
+## `nochange`: preview in the session only
 
-Before fetching, normalizing, archiving or writing anything, verify the three helper files at the configured `WEEKLY_REVIEW_HELPERS` path and the intended account/project configuration. If any helper is missing, stop and report the missing dependency. Do not invent a bundled scripts directory, silently skip that work, or substitute a different account. The public file alone does not provide those dependencies.
+Recognize `nochange` anywhere in the request, for example `/weekly-review nochange` or `/weekly-review [project name] nochange`. Determine this mode before invoking helpers or collecting sources. It overrides standing write permissions and conflicting save/apply options for this run.
 
-The skill expects three env vars on each machine (set in `~/.zprofile` or equivalent):
+Read the accessible project configuration, both tabs, comments, and selected new evidence. Perform the normal synthesis and Tab 2 comparison, but print the full proposed Tab 1 dashboard, the proposed dated history entry, and the separate Tab 2 suggestions in the current session. Do not return only a summary of changes. Include source gaps and unresolved questions, and state that nothing was changed.
 
-```bash
-export GOOGLE_WORKSPACE_MCP_USER_EMAIL="<your@email>"     # account to authenticate as
-export GOOGLE_WORKSPACE_MCP_CREDENTIALS_FILE="<path>"     # optional; defaults to ~/.google_workspace_mcp/credentials/<email>.json
-export WEEKLY_REVIEW_HELPERS="<path>"                     # required for a public adaptation; point to reviewed local helpers
+Do not create or modify local summaries, snapshots, proposal files, configuration, logs, processed-source state, or refresh checkpoints. Do not edit Google Docs, reply to or resolve comments, move/archive transcripts, or create/change schedules. Use read-only source tools and in-session content. Skip fetching/exporting or normalization helpers that write files, reporting any resulting access gap. If the request also asks to save or apply the preview, keep this run read-only and explain that saving or applying requires a subsequent request without `nochange`.
+
+After printing the preview, stop before the apply, record-outcome, and scheduling steps below.
+
+## Default and `nosave` modes
+
+An ordinary `/weekly-review [project name]` request runs the review and applies the bounded Tab 1 update within the user's current or standing authorization. Honor an explicit propose-only project setting. It does not authorize Tab 2 edits. Do not require a separate preview run or repeated approval when the dashboard update is already authorized.
+
+Recognize `nosave` anywhere in the request. Run the same review but omit the local narrative summary file. Google Doc updates, recovery snapshots, and the verified completion/source records follow the ordinary workflow and authorization. `nosave` does not mean read-only or skip verification. If both options occur, `nochange` takes precedence and prohibits all writes.
+
+
+## Resolve scope and capability
+
+### Resolve the named project
+
+For a request such as `/weekly-review gang entry`, treat `gang entry` as the project name or alias, excluding recognized mode options such as `nochange` and `nosave`. Resolve it using the known project list, project locations, aliases, or context available to the agent. Use the current project when no project name is supplied and that context is unambiguous. An explicit name must not silently fall back to the current folder or another project. If multiple projects match, ask which one. If the project cannot be located, ask for its location rather than searching unrelated accounts.
+
+### Use configuration first, with index fallback
+
+Work on the selected project, not every accessible project or account. Read its instructions and established configuration. New dashboard setups use `PROJECT_CONFIG.json`, populated by setup-project-management with verified destinations and tab IDs. Older installations may use fenced YAML in `.claude/CLAUDE.md`; inspect and map it rather than creating a competing config. Installing a skill alone does not create project configuration.
+
+Use valid, complete configuration directly for document destinations, tab-role mappings, selected sources, and review settings. Verify those destinations and roles against the actual document before writing. A complete configuration does not require a separate read of `PROJECT_INDEX.md`, and a missing index is not a blocker when configuration supplies the necessary information.
+
+If configuration is absent or incomplete, use the project's `PROJECT_INDEX.md` to supply missing links or file locations. It may live at the root or within an established collaboration folder. Follow explicitly identified current destinations, not an arbitrary first link or an archived document. Use the setup configuration contract for new routing records rather than inventing unsupported fields. For local documents, resolve the agreed file paths. The user should not need to paste Doc links every run or look up internal IDs themselves.
+
+Ask only when configuration and the available index do not supply enough information, or when an actual ambiguity or conflict needs resolution. If a conflict is encountered between configuration, index, or document structure, resolve it before dependent writes. Do not silently overwrite either record or select another destination. Preserve user-chosen tab names. Saving or repairing routing records requires authorization and is prohibited during `nochange` runs.
+
+The user may instead supply the dashboard link or ask you to find it in Drive. Use the supplied link or a project-scoped Drive search, verify the intended document and tab roles, and reuse available configuration for the remaining sources. Ask only for unresolved details.
+
+Identify the actual source locations, exclusions, current overview, document ID, verified account, overview tab ID, plan tab ID, review period, history/snapshot paths, and last successful refresh. A review date or cadence preference is not a scheduled task. If essential routing is missing, resolve it before dependent writes.
+
+Use the connected tools available in the current host. For `noapply`, `dryrun`, or an analysis-only request, do not mutate sources, document content, processed-source state, or the successful-refresh checkpoint. Return the proposed changes in chat unless a local output was requested.
+
+If source access is sufficient but a safe Doc write is unavailable, produce a local proposal when authorized and disclose the limit. In `nochange` mode, keep that proposal in the session only. Don't invoke private helpers from hardcoded paths, install authentication machinery, or replace a whole document to work around a missing tab operation.
+
+## Read the baseline and selected evidence
+
+1. Read the current overview/dashboard, protected human notes, unresolved document comments, recent history, and relevant Tab 2 sections. Preserve current human edits as evidence, not noise to remove. If comments cannot be read, report that gap rather than assuming there are none.
+2. Compare with the prior saved dashboard snapshot when available to identify direct corrections. If it isn't available, treat current content as the baseline and surface conflicts.
+3. Read the selected new notes/documents/communications for the requested period, or since the last verified refresh with sensible overlap. If no checkpoint exists and no period was requested, use the past seven days and state that range; don't imply a complete historical review.
+4. Record source identity and dates. Deduplicate by meeting/message/document identity, not date alone. Distinct meetings on one day must remain distinct. Don't auto-archive source transcripts.
+5. Distinguish complete transcript, summary-only evidence, inaccessible source, and a source not searched. No character-count threshold establishes transcript completeness.
+
+Use saved source locations and filters rather than asking for them every run. For configured Granola sources, retrieve accessible full transcripts from the selected project meetings/folders, or read transcripts already filed locally. The public workflow does not bundle a fetch/file/archive helper. Do not claim retrieval or local filing when it did not occur, and preserve the no-write rules in `nochange` mode. For connected email, use configured collaborator addresses (sender or recipient) and project keywords to find messages within the review period, then check project relevance and exclusions before including them. Unrelated mail from a team member is not project evidence. Read other selected sources, such as revised proposals or configured WhatsApp groups, only when accessible and relevant. Do not expand to unrelated folders, groups, or accounts.
+
+If a required source is missing, retain a proposal and report the gap. Optional-source gaps may be included in an authorized partial update, clearly labeled. Material source disagreements remain visible until resolved.
+
+## Synthesize for the project's stage
+
+For early work, preserve possibilities versus decisions, changes of direction, and their rationale. For active execution, emphasize dependencies, progress, choices, and blockers. For finishing work, emphasize the authoritative output, unresolved checks, delivery, and handoff. Mixed workstreams can need different treatment.
+
+Carry forward unsuperseded commitments. Absence from a new note is not completion. Link each material change to evidence or an explicit human correction. Leave owners and dates unknown when not stated. Don't turn brainstorming, someone else's task, or a model recommendation into a new user commitment.
+
+Produce:
+
+- A compact proposed Tab 1 dashboard: objective, stage, priorities/status, decisions needed, next actions, sources and gaps.
+- One dated history entry with the review period, meaningful changes, source identities, and unresolved questions.
+- A separate Tab 2 comparison and proposed changes, following the requirements below. Include this output on every review, including `nochange` runs.
+
+## Compare new evidence with Tab 2
+
+Compare the meetings, comments, decisions, and other selected evidence from the review period with the current Tab 2. Check whether they change the project's question or hypothesis, argument/contribution, design or methods, sample/measures, analysis, or other substantive plan details. Do not treat a routine task or scheduling update as a design change unless it affects the plan.
+
+For each suggested change, show:
+
+- The relevant Tab 2 section and what it currently says.
+- The proposed replacement or addition, specific enough for the user to review.
+- The reason and dated source link or reference, including relevant comments.
+- Whether the source records an agreed decision, a factual correction, or an unresolved idea/question. Keep unresolved choices explicit rather than writing them as settled design.
+
+If the comparison finds no supported changes, say "No changes to Tab 2 suggested from the reviewed sources." If Tab 2 or essential evidence cannot be read, say the comparison is incomplete and identify the gap. Do not report no changes when the comparison could not be completed.
+
+Present these suggestions separately from the Tab 1 update. A routine review or scheduled dashboard update does not authorize applying them, including corrections requested through comments. Wait for the user's approval of the specific proposed Tab 2 edits before changing the design document. Reuse approval already given for those exact edits, but do not treat general dashboard write permission as approval of new design changes. In `nochange` mode, apply nothing even if an edit was previously approved.
+
+When approved design edits are applied, change Tab 1 only where the substance affects its priorities, decisions, status, or next actions. A wording change in Tab 2 does not by itself require rewriting Tab 1.
+
+Present Tab 1 changes and uncertainties for review unless the user has already authorized this bounded dashboard update or configured standing authority for it. The separate approval requirement for specific Tab 2 edits above still applies. Don't force repeated approval of unchanged work. Do not send messages, assign tasks in external systems, or resolve comments merely because they appeared in a review source.
+
+## Apply a bounded update when authorized
+
+Before writing, verify exact account, document, tab IDs, and the current document revision. A configured overview tab is not necessarily `t.0`. Do not silently fall back to another tab.
+
+For the marker-based template, require exactly one standalone paragraph for each marker in the overview tab, in this order:
+
+```text
+=== PROJECT STATUS DASHBOARD ===
+[dashboard to replace]
+=== DASHBOARD END ===
+[human notes/corrections, preserved]
+=== WEEKLY SUMMARIES START ===
+[dated history, newest first]
 ```
 
-If `GOOGLE_WORKSPACE_MCP_USER_EMAIL` is unset on a machine that has only one credentials file, scripts fall back to the legacy default. **Multi-account machines must set the env var explicitly** — the helper scripts do NOT silently glob-pick the first credentials file (this prevents silent wrong-account writes).
+Stop on missing, duplicate, reordered, embedded, or unsupported boundaries. Generated content must not contain those marker strings. Save a pre-update snapshot when authorized, then replace only the dashboard interior and insert the new entry immediately after the history marker. Preserve existing history, human notes, unrelated tabs, tables, and formatting. Bound any formatting changes to the intended content.
 
-The skill also requires every project `.claude/CLAUDE.md` to carry a single ` ```yaml ` block under `## Structured Config (machine-readable)`. The prefetch parser only reads fenced blocks; loose top-level YAML in prose is ignored.
+Use revision-checked native writes where available. Google Docs positions are UTF-16 units; calculate ranges from actual tab-scoped readback, not Python character counts. If the document changed during synthesis, reread and reconcile before applying. If required guards aren't available, return a proposed update instead of claiming a safe unattended writer.
 
-## Instructions
+Assign a stable review ID using the project, review period, and source identities; record it with the history entry. Before retrying, inspect whether that ID and the intended changes are already present. Exact retries must not duplicate history. A changed proposal for the same review needs an explicit correction record, not a second indistinguishable entry. Partial dashboard/history completion is not success.
 
-### Step 0: Read Project Configuration
-- Read `.claude/CLAUDE.md` from the current project folder
-- Extract ALL of: project name, Google Doc ID (`google_doc_id`), team roster, WhatsApp groups (with JIDs), folder paths, `granola_folder` or `granola_folders`, `project_keywords`, `exclude_keywords`
-- Fields must appear inside ` ```yaml ` code blocks; loose top-level YAML is ignored
-- Strip surrounding quotes from extracted values
-- Extract `project_type` (default: "quantitative"). If `project_type: qualitative`, use the qualitative dashboard template
-- Extract `skip_meeting_log` (boolean, default false). If `true`, Tab 2 generation is skipped entirely
-- If config is missing required fields, **stop and surface the errors** — do not fall back to legacy mode silently
+## Verify and record the outcome
 
-### Step 1: Determine Date Range
-- Check `10_AI_Collaboration/Weekly_Reviews/` for most recent `weekly-review-*.md` or `whatsapp-summary-*.md` file
-- Use that date as start_date (or 7 days ago if none exists)
-- end_date = today
-- Tell user: "Generating weekly review for [start_date] to [end_date]"
+Read back the affected regions once. Check intended changes, marker uniqueness/order, history identity, direct corrections, and preservation outside the update. For a separate authorized plan edit, verify its tab and record its own review date.
 
-### Step 1.5: Populate Transcripts (Optional)
+Only after the complete intended update is verified, save the review record and advance `last_successful_refresh`. When a write fails or times out, inspect the result before retrying; preserve the previous successful checkpoint while completion is uncertain. Report applied changes, proposals remaining, source gaps, and a verified destination link. Local fallback is not a successful Google Doc update.
 
-If you have a transcript export tool (e.g., `granola-fetch`, Otter export):
+Save the narrative summary in the project's configured review-history location during a normal authorized run. With `nosave`, present that summary in the session and omit this local file, while retaining the ordinary verified completion records. With `nochange`, the earlier stop applies: save nothing and advance no checkpoint.
 
-1. Check the project's configured transcripts folder for existing files
-2. Fetch transcripts based on config:
-   - **If config has `granola_folders` (list):** Run your fetcher once per folder, letting your routing config dispatch destinations
-   - **If config has `granola_folder` (single string):** Run with that folder name
-   - **If neither field exists:** Skip and continue with existing transcripts
-   - Strip surrounding quotes from folder names before passing to CLI
-3. **Normalize transcripts (v1.9 — fixes RTF/PDF handling).** Run the bundled `normalize-transcripts.py`:
-   ```bash
-   python3 "$WEEKLY_REVIEW_HELPERS/normalize-transcripts.py" \
-     --folder "[transcripts_folder]" --json-output --apply
-   ```
-   This converts any `.rtf` (via `textutil`) or `.pdf` (via `pdftotext`) for which there's no full `.txt` sibling, archives the originals, and replaces hollow `.txt` stubs when a converted sidecar is available. The script is idempotent and a no-op when there's nothing to do.
-4. Do NOT prompt for confirmation — transcript fetching and normalization are non-destructive.
+## Scheduling
 
-### Step 2: Collect Data (with graceful degradation)
+This skill does not create a recurring task. When the user requests scheduling, configure the supported scheduler separately with the explicit project, interval, timezone, source scope, write authority, and notification policy. Verify that environment can reach the same files and accounts. Report failure, meaningful change, or a decision needed; stay quiet on unchanged/non-actionable runs unless the user requests status reports.
 
-**2a. WhatsApp Messages**
-- For each group in `whatsapp_groups`:
-  - Search for group using WhatsApp MCP (`list_chats`)
-  - Do NOT rely on `list_chats` metadata for last-message dates — metadata is often stale
-  - ALWAYS fetch actual messages using `list_messages` regardless of metadata
-  - Filter to messages within date range
-- If WhatsApp MCP fails: retry once. If still unavailable: Note "WhatsApp unavailable - skipped" and continue
-- Save raw messages to `10_AI_Collaboration/Weekly_Reviews/whatsapp-summary-[date].md`
+## Validation status
 
-**2b. Meeting Transcripts**
-
-Read all transcript files from the configured transcripts folder. Support multiple formats: Granola export, manual markdown, Zoom `.vtt` files.
-
-**Hollow transcript check (apply per-transcript):**
-
-After reading each transcript, classify it before using it:
-- **FULL**: ≥5,000 characters AND contains conversational speaker content (dialogue lines, speaker labels, or `.vtt` Zoom format)
-- **HOLLOW**: <5,000 characters OR content starts with `###` markdown headers OR primary structure is bullet points with no speaker attribution
-
-For each hollow transcript:
-- Note it in Data Source Alerts: "[Meeting name] ([date]): AI notes only — full transcript not yet processed. Detailed meeting record omitted."
-- Do NOT include hollow transcripts in Detailed Meeting Records. Use only for background context.
-
-**If ALL transcripts in the period are hollow AND there are no other substantive sources:** Stop and ask the user whether to retry later or proceed without detailed meeting records.
-
-**2c. Gmail Threads**
-- **Date range**: Same as other sources
-- **Filter criteria** (emails must match at least one):
-  - Sender OR recipient matches any team member email in roster
-  - Subject or body contains project keywords from `project_keywords`
-- **Exclusions**: Automated emails, calendar invites (`.ics`), newsletters, bulk mail; threads matching `exclude_keywords`
-- **Gmail Retrieval Strategy**: Use individual `get_gmail_message_content` calls (avoid batch size limits). If batch fails: fall back to individual fetches
-- **Feedback loop**: At end of Gmail section, list included/excluded counts for noise control
-- If Gmail MCP unavailable: Note "Gmail unavailable - skipped" and continue
-
-**2d. Sensitive Content Filtering**
-
-The weekly summary may be shared with the full team. Screen for and exclude sensitive content from ALL sources:
-
-**Exclude**: Critical performance comments, hiring/firing discussions, pay/compensation, personnel-specific funding decisions, anything inappropriate for full team.
-
-**Screening by source type**:
-- General team meetings: Low sensitivity — include freely
-- PI-only or PI + Research Manager threads: Screen MORE AGGRESSIVELY but include non-sensitive content
-- 1-on-1 transcripts: Review for sensitive topics before including
-
-When in doubt: Omit specific sensitive content and note "[Some content omitted — PI review recommended]"
-
-**Include freely**: Funding strategy, project decisions, action items, research design, logistics, strategic direction.
-
-### Step 2e: Verify Key Metrics Against Authoritative Sources
-
-**Verify all quantitative claims against authoritative sources before generating content.**
-
-Priority order for factual claims:
-1. **Research Design and Progress document** (if maintained) — check for verified figures
-2. **Earlier weekly summaries** — if they post-date the research design doc
-3. **Current week's sources** — only if #1 and #2 unavailable; FLAG if uncertain
-
-Watch for red flags: round numbers, hedged statements, conflicting numbers, numbers without context.
-
-### Step 2f: Read Previous Dashboard as Baseline
-
-**The Project Status Dashboard is a living document — read current state before writing.**
-
-1. Read the current dashboard content from the Google Doc (Tab 1)
-2. This is your BASELINE — not a blank slate
-3. PRESERVE previous content unless explicitly superseded, factually outdated, or explicitly removed by user
-4. MODIFY existing sections with new information; ADD new items; REMOVE only when completed/superseded
-
-### Step 2g: Process Google Doc Comments
-
-Read unresolved comments and apply corrections before synthesis.
-
-1. Call `mcp__google_workspace__read_document_comments` on the project's Google Doc
-2. Filter to **unresolved comments only** (skip any marked `[RESOLVED]`)
-3. For each unresolved comment, classify based on content:
-   - **Correction**: contains "should be", a number, "wrong", "change to", "actually", "not X but Y", or a clear factual fix. Apply it.
-   - **Question/ambiguous**: contains "?", "should we", "is this right", or intent is unclear. Surface in Step 7 output.
-4. **Apply corrections**:
-   - Tab 1 comments: incorporate into the dashboard baseline (modify before synthesis)
-   - Tab 2 comments: apply as direct edits to the Google Doc during Step 6
-5. **Reply + resolve** each applied correction: reply with "Applied in weekly review [DATE]. [Brief description of change]." then resolve via `resolve_document_comment`
-6. If classification is ambiguous, default to **question** (surface to user rather than misapply)
-7. If `read_document_comments` fails: note "Comments unavailable — skipped" and continue
-8. If zero unresolved comments: no output, no additional calls — move on
-
-**Note:** The API returns comments across all tabs. Use the comment's anchor text to determine which tab/section it belongs to.
-
-### Step 3: Synthesize
-
-**Detail and Length Requirements**: Scale to meeting length:
-- Brief check-ins (under 20 min): 0.5-1 page
-- Standard meetings (20-60 min): 1-3 pages
-- Long strategy sessions (60+ min): 2-4 pages
-
-**Guiding principle**: Include more detail when in doubt. A reader who wasn't at the meeting should understand WHAT was decided, WHY, WHO said it, and the context.
-
-**Priority-Related Content Detection**: Watch for "strategic priority", "operational", "critical path", "green/yellow/red", "urgent", "success factor" language. Note status changes.
-
-**FORMATTING RULES**:
-- No markdown tables — use bullet/sub-bullet format for all structured data
-- Bold labels followed by content on same line or as sub-bullets
-- Bold team member names throughout both Tab 1 and Tab 2 (track bold ranges separately; do not embed `**` markdown markers in the text — formatting is applied via API)
-- Paraphrase rather than quoting. Do not include direct quotes or "Key Quotes" sections.
-- **ASCII emoji placeholders**: Use `[RED]`, `[GREEN]`, `[YELLOW]` instead of real emoji (red/green/yellow circles) in generated text. Real emoji break Google Docs index calculations. They are swapped to real emoji in Phase 5.
-
-**Visual Separators**:
-- Between weekly summaries: heavy double-line separator
-- Within weekly summaries: medium single-line separator
-
-**Language Guidelines**: Plain, accessible language. Avoid jargon. Use "challenges" not "blockers", "unclear" not "TBD". Prefer concrete descriptions over abstract terms.
-
-**Generate Tab 1 (Dashboard)**: Start from previous dashboard, update with this week's info. Structure:
-- Project overview and status
-- Strategic objectives and progress
-- Operational objectives serving each strategic goal
-- Team member to-do items
-- Critical success factors with status (green/yellow/red)
-- Funding pipeline
-
-**If `skip_meeting_log: true`:** Skip Tab 2 generation entirely. Proceed to Step 4. Still use transcripts and WhatsApp data for Tab 1 dashboard content.
-
-**Generate Tab 2 (Weekly Log)** *(skip if `skip_meeting_log: true`)*: New entry prepended (reverse chronological). Structure:
-- Date range header
-- Weekly Activity Summary (thematic synthesis across all sources)
-- Detailed Meeting Records (full summaries of each meeting)
-
-### Step 4: Save Local Copies
-
-**Skip if `nosave` argument.**
-
-- **Weekly Summary**: Save to `10_AI_Collaboration/Weekly_Reviews/weekly-review-[date].md`
-
-### Step 5: Write to Google Doc (No Review Gate)
-
-Proceed directly to Step 6 — do NOT display content in terminal for review. User reviews formatted content in the Google Doc.
-
-### Step 6: Update Google Doc
-
-**If `skip_meeting_log: true`:** Skip the Weekly Log Prepend phase entirely.
-**If `tab1only`:** Only execute the Dashboard Replacement phase. Skip Weekly Log Prepend.
-**If `tab2only`:** Only execute the Weekly Log Prepend phase. Skip Dashboard Replacement.
-
-**Precondition**: The Google Doc must have all 3 markers (`=== PROJECT STATUS DASHBOARD ===`, `=== DASHBOARD END ===`, `=== WEEKLY SUMMARIES START ===`). If `DASHBOARD END` is missing, STOP and report — do not fall back to the old 2-marker approach.
-
-**6-Phase Protocol**:
-1. **Preparation** — Generate text with `[RED]`/`[GREEN]`/`[YELLOW]` ASCII placeholders; strip `**` markdown bold markers (bold is applied via API, not text)
-2. **Dashboard Replacement** — v1.9 — call the bundled `replace-dashboard.py`. Handles multi-tab `tabId` correctly (the MCP's `batch_update_doc` does not):
-   ```bash
-   python3 "$WEEKLY_REVIEW_HELPERS/replace-dashboard.py" \
-     --document-id "$GOOGLE_DOC_ID" --tab-id "t.0" \
-     --start-marker "=== PROJECT STATUS DASHBOARD ===" \
-     --end-marker "=== DASHBOARD END ===" \
-     --content-file /tmp/dashboard-replacement-$(date +%s).txt \
-     --json-output --apply
-   ```
-   Parse the JSON output: `status` is `applied`, `noop`, or `error`. Stop on error.
-3. **Verification** — Confirm all 3 markers intact after dashboard write
-4. **Weekly Log Prepend** — v1.9 — call the bundled `insert-weekly-log.py`:
-   ```bash
-   python3 "$WEEKLY_REVIEW_HELPERS/insert-weekly-log.py" \
-     --document-id "$GOOGLE_DOC_ID" --tab-id "t.0" \
-     --marker "=== WEEKLY SUMMARIES START ===" \
-     --content-file /tmp/weekly-log-$(date +%s).txt \
-     --json-output --apply
-   ```
-5. **Emoji Swap** — Use `find_and_replace_doc` (this MCP tool DOES correctly accept `tab_id`) to replace `[RED]`/`[GREEN]`/`[YELLOW]` with the real circle emoji
-6. **Formatting** — Apply heading sizes and team-name bolding using API-reported indices (from `inspect_doc_structure`), not calculated offsets
-
-**Phase 6 is required.** The document is unreadable without proper header sizes and bold formatting. After Phases 1-5, proceed to Phase 6 and apply at minimum: (a) Tier 2 baseline format reset (11pt non-bold on full range), then (b) Tier 1 section header formatting (16pt/14pt/12pt bold).
-
-**Formatting scope: FULL DOCUMENT.** Even when running `tab1only` or `tab2only`, Phase 6 formats the entire document. Formatting is idempotent.
-
-### Step 7: Final Confirmation
-1. Confirm: "Weekly review complete. Google Doc updated."
-2. Provide link: "Check Google Doc: [link]"
-3. If corrections were applied from comments: list them briefly
-4. If any comments were classified as questions/ambiguous: list them with anchor text so the user can address manually
-5. Note any other issues or manual fixes needed
-
-### Step 8: Archive Processed Transcripts
-
-After the weekly review is complete:
-
-1. Create archive folder if needed: `[project]/10_AI_Collaboration/Transcripts/archive/`
-2. Move all processed transcript files to archive (both Granola and Zoom for same meeting)
-3. Confirm: "Archived X transcript(s) to Transcripts/archive/"
-4. Note any files left behind (outside date range, unparseable)
-
-Legacy-format files are archived as-is. No automatic renaming.
-
-## Arguments
-
-`$ARGUMENTS` can include:
-- `nosave` — Don't save intermediate files
-- `tab1only` — Only generate Tab 1 dashboard
-- `tab2only` — Only generate Tab 2 detailed log
-- `days:N` — Override date range to last N days
-- `since:YYYY-MM-DD` — Override start date
-- `skipwhatsapp` — Skip WhatsApp even if available
-- `skipemail` — Skip email even if configured
-- `skiparchive` — Don't archive transcripts after processing
-
-## Examples
-
-```
-/weekly-review                    # Full review, default date range
-/weekly-review days:14            # Last 14 days
-/weekly-review tab1only           # Quick dashboard update
-/weekly-review skipwhatsapp       # Skip WhatsApp if it's being flaky
-```
-
-## Customization Points
-
-**To set up this skill for your workflow:**
-
-1. **Folder paths**: The default `10_AI_Collaboration/Weekly_Reviews/` path reflects one project structure. Update to match your own — e.g., `~/Research/Project/reviews/` or `docs/weekly-reviews/`.
-
-2. **Data sources**: The skill pulls from WhatsApp, meeting transcripts, and Gmail by default. Remove or add sources in the data collection steps to match your available integrations.
-
-3. **Google Doc format**: The 3-marker system requires markers in your Google Doc. See Step 6 for setup.
-
-4. **Dashboard template**: The default is quantitative. Set `project_type: qualitative` in your project config for a qualitative dashboard.
-
-5. **Transcript formats**: Support for Granola, Zoom `.vtt`, manual markdown, RTF/PDF normalization. Add new format parsers as needed.
-
-6. **Helper scripts location**: The original workflow expects `normalize-transcripts.py`, `replace-dashboard.py`, and `insert-weekly-log.py`. This public repository does not include them. Set `WEEKLY_REVIEW_HELPERS` to the directory containing your reviewed local helpers and verify all three files before use.
-
-## Error Handling
-
-- If project config missing: "No .claude/CLAUDE.md found. Please run from a configured project folder."
-- If config has malformed YAML: stop and surface the errors. Do not fall back silently.
-- If WhatsApp unavailable: Continue with other sources, note in output
-- If no transcripts folder: Create it, note "No transcripts folder found - created"
-- If Google Doc update fails: Save Tab 1 content locally, provide manual instructions
-- Flag any ambiguities: "Unclear who said X - please clarify"
-
-## Performance Logging
-
-After completing all steps above:
-```bash
-echo "$(date +%Y-%m-%d),weekly-review,TOOL_CALLS,NOTES" >> ~/.claude-assistant/logs/skill-performance.csv
-```
-Replace TOOL_CALLS with your exact count. No `~` prefix. Replace NOTES with brief volume info (e.g., "3 transcripts 12 emails 2 whatsapp"). Do not skip this step.
+The public instructions and configuration are intended for adaptation in Claude or Codex. They are not evidence of a tested integration in every host. Before enabling recurring writes, test in a disposable Doc: initialize; refresh from a new note; preserve a human correction; rerun without duplicate history; stop on conflicting revisions or duplicate markers; preserve Tab 2 unless its change was authorized. No production account operation is implied by installing this reference workflow.

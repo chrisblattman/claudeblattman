@@ -14,6 +14,8 @@ No coding background required. Ask your AI to walk you through the guides and he
 
 The starter kit gives Claude Code and Codex seven skills for developing work with a council, getting a fresh review, improving prompts, connecting other agents and saving a handoff for your next session.
 
+The starter kit is a self-contained bundle of seven skills and their supporting files. The separate skill library and other materials in this repository are not included.
+
 Start with the **[installation walkthrough](https://claudeblattman.com/starter-kit/occasional/#1-install-the-starter-kit-or-use-plain-language)**. For prerequisites, connections to other AIs and updates, see the [package guide](starter-kit-source/PACKAGE-README.md).
 
 **Validation status:** The package is marked 0.3.1; its documentation lists live acceptance testing as pending. See the package guide for current validation limits.

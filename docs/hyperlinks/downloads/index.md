@@ -87,7 +87,7 @@ Guides, templates, and reference documents from my actual setup. Download, adapt
 
     Step-by-step guide to auditing and organizing files across Dropbox, Google Drive, Box, and local disk using Claude Code. Based on a real multi-day workflow. Includes prompts, scripts, and decision frameworks.
 
-    [:octicons-download-16: Download](../../workflows/cloud-storage-guide.md) · [:octicons-arrow-right-24: Related: Executive Assistant](../../workflows/building-an-assistant.md)
+    [:octicons-download-16: Download](../../workflows/cloud-storage-guide.md) · [:octicons-arrow-right-24: Related: Email workflows](../../workflows/manage-email.md)
 
 </div>
 

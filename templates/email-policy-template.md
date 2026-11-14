@@ -44,18 +44,17 @@ VIP emails are never auto-triaged — they always stay in your inbox.
 
 ## Auto-Archive Rules
 
-Emails matching these patterns are archived and marked read automatically.
+Enable only rules you have reviewed. Decide archiving and read status separately. Action-required, security, payment-failure, and protected-person messages take precedence over generic sender patterns.
 
 ### Stage 1 — High Confidence (exact sender match)
 | Sender | Action | Notes |
 |--------|--------|-------|
-| noreply@github.com | Archive + mark read | GitHub notifications |
-| no-reply@accounts.google.com | Archive + mark read | Account alerts |
+| newsletter@example.org | Archive, leave unread | Illustrative reading subscription; replace with a reviewed sender. |
 
 ### Stage 2 — Medium Confidence (domain/pattern match)
 | Pattern | Action | Notes |
 |---------|--------|-------|
-| *@notifications.example.com | Archive + mark read | App notifications |
+| *@notifications.example.com | Review before enabling | Check for action-required exceptions before using a domain-wide rule. |
 
 ---
 

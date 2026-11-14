@@ -124,6 +124,28 @@ You’ll want a council skill to follow the rest of this workflow. You can ask f
 
 I’m not the only one doing this, and you do not have to use my skills. The advantage of mine is that the workflows and guides on this website refer to them, so the examples should be easier to follow. The tradeoff is upkeep: I get bogged down by other tasks and I might forget to update the skill bundle online. Other authors may maintain theirs more actively. Here’s a [list of other council and adversarial review skills others have published](../hyperlinks/council-skills.md).
 
+**What the starter kit adds**
+
+The starter kit is a self-contained bundle of the seven skills below and their supporting files. The other skills in my GitHub repository are separate—you can add them later if you want.
+
+<div class="council-kit-summary" markdown>
+
+| Command | What it does |
+|---|---|
+| `/council` | Develops the work with independent members and synthesizes their findings. |
+| `/adversarial-review` | Reviews the draft with a fresh panel and synthesizes its findings. |
+| `/kit-hello`, `/kit-setup` | Checks the installation, introduces the skills, and connects other agents. Usually needed only during setup. |
+| `/ask-agents` | Asks another connected agent for an outside opinion. |
+| `/prompt` | Helps you prepare or improve a prompt, and carries out the task when you ask it to. |
+| `/done` | Saves a handoff for your next session. |
+
+**Codex installation:** [Starter Kit for Codex plugin and installation instructions](https://github.com/chrisblattman/claudeblattman/tree/main/plugins/starter-kit-codex#install-the-published-plugin)<br>
+**Claude installation:** [Starter Kit for Claude plugin and installation instructions](https://github.com/chrisblattman/claudeblattman/tree/main/plugins/starter-kit-claude#install-the-published-plugin)
+
+</div>
+
+I publish some of my [other frequently used skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills), if and when you want them.
+
 For installation (and anything else): **when in doubt, just ask the AI to do it.** That’s a general principle for making the most of AI. The rest of the page is here if you’re interested in what’s happening or want more detail, but ideally, we don’t actually want you to follow all the instructions. We want your AI to follow them.
 
 Open a local Claude Code or Codex session, navigate to the project you want to work in, and ask your agent something as simple as this:
@@ -160,22 +182,6 @@ If the controls in your version look different, use the current [Claude installa
 The quick answer: **turn on automatic permissions** to reduce routine approval prompts—**Auto** in Claude Code or **Approve for me** in Codex, where available. These modes check actions automatically, though some requests may still need your approval. Ask your agent to show you the setting, then read [Set permissions in Your first session](newcomers.md#3-set-permissions) for more about what it allows and how to choose your settings.
 
 </details>
-
-**What the starter kit adds**
-
-<div class="council-kit-summary" markdown>
-
-| Command | What it does |
-|---|---|
-| `/council` | Develops the work with independent members and synthesizes their findings. |
-| `/adversarial-review` | Reviews the draft with a fresh panel and synthesizes its findings. |
-| `/kit-hello`, `/kit-setup` | Checks the installation, introduces the skills, and connects other agents. Usually needed only during setup. |
-| `/ask-agents` | Asks another connected agent for an outside opinion. |
-| `/done` | Saves a handoff for your next session. |
-
-</div>
-
-I publish some of my [other frequently used skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills). They do not ship with this starter kit, but you can find them there if and when you want them.
 
 <label class="step-done"><input type="checkbox"> The skills and their supporting files are installed.</label>
 

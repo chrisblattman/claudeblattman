@@ -1,113 +1,103 @@
 ---
-title: Organize your work around structured projects
-description: Give recurring work a home, save the context your agent needs, and pick up where you left off.
+title: Set up a project for AI collaboration
+description: Give your projects a consistent folder structure so you and your agents know where to find sources, save work, and pick up next time.
 ---
 
-# Organize your work around structured projects
+# Set up a project for AI collaboration
 
-When you return to a project after a week away, you want to find the current draft, remember what you decided, and get back to work. You also want the AI to know enough about the project that you don't have to explain it all again.
+Your agent works better when it knows where to find things. I try to give my projects a consistent folder structure, whether I'm working on research, a personal project, or my AI setup. Background research goes in a predictable place. So do drafts, meeting transcripts, and the results of councils and reviews. That saves me from explaining where to look and where to put the next file every time I start a session.
 
-**Start with one project you will use again.** It might be a research paper, a committee, or family travel. My projects largely grew out of folders I already had in Dropbox. You can improve the organization while doing the work.
+When I start a project, I initialize a few of those folders, even if they're empty. I don't need the whole structure on day one. Some skills create their own folders when I first use them. But choosing a few destinations early helps keep the project organized before it gets out of hand.
 
-As always, ask your AI to help. Open the project you want to work in and try:
+I use Dropbox, but the same approach works with OneDrive, Box, or folders stored locally on your computer. Use the storage you and your collaborators already work with.
 
-```text
-Help me organize this project so we can work on it over time. Look at what is already here, ask me about the context you're missing, and suggest a simple way to keep the current work, sources, and instructions easy to find.
-```
+**Already have a project folder, but it's a mess?** Start with [Clean up an existing project](clean-up-project.md).
 
-<div class="checklist" markdown>
+## What a structured project looks like { #4-use-a-structure-people-can-understand }
 
-### 1. Give the project a home
-
-Choose a folder that covers the work you want to do. A research project can have its own folder; a broad home-and-family folder can contain smaller projects for individual trips. Open the level that makes sense for today's task. The [starter guide](../starter-kit/newcomers.md) shows how to begin working in a project.
-
-The material can live in more than one place. A shared Google Doc, a Dropbox folder, and a library of papers can stay where they are. Ask the agent to make a short index of the relevant locations and check which ones it can read. If it proposes moving files, look at the proposed organization first.
-
-<details class="council-details" markdown="1">
-<summary>Using a chatbot project instead of a local folder?</summary>
-
-For a browser chatbot project, such as a project in ChatGPT or Claude.ai, use the app's project instructions for reusable directions and its reference files for the background material. A chatbot project and a folder on your computer are different things: creating one does not automatically give it access to the other. Add the material you want it to use, or [connect the app that holds it](../build-your-own/mcp-setup.md).
-
-You can follow the same steps below. Ask the AI to help save the resulting context in the project features your app provides. If it cannot update those instructions or files directly, ask for the revised text and save it there yourself. If your app has no project feature, keep the context in a document you can attach to a new chat.
-
-</details>
-
-<label class="step-done"><input type="checkbox"> My project has a home, and my agent can find the relevant material.</label>
-
-### 2. Tell the agent what matters { #build-your-first-file }
-
-Your files won't explain everything. Talk through what you're trying to do, who's involved, the constraints, and what has worked or failed before. For a recurring task, include the preferences you find yourself repeating.
-
-For family travel, that might mean who likes what, how long you're willing to drive, and why the last trip worked. For a research project, it might mean the question you're trying to answer, who makes which decisions, and what the funder needs next.
-
-```text
-Use what I've told you and the material in this project to write a short project overview. First ask me the questions that would change your advice. Separate preferences we'll use again from details specific to this task, and show me anything you've inferred so I can correct it.
-```
-
-Read the overview and fill the gaps. Specific constraints are useful: “keep drives under two hours” gives the AI more to work with than “we don't like long drives.” Include what you want to avoid as well as what you like.
-
-<label class="step-done"><input type="checkbox"> I've given the agent the context it needs and corrected its account of the project.</label>
-
-### 3. Give each kind of information a place
-
-Ask the agent to organize what you've gathered around a few simple jobs:
-
-| Material | What belongs there |
-| --- | --- |
-| **Current overview** | The goal, people, decisions, open questions, next actions, and links to the current work. |
-| **Sources and notes** | Reference documents, data, correspondence, and dated meeting notes or transcript links. |
-| **Drafts and outputs** | Work in progress and finished results, with the current version clearly identified. |
-| **Standing instructions** | Preferences and directions you want the agent to use repeatedly. |
-
-Keep changing facts in the overview or task brief. “Avoid overnight flights” may be a lasting preference; the dates and bookings for this trip belong with this trip. You want to retain both, with their purpose clear.
-
-```text
-Organize this material so we can tell what's current, find the original sources, and reuse the instructions that apply next time. Use the files we already have where possible. Keep links to material that lives elsewhere, and show me where you put things.
-```
-
-<details class="council-details" markdown="1">
-<summary>One possible folder layout</summary>
+Here is a starting point. You can change the names. The useful part is knowing what belongs where.
 
 ```text
 My project/
-├── PROJECT_INDEX.md       Where the material lives
-├── PROJECT_STATUS.md      Current goals, decisions, and next steps
-├── AGENTS.md / CLAUDE.md  Standing instructions
-├── drafts/               Current work and finished versions
-├── meetings/             Dated notes and transcript links
-└── references/           Sources or pointers to them
+├── PROJECT_INDEX.md       Where material lives and which versions are current
+├── PROJECT_STATUS.md      Current overview and next actions
+├── AGENTS.md / CLAUDE.md  Standing instructions for the agents you use
+├── research/              Background research, reports, and source notes
+├── council/               Prompts, independent reports, and synthesis
+├── drafts/                The work you are developing
+└── transcripts/           Project meeting transcripts
 ```
 
-These names are examples. A shared document can hold the overview, and a small project may need only an overview and its source files. Ask the agent to fit the structure to your work.
+You might start with `drafts/` and `research/`, and add `transcripts/` if the project involves meetings. A folder for council runs can wait until your first run. The index can also point to material elsewhere: a shared Google Doc, a team's data folder, or a code repository on GitHub. They don't all have to move into this folder.
 
-</details>
-
-For instructions you want the agent to read at the start of a session, see [Write persistent instructions](../build-your-own/agents-md.md). Keep the current overview short enough to use; link to the history rather than copying it all into the instructions. Written instructions guide the agent's behavior; access settings determine what it can reach.
-
-<label class="step-done"><input type="checkbox"> I can find the current work, its sources, and the instructions we will reuse.</label>
-
-### 4. Use the project and leave a handoff
-
-Give the agent a real job. Ask it to read the overview and relevant sources, flag missing or contradictory information, and get to work. Add your judgment as you go. If a new decision changes the plan, have it update the current overview.
-
-At the end, use the starter kit's [/done](../starter-kit/occasional.md#7-save-where-you-landed) to save a handoff. Without that skill, you can ask in ordinary language:
+A research project might look like this, with the AI work collected under `10_AI_Collaboration/`:
 
 ```text
-Save where we landed: the decisions, unfinished work, next action, and links to the current draft. Update the project overview where needed so we can pick this up in another session.
+Research project/
+├── 01_Paper/
+├── 02_Presentations/
+├── 03_Literature/
+├── 04_Referee_Reports/
+├── 05_Submissions/
+├── 06_IRB/
+├── 10_AI_Collaboration/
+│   ├── PROJECT_INDEX.md
+│   ├── TODO.md
+│   ├── research/
+│   ├── council/
+│   ├── Transcripts/
+│   ├── Weekly_Reviews/
+│   └── Dashboard_Archive/
+└── …                      Other project folders as needed
 ```
 
-The handoff records where you stopped. It does not automatically update every separate document you use to manage the project, so name the overview you also want updated.
+Use the parts that fit your project. A paper might need referee reports and submissions but no IRB folder. Data, code, and fieldwork material can stay in the locations your team already uses. The numbers aren't important enough to rename a shared folder that already works.
 
-<label class="step-done"><input type="checkbox"> I've used the project on real work and saved what we need next time.</label>
+The structure becomes useful when your skills follow it:
 
-### 5. Come back and improve the setup
+- **Research:** use `research/` for reports from `/research-council` and `/deep-research`. In the research-project example above, that means `10_AI_Collaboration/research/`. Have the setup agent check where your installed skills save their work and adjust their destinations to match.
+- **Councils and reviews:** `/council` and `/adversarial-review` save the prompt, reports, and synthesis together. For a research project, I'd put these in `10_AI_Collaboration/council/` and save that choice in the project's `CLAUDE.md` and, if you use Codex, `AGENTS.md`. Then you don't have to repeat the destination every time. A project instruction can say: “Save `/council` and `/adversarial-review` runs in dated folders under `10_AI_Collaboration/council/`, relative to this project's root.”
+- **Meetings:** I have a script that maps Granola folders to project folders and files transcripts there. You can [set up transcript filing](../hyperlinks/granola.md#file-every-transcript-where-the-agent-can-find-it) and later schedule it. You'll choose the transcript destination during project setup, and then set up the recurring task separately.
 
-When you return, ask the agent to read the overview and handoff, check for newer material, and help you resume. For a larger project, the [catch-up guide](project-management.md) goes further. If you need an older decision or conversation, see [Find past work](recall.md).
+Setting this up will help you and your agents find past work, and give your skills a consistent place to save new work.
 
-Improve the saved context when experience gives you a reason. A shopping recommendation may reveal an unstated preference; a project meeting may change the deadline. Put each correction where it belongs. Keep reusable preferences separate from the facts of one task.
+<div class="checklist" markdown>
 
-The [personal shopper](life/shopping.md), [vacation planning](life/vacation.md), and [health and fitness](life/health.md) examples show how this works for different kinds of recurring questions.
+## 1. Install `/setup-project-management`
 
-<label class="step-done"><input type="checkbox"> I can return to this project and continue without reconstructing the previous chat.</label>
+My [`/setup-project-management`](https://github.com/chrisblattman/claudeblattman/tree/main/skills/setup-project-management) skill walks you through choosing a structure and getting the project set up. It's separate from the starter kit. If you haven't installed it, give your agent the link and ask it to install the skill for your app.
+
+<label class="step-done"><input type="checkbox"> I've installed `/setup-project-management`.</label>
+
+## 2. Set up your project { #build-your-first-file }
+
+Open the project folder in your agent and ask:
+
+```text
+Use /setup-project-management to set up this project. My personal projects
+might be set up differently than what this skill expects, so please keep
+track of our structural choices so that we can tailor this skill to my own
+projects when we are done.
+```
+
+Your projects may look different from mine, so expect some back-and-forth the first time. Tell the agent which folders you need, what you call them, and where existing work should stay. Look over its proposed structure together before it creates anything.
+
+<label class="step-done"><input type="checkbox"> The project has the folders I want, and its instructions say where each skill should save its work.</label>
+
+## 3. Adapt the skill for your next project
+
+Once you've worked through the first setup, use those choices to improve your own copy of `/setup-project-management`. You shouldn't have to explain the same folder preferences again next time.
+
+```text
+Now help me adapt my copy of /setup-project-management using the structural
+choices we made. Make my folder names and output destinations the defaults
+for future projects, with options for different kinds of projects. Keep this
+project's people, current status, and one-off decisions out of the skill.
+Show me what you changed.
+```
+
+<label class="step-done"><input type="checkbox"> I've adapted the skill to my preferences, or kept its defaults because they fit.</label>
 
 </div>
+
+Next: [Build a project dashboard](project-management.md) if you want a shared view of the project's progress and decisions.

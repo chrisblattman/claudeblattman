@@ -50,7 +50,7 @@ Start a fresh session, check which copy loads, and try the workflow on a suitabl
 | Skill | Command | Dependencies | Description |
 |-------|---------|-------------|-------------|
 | [**Aniket Me**](aniket-me/README.md) | `/aniket-me` or `$aniket-me` | Bundled public source notes | Applies Aniket Panjwani's public advice to help improve how you work with AI |
-| [**Check-In Session**](checkin/SKILL.md) | `/checkin` | Gmail MCP, Calendar MCP, goals.yaml | Interactive daily check-in: inbox triage, reminder triage, meeting prep, email drafting, priorities |
+| [**Check-In Session**](checkin/SKILL.md) | `/checkin` | Mail connection, `/triage-inbox`, Python 3.9+; optional calendar/task tools | Email-first check-in: FYIs, decisions, approved replies, saved batches, and configurable extra reviews |
 | [**Session Capture (starter kit)**](../starter-kit-source/skills/done/SKILL.md) | `/done` | Starter kit; Python 3 | Saves a project session log, current handoff and useful artifacts; preserves unrelated unfinished work. |
 | [**Goals Review**](goals-review/SKILL.md) | `/goals-review` | goals.yaml | Review and update quarterly objectives, progress scores, and deadlines |
 | [**Morning Briefing**](morning-brief/SKILL.md) | `/morning-brief` | Gmail MCP, Calendar MCP | Daily briefing: calendar, reminders, inbox highlights, VIP tracking, goal alignment, optional triage |
@@ -61,7 +61,7 @@ Start a fresh session, check which copy loads, and try the workflow on a suitabl
 | **Council (migration notice)** | `/council` | Shared starter kit | Use the bundled development council; bundled adversarial-review handles critique |
 | **Plan Review (migration notice)** | `/review-plan` | Shared starter kit | Use bundled `/adversarial-review` |
 | [**Schedule Query**](schedule-query/SKILL.md) | `/schedule-query` | Calendar MCP | Checks calendar availability and drafts scheduling replies |
-| [**Project Setup**](setup-project-management/SKILL.md) | `/setup-project-management` | None | Initializes project management system for research projects |
+| [**Project Setup**](setup-project-management/SKILL.md) | `setup-project-management` | Local file access; optional capable Google Docs and email connections | Public adaptation for discovery, local organization, and dashboard initialization; includes project-instructions and priority-based TODO templates plus a shared project-config contract. |
 | [**Add To-Do**](todo-add/SKILL.md) | `/todo-add` | None | Adds a to-do item to the correct list with duplicate checking |
 | [**Todo Queue**](todo-queue/SKILL.md) | `/todo-queue` | Gmail MCP, Apple Reminders | Batch-processes emails into Apple Reminders with timing extraction |
 | [**Todo Review**](todo-review/SKILL.md) | `/todo-review` | None | Reviews and consolidates to-do items across configured files |
@@ -69,8 +69,8 @@ Start a fresh session, check which copy loads, and try the workflow on a suitabl
 | [**Tips Curate**](tips-curate/SKILL.md) | `/tips-curate` | Saved reports; optional email/bookmark connections | Deduplicates and assesses tips from all sources in one shared log, with source and host routing. |
 | [**Tips Integrate**](tips-integrate/SKILL.md) | `/tips-integrate` | Shared tips log and configured targets; native subagents for larger batches | Ranks ideas with five bundled critics, applies authorized changes and queues investigations. |
 | [**Tips Scout**](tips-scout/SKILL.md) | `/tips-scout` | Optional tips log/task list; Ask Agents and Grok connection for live consultation | Prepares and saves a search prompt from coverage gaps; calls Grok only when explicitly requested. |
-| [**Inbox Triage**](triage-inbox/SKILL.md) | `/triage-inbox` | Gmail MCP | Smart email classification with label-in-inbox sweep, auto-filter creation, and heuristics Gmail filters can't replicate |
-| [**Weekly Review (reference only)**](weekly-review/SKILL.md) | `/weekly-review` | Google Docs connection, project configuration and external helper scripts | Example workflow. Three required Python helpers are not included in this public repository. |
+| [**Inbox Triage**](triage-inbox/SKILL.md) | `/triage-inbox` | Gmail connection; Python 3.9+ | Policy-based filing, read-only preview, verified progress tracking, and filter proposals. Includes setup templates and supporting files. |
+| [**Weekly Review**](weekly-review/SKILL.md) | `weekly-review` | Selected project sources; capable Google Docs connection for direct writes | Reference workflow for one project: preserve corrections, update dashboard/history, propose plan changes. No bundled writer or scheduler. |
 | [**Announcement Digest**](announcement-digest/SKILL.md) | `/announcement-digest` | Gmail connection and source rules | Summarize announcement emails |
 | [**Deep Research (reference)**](deep-research/SKILL.md) | `/deep-research` | Configured research tools and archive | Older federated research workflow; not Chris’s current private skill |
 | [**Research Synthesis**](dr-synthesize/SKILL.md) | `/dr-synthesize` | Saved research reports | Combine reports while preserving source links |

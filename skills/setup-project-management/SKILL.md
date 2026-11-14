@@ -1,136 +1,91 @@
 ---
 name: setup-project-management
-description: "Set up project folders, task lists, project instructions, a document hub and meeting transcript workflow."
+description: Set up or repair a project's local context, source index, and optional dashboard. Use for a new project or an existing folder that needs organization for human and AI collaboration.
 ---
 
 # Setup Project Management
 
-*v1.1 — Simplified: reduced redundancy and verbosity*
+Public adaptation v1.2, 2026-11-10. Derived from the shared setup workflow v1.1 (2026-02-28), with a portable configuration and explicit local/Google Docs boundaries. This is an instruction workflow to adapt to available tools, not a bundled document API client or scheduler.
 
-Sets up: folder structure, TODO.md, PROJECT_INDEX.md, .claude/CLAUDE.md, Google Doc hub, and meeting transcript workflow.
+## Scope and modes
 
-## Instructions
+Use the user's existing project folder and naming when possible. Handle research, writing, professional, and personal projects. Preserve explicit choices and approvals already made in the conversation.
 
-### Phase 1: Discovery (DO THIS FIRST)
+- `discover`: inspect and report; no writes, including configuration or state.
+- `plan`: discovery plus a proposed setup; no writes.
+- `minimal`: establish the index, overview or link to its authority, and instructions needed to resume.
+- `full` or an ordinary setup request: implement the agreed local structure and optional dashboard within the user's authorization.
+- `dashboard`: initialize or configure the dashboard for an existing project; don't repeat unrelated folder setup.
 
-Before making ANY changes, assess the current state:
+An ordinary setup request combines discovery, structure choice, and initialization. Present the relevant structure and settle important open choices with the user before dependent changes: project type, naming, folders to initialize, and output destinations. Reuse choices already made in the conversation; do not repeat a questionnaire.
 
-1. **Explore existing folder structure** — list files/folders, note organizational system, identify where documents/data/code live
-2. **Check for existing docs** — README, INDEX, .claude/, Google Docs, Notion
-3. **Identify tools and workflows** — Google Docs, Overleaf, Box, GitHub, WhatsApp groups, meeting notes, scripts
-4. **Check external file sources** — shared drives, cloud storage (Box, OneDrive, etc.). If found, get: web URL, local path, sync status. Identify high-priority files for local copies.
-5. **Assess data sensitivity** — IRB status, identifiable data locations
+An answer to a discovery or scope question is not, by itself, approval of the implementation plan. Present the concrete files and destinations and obtain agreement before initialization, unless that plan is already authorized in the conversation.
 
-### Phase 2: Gap Analysis
+A request to inspect does not authorize organization. A request to set up the project authorizes routine local additions needed for the agreed outcome; do not add approval gates for every file. Ask about consequential ambiguity, competing authoritative versions, moves affecting collaborators, or an unspecified shared destination before those dependent changes.
 
-Present findings to user covering: existing structure, existing docs/tools, gaps vs. template, and potential conflicts.
+## Discover the actual project
 
-### Phase 3: Design Discussion
+Read existing project instructions first. Inventory the bounded project folder, current drafts, source notes, handoffs, task lists, and linked documents. Identify who uses them, the current deliverable, and whether work is exploratory, active execution, or finishing. Different workstreams may be at different stages.
 
-**STOP AND DISCUSS WITH USER** before proceeding. Gather:
+A project may span several folders named by the user. Inventory each selected location, retain the source path for each candidate current file, and distinguish the proposed project home from sources that will stay elsewhere. Record the repository URL and existing local checkout path where relevant; leave code in its established location unless the user requests a separate move.
 
-0. **Project type** — determines folder structure, Google Doc setup, config fields:
-   - a) **Quantitative RCT** — full folders with IRB, Survey Instruments, Field Materials
-   - b) **Qualitative/Ethnographic** — Fieldwork folder replaces IRB; may skip survey/field folders
-   - c) **Theory/Writing** — minimal structure; may skip Google Doc hub and WhatsApp if solo
+Include early email correspondence in discovery. Ask: "Are there any names or email addresses I should search for correspondence about this project, including early discussions before it had a settled name?" Gather useful project aliases, subject lines, date range, and exclusions; reuse answers already supplied. Wait for the answer before searching email while continuing independent local discovery. Use available connected tools for a bounded, read-only search. Identify aims, participants, decisions, commitments, deadlines, and linked resources, with message dates and source links or IDs. Distinguish proposals from agreed decisions and verify project relevance when collaborators overlap. If the user declines or access is unavailable, report that gap and continue. Discovery does not send, draft, or modify messages.
 
-1. **Folder structure** — adopt numbered system, keep current naming, or hybrid?
-2. **Central document hub** — existing Google Doc or create new? Structure?
-3. **Meeting transcripts** — storage location, tool (Granola, Zoom, manual)?
-4. **Communication channels** — WhatsApp group names (exact), email keywords/senders
-5. **Team and workflow** — key members, meeting cadence
-6. **Sensitivity screening** — any PI-only or personnel groups to flag?
-7. **Related projects** — shared team members, overlapping keywords, cross-project email handling?
-8. **External file sources** — shared drive details; which files to copy locally (typically: research design, IRB, key lit; NOT: raw data, admin budgets); sync vs. unsync preference
+Check actual access. For synced storage, verify selected working files can be opened; placeholders and document shortcuts aren't necessarily readable content. Record external locations and access gaps. Don't scan unrelated accounts, download an entire shared drive, move restricted data, or treat an inaccessible source as empty.
 
-### Phase 4: Propose Customized Plan
+For a messy existing project, compare competing drafts and recover accepted decisions from available records. Distinguish suggestions, agreed plans, and completed work. Retain original files; propose moves and an archive map before reorganizing. When the authority is unclear, leave it unresolved for the user rather than using modification time as proof.
 
-Present a specific plan covering: folder changes, files to create, Google Doc structure, WhatsApp config, external file sources (if any), workflow adaptations, and what stays unchanged. **Get user approval before proceeding.**
+End a discovery report with unresolved decisions that need the user's judgment. When consolidation is requested, show a source-to-destination map before reorganizing; distinguish copies, moves, and archival, and identify filename collisions and competing versions. Apply the agreed changes only in an implementation mode, retain recoverable originals, and update affected links and the index. Reuse discovery findings and decisions already available in the conversation; recover missing findings before making changes that depend on them. Discovery itself saves no report or state. A separate request to save the findings authorizes that record only, not reorganization.
 
-### Phase 5: Implementation
+## Choose a small structure
 
-Only after user approval:
+Read the bundled [project instructions template](assets/templates/project-instructions-template.md) and [TODO template](assets/templates/project-todo-template.md) when proposing the setup. Resolve these paths from the skill directory. The instructions template is a sanitized adaptation of an archived field checklist; map settings to the existing configuration or the shared project-config contract rather than maintaining duplicate authorities. The TODO template is a newly designed replacement, not a recovered original or a verified interface for other task-management skills. Populate either only within the agreed setup plan.
 
-1. **Create folder structure** (new folders only; never reorganize without permission)
-   - **Quantitative RCT**: Full numbered folders with IRB, Survey Instruments, Field Materials
-   - **Qualitative/Ethnographic**: Fieldwork folder (Interview Memos, Transcripts, Consent Forms); may skip survey/field folders; add Decision_Log.md
-   - **Theory/Writing**: Minimal (Paper, Presentations, Literature, AI_Collaboration); skip Google Doc hub/WhatsApp if solo
-   - Skip inapplicable folder numbers — this is expected.
+Prefer useful existing organization. Offer the relevant pattern and initialize the small set of empty folders the user expects to use soon. Let other workflows create additional destinations when needed:
 
-2. **Create TODO.md** in `AI_Collaboration/`. Replace project name and date placeholders.
+- General project: source index, current overview, standing instructions, drafts/outputs, `research/`, and `council/` when used.
+- Research project: paper, presentations, literature, plus an AI-collaboration area for research notes, council runs, transcripts, review history, and dashboard snapshots. The source workflow uses `01_Paper`, `02_Presentations`, `03_Literature`, and `10_AI_Collaboration/{Transcripts,Weekly_Reviews,Dashboard_Archive}`. Preserve unnumbered or differently named equivalents.
+- Keep data, code, instruments, fieldwork, submissions, or approvals in the project's established locations; add only what the project needs.
 
-3. **Create PROJECT_INDEX.md** — project overview, Google Doc links, transcript workflow, folder map
+Record actual paths in the index and project instructions. Check the relevant skill's actual routing when selecting its output location. Distinguish a recorded preference from a route that has been configured; creating a folder does not redirect an existing skill. Pass the selected destination when invoking it, or configure the route within the user's request.
 
-4. **Create .claude/CLAUDE.md** with:
-   - Project overview, WhatsApp groups (exact names), Google Doc ID/URL
-   - Folder paths for transcripts, weekly reviews, dashboard archive
-   - Gmail keywords (include/exclude), sensitivity guidelines, cross-project notes
-   - Team roster, project status, project-specific workflows
-   - External file sources section if applicable (source info, files copied vs. not copied, "If Not Found" guidance)
+Create or update:
 
-5. **Copy external files** (if approved) and document in PROJECT_INDEX.md
+1. `PROJECT_INDEX.md`: where material lives, current versions, external links, and known access gaps.
+2. A short current overview: goal, stage, governing decisions and reasons, open questions, next actions, and source links. If a Google Doc is the authority, use a pointer instead of a competing status copy.
+3. Host instructions used in this project, such as `AGENTS.md` and `CLAUDE.md`: durable preferences and pointers to shared context, using the bundled project instructions template as a field checklist. Preserve existing instructions; avoid duplicating changing status across host files.
+4. A task list at the agreed location, using the bundled TODO template for a new list. Its sections are High / Medium / Low priority, Waiting / blocked, Proposed work / needs confirmation, Completed, and Not proceeding. Set priority from user direction or documented needs; keep optional task details concise. Reconcile existing lists and identify their scopes and authority before introducing another. Preserve rejected or uncommissioned work distinctly from open tasks and completed execution. Adapt links to the actual location.
+5. A handoff only when there is session state to save. It describes where work stopped, not a second dashboard.
 
-6. **Set up or document Google Doc hub** (don't restructure without explicit permission)
+Claude and Codex can use the same project folder; their chats are not automatically shared. Explain that saved context supports switching hosts. Avoid simultaneous writers to the same files.
 
-7. **Create AI collaboration subfolders** if missing: `Transcripts/`, `Weekly_Reviews/`, `Dashboard_Archive/`
+## Optional dashboard initialization
 
-8. **Create submissions subfolders** if applicable: `Grants/`, `Journal/`, `Pre_Registration/`, `Conference/`
+Read [the project configuration and dashboard contract](references/project-config.md) for dashboard setup. Configure an existing Doc when one is already authoritative. If the user wants a new Doc, verify the connected account and destination, then use available native tools. Do not change sharing or manufacture a link. If direct creation/editing isn't available, prepare local content and explicit manual placement steps and record that the Doc is not initialized.
 
-### Phase 6: Verification
+Use two roles, mapped to actual tab IDs rather than ordinal positions:
 
-After implementation:
+- Overview & Meeting Log: current status, priorities, next actions, human corrections, dated history.
+- Research design & progress (or Project plan): questions, rationale, design, evidence, and milestone decisions.
 
-1. **Verify files** — all created files in correct locations, paths accurate, TODO.md routing links work
-2. **Verify external sources** (if configured) — path in CLAUDE.md, files copied, "If Not Found" section present
-3. **Verify Google Doc markers** (3-marker system):
-   - Research projects need: `=== PROJECT STATUS DASHBOARD ===`, `=== DASHBOARD END ===`, `=== WEEKLY SUMMARIES START ===`
-   - Institutional projects need: same first two + `=== MEETING LOG START ===`
-   - All 3 required in Tab 1 — advise user to add any missing markers
-4. **Summary for user** — list what was created, configured, external sources status, marker compatibility, next steps
+Adapt content to stage: early possibilities and decision rationale; middle-stage progress, dependencies and choices; late-stage deliverables, unresolved checks and handoff. Link source evidence. Don't invent owners, dates, completion, or project facts to fill a template.
 
-## Key Principles
+Show the initial content and destination when they haven't already been agreed. For direct writes, use current tab-scoped operations, revision checks for existing Docs, and readback. If the connector cannot enforce the intended write boundary, retain a local proposal rather than replacing a whole shared document. Leave unrelated tabs untouched.
 
-- **Explore first, change later** — never overwrite or reorganize without permission
-- **Iterate** until user is satisfied; document tradeoffs when template conflicts with existing setup
+Set up unique dashboard/history boundaries only in the approved overview tab. Never insert template markers into an existing document merely because a source search didn't find them. Inspect tables and other structures; ask before restructuring established content.
 
-## Arguments
+## Verify and hand off
 
-`$ARGUMENTS` can include:
-- `discover` — Only run Phases 1-2 (assessment, no changes)
-- `plan` — Run through Phase 4 (stop before implementation)
-- `full` — Complete setup with all phases
-- `minimal` — Create only .claude/CLAUDE.md and essential config
+- Check that each created path/link resolves or is explicitly marked unavailable.
+- Confirm the index identifies a single current status authority and current deliverable.
+- For a dashboard, read back both configured tabs, exact markers, human-notes area, and initial content. Record partial completion accurately.
+- Save configuration only with verified IDs; leave unknown optional values null. No credentials belong in project files.
+- Explain the next bounded task and how to resume from the saved files.
+- Introduce `weekly-review` for later refreshes if available; otherwise provide the equivalent request in plain language. It is a separate workflow, not an automatic consequence of setup.
+- Scheduling is separate. Do not create recurring runs unless requested, and don't report a timer as installed because a cadence was written into the config.
 
-## Examples
+## Dependencies and limits
 
-```
-/setup-project-management discover
-# Just assess current state, report findings
+Local setup needs file access only. Direct Doc setup needs an authorized, capable Google Docs connection. Email, Granola, WhatsApp, Council, and a reminder system are optional sources or adjacent workflows, not setup prerequisites. Inspect current tool availability; don't infer that Granola supplies only summaries or that tab creation is impossible from an old connector limitation.
 
-/setup-project-management plan
-# Assess and propose plan, wait for approval
-
-/setup-project-management
-# Full interactive setup with all phases
-
-/setup-project-management minimal
-# Quick setup of just Claude config file
-```
-
-## Limitations
-
-- Does NOT create Google Docs, restructure folders, delete/move files, configure MCP servers, or create WhatsApp groups
-- Only configures existing integrations
-
-## Troubleshooting
-
-- **WhatsApp groups not found** — names must be exact and case-sensitive; try partial search first
-- **Google Doc access** — verify Google Workspace MCP is configured; extract document ID from URL correctly
-- **Meeting transcripts** — if using Granola, MCP gives summaries only; export from Granola app for full transcripts
-
-## Customization Points
-
-- **Folder structure:** Adapt the numbered folder system to match your conventions
-- **Document hub:** Configure for Google Docs, Notion, or other platforms
-- **Team channels:** Add WhatsApp groups, Slack channels, or other communication tools
-- **Data sensitivity:** Add IRB-specific handling rules for sensitive projects
+The public workflow does not install private helpers, configure credentials, or deploy changes into another person's skill library. Fresh-host invocation and live document-write compatibility must be verified in the environment where it will run.

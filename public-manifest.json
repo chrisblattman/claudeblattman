@@ -31,9 +31,9 @@
       "sha256": "4b806d844e306633102cbc1818641ac87ba1b5980e98c2832b9861f44ebd93d9"
     },
     {
-      "bytes": 2940,
+      "bytes": 3112,
       "path": "README.md",
-      "sha256": "c98c55efbd14cf07e716330fbba7627209560457806a887016dc2b328ed3acc0"
+      "sha256": "0415a54143c726645bf2a043348aaedc48c1be55fcd9e6baa671a525da7c29ee"
     },
     {
       "bytes": 4997,
@@ -56,24 +56,24 @@
       "sha256": "78dbdd966f206d3cbfcfa88cc3672b7f468cedd2a0232e1bbb22b23a90df48f9"
     },
     {
-      "bytes": 23849,
+      "bytes": 24477,
       "path": "docs/starter-kit/occasional.md",
-      "sha256": "137d06839af4e06e7a33ff76592d6e01f95e3be83bb40ab8deea1114c15c2d5c"
+      "sha256": "6e03f97b1585c0193dbd8363e3ec3efa9b8f6563355c10ad3dd12e026fe22408"
     },
     {
-      "bytes": 11065,
+      "bytes": 11229,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "3c5cc1d98d5a1cca63f0a60cfdb9896973cb98631ca613d60435044405e02528"
+      "sha256": "e5a16550471b18fa8c0b28d8e0da6b3f2798b7a81813beefceac0597e7d95274"
     },
     {
-      "bytes": 102753,
+      "bytes": 103021,
       "path": "docs/stylesheets/extra.css",
-      "sha256": "f263385280a846f74a8fddb8d9b44627a0221db86925fe131bb0ffdf9dc5d95e"
+      "sha256": "033c070343e3d92afe2ea84ac46647fa5529290806d54c3ca191479883f5ff05"
     },
     {
-      "bytes": 14090,
+      "bytes": 14211,
       "path": "mkdocs.yml",
-      "sha256": "8b3df6e700deec670fb2532196f4134e23a7c68bb7132f0f7ecc2602f350c15f"
+      "sha256": "8b1808a7c852f2f098158548a4f71676977f6b9f22f3a4222cb3ec7b61e3ed89"
     },
     {
       "bytes": 17171,
@@ -641,6 +641,11 @@
       "sha256": "c1fb5856b187d87e514d4a35252c67e7f0caf46ef6190f3e0b6ba2ca524d4db3"
     },
     {
+      "bytes": 5026,
+      "path": "scripts/test-checkin-state.py",
+      "sha256": "0113cfeffc25a6c5e521775c2d2514d1c752493b4a60ef78eef96d7cbf094def"
+    },
+    {
       "bytes": 4104,
       "path": "scripts/test-continuity-write.py",
       "sha256": "18ba5a26d674df113221134211594c4c70dfeb069d0ee2f0108410724c71b903"
@@ -656,9 +661,14 @@
       "sha256": "92e15b936b23d93940d692875d3f80fa50f8392163031d1028a6aaf3386d3dfe"
     },
     {
-      "bytes": 10074,
+      "bytes": 8600,
+      "path": "scripts/test-triage-state.py",
+      "sha256": "f1161944a2566fcd9a207c99b2da1e0e58f8a38b76f52b075eed6551bb9c3b76"
+    },
+    {
+      "bytes": 10372,
       "path": "skills/README.md",
-      "sha256": "704972e8a5c9029bfbaa91d92b7df6a5361dcb7d4b7d77ab506c9c984ce0270d"
+      "sha256": "d5bfd1cfd9b99f94c884b6aea81d0086fb2e9383f93cfff880cf850163415ca6"
     },
     {
       "bytes": 2624,
@@ -681,9 +691,44 @@
       "sha256": "ad0b57f89a9c64b08c60ec01762f48c0ff198b486e826b0f611871039da7776d"
     },
     {
-      "bytes": 19437,
+      "bytes": 9582,
       "path": "skills/checkin/SKILL.md",
-      "sha256": "7780427d2148f38603707cf35f218d1c964646ea415bcca416ed9920f9596f45"
+      "sha256": "7b4930d9c73ee91d08d320e5ca9cf92b8b55d5393864b3623512c6b7ee230794"
+    },
+    {
+      "bytes": 2731,
+      "path": "skills/checkin/assets/checkin-config.md",
+      "sha256": "258d54c3963bbc32f2a0f7e21ebb52b544b32fbdffef5ddee0fb87ba32e34d46"
+    },
+    {
+      "bytes": 4787,
+      "path": "skills/checkin/references/continuity.md",
+      "sha256": "12b26e1f92c197c61f66d2f468d88e768a479ce1817dd458822de65f9ec1f809"
+    },
+    {
+      "bytes": 2727,
+      "path": "skills/checkin/references/full-session.md",
+      "sha256": "ea2d3a92ffb4575c1858e40de33ac0e0f5000bf547c7fa2e8bfd69926decda41"
+    },
+    {
+      "bytes": 5541,
+      "path": "skills/checkin/references/preferences.md",
+      "sha256": "f9493c9654672b2a36dcdb33ac3889cf2c878b8e094e91d1fc2eb87d7f7f7729"
+    },
+    {
+      "bytes": 4699,
+      "path": "skills/checkin/references/review.md",
+      "sha256": "4d461ad7c3a3b98c8c6bbcb0af253532a4d7fac1791ae6126a08ea89e14222b9"
+    },
+    {
+      "bytes": 3341,
+      "path": "skills/checkin/references/sending.md",
+      "sha256": "9367e1c5a61723f3b230a6c5f45c3464b7a42f2c05c5986354453ce079af2d69"
+    },
+    {
+      "bytes": 4959,
+      "path": "skills/checkin/scripts/batch_store.py",
+      "sha256": "5c9b7f1c305d11d0d8202c61453d5ec02220eb70de0870579737609bf7999242"
     },
     {
       "bytes": 784,
@@ -781,9 +826,24 @@
       "sha256": "8f8aa11aafbd12ac34f122f5e871ad6204233a6d90ec22380201f34785caf42d"
     },
     {
-      "bytes": 6698,
+      "bytes": 11670,
       "path": "skills/setup-project-management/SKILL.md",
-      "sha256": "e02d6eb746cb55ec5230bae9b4fc871acee09c25d0c2f6c21047d635d5f42a47"
+      "sha256": "15aaa6a015659a1461a9e9c1abf422e0a3f778e60211de8f7f61fa42aeb0e891"
+    },
+    {
+      "bytes": 6757,
+      "path": "skills/setup-project-management/assets/templates/project-instructions-template.md",
+      "sha256": "36d1139e1696a9a8b66a52a5b00ece1ad56217f0e5a90d63f296c265fd0d303f"
+    },
+    {
+      "bytes": 4272,
+      "path": "skills/setup-project-management/assets/templates/project-todo-template.md",
+      "sha256": "970304ce7a59a6c20cbcdfb108e01d0b0f8b0a91e4c485ae7a8508aff778c7e9"
+    },
+    {
+      "bytes": 4145,
+      "path": "skills/setup-project-management/references/project-config.md",
+      "sha256": "fc4b5e0ad7deb90c7a28b4bd559e61236fdab632dca076b93cadbc0ea2c960bf"
     },
     {
       "bytes": 9964,
@@ -851,14 +911,39 @@
       "sha256": "550d525c2a9dbea8f8e8b79461020dad5b54eaee19e485eb50e456bd8a26e306"
     },
     {
-      "bytes": 29950,
+      "bytes": 10021,
       "path": "skills/triage-inbox/SKILL.md",
-      "sha256": "544291e2cb5ea2730c340ed0fcf7ed0006474408ed7ea1d1b4f2d73a135893e8"
+      "sha256": "679e1f7d725694a04d4f3cd29d649eb9e57ceb99b88620117e79e2af270cbac4"
     },
     {
-      "bytes": 19092,
+      "bytes": 2527,
+      "path": "skills/triage-inbox/assets/email-policy.md",
+      "sha256": "0c21d7dae76817c6154dc599c2660217639ae33a93bf3cda93c4a52d805423a2"
+    },
+    {
+      "bytes": 3161,
+      "path": "skills/triage-inbox/assets/triage-config.md",
+      "sha256": "efe76dd1d83fd44de1bb15052d3a56719cbc881bf5769e77a6a997d80a3d90bb"
+    },
+    {
+      "bytes": 4115,
+      "path": "skills/triage-inbox/references/classification.md",
+      "sha256": "8a02ae60c39a87e26b5e21cbf520a3b509f92ca8c9a5be132555d07e2c72c57e"
+    },
+    {
+      "bytes": 7877,
+      "path": "skills/triage-inbox/references/execution.md",
+      "sha256": "0b76bafd6cc7f9c7ed9af8fa3ed5e15e682b0cdae7751ffd84f486ada2cb73d9"
+    },
+    {
+      "bytes": 10899,
+      "path": "skills/triage-inbox/scripts/triage_state.py",
+      "sha256": "081649907214d5bae652c1591f5a3db91429132e53e9d2571bb70d6daea71dca"
+    },
+    {
+      "bytes": 16793,
       "path": "skills/weekly-review/SKILL.md",
-      "sha256": "d7d8b4e6cc83730fa2a61de1f3c38dc00c5b04606c5507da7000b821de189cc1"
+      "sha256": "574800abe85ac2c08193d0df3c2ff1e6ac6eb176c11d03c1dc130b2530599226"
     },
     {
       "bytes": 7021,

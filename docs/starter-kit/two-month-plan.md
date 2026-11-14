@@ -46,7 +46,7 @@ Choose the group that fits what you want to do next.
 ### Stage 3 — Get your files in order and connect your apps { #files-and-apps }
 
 <label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#2"> [Organize cloud storage](../workflows/cloud-storage-guide.md) so your agent can find your files.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#0"> [Give each project a home](../workflows/organize-projects.md) for its files, decisions, and handoffs.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#0"> [Give each project a home](../workflows/organize-projects.md) for its files, decisions, and handoffs, or [clean up an existing project](../workflows/clean-up-project.md).</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#3"> [Connect the apps](../build-your-own/mcp-setup.md) that hold your mail, documents, and calendar.</label>
 
 </div>
@@ -57,8 +57,8 @@ Choose the group that fits what you want to do next.
 ### Stage 4 — Get a project moving { #manage-a-project }
 
 <label class="step-done"><input type="checkbox" data-progress-key="week-5-brief-a-project-and-challenge-the-work#0"> Give the agent a [one-page brief](https://github.com/chrisblattman/claudeblattman/blob/main/templates/project-brief-template.md) for a live project.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#0"> [Catch up on a project](../workflows/project-management.md) you’ve been away from.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#2"> [Automate a weekly review](../workflows/weekly-review.md) to see which commitments need attention.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#0"> [Build a project dashboard](../workflows/project-management.md) that helps the team see the current state and next decisions.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#2"> [Refresh the dashboard](../workflows/weekly-review.md) to see which commitments need attention.</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#1"> [Find a decision or conversation](../workflows/recall.md) from an earlier session.</label>
 
 </div>
@@ -76,7 +76,7 @@ Choose the group that fits what you want to do next.
 ### Stage 6 — Hand off everyday work { #everyday-work }
 
 <label class="step-done"><input type="checkbox" data-progress-key="week-7-keep-several-projects-moving#4"> [Use the pre- and post-meeting workflow](../workflows/meeting-workflow.md).</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#0"> [Build an AI executive assistant](../workflows/building-an-assistant.md) to help you manage your email and schedule.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-8-hand-over-the-rest-of-it#0"> [Try a recurring email workflow](../workflows/manage-email.md) for triage, replies, and follow-ups. For a backlog, start with [email cleanup](../workflows/email-cleanup.md).</label>
 <label class="step-done"><input type="checkbox" data-progress-key="sub#1#0"> [Cut through inbox noise](../workflows/school-digest.md)</label>
 
 <div class="pick-group" markdown>

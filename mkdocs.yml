@@ -130,14 +130,17 @@ nav:
   - Workflows:
     - Projects and research:
       - workflows/projects-and-research.md
-      - Catch up on a project: workflows/project-management.md
-      - Weekly review: workflows/weekly-review.md
+      - Set up a project: workflows/organize-projects.md
+      - Clean up an existing project: workflows/clean-up-project.md
+      - Build a project dashboard: workflows/project-management.md
+      - Refresh a dashboard: workflows/weekly-review.md
       - Deep research: workflows/deep-research.md
       - Find past work: workflows/recall.md
       - "Example: project dashboard": workflows/examples/project-overview-example.md
     - Work and personal life:
       - workflows/executive-assistant.md
-      - Build an AI executive assistant: workflows/building-an-assistant.md
+      - Clean up your email backlog: workflows/email-cleanup.md
+      - Recurring email workflows: workflows/manage-email.md
       - Meeting follow-up: workflows/meeting-workflow.md
       - Cut through inbox noise: workflows/school-digest.md
       - Tax season: tax-workflow/index.md
@@ -147,7 +150,6 @@ nav:
     - Improve your AI setup:
       - workflows/best-practices.md
       - Organize cloud storage: workflows/cloud-storage-guide.md
-      - Organize your projects: workflows/organize-projects.md
       - Connect your apps: build-your-own/mcp-setup.md
       - Write persistent instructions: build-your-own/agents-md.md
       - Set rules and guidelines: build-your-own/rules.md

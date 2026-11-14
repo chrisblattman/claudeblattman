@@ -2905,3 +2905,10 @@ html[data-cb-sidebar="page"] .md-sidebar--primary .md-nav.md-nav--secondary {
     text-align: left;
   }
 }
+
+/* Email-cleanup categories: slightly tighter rows, with the site's existing
+   table typography and horizontal spacing. Scoped to this table only. */
+.md-typeset .email-category-table table:not([class]) :is(th, td) {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}

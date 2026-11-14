@@ -27,7 +27,7 @@ Try one or two useful tasks in the first couple of days. Get used to explaining 
 
 The jobs that have mattered to me suggest several places to begin:
 
-- **Get obligations out of your inbox.** Working with AI, I shifted the commitments sitting in my unread email and calendar into Apple Reminders on my phone. This grew into [an executive assistant project](workflows/building-an-assistant.md) that helps me triage messages and reminders. A first attempt could be much smaller: take a few messages, identify what actually requires action, and put the confirmed tasks somewhere you will see them.
+- **Get obligations out of your inbox.** Working with AI, I shifted the commitments sitting in my unread email and calendar into Apple Reminders on my phone. This grew into [an email workflow](workflows/manage-email.md) that helps me triage messages and reminders. A first attempt could be much smaller: take a few messages, identify what actually requires action, and put the confirmed tasks somewhere you will see them.
 
 - **Get on top of one ongoing project.** My research projects have large teams, complicated histories, and results or decisions that need my attention every week. AI helps me prepare to give useful directions. You might begin with the notes from the last meeting and two recent updates, then ask what needs deciding at the next meeting and what information is missing.
 

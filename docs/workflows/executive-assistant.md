@@ -4,12 +4,12 @@ description: The jobs that aren't research but eat the week anyway — meetings,
 
 # Work and personal life { #everyday-life }
 
-The jobs that aren't research but eat the week anyway. Read the overview first. The rest are
-worked examples you can copy.
+The jobs that aren't research but eat the week anyway. Choose the job you need now. The guides and worked examples can be used separately.
 
 | Workflow | What it's for |
 |---|---|
-| **[Building an AI executive assistant](building-an-assistant.md)** | The whole assistant, assembled — start here |
+| **[Clean up your email backlog](email-cleanup.md)** | Recover obligations and establish handling rules. |
+| **[Recurring email workflows](manage-email.md)** | Filters, triage, drafts, follow-ups, and a routine you can maintain. |
 | **[Meeting follow-up](meeting-workflow.md)** | Transcript in, the things you owe people out |
 | **[Noise cancelling: school digest](school-digest.md)** | Turning a firehose of email into the three things that matter |
 | **[Tax season](../tax-workflow/index.md)** | A long case study, including [what the AI got wrong](../tax-workflow/case-study/what-ai-got-wrong.md) |
