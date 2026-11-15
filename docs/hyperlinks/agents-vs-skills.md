@@ -1,154 +1,97 @@
+---
+description: How skills and subagents work together, and how to give reviewers different perspectives on your work.
+---
+
 # Agents vs Skills
 
-An **agent** is an AI worker that uses a model and tools to carry out tasks. Claude Code and Codex are agent products; models such as GPT-6.1 Sol power the workers. A **subagent** is a separate worker started by the main agent. This page uses “agents” for those subagents.
+I want my AI to follow the routines I've worked out, and I want more than one attempt at the difficult parts. Skills help with the first. Subagents help with the second. My `/council` skill brings them together: it gives several workers an assignment, has them work independently, and brings their findings back to me.
 
-Claude Code has two main building blocks: **skills** (slash commands that run in the main conversation) and **agents** (subprocesses that run in a separate context). Choosing the right one matters for reliability and quality.
+When you work in Claude Code or Codex, the AI you're talking to is your main **agent**. A **subagent** is a separate worker it starts to take on part of the job. When I say I use agents, I sometimes mean giving my subagents specialized **personas**, with particular personalities and focuses. I explain one version of this on the [council page](../starter-kit/occasional.md#run-the-loop).
 
----
+## How they fit together { #the-key-difference }
 
-## The Key Difference
+| | What it does | Example |
+|---|---|---|
+| **Your main agent** | Works through the task with you, asks questions, and uses your decisions. | Help me improve this research proposal. |
+| **A skill** | Gives the agent a repeatable way to do a job. | `/council` organizes several independent attempts and a synthesis. |
+| **A subagent** | Can work as a general helper or take a specific assignment and persona, then return its work to the main agent. | Read the proposal as an effective altruism (EA) donor and identify weaknesses in the research design. |
 
-| Dimension | Skill | Agent |
-|-----------|-------|-------|
-| **Context** | Runs in the main conversation with full history | Runs in a fresh context — no prior conversation |
-| **User interaction** | Can ask questions, show drafts, get feedback | Returns a single result when done |
-| **Memory** | Sees everything discussed so far | Sees only what you explicitly pass to it |
-| **Bias** | May be influenced by prior conversation ("self-bias") | Fresh perspective — evaluates only what's written |
-| **Speed** | Instant (already in context) | Slower (starts a new process) |
+A skill can involve one agent or several. A subagent can also use skills. You don't have to choose one over the other. [Claude Code's skill guide](https://code.claude.com/docs/en/skills#run-skills-in-a-subagent) probably explains how they work together better than I can.
 
----
+## When to use a skill { #when-to-use-a-skill }
 
-## When to Use a Skill
+A **skill** is a saved set of instructions, with supporting files such as templates or scripts when it needs them. Use one when:
 
-Skills work best when the task:
+- **You repeat the same workflow.** Save the steps so you don't have to explain them each time.
+- **You have preferences you want it to remember.** `/setup-project-management` can follow your preferred folder structure when you start a project.
+- **The job has several steps or decisions.** A skill can tell the agent what to do, what to ask you, and when to bring in subagents.
+- **You want a consistent result.** `/done` gives the agent instructions for saving a handoff so you can pick up next time.
 
-- **Needs conversation context** — The task builds on what you've already discussed
-- **Requires user input** — You need to answer questions or make choices mid-workflow
-- **Is a workflow** — Multi-step processes with user checkpoints
-- **Modifies state** — Writing files, sending emails, updating docs
+You can still talk through choices and adapt the skill to your work.
 
-**Examples:**
-- `/done` — Captures decisions from the *current session* (needs conversation history)
-- `/council` — Coordinates independent agents using the task context
-- `/setup-project-management` — Multi-phase setup with user decisions at each stage
+## When to use a subagent { #when-to-use-an-agent }
 
----
+Use a separate worker when:
 
-## When to Use an Agent
+- **You want another pair of eyes.** Have it examine the research design in a proposal you've been writing with your main agent.
+- **You want different perspectives.** Ask one reader to approach the proposal as a donor and another as a researcher who will have to carry out the study.
+- **The work can happen in parallel.** Give separate workers different sources to investigate, then compare what they find.
+- **You want to keep the main conversation focused.** A subagent can do the searching and reading, then bring back the relevant findings without every intermediate step.
 
-Agents work best when the task:
+Each worker uses more of your allowance because it's doing its own work. [OpenAI's subagent guide](https://learn.chatgpt.com/docs/agent-configuration/subagents) describes this tradeoff.
 
-- **Benefits from fresh eyes** — Review, critique, or evaluation tasks where prior context creates blind spots
-- **Can run in parallel** — Multiple evaluations or analyses that don't depend on each other
-- **Needs isolation** — You don't want the task polluting your main conversation context
-- **Has a clear input and output** — "Here's a file, give me a review" rather than "let's work through this together"
+## How to give agents a persona { #agent-debates-multiple-perspectives-on-the-same-problem }
 
-**Examples:**
-- **Writing review** — A fresh context evaluates the prose without knowing "what you meant"
-- **Methodology review** — Catches issues that the session that wrote the paper might miss
-- **Parallel research** — Launch 3 agents to investigate different approaches simultaneously
+In my early days, I used to name specific economists or people whose work I respect. I'd simply name the person and ask the agent to take on their perspective: “Imagine [First Last] reviewing our study.” That was generally enough to get a useful discussion started. Claude already had the study plan and pilot results. The prompt gave it a name and a job.
 
----
+These days, I generally ask for perspectives from different subfields or lines of inquiry, or give each agent a particular role. For example, in my [councils](../starter-kit/occasional.md#run-the-loop), I ask a **skeptic** to question the assumptions, a **pre-mortem reviewer** to consider how an approach could fail and how to prevent it, and a **completeness checker** to look for essential pieces we've missed.
 
-## Agent Debates: Multiple Perspectives on the Same Problem
+Start by naming the personas you want each agent to take on. You can add more detail as you go:
 
-One of the most powerful uses of agents is getting them to argue with each other. Instead of a single review, you set up multiple agents with different expertise or perspectives and let them debate your data, your plan, or your design.
+1. **For most work, I just name the perspectives I want.** Give the agents the draft, data, or plan they're working on. For a modeling choice, I might ask:
 
-??? example "Qualitative researchers analyzing pilot field data"
+    ```text
+    Read our model and project notes in [folder]. Help me think through why firms enter a market from the perspectives of a political economist, an IO economist, and a development economist. Use blind subagents to do this in parallel.
 
-    We'd just finished a pilot — seven university students visited low-income neighborhoods in Bogota they'd never been to. We had memos the students wrote, open-ended survey responses, and quantitative survey data. Normally, a first pass through qualitative data like this takes days.
+    I want to know, from each perspective, which assumption they would change and whether that changes the model's prediction.
+    ```
 
-    I set up two agents as qualitative researchers from different traditions — one grounded theory, one thematic analysis — and gave them the anonymized memos, open-ended responses, and quantitative results. Their tasks: produce an initial interpretive report, compare the qualitative themes against the survey patterns, and draft best practices for a post-pilot debriefing interview guide.
+2. **If naming the personas isn't bringing sufficiently different perspectives, specify the questions you want each to answer.** For example:
 
-    Twenty minutes later, we had intelligent first glimpses across the whole dataset. The agents flagged where the memos contradicted the survey numbers — students reported feeling safer in the quantitative data, but their memos focused on discovery and surprise rather than safety. They caught that one survey item moved in an unexpected direction and proposed interview questions to probe it. Each agent emphasized different things depending on their methodological lens, which told us what to pay attention to when we went back to read carefully.
+    ```text
+    Political economy: Who sets the rules? Who can change them?
+    Industrial organization: How do existing firms respond to a new entrant?
+    Development economics: How do access to credit and weak contract enforcement affect who can enter?
+    ```
 
-    It didn't replace our own close reading. But it meant we had quick analysis and multiple perspectives immediately — a starting point for reflection rather than starting from scratch. We then used our own custom LLMs for the deeper qualitative analysis.
+3. **If you want the agents to use a particular paper or method, provide that material.** Give them a file path, web link, or paper name, and ask them to read and draw on it. Naming a persona doesn't mean the agent has read the sources you have in mind.
 
-??? example "Behavioral economists critiquing a research design"
+## Use a council for blind, independent reviews { #launching-agents }
 
-    For the same project, I asked Claude to impersonate three close colleagues of mine — Alex Imas, Leonardo Bursztyn, and Richard Thaler, all behavioral economists at UChicago — and debate our study design.
+I use separate workers for these reviews, and I ask them to work **blind**: each gets the project material and its assignment, without seeing the other workers' answers or my main agent's preferred conclusion. That gives each one room to develop its own argument before we compare them. Otherwise, the first answer can steer the rest of the discussion.
 
-    "Imas" reframed our entire finding: the treatment wasn't reducing prejudice, it was shifting students' *reference point* for public goods. They'd seen parks in low-income areas that were better than parks in their own wealthy neighborhoods. That's not attitude change — it's a recalibration of what they thought was normal.
+My [`/council`](../starter-kit/occasional.md) skill organizes this for me. It sends out the assignments, collects the independent responses, and has a fresh worker bring the findings together. I want to see where they disagree, which assumptions explain that disagreement, and what we should investigate next.
 
-    "Bursztyn" was blunt: self-reported attitudes are "essentially worthless" in this context. Students know the right answer. He proposed three revealed-preference measures — including offering students a restaurant gift card redeemable in either their own neighborhood or the one they visited. The choice reveals what they actually believe, not what they'll say on a survey.
+To use that workflow with my own personas, I can ask:
 
-    "Thaler" argued we were framing the whole study wrong. This isn't a "contact hypothesis" paper — it's a study about *choice architecture*. The cable car that takes you to the neighborhood *is* the intervention. His proposed title: "The Blank Map: How Elites Think About Neighborhoods They've Never Visited."
-
-    Each persona saw a different paper in the same data. The debate generated a table of nine new measures to add to the full study — none of which were in our original design.
-
-The pattern: give agents distinct identities (methodological traditions, named colleagues, opposing stakeholders) and let the disagreements surface assumptions you hadn't examined. The value isn't in any single perspective — it's in where they clash.
-
----
-
-## The Self-Bias Problem
-
-This is the most important reason to use agents for review tasks.
-
-When Claude writes something in a conversation and then you ask it to review that same thing, it has a systematic bias toward finding its own work acceptable. It "knows what it meant" even if the text is ambiguous. It may not question assumptions it made earlier.
-
-An agent running in a fresh context doesn't have this problem. It evaluates only what's on the page — like handing your draft to a colleague who wasn't in the room when you wrote it.
-
-**Rule of thumb:** If you're asking Claude to *critique* something it helped *create*, use an agent.
-
----
-
-## Agent File Format
-
-Agents are markdown files saved in `~/.claude/agents/`:
-
-```markdown
----
-name: Agent Name
-description: What this agent does
-model: sonnet
-tools:
-  - Read
-  - Glob
-  - Grep
----
-
-# Agent Name
-
-[Instructions for the agent]
-
-## Review Dimensions
-[What to evaluate]
-
-## Output Format
-[How to structure the response]
+```text
+Use a council of one behavioral economist, one industrial organization economist, and one development economist to help me work through [question]. Use the project material in [folder].
 ```
 
-The YAML frontmatter specifies:
-- **model** — Which Claude model to use (sonnet is cost-effective for most review tasks)
-- **tools** — Which tools the agent can access (limit to what it needs)
+Using the word “council” tells my agent to follow the structured workflow I've set out in the installed `/council` skill. I'm simply choosing these personas in place of the defaults.
 
----
+## Save the instructions once they work { #agent-file-format }
 
-## Launching Agents
+If you keep asking for the same kind of review, have your agent save the personas for next time. I recommend keeping those instructions in a shared Dropbox folder, so you can use them on different computers and in different AI apps.
 
-From within Claude Code:
+Ask your agent:
 
-> "Launch the writing reviewer agent on ~/Documents/paper-draft.md"
+```text
+Help me save the personas we just worked out so I can reuse them. Keep the questions each should ask and the kind of report I want. Each time I use them, I'll provide the project material they need.
 
-Claude Code reads the agent file, starts a subprocess, passes the specified files, and returns the result to your main conversation.
+Save them in my shared Dropbox folder at [location]. Set up this app to use those files, and tell me how to ask for these personas next time.
+```
 
-You can launch multiple agents simultaneously:
+When you switch computers or AI apps, give the agent that folder and ask it to set up the same personas there. Claude and Codex each have their own place for saved agents, but your agent can handle that part. The instructions you edit and reuse can stay together in Dropbox.
 
-> "Launch both the writing reviewer and methodology reviewer on this paper draft"
-
-They run in parallel and return independent assessments.
-
----
-
-## Design Guidance
-
-| Scenario | Use | Why |
-|----------|-----|-----|
-| Reviewing your own draft | Agent | Avoids self-bias |
-| Multi-step workflow with decisions | Skill | Needs user interaction |
-| Parallel evaluations | Multiple agents | Independent fresh contexts |
-| Task needs conversation history | Skill | Agent doesn't see prior context |
-| Heavy task that would bloat context | Agent | Keeps main conversation lean |
-| One-time setup or configuration | Skill | Needs to read/write files and ask questions |
-
-For a more detailed decision framework with additional examples, see the [Agents vs Skills Decision Guide](downloads/agents-vs-skills-guide.md) (February 2026).
+*App instructions checked November 15, 2026.*
