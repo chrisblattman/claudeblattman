@@ -35,6 +35,12 @@ I appreciated the help from colleagues, and so I built this site to help others.
 
 </section>
 
+<span id="my-absolute-essentials-and-where-to-start"></span>
+
+## My absolute essentials for new and intermediate users
+
+Tick off what you’ve tackled. Use the links for anything new, then move to the next section.
+
 <details class="council-details" id="what-is-markdown" markdown="1">
 <summary>Agents work predominantly in markdown files. What's a markdown?</summary>
 
@@ -53,12 +59,6 @@ A few useful formatting marks:
 In a formatted preview, you'll see the headings and bold text the same way you would in a Google Doc or Word document, instead of the formatting marks.
 
 </details>
-
-<span id="my-absolute-essentials-and-where-to-start"></span>
-
-## My absolute essentials for new and intermediate users
-
-Tick off what you’ve tackled. Use the links for anything new, then move to the next section.
 
 <div class="start-ladder essentials-checks" markdown>
 
