@@ -36,9 +36,9 @@
       "sha256": "0415a54143c726645bf2a043348aaedc48c1be55fcd9e6baa671a525da7c29ee"
     },
     {
-      "bytes": 6124,
+      "bytes": 6170,
       "path": "docs/index.md",
-      "sha256": "d41d3867fb2340970f94505842e39457f663e6eb6f2843880bda092ce34dcda6"
+      "sha256": "48773bf699502c80d398004ecdf6c53be8560eec1d546fb2f92b6853fb50aa75"
     },
     {
       "bytes": 4624,
@@ -71,14 +71,14 @@
       "sha256": "cecb58ebf74e0b167035ab3698bd73d820c90df88e96a8bc4d6550938e91a924"
     },
     {
-      "bytes": 103568,
+      "bytes": 103927,
       "path": "docs/stylesheets/extra.css",
-      "sha256": "4ba413543fbc967f8aba50ea120b3e1940182261a8c6733a8a084f7512da4406"
+      "sha256": "7d6b4717c4c0d534e6fd95fa7227b9a57a82a443e626f9f9cb85b3257f31f8f0"
     },
     {
       "bytes": 14277,
       "path": "mkdocs.yml",
-      "sha256": "7826be7924ea6a1869a69cc41508ed709412465c9103dbc18216e622bd58485f"
+      "sha256": "921ed821101f714af437cf8fd46db98977b85cc39d036b7de82161fbc6db74ab"
     },
     {
       "bytes": 17171,
