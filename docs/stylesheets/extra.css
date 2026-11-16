@@ -2778,6 +2778,14 @@ html[data-cb-sidebar="page"] .md-sidebar--primary .md-nav.md-nav--secondary {
 .md-typeset details.council-details > summary::before,
 .md-typeset details.council-details > summary::after { display: none; }
 .md-typeset details.council-details > summary:focus-visible { outline: 2px solid var(--cb-accent-text); outline-offset: 3px; }
+/* Contain the expanded Markdown introduction with a quiet, theme-aware border. */
+.md-typeset .markdown-explainer {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .25rem;
+  padding: .8rem 1rem;
+}
+.md-typeset .markdown-explainer > :first-child { margin-top: 0; }
+.md-typeset .markdown-explainer > :last-child { margin-bottom: 0; }
 /* Skill inventory: six compact rows, scoped to avoid changing other tables.
    6px vertical padding replaces Material's large cell padding. Theme colors
    remain those of the existing table component. */

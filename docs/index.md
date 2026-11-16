@@ -44,19 +44,23 @@ Tick off what you’ve tackled. Use the links for anything new, then move to the
 <details class="council-details" id="what-is-markdown" markdown="1">
 <summary>Agents work predominantly in markdown files. What's a markdown?</summary>
 
+<div class="markdown-explainer" markdown="1">
+
 Markdown is a simple way to format and structure a text file. You’ll recognize these files by the `.md` at the end of the name, like `meeting-notes.md`.
 
 Agents use Markdown because they can read and update the words and formatting directly, without navigating a document editor. Headings and lists give their plans, notes, and instructions a clear structure.
 
 A few useful formatting marks:
 
-- `# Heading` makes a heading; `## Subheading` makes a subheading. Leave a space after the `#` marks.
+- `# Heading` makes a heading; `## Subheading` makes a subheading.
 - `**bold**` makes **bold** text.
 - `*italics*` makes *italic* text.
 - `- Item` makes a bullet point; `1. Item` starts a numbered list.
-- `[link text](https://example.com)` makes a link.
+- You can also format hyperlinks, tables, inline code, checklists, and more.
 
 In a formatted preview, you'll see the headings and bold text the same way you would in a Google Doc or Word document, instead of the formatting marks.
+
+</div>
 
 </details>
 
