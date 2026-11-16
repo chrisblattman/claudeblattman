@@ -1010,6 +1010,12 @@ html[data-cb-sidebar="section"] .md-sidebar--primary
   height: auto;
 }
 
+/* Clip app illustrations to their window shape in both light and dark mode. */
+.md-content img[src*="/annotation-examples/"] {
+  display: block;
+  border-radius: 12px;
+}
+
 /* Narrow UI element images — keep constrained */
 /* Softer admonitions */
 .md-typeset .admonition,
@@ -2911,4 +2917,11 @@ html[data-cb-sidebar="page"] .md-sidebar--primary .md-nav.md-nav--secondary {
 .md-typeset .email-category-table table:not([class]) :is(th, td) {
   padding-top: .5rem;
   padding-bottom: .5rem;
+}
+
+/* Adobe round trip: red cloud copies, dashed temporary local download. */
+.pdf-roundtrip .pdf-adobe-copy { fill: #f5dcd9; stroke: #b6574d; }
+[data-md-color-scheme="slate"] .pdf-roundtrip .pdf-adobe-copy { fill: #56332f; stroke: #d99288; }
+.md-typeset .adobe-account-options table:not([class]) :is(th, td) {
+  padding: .35rem .55rem; line-height: 1.45; font-size: .75rem;
 }
