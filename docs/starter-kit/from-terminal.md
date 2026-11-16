@@ -93,7 +93,7 @@ In my experience, Claude's feedback tools aren't quite as ubiquitous. You can le
 
 Claude also has a separate [Docs interface with comments](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs); that is different from annotating a webpage or PDF preview.
 
-In either app, give the agent the whole set of comments, let it make a pass, then look again. Go back and forth until you're happy with the result.
+In either app, give the agent the whole set of comments, let it make a pass, then look again. Go back and forth until you're happy with the result. [Point, don't describe](annotating.md) goes through annotation app by app, including Google Docs and PDFs.
 
 ## 6. Keep an eye on the agent’s browser work {#5-let-the-agent-work-in-your-chrome-tabs}
 

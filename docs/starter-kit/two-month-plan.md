@@ -21,6 +21,7 @@ This page keeps its own checkmarks in your browser, separate from the homepage.
 <label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#0"> [Choose your agent](newcomers.md#1-choose-an-agent).</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#4"> Open a project in [the desktop app](from-terminal.md).</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-1-set-up-and-introduce-yourself#1"> Give the agent [one real task](newcomers.md#run-the-loop), then work through a revision together.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="annotate"> [Annotate](annotating.md) the agent's work instead of describing the changes you want.</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-2-learn-the-loop-and-connect-your-sources#1"> Start using [councils](occasional.md) to tackle the task and [adversarially review the output](occasional.md#5-run-adversarial-review).</label>
 <label class="step-done"><input type="checkbox" data-progress-key="week-5-brief-a-project-and-challenge-the-work#1"> Consider [using multiple AIs in your council](../workflows/council-models.md). It’s worth the cost!</label>
 
