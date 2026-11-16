@@ -36,9 +36,9 @@
       "sha256": "0415a54143c726645bf2a043348aaedc48c1be55fcd9e6baa671a525da7c29ee"
     },
     {
-      "bytes": 4997,
+      "bytes": 5121,
       "path": "docs/index.md",
-      "sha256": "89e2a96726e78adf682837cbebbe497b71d817cb1b600710bafa53a55e6a8ebd"
+      "sha256": "d8fe56f4d3323ea2040ebafc413f12e24d023d5b6510d4a101df620e296e53fb"
     },
     {
       "bytes": 4624,
@@ -46,9 +46,14 @@
       "sha256": "c73599d039ba703b5d1949a598a1071ea8d6ed3da8b1978599d072e74118c97d"
     },
     {
-      "bytes": 14612,
+      "bytes": 13747,
+      "path": "docs/starter-kit/annotating.md",
+      "sha256": "8ce13deede93c71975429b9046a21ea316c490baa1050975b6c43c029839ee29"
+    },
+    {
+      "bytes": 14719,
       "path": "docs/starter-kit/from-terminal.md",
-      "sha256": "3d8abddacb199f97aab7ec90a7f53e698d53fcdafa90531fc1061b25045f4416"
+      "sha256": "19de608ad3fe325a54795b60ed249dbfb9b370ab432a385b8bee29b996f210d2"
     },
     {
       "bytes": 11713,
@@ -61,19 +66,19 @@
       "sha256": "6e03f97b1585c0193dbd8363e3ec3efa9b8f6563355c10ad3dd12e026fe22408"
     },
     {
-      "bytes": 11229,
+      "bytes": 11402,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "e5a16550471b18fa8c0b28d8e0da6b3f2798b7a81813beefceac0597e7d95274"
+      "sha256": "cecb58ebf74e0b167035ab3698bd73d820c90df88e96a8bc4d6550938e91a924"
     },
     {
-      "bytes": 103021,
+      "bytes": 103568,
       "path": "docs/stylesheets/extra.css",
-      "sha256": "033c070343e3d92afe2ea84ac46647fa5529290806d54c3ca191479883f5ff05"
+      "sha256": "4ba413543fbc967f8aba50ea120b3e1940182261a8c6733a8a084f7512da4406"
     },
     {
-      "bytes": 14211,
+      "bytes": 14277,
       "path": "mkdocs.yml",
-      "sha256": "8b1808a7c852f2f098158548a4f71676977f6b9f22f3a4222cb3ec7b61e3ed89"
+      "sha256": "7826be7924ea6a1869a69cc41508ed709412465c9103dbc18216e622bd58485f"
     },
     {
       "bytes": 17171,
@@ -589,6 +594,16 @@
       "bytes": 1699,
       "path": "plugins/starter-kit-codex/skills/prompt/references/refine-mode.md",
       "sha256": "d34eb557420a77c9d7df63987537d7e4472f2d0e61064a56595f10306151585e"
+    },
+    {
+      "bytes": 37364,
+      "path": "scripts/annotation-illustrations/index.html",
+      "sha256": "81fa62249a102482f817fdcdcb6a9cb4934cea91e8c79c8fa8182b95852ce15a"
+    },
+    {
+      "bytes": 1259,
+      "path": "scripts/annotation-illustrations/render.mjs",
+      "sha256": "a0e1441ca63417870d042d9d11324e22e0deb01d18520eb7f03c1dc410ea3d25"
     },
     {
       "bytes": 6493,

@@ -115,6 +115,7 @@ nav:
     - Get started with an agent:
       - Start from scratch: starter-kit/newcomers.md
       - Switch from terminal: starter-kit/from-terminal.md
+      - Annotate instead of describing: starter-kit/annotating.md
       - When work restricts AI agents: starter-kit/agents-at-work.md
     - Councils:
       - Council and review: starter-kit/occasional.md
