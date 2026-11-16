@@ -42,13 +42,13 @@ I appreciated the help from colleagues, and so I built this site to help others.
 Tick off what you’ve tackled. Use the links for anything new, then move to the next section.
 
 <details class="council-details" id="what-is-markdown" markdown="1">
-<summary>Agents work predominantly in markdown files. What's a markdown?</summary>
+<summary>Agents work predominantly in Markdown files. What’s a Markdown file?</summary>
 
 <div class="markdown-explainer" markdown="1">
 
 Markdown is a simple way to format and structure a text file. You’ll recognize these files by the `.md` at the end of the name, like `meeting-notes.md`.
 
-Agents use Markdown because they can read and update the words and formatting directly, without navigating a document editor. Headings and lists give their plans, notes, and instructions a clear structure.
+Agents use Markdown because they can read and update the words and formatting directly, without navigating a document editor. Headings and lists give their plans, notes, and instructions a clear structure. Working with text-based files is also generally more token efficient than working with visual-based files, like PDFs.
 
 A few useful formatting marks:
 
