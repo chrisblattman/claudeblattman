@@ -1,162 +1,111 @@
-# Cut through inbox noise
-
-<span class="badge badge-intermediate">Intermediate</span>
-<span class="badge badge-time">< 1 hour to set up</span>
-<span class="badge badge-needs">Needs: Gmail MCP</span>
-
-This page uses a synthetic family/school example to show the workflow pattern.
-The same problem hits with employer announcements, nonprofit updates, or
-professional associations, just on a longer cycle (weekly or monthly digests
-instead).
-
-Each source sends 2–4 long emails a day. Across two sources, that's 30–50 emails
-per digest period — every few days.
-
-We were missing deadlines. A course selection form due Monday that neither parent saw until Sunday night. A permission slip buried in paragraph four of a weekly newsletter. Not because we weren't checking email — because the volume made it impossible to catch everything.
-
-I built a skill that compresses all of it into a 30-second read. Two things I learned apply well beyond email.
-
+---
+description: Have your agent collect repeated emails into a digest, learn what matters to you, and keep deadlines tied to their sources.
 ---
 
-## Calibration
+# Create your own email digests { #cut-through-inbox-noise }
 
-I assumed I could write classification rules upfront. Schools have predictable categories. I was wrong.
+Some emails are easier to read together, either because the latest update replaces what you were told yesterday or because you get so many of them. School notices are a good example, especially with more than one child at more than one school. I want to know about the permission form and the change in pickup time without opening every newsletter.
 
-I pulled 20 recent emails and rated each: action required, calendar event, FYI, or skip. Claude rated the same 20. We agreed on about 12. The disagreements taught me more than the agreements. I'd marked a daily bulletin as "skip" — mostly boilerplate. But buried in it was an early dismissal notice. Claude caught it; I'd skimmed past it. Going the other direction, Claude flagged a college counseling webinar as "action required" because the word "deadline" appeared. It was a registration deadline for an 11th-grade event. My daughter Maya is in 9th grade. Skip.
+A digest gives the agent that job. It reads a group of emails and brings you the things you need to act on, upcoming events, and anything else worth knowing. You can use the same approach for announcements from your employer or a professional association.
 
-**Schools treat everything as equally important. You don't.** A fundraiser gala and a permission form get the same formatting, the same "IMPORTANT" in the subject line. The only way to build rules that match *your* priorities is to calibrate against *your* reactions to real emails.
+This builds on the [email cleanup workflow](email-cleanup.md). The idea is simple:
 
-I pulled 30 more and repeated. By email 50 the rules had stabilized. Permission forms: always high. Direct staff emails from personal addresses (not noreply@): always high. Fundraiser appeals: always skip. Newsletters: extract dates only, skip the feature stories. Daily bulletins: scan for schedule changes and items mentioning the relevant people by name, skip everything else.
+**Gmail filters or `/triage-inbox` file messages into a folder → the digest skill periodically reads the new mail in that folder → one digest arrives in your inbox.**
 
-The resulting rules file was about 120 lines. I could not have written it before seeing those 50 emails.
+The skill checks messages it hasn't processed yet, whether they're read or unread. That way, opening an email yourself doesn't leave it out of the digest.
 
-## Source quoting
+## 1. Choose the mail you want to read together
 
-Once classifications were working, a subtler problem appeared. The digest reported Sam's science test as March 6. It was March 7. My co-parent caught it — which is exactly what the digest is supposed to make unnecessary.
+Start with one group of messages. If you already have a label for school notices or announcements, use it. Otherwise, have your agent help you create one using the [label and filter instructions](email-cleanup.md).
 
-The fix: instead of just extracting a deadline, I added a `deadline_quote` field to the extraction prompt:
+Keep personal requests and urgent messages visible. You may want the school newsletter in a digest, but a teacher asking to speak with you today deserves your attention sooner.
 
-```
-Extract from this email. Return as JSON:
-(1) category: action_required / calendar_event / fyi / skip
-(2) urgency: high / medium / low
-(3) summary: 1-2 sentences of what you need to know
-(4) deadline: specific date/time if any, else null
-(5) deadline_quote: verbatim text from email stating the
-    date/deadline — copy exact wording, do not paraphrase.
-    null if no deadline.
+Your agent needs a connection that can search and read your Gmail. You can ask it to check that connection and find a sample:
+
+```text
+I'd like a digest of the emails under [Gmail label]. Check that you can read them, including messages outside my inbox.
+
+Read a sample from the past two weeks. Show me what needs action, what belongs on my calendar, what's useful to know, and what you would leave out. Include links to the emails. Don't change the messages.
 ```
 
-This forces the model to copy exact words from the source *at extraction time*, before downstream processing can corrupt them. The digest prints the quote alongside the summary:
+## 2. Teach it what matters to you { #calibration }
 
+The school decides what to send. You decide what matters to your family. The agent needs to learn that distinction from you.
+
+Go through the sample together. A newsletter may be mostly stories you can skip, with an early dismissal notice halfway down. An event marked “IMPORTANT” may be for a grade your child isn't in. Tell the agent why one belongs in the digest and the other doesn't.
+
+```text
+Let's work through your choices. Show me a few emails at a time and explain what you would include or skip. Ask me about the ones you're unsure of.
+
+Use my corrections to write rules for future digests. Then try those rules on another group of emails and show me where they don't give you a clear answer.
+
+Save the rules in my email-assistant folder at [location].
 ```
-▶ ACTION ITEMS
-  • Science assessment for Sam — deadline: Fri March 7
-    Source: "the assessment will be on Friday, March 7th"
+
+Give it the context it needs, such as which grades or programs matter to you. Review some of the emails it would skip, too. Otherwise you'll see the unnecessary items it included and miss the important ones it left out.
+
+## 3. Keep dates tied to the original email { #source-quoting }
+
+A wrong deadline can make a digest worse than no digest. Ask the agent to copy the sentence containing the date and put it beside the summary, with a link to the email.
+
+```text
+For each deadline or schedule change, include the exact wording from the email and a link to it. If two messages give different dates, flag the conflict. If you can't tell what a date refers to, ask me rather than guessing.
 ```
 
-If the summary date ever disagrees with the source quote, you see it immediately.
+The quote makes a mistake easier to spot. It doesn't guarantee the agent chose the right date or noticed a later correction. Open the original when a deadline matters or something looks wrong.
 
-**Quote the source at extraction time, carry the quote through to output.** This works anywhere AI is summarizing and you need specific facts to survive — meeting transcripts, grant deadlines, legal filings.
+## 4. Check the first digest { #what-the-digest-looks-like }
 
-## What the digest looks like
+Here's a shortened, fictional school example. The names, schools, dates, and messages are invented. In your digest, each item should link back to its email.
 
-Two kids, two schools, compressed from ~4,000 words of source email:
-
-```
+```text
 SCHOOL EMAIL DIGEST
-Feb 27 — Mar 1
-Compressed ~4,200 words across 23 emails (18 threads).
-──────────────────────────────
+March 1–3
 
-MAYA (Lincoln Prep)
+MAYA — LINCOLN PREP
 
-▶ ACTION ITEMS
-  • Spring course selection form due — deadline: Mon March 10
-    Source: "Course selection forms must be submitted by March 10"
-  • Permission form for downtown field trip (history class)
+Action needed
+• Submit the course selection form by March 10.
+  Source: “Course selection forms must be submitted by March 10.”
 
-📅 UPCOMING
-  • Parent-teacher conferences March 13–14 (sign-up link in email)
-  • Spring musical auditions March 8
+Coming up
+• Parent-teacher conferences: March 13–14. Sign-up is open.
+  Sign up: [link from the email]
 
-ℹ️ FYI
-  • College counseling series starting for 9th graders in April
-  • Weekly newsletter: spring break March 24–28
+Worth knowing
+• The college counseling series for ninth graders starts in April.
 
+SAM — RIVERSIDE ACADEMY
 
-SAM (Riverside Academy)
+Action needed
+• Return the permission form for the history field trip.
+  No deadline given in the email.
 
-▶ ACTION ITEMS
-  • Science assessment — deadline: Fri March 7
-    Source: "the assessment will be on Friday, March 7th"
+Coming up
+• Early dismissal on March 7.
+  Source: “Students will be dismissed at 12:30 p.m. on March 7.”
 
-📅 UPCOMING
-  • 7th grade field day March 20
-  • Ms. Garcia requesting meeting re: learning plan
-
-ℹ️ FYI
-  • Principal Chen's monthly update: construction on schedule
-  • Daily bulletin: normal schedule all week
-
-+ 9 lower-priority items not shown
-──────────────────────────────
+Left out: fundraising appeals and repeated event reminders.
 ```
 
-Twenty-three emails, 30 seconds to read. Source quotes on action items mean you can trust dates without opening the originals.
+Check whether you can tell what you need to do. If “permission form” isn't enough, ask for the form link and who needs to sign it. If an item doesn't matter to you, explain why and have the agent save that correction in the rules.
 
-## Build your own
+## 5. Save it as a skill and choose when to run it { #build-your-own }
 
-### 1. Label and filter your source
+Once you like the result, use the [announcement-digest skill](https://github.com/chrisblattman/claudeblattman/tree/main/skills/announcement-digest) as a starting point. It reads labeled mail, applies your saved rules, and keeps a record of the messages it has processed so later digests don't repeat them.
 
-Create a Gmail label (`@School`, `@CompanyNews`, whatever) and a filter that auto-applies it to all email from your source domains. Remove from inbox if you want — the digest reads by label, not inbox status.
+```text
+Find and install the announcement-digest skill from the chrisblattman/claudeblattman GitHub repository.
 
-### 2. Run the calibration conversation
+Adapt it to the Gmail label and rules we've just worked out. Keep its rules and record of processed emails in [my email-assistant folder]. Use my existing Gmail connection.
 
-Paste this into Claude Code (or any Claude conversation with Gmail MCP access):
-
-```markdown
-I want to build classification rules for emails from [YOUR SOURCE].
-
-Step 1: Search Gmail for `label:[YOUR_LABEL]` from the last 14 days.
-Pull 20 emails. For each one, show me:
-- Subject line
-- Sender
-- First 2 sentences of the body
-- Your suggested classification: action_required / calendar_event / fyi / skip
-- Your reasoning (1 sentence)
-
-Then ask me to rate each one. We'll compare and discuss disagreements.
-
-Step 2: After we align on the first 20, pull 30 more and classify
-them using the rules we've developed. Show me the ones you're
-least confident about.
-
-Step 3: Write the final rules as a markdown config file with sections
-for HIGH (action required), MEDIUM (calendar/informational),
-LOW (FYI), and SKIP. Include sender pattern rules and keyword rules.
+Prepare a digest for me to review, and ask before sending it.
 ```
 
-The conversation takes 20–40 minutes. You end up with a rules file tailored to your priorities.
+The skill processes all new emails since its last completed run, including any you've already opened yourself. Once the digest has been sent, it marks all the messages it processed as read, including those it left out of the summary. They stay in the same folder if you need to find them later. If you'd rather keep unread messages unread, ask your agent to preserve their read status and save that preference.
 
-### 3. Install the skill
+Choose a frequency that fits the mail. If you want it to run automatically, use the [scheduling instructions](manage-email.md#5-add-a-schedule-and-check-coverage).
 
-Download the [announcement digest skill](https://github.com/chrisblattman/claudeblattman/blob/main/skills/announcement-digest/SKILL.md) and customize:
+A schedule doesn't change the skill's requirement to ask before sending, but depending on the digest, you might choose to give that permission in advance. For example, I schedule the school digest skill to run twice a week, and I give it explicit permission to email me and my partner without any other approval. Since the digest is low-stakes—it's only going to us—I consider it low risk. If the digest is wrong in some way, it's an easy low-cost fix. For other types of email digests going to a larger audience, you might want to review the result before it sends. In general, I let the agent send email digests that go straight back to me automatically. Anything else, I review before sending.
 
-- Replace `[YOUR_LABEL]` with your Gmail label
-- Point the config path to your calibrated rules file
-- Set your recipient addresses
-- Run in dry-run mode first (compose but don't send)
-
-!!! tip "Dry-run mode"
-    Run 3–4 times before enabling auto-send. Check that dates match source emails, skip decisions make sense, and urgency levels feel right. Adjust rules after each run.
-
-## Lessons
-
-- **Calibration is the product.** The skill is generic infrastructure. The rules file — built from your reactions to 50 real emails — is what makes it work.
-
-- **Source quoting is a general defense.** Any time AI summarizes a document and you need specific facts to survive, extract the verbatim quote alongside the fact. Carry both through to output.
-
-- **When in doubt, classify up.** A post that's just a link with no description might be a permission form. When the cost of missing something is high and the cost of flagging it is low, err high.
-
-- **Your source ≠ you on priority.** Schools, employers, and nonprofits treat every announcement as equally important. Your triage rules encode the gap between their priorities and yours. That gap has to be measured, not inferred.
+Keep correcting the rules as you use it. “Include schedule changes even when they're buried in a newsletter” is an instruction the agent can use next time. Have it save that instruction, then check the next digest to see whether it followed it.

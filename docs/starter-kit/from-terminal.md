@@ -8,23 +8,21 @@ If you're still doing all your AI work in a terminal, switch to the desktop app.
 
 Much of this is possible from a terminal too. What I prefer about the desktop apps is having the conversation, the work, and the controls together—and managing several sessions in one working window. It makes it easier to see what's happening, switch between tasks, and give useful feedback.
 
-**Once again, ask your AI to walk you through it.** Open the app in a project you're already working on and try:
-
-```text
-Help me use the desktop app for this project. Show me the work beside our conversation, explain how I can give you feedback on it, and walk me through the features on claudeblattman.com/starter-kit/from-terminal/ that would help with this task.
-```
-
 The rest of this page gives you a few things to try as you work. I prefer Codex's preview and feedback interface right now, but most of these habits work in both Claude and Codex. You don't need to learn every feature before getting started.
+
+*Current as of November 2026. App controls change; the linked guides have the latest details.*
 
 ## 1. Manage multiple sessions in one working window {#9-sort-pin-and-rename-your-conversations}
 
 **Keep several sessions going in one working window.** Have one agent work on your slide deck while another investigates a question and a third revises a document. The sidebar keeps those conversations together: switch to the one that needs your attention, give it feedback, then return to another while it works. For me, this is one of the biggest conveniences of the desktop apps.
 
-**Rename your chats so they mean something to you.** In Codex, double-click the session title in the left sidebar to rename it. In Claude, open the session and click its title in the title bar. You can also ask the agent to rename the chat. “Funder deck — revise opening” or “August trip — compare options” gives your brain a useful signpost when you return to the list.
+**Rename your chats so they mean something to you.** “Funder deck — revise opening” or “August trip — compare options” gives your brain a useful signpost when you return to the list. You can ask the agent to rename the chat.
 
-Group conversations by project, pin the ones you keep returning to, and use the sorting options to find recent work. Arrange the sidebar around the way you work.
+**Start a sub-task when part of the work deserves its own conversation.** In Claude, a [suggested task](https://code.claude.com/docs/en/desktop#start-a-task-that-claude-suggests) can open as a new session beneath the original in the sidebar. You might keep drafting a report in the main chat while a related conversation checks a source or explores another approach. That gives you somewhere to follow up on that piece of work separately.
 
-You can run multiple sessions and rename them in a terminal too. What I like here is how easy it is to manage them together in a single window. See [Codex projects and chats](https://learn.chatgpt.com/docs/projects) or [Claude's parallel sessions](https://code.claude.com/docs/en/desktop#work-in-parallel-with-sessions) for the controls in your app.
+**Use a side chat for a quick question along the way.** Claude's [side chats](https://code.claude.com/docs/en/desktop#ask-a-side-question-without-derailing-the-session) let you ask something like “What does this term mean?” without interrupting the main task. The side discussion stays separate from the main conversation, so you can get your answer and return to the work.
+
+**Sort your sessions so the right work is easy to find.** Grouping by day helps you pick up something you worked on recently. Pinning keeps the chats you return to often near the top, and project groups keep related work together. Use the arrangement that makes sense for your work.
 
 ## 2. Pick up the same session on another device {#9-pick-up-the-same-session-on-another-device}
 
@@ -93,7 +91,7 @@ In my experience, Claude's feedback tools aren't quite as ubiquitous. You can le
 
 Claude also has a separate [Docs interface with comments](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs); that is different from annotating a webpage or PDF preview.
 
-In either app, give the agent the whole set of comments, let it make a pass, then look again. Go back and forth until you're happy with the result. [Point, don't describe](annotating.md) goes through annotation app by app, including Google Docs and PDFs.
+In either app, give the agent the whole set of comments, let it make a pass, then look again. Go back and forth until you're happy with the result. [The annotation guide](annotating.md) shows how to leave comments in each app, including Google Docs and PDFs.
 
 ## 6. Keep an eye on the agent’s browser work {#5-let-the-agent-work-in-your-chrome-tabs}
 

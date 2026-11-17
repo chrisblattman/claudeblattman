@@ -2,7 +2,9 @@
 description: A fictional project plan that preserves the question, rationale, and milestone decisions separately from operational dashboard updates.
 ---
 
-# Example: research design and progress
+<span id="example-research-design-and-progress"></span>
+
+# Example: project plan
 
 This is **Tab 2** for the fictional Riverside training pilot in the [dashboard example](project-overview-example.md). It is a project-plan illustration, not a validated research protocol. Dates and facts are invented.
 

@@ -29,6 +29,17 @@ Run these when installing or changing the skill. Use a small public question wit
 | Two reports repeat the same study | Synthesis treats that as one evidence lineage. |
 | Named existing reports, “no new research” | Synthesize just those reports; no provider launches. |
 
+## Setup and combined-run scenarios
+
+| Setup / request | Expected decision |
+|---|---|
+| Installation or `/research-council setup` | Discover native workers and existing Ask Agents connections; no research, dummy job or synthesis launched. |
+| External launcher exists but authentication/search unverified | Report configured separately from verified access. Do not claim it is research-ready. |
+| Kit Setup missing, native research worker available | Native worker remains usable; no mandatory extra installation. |
+| Customized entry file, extra references or duplicate installed name | Preserve existing work, merge nonconflicting updates and resolve collisions; identify the loaded copy. |
+| Both workflows explicitly requested | Independent same-brief research, separate raw reports and job records, one final fresh synthesis over all originals. |
+| Generic research-council invocation | Never add browser Deep Research automatically. |
+
 ## Live acceptance still required
 
 1. Copy the whole skill into a temporary skill-install location for the target host; check metadata, reference access and which version is loaded. Avoid overriding a personal installed copy.

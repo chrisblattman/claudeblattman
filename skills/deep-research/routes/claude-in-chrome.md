@@ -4,7 +4,7 @@ Drives the user's signed-in Chrome (or another supported Chromium browser) throu
 
 ## Working rules
 
-- **Own the tabs.** Start with the tab-context tool and create the extension's tab group if empty. Work only in tabs this run opened, and close only those, after capture and filing are verified.
+- **Own the tabs.** Start with the tab-context tool and create the extension's tab group if empty. For new jobs, work in tabs this run opened. On resume, reconnect to the recorded existing research task. Close only tabs whose creation by this run is verified, after capture and filing are verified.
 - **Read before acting.** Use the page-reading and find tools to locate controls by their visible label. Use screenshots to confirm state the DOM doesn't show clearly (menus, chips, the research panel).
 - **Type with click + type, not form fill.** ChatGPT and Gemini composers are `contenteditable` editors. A form-fill tool can silently do nothing on them. Click the composer, then type or paste the brief, then read it back.
 - **Logins and CAPTCHAs** pause the extension. They are user steps: name the product and the tab.

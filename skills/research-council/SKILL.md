@@ -1,6 +1,6 @@
 ---
 name: research-council
-description: Research a question using the available Claude, Codex and Gemini agents independently, then synthesize their evidence. Use for a research council or ordinary multi-agent research; Grok is on request. This does not launch the ChatGPT or Gemini Deep Research browser products.
+description: Research a question using the available Claude, Codex and Gemini agents independently, then synthesize their evidence. Use for a research council, ordinary multi-agent research, or setting up its agent connections; Grok is on request. This does not launch the ChatGPT or Gemini Deep Research browser products.
 ---
 
 # Research Council
@@ -8,6 +8,12 @@ description: Research a question using the available Claude, Codex and Gemini ag
 Gather research inputs for a decision or a later working council. Run one fresh research arm per available AI, give each the same question, retrieve their reports, and combine the evidence. One available AI means one arm, not several copies of that AI.
 
 Read [execution and evidence](references/execution.md) before dispatch. This is a portable public adaptation, not a copy of a private panel resolver. It does not claim that private resolver's certification.
+
+## Setup and updates
+
+Install this whole folder, including its references, and inspect an existing copy before updating. Back up and preserve customizations, added files and saved preferences; merge nonconflicting changes and resolve conflicting behavior with the user. Check duplicate names and report the installed entry file so the user can identify the right copy. Do not replace an unrelated skill, working connections or defaults.
+
+After installation or on `/research-council setup`, perform the bounded setup in [execution and evidence](references/execution.md#setup-without-launching-research). Discover the native workers and existing Council/Ask Agents connections, report what is configured and what is not verified, and help with missing connections only as needed. Setup alone launches no research or test panel. Tell the user to open a new session in their project after installing.
 
 ## Choose the arms
 
@@ -56,9 +62,15 @@ With two or more usable reports, give a **fresh synthesis worker** the original 
 
 Weight claims by source quality, relevance and support, not equally by provider and not by votes. Several arms citing the same study are one evidence lineage. An upstream report supplied to every arm is shared input, not independent corroboration. Follow the synthesis outline in the reference.
 
-With one usable report, return it as single-provider research. With partial coverage, state what was planned, what returned, and how the missing evidence limits the answer. Never claim a multi-AI consensus from one result.
+With one usable report, return it with a short summary labeled single-provider research. With partial coverage, state what was planned, what returned, and how the missing evidence limits the answer. Never claim a multi-AI consensus from one result.
 
 Return a short answer, material uncertainties, links to individual reports and `SYNTHESIS.md` when produced, plus a useful next step. Research can feed a later `/council`; do not launch that downstream task unless requested.
+
+## When the user requests both research workflows
+
+Only when explicitly asked for both, the host coordinates `/research-council` and `/deep-research` using the same frozen question. Keep their original reports and state in separate `agents/` and `browser/` subfolders of one research run. Neither workflow launches the other recursively or receives its findings during research.
+
+Defer the standalone syntheses and give one final fresh synthesis worker all the individual original reports, the common brief and recorded limitations. Save the combined `SYNTHESIS.md` in the parent folder. Shared sources remain one evidence lineage. Respect each workflow's recovery rules; do not drop unresolved browser jobs just to finish the combined output. Provide separate syntheses only if the user requests them.
 
 ## Saved reports and examples
 

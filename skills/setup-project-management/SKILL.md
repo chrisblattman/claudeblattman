@@ -47,6 +47,8 @@ Prefer useful existing organization. Offer the relevant pattern and initialize t
 - Research project: paper, presentations, literature, plus an AI-collaboration area for research notes, council runs, transcripts, review history, and dashboard snapshots. The source workflow uses `01_Paper`, `02_Presentations`, `03_Literature`, and `10_AI_Collaboration/{Transcripts,Weekly_Reviews,Dashboard_Archive}`. Preserve unnumbered or differently named equivalents.
 - Keep data, code, instruments, fieldwork, submissions, or approvals in the project's established locations; add only what the project needs.
 
+When configuring meeting sources, record the established local transcript folder as `meetings.transcript_path` in the shared project configuration. Reuse the email addresses, project keywords, exclusions and selected WhatsApp chats from discovery as source locations/filters, following the [configuration contract](references/project-config.md). Record connected transcript folders when verified. Do not duplicate a team roster or mistake a search filter for an email recipient policy. These settings identify sources; they do not connect accounts or install transcript helpers.
+
 Record actual paths in the index and project instructions. Check the relevant skill's actual routing when selecting its output location. Distinguish a recorded preference from a route that has been configured; creating a folder does not redirect an existing skill. Pass the selected destination when invoking it, or configure the route within the user's request.
 
 Create or update:

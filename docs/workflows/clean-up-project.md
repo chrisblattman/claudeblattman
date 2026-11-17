@@ -40,6 +40,8 @@ When you're done, we can decide how to bring everything together properly into o
 
 ## 2. Recover work that is still in your AI sessions
 
+To locate an earlier discussion or decision, see [Find past work with Recall](recall.md).
+
 If you've done a lot of work in AI sessions but haven't saved local documentation, ask the agent to collect it. Open a new session in the project in Claude or Codex. If you used both, do this in each one:
 
 ```text

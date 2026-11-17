@@ -1,16 +1,18 @@
 ---
-description: Refresh the dashboard after each meeting using your comments and the transcript, then review proposed changes to the research design.
+description: Keep project progress current after meetings, and review changes to the description you use for proposals and reports.
 ---
 
-# Refresh your project dashboard
+# Refresh your dashboard and project description { #refresh-your-project-dashboard }
 
 After a meeting, I want a current account of what we agreed to do. What's on my plate, what's on my collaborators' plates, and am I the bottleneck for anything? Then, before the next meeting, I want to read that same dashboard and arrive with the right strategic agenda.
 
-I use `/weekly-review` to keep this cycle going across all my projects. It reads the comments I've left in the Google Doc and the meeting transcript, updates the dashboard, and suggests changes to the research design.
+I use `/weekly-review` to keep this cycle going across all my projects. It reads the comments I've left in the Google Doc and the meeting transcript, updates the dashboard, and suggests changes to the underlying project description. That keeps the account we use for proposals and reports in step with the work we're actually doing.
 
-The [setup page](project-management.md) explains the two tabs: Tab 1 is the dashboard and meeting log, and Tab 2 is the research design. You can call the tabs whatever you like. I name them Overview and Research Design, respectively. The first should change after each meeting. The second takes more thought from me and my collaborators, since it feeds our proposals, IRB applications, and pre-specification documents.
+The [setup page](project-management.md) explains the two tabs: Tab 1 is the dashboard and meeting log, and Tab 2 is the project description. In my research projects, I name them Overview and Research Design. I use “research design” below, but the same approach works for other project plans. The first tab should change after each meeting. The second takes more thought, since it explains what we're doing and why.
 
-If you haven't read the build guide, you should at least start with [step 5, Use them](project-management.md#4-use-it-to-prepare-for-the-next-meeting), for context on how I use both tabs.
+If you haven't read the build guide, you should at least start with [step 5, Put both documents to work](project-management.md#4-use-it-to-prepare-for-the-next-meeting), for context on how I use both tabs.
+
+A dashboard refresh and a meeting follow-up do different jobs. `/weekly-review` keeps the continuing project record current. [`/post-meeting`](meeting-workflow.md#3-after-the-call-post-meeting) prepares an account of one meeting and can draft an email about it. You don't need both after every meeting. If you just want to update the dashboard, use the transcript directly.
 
 ## 1. During the meeting, give the agent updates
 
@@ -94,7 +96,7 @@ Look over the result and correct anything it misunderstood. For example: “We d
 
 The agent should preserve your notes and earlier history, check the result, and then record the successful refresh.
 
-Glance at Tab 1 afterward to see what you need to do. Read it more thoroughly before the next meeting to decide what deserves the team's attention.
+Glance at Tab 1 afterward to see what you need to do. Read it more thoroughly before the next meeting to decide what deserves the team's attention. You can also use it with the project description to [prepare a meeting brief](meeting-workflow.md#1-before-the-call-pre-meeting-brief).
 
 ## 6. Work through the suggested design changes
 
@@ -113,6 +115,8 @@ Update Tab 2 with the specific changes we've agreed on.
 
 When you're done revising Tab 2, make any necessary changes to Tab 1 to reflect the new decisions.
 ```
+
+Once Tab 2 reflects those decisions, use it as the starting point for the [next proposal, report, or IRB application](project-management.md#write-proposals-reports-and-irb-applications). You should be able to spend your time on what that document needs, rather than reconstructing the project again.
 
 ## 7. Schedule it for after your meeting
 

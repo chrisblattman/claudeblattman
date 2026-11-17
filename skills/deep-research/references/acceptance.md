@@ -31,36 +31,53 @@ A complete live acceptance consumes the accounts' research allowances. Run it on
 | Connector returns a file reference without a local file | Complete supported retrieval and verify the actual local artifact before capture or cleanup. |
 | Connector cannot access the tracked Doc | Use the intended signed-in browser route; do not widen sharing or switch accounts to make the connector work. |
 | Text export loses tables, source links or image equations | Preserve it with disclosed limitations; do not mark complete capture or trash the source until a complete native export is verified. |
-| Gemini temporary Doc and verified complete local export | Trash only the recorded Doc created by this run; verify cleanup and retain local export and research chat. |
+| Gemini temporary Doc under Claude and verified complete local export | Trash only the recorded Doc created by this run; verify cleanup and retain local export and research chat. |
 | Local export incomplete or Doc identity uncertain/pre-existing | Keep the Google Doc; no cleanup until the temporary export and complete local copy are verified. |
-| Multiple temporary export Docs | Track each exact identity and origin; trash only Docs whose represented content is verified locally. Leave uncertain-origin or differing unverified Docs untouched. |
-| Gemini captured but ChatGPT download unresolved | Gemini's verified temporary Docs may be trashed; retain ChatGPT's unresolved status and do not silently omit it from synthesis. |
+| Multiple temporary export Docs under Claude | Track each exact identity and origin; trash only Docs whose represented content is verified locally. Leave uncertain-origin or differing unverified Docs untouched. |
+| Gemini captured under Claude but ChatGPT download unresolved | Gemini's verified temporary Docs may be trashed; retain ChatGPT's unresolved status and do not silently omit it from synthesis. |
 | Gemini Doc cleanup fails | Record cleanup as blocked; retain captured report and continue without claiming deletion. |
 | One captured report, other running | No silent synthesis omission. |
 | Supplied exports only | Preserve originals, record provenance and synthesize without new jobs. |
-| Skill just installed or updated | Installing agent runs setup in the same session: detection, one checklist, mode check without Send, saved settings; no research launched. |
+| Skill just installed or updated | Installing agent runs setup in the same session. Compatible updates check only changed requirements; new setup checks the selected products without Send. No research launched. |
 | `/deep-research setup` or "recheck setup" | Run setup only; no research; update `local/settings.json`. |
 | Research run, no `local/settings.json` | Run setup first, then continue the run. |
-| Update replaces the skill folder | `local/` is preserved; no setup repeated unless a saved route fails. |
-| Claude Code default permission mode, Apple Events route | Setup proposes one allow rule for the skill's script; added only with approval; declined is recorded and not asked again. |
+| Customized skill update | Back up the existing copy, preserve `local/`, edited entry files and extra references; merge compatible changes and resolve conflicts. Verify the installed copy. |
+| Claude Code default permission mode, Apple Events route | Offer only as a deliberate supported fallback; explain broad browser access and use host permissions. No automatic blanket allow rule. |
 | Saved route still works | Use `local/settings.json`; no re-probe, no setup checklist, no user interaction. |
-| Saved route fails (tool gone, signed out, account differs) | Re-probe in the adapter's order, update the saved settings, continue autonomously when another route works. |
+| Saved route fails (tool gone, signed out, account differs) | Troubleshoot the route, preserve pending jobs and offer any supported fallback explicitly; no silent resend or permission change. |
 | Claude host, Claude in Chrome never set up, no block found | Setup's checklist offers it once, with the Chrome recommendation and Set up / Org blocks it / Skip; the answer is recorded. |
-| Setup close step on a window it didn't open | Script refuses (a tab outside the expected URL prefix); nothing closed. |
-| Claude in Chrome blocked by org policy or unsupported sign-in | Record `blocked-by-org` or `unsupported-auth`; never re-show setup; use the next route. |
-| Codex host, Chrome extension fails | Follow Codex troubleshooting, then computer use or handoff; never AppleScript/shell substitutes. |
+| Setup close step on a window it didn't open, including another ChatGPT window | Agent refuses closure based on recorded ownership. The script's URL-prefix check alone would not protect a foreign same-product window. |
+| Claude in Chrome blocked by org policy or unsupported sign-in | Record the blocker, do not repeatedly offer setup, and offer a supported fallback or handoff. |
+| Codex host, Chrome extension fails | Follow Codex troubleshooting, then offer supported computer use or handoff; never AppleScript/shell substitutes. |
 | Apple Events setting off in the chosen browser | Show that browser's exact enable step; never change the setting. |
-| Interrupted after `submitting` | Treat as `submission-unknown`; check the container on the same route; no resend from another browser. |
-| Gemini Docs under Codex | Retain each Doc, record `retained (host confirmation rule)`; no deletion prompt during an autonomous run. |
+| Interrupted after `submitting` | Treat as `submission-unknown`; inspect original task/tab and recent chats as well as the container. Missing container entry and unsent-looking text do not prove failure; no resend while unresolved. |
+| Gemini Docs under Codex | Retain each Doc, record `retained (Codex workflow)`; no deletion prompt during an autonomous run. |
 | Safari MCP enabled | Not a route (isolated, logged-out automation Safari); do not run it alongside Apple Events. |
 | Two reports use the same source | No double-counted corroboration or fixed provider weights. |
+
+## Additional setup and coordination scenarios
+
+| Setup / request | Expected decision |
+|---|---|
+| Only Gemini selected during setup | Check only Gemini; preserve existing ChatGPT settings or record not-selected. No ChatGPT login required. |
+| Chrome not connected, Safari already signed in | Offer Chrome setup first; do not trigger Apple Events prompts before a fallback choice. |
+| Previously declined extension, explicit working fallback | Reuse the saved choice without repeatedly offering setup. |
+| Version-1 settings with automatically chosen Apple Events | Back up and migrate; distinguish auto-selection from an explicit preference. Offer Chrome without disrupting pending jobs. |
+| Unknown settings version or extra settings fields | Preserve the file and fields; report any migration ambiguity rather than resetting them. |
+| Product access works but container is missing/blocked | Persist readiness and filing separately, with nullable container URL. Continue only as allowed by the user's filing requirement. |
+| New setup composer contains a user draft | Leave it intact; use a fresh empty chat. Clear only setup's own test text; never Send. |
+| Local capture unavailable before launch | Report the missing capability before consuming research allowance. |
+| Fresh synthesis unavailable before a two-product run | Disclose the limitation before launch; establish reports-only delivery if not already authorized. |
+| No Drive connector, supported browser Doc download available | Use the browser; do not require a new connector or private OAuth scripts. |
+| Both research workflows explicitly requested | Same brief, separate original reports and run identities; one fresh combined synthesis. No recursive panels or standalone syntheses unless requested. |
+| Another installed skill also named deep-research | Identify this browser workflow's loaded entry file. Preserve the other skill; don't overwrite it. |
 
 ## Live acceptance still required
 
 1. Install the complete folder in a temporary target-host skill location; verify the entry file, references, and loaded copy. Keep customized installed versions untouched.
 2. In each browser product, confirm access to actual Deep Research and the **Deep Research** container. Record whether it was reused or created. Do not change account security/retention settings automatically.
 3. Submit one shared public brief per product. Record task URLs, plan handling and research status. Confirm both research jobs run without manual prompt pasting when browser controls are available.
-4. Retrieve complete native exports. Verify task identity, report sections, tables and source links; retain originals and hashes. Test Gemini's Docs export path if no direct suitable download exists. Record observed download states and recovery rather than inferring failure from a timeout. After verifying the corresponding local project capture, trash each tracked temporary Doc eligible for cleanup and verify its state without deleting the research chat or local report.
+4. Retrieve complete native exports. Verify task identity, report sections, tables and source links; retain originals and hashes. Test Gemini's normal Docs export path; record a complete direct native fallback separately if Docs export is unavailable. Record observed download states and recovery rather than inferring failure from a timeout. Under Claude, after verifying the corresponding local project capture, trash each tracked temporary Doc eligible for cleanup; under Codex retain the Docs. For cleanup, identify the eligible Doc and verify its state without deleting the research chat or local report.
 5. Resume from saved state and confirm the same tasks are reopened without new submissions. Check chat membership in the required containers.
 6. Read and verify decisive source claims, run a fresh synthesis, and check that report links work. Report any account/host limitation and leave unresolved runs recoverable.
 7. Repeat a temporary install/update check for each host claimed as supported. Saved user defaults should survive package replacement.

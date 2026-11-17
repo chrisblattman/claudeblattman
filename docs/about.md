@@ -1,8 +1,5 @@
 ---
 title: About Chris' team
-hide:
-  - navigation
-  - toc
 description: Meet Chris Blattman and the team behind these practical AI guides.
 ---
 

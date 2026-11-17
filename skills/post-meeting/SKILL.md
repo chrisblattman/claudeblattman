@@ -1,301 +1,112 @@
 ---
 name: post-meeting
-description: "Summarize a meeting transcript, extract decisions and action items, and draft a follow-up email."
+description: "Summarize a selected meeting transcript, extract decisions and action items, and draft a follow-up email in chat by default; nosend skips the draft. Send only when the user explicitly asks after seeing the draft. Use for the account of one meeting; weekly-review handles updates to the continuing project record."
 ---
 
-<!-- post-meeting v1.7 | sanitized from private v1.7 -->
-# Post-Meeting Summary & Email
+# Post-Meeting
 
-*v1.7 — Recipient rule changed: default sends to the full team minus low-frequency categories (e.g., `infrequent`, `stakeholders`). Decoupled recipient-list display from send confirmation. Per-project override via `meeting_summary_recipients` in `.claude/CLAUDE.md`. Adds explicit sender choice (you vs. an AI EA identity). Includes the v1.4 hollow-transcript guard.*
+Public adaptation v2.2, 2026-11-17. Reuses existing project settings, supports archived transcripts and labeled notes, and carries user corrections into an optional weekly-review handoff. This is a portable instruction workflow, not a bundled transcript fetcher, mailbox client or dashboard writer. Live app execution still needs validation in the user's setup.
 
-Summarize a meeting transcript and draft a follow-up email to attendees. Run from a project directory after a meeting.
+By default, display an accurate summary of one meeting followed by a follow-up email draft in the current chat. This skill does not update the dashboard, dated project history or project description. Weekly-review reconciles meeting evidence with the continuing project record and proposes changes to the plan. The user can run either skill independently or explicitly request both.
 
-## Prerequisites
+## Inputs and options
 
-**Required:**
-- **Gmail MCP** — for drafting the follow-up email
+Use a supplied transcript path/link, meeting name/date or provider document ID. With no selection, find recent meetings within the selected project and ask which one when ambiguous. An explicit selection does not require another confirmation before reading.
 
-**Recommended:**
-- A project `.claude/CLAUDE.md` file with team roster (names + emails) and transcript folder path
-- Meeting transcripts saved as `.txt` files in a project transcripts folder
+- `[keyword]`: filter candidate meetings by title or filename.
+- `id:DOC_ID`: retrieve that meeting's transcript through the available provider connection; verify meeting identity.
+- `nosend`: display the summary without preparing email or prompting about recipients.
+- `email`: accepted for compatibility; email draft text is already included by default. `nosend` takes precedence when both occur.
+- `save`: also save the summary in the established project location. `nosend save` saves the summary and skips email.
 
-**Optional:**
-- **Granola MCP** — for pulling transcripts directly from Granola instead of local files
+Honor requests for summary only, a shorter account, a particular language, or analysis without saving. An explicit read-only request overrides `save` and prohibits mailbox drafts, configuration changes and other writes.
 
-## First-Time Setup
+## Resolve the existing project setup
 
-1. **Create a project config** at `[project-root]/.claude/CLAUDE.md` with at minimum:
-   ```markdown
-   # Project Name
+Resolve a project named in the request against the current workspace, known project mappings and aliases, and explicitly supplied folders. Verify its identity from the project instructions or index, then read its configuration. Ask only when multiple projects match or the location is unknown; don't search unrelated personal folders. When no project is named, use the selected workspace. Resolve phrases such as “this morning” in the user's timezone and state the actual meeting date in the output.
 
-   ## Team
-   - [Name] <email@example.com> — PI
-   - [Name] <email@example.com> — Research Manager
-   - [Name] <email@example.com> — RA
+Read the selected project's instructions and established configuration. New dashboard setups use `PROJECT_CONFIG.json`; older projects may use fenced YAML and prose in `.claude/CLAUDE.md` or another identified settings file. Reuse the existing team list, source locations and document links; don't create competing JSON and YAML authorities or require setup to be repeated.
 
-   ## Folders
-   - transcripts: `transcripts/`
-   ```
+For the public project configuration, use `project_name`, `sources` (`kind`, `location`, `required`, and optional `role`/`filters`), `excluded_sources`, and `index_path` to identify relevant evidence. `overview_path` locates a local dashboard; `dashboard.document_id`, `document_url`, `account`, `overview_tab_id` and `plan_tab_id` identify cloud document roles for reading relevant dashboard notes/comments and, when requested, saving a correction. Resolve relative paths from the project root. Dashboard access is not required to summarize a supplied transcript.
 
-2. **Create a transcripts folder** in your project directory:
-   ```bash
-   mkdir -p transcripts/
-   ```
+Use `meetings.transcript_path` when present for the local transcript folder; otherwise resolve the established transcript directory from the source list, index or existing instructions. Source filters can record project email addresses, keywords, exclusions and selected WhatsApp chats; reuse them without asking for the same setup on every run. A source entry identifies material to read, not authorization or credentials to connect an account. Keep search filters separate from email recipient policy.
 
-3. **Save meeting transcripts** as `.txt` files in that folder. Most transcription tools (Granola, Otter, etc.) can export to text. Name files with dates for easy sorting (e.g., `2026-03-15_team-sync.txt`).
+Map legacy fields such as `folders.transcripts`, `team`/`team_roster`, `project_keywords`, `exclude_keywords`, `granola_folder(s)`, `google_doc_id` and `meeting_summary_recipients` to the same working context. Read an existing roster or its linked file rather than copying it into configuration; the public JSON contract does not require a new roster field. Keep the project's established recipient policy unless the user changes it.
 
-## Arguments
+If settings are incomplete, use the configured index or `PROJECT_INDEX.md`, existing instructions and supplied links to fill the gaps. Ask only about unresolved locations or conflicts. Don't silently select a conflicting authority or migrate settings. A usable supplied transcript does not require any config file or account connection. Missing email addresses block mailbox draft creation, not the summary. Repair or save settings only when requested, preserving unrelated values.
 
-`$ARGUMENTS` can include:
-- *(none)* — most recent transcript in project's transcripts folder
-- `[keyword]` — filter transcripts by keyword in filename
-- `id:DOC_ID` — specific Granola document ID (bypasses local files; requires Granola MCP)
-- `nosend` — show summary only, skip email drafting
-- `save` — also save summary as local `.md` file in transcripts folder
+## Find and read the meeting record
 
-## Instructions
+Use the host's available file readers and connectors; don't assume private scripts or specific MCP tool names. For configured local transcripts, search the main folder and `archive/` for `.txt`, `.vtt`, `.rtf`, `.pdf` and other readable exports. Use meeting identity and date, not file modification time alone. Deduplicate exports of the same meeting; retain distinct meetings held on the same date.
 
-### Step 1: Find Project Context
+With a transcript connection, retrieve the selected project's meeting transcript, not just the provider's generated notes. Use the actual document ID expected by that provider and verify title/date; calendar event IDs may differ. If retrieval fails, use available local records and report the gap. No fetch/file/archive helper is bundled; use the available connection and local file tools for the filing step below. Don't move, normalize or overwrite original transcripts.
 
-Read `.claude/CLAUDE.md` at **exactly** `$(pwd)/.claude/CLAUDE.md`.
+If the user supplied an exact meeting, read it. Otherwise resolve genuinely ambiguous candidates before summarizing. An older transcript is not evidence of a processing delay. Report “still processing” only when supported by the provider or source metadata; don't infer it from a 30-minute age rule or promise a fixed wait time.
 
-Extract:
-- Transcript folder path (e.g., `transcripts/`)
-- Team roster — names + emails (and any role/category labels you use, e.g., `pis`, `research_managers`, `field_ras`, `infrequent`, `stakeholders`)
-- Project name (from header or `project_name` field)
+### Keep a local transcript copy
 
-Fields may be inside markdown code fences (` ```yaml ``` `) — extract from inside fences.
+By default, when a selected meeting's transcript is fetched from a connected app, save a UTF-8 `.txt` copy in the configured project transcript folder. This is separate from `save`, which controls saving the generated summary; `nosend` skips email only. An explicit read-only, no-save or no-file request suppresses transcript filing too.
 
-**If not found:** Offer Granola MCP fallback (if available) — don't silently walk up directories.
-```
-No .claude/CLAUDE.md found in this directory.
-I can search Granola directly — want me to list recent meetings? (y/n)
-```
-If yes and Granola MCP is available: list recent meetings, then jump to Step 3 with `id:` flow.
-If no Granola MCP: ask user to provide the transcript path manually.
+Resolve the destination from `meetings.transcript_path` or the existing equivalent. If no unambiguous local destination is configured, ask where to file it while continuing the summary; don't invent a folder or silently change configuration. Reuse an existing local transcript instead of converting or copying it unnecessarily. This workflow files only the selected meeting, not the project's entire transcript history.
 
-### Step 2: Fetch Latest Transcript
+Verify the provider meeting ID, title, date and timezone. Retrieve all available transcript pages before exporting. Preserve the returned wording, speaker labels and timestamps; remove presentation markup only as needed for plain text. Add a clearly separated source header with meeting identity/date, provider ID/link, retrieval date and any known coverage limitations. Never substitute generated notes for a raw transcript; label a partial transcript as partial. If only notes are available, report that no transcript copy was filed and continue with a clearly labeled notes-based account where appropriate.
 
-**If using Granola MCP:** Search for recent meetings matching this project and fetch the transcript.
+Check the destination and its archive for the same provider ID or verified meeting identity before writing. Use a collision-resistant name such as `YYYY-MM-DD-meeting-slug-provider-id.txt`, with a safe short identifier or time when needed. Reuse a matching complete copy; preserve existing files and human edits. If a later fetch adds missing transcript content, save a distinctly named version and report the relationship rather than overwriting the earlier copy. Never merge different meetings solely because they share a date. Read back the saved file to verify content and report its exact path. If retrieval, write access or verification fails, disclose that failure; a summary can still proceed with available evidence.
 
-**If using local files:** List `.txt` files in the transcripts folder (excluding `archive/` subfolder), sorted by date (newest first).
+### Read the user's meeting comments
 
-### Step 3: Pick Meeting
+Read relevant human notes, corrections and unresolved comments from the configured dashboard alongside the selected transcript. Use the meeting date, topic and source to establish relevance; do not carry an unrelated comment into this meeting's account. The transcript records what was said; comments can correct its interpretation or add the user's follow-up instructions. Identify those contributions separately, surface conflicts, and never rewrite the transcript to match a comment. If the dashboard or comments are unavailable, say so and summarize the supplied transcript without claiming those inputs were checked.
 
-If `id:DOC_ID` argument: use Granola MCP to fetch the document directly, skip to Step 4.
+### Assess the evidence, not its length
 
-If keyword argument: filter `.txt` files in transcripts folder by keyword in filename.
+Distinguish a transcript, partial transcript, meeting notes, reused summary and inaccessible source using provenance, conversational content, metadata and truncation indicators. Neither character count nor a Markdown heading establishes completeness. Short transcripts and transcripts without speaker labels can be valid; long summaries are still summaries. State uncertainty about coverage when it cannot be resolved.
 
-Otherwise: show most recent transcript + 2-3 others for selection.
+If the user supplied notes, summarize them as notes. If a transcript was requested but only notes are available, disclose that substitution before relying on them and offer a clearly labeled limited account when useful. Ask for the original when a consequential decision or attribution depends on missing wording. Don't invent decisions, treat missing access as “nothing happened,” or present generated notes as a verbatim record.
 
-**Transcript-not-ready check:** If no transcript is newer than 30 minutes and the user didn't specify an older one:
-```
-Transcript may still be processing. Try again in ~10 minutes, or pick an older meeting.
-```
+Keep the meeting identity and original transcript path/link in the output. Identify any additional source or human correction used. A saved summary can help locate the original, but doesn't replace it; label claims supported only by a reused summary.
 
-### Step 3.5: Confirm Selection
+## Summarize and incorporate corrections
 
-```
-Summarize "[meeting title]" from [date]? (y/n)
-```
-Confirm BEFORE reading the full transcript.
+Produce:
 
-### Step 4: Read Transcript
+- A short overview of the discussion.
+- Decisions with enough context to understand what was agreed and why.
+- Action items grouped by person, with deadlines only where stated.
+- Unresolved questions, tentative proposals and next steps.
+- The source reference and material coverage gaps.
 
-Read the selected `.txt` file. If using Granola MCP (`id:` arg), fetch via the Granola transcript API.
+Distinguish discussion from agreement: “we considered Friday” is not “we committed to Friday.” Leave unknown owners or dates unstated. If no decisions or tasks were recorded, say so without forcing the meeting into those categories. Surface conflicting accounts instead of silently resolving them.
 
-**Hollow transcript check (REQUIRED before proceeding):**
+Use the user's supplied corrections when revising the summary. Preserve the original transcript. If a correction changes the interpretation of a passage, record the corrected interpretation rather than editing the source or implying that the transcript itself said it. Don't invent or overwrite the user's commitments from a model recommendation.
 
-After reading the content, classify it as full or hollow.
+For a substantive meeting, include detailed notes by topic after the summary: reasoning, participant positions, evidence and unresolved alternatives. Preserve useful intellectual content for someone who missed the meeting. Scale detail to the meeting and request rather than padding to a fixed page count. Keep the main email easy to scan, with detailed notes as an appendix when appropriate. Use the requested or established team language; ask if audience language remains ambiguous.
 
-A transcript is **hollow (notes only)** if ANY of these are true:
-- Content is under 5,000 characters
-- Content starts with `###` markdown headers
-- Primary structure is bullet points with no speaker attribution lines (pattern: `Name: [speech text]` repeated throughout)
+## Follow-up email draft
 
-A transcript is **full** if it is ≥5,000 characters AND contains conversational speaker content (back-and-forth dialogue, speaker labels, or a `.vtt` Zoom format).
+Skip this section for `nosend`, “no send” or a summary-only request, including all email prompts. This option skips drafting, not merely transmission. Otherwise prepare a draft in the session, using the corrected account. A mailbox connection is unnecessary until the user wants a mailbox draft created. If addresses are missing, still show the in-chat draft with recipients clearly marked as unresolved; do not block the summary or guess addresses.
 
-**If hollow:** Stop immediately. Do not proceed to Step 5. Notify:
-```
-This transcript appears to be AI-generated notes summary, not a full verbatim transcript.
-Granola (or your transcription tool) may still be processing — usually ready 1-2 hours after meeting end.
+**Recipients:** Honor explicit recipients first, then the project's established `meeting_summary_recipients` or equivalent policy. For older configurations with a team roster but no override, preserve the existing default: the full team minus `infrequent` and `stakeholders`, including affected team members who missed the call. Explain that this can be broader than attendees and show the actual list. If no roster/policy exists, use verified meeting attendees as proposed recipients, or ask for the missing addresses. Do not guess addresses or silently add people outside the roster merely because the transcript names them. For a restricted or sensitive meeting, flag a broad team list for review before creating any mailbox draft.
 
-Options:
-  1. Try again later — run /post-meeting again once the transcript is ready
-  2. Find the raw transcript in your transcription tool
-  3. Proceed with notes only — summary will be less accurate (not recommended)
+**Sender:** Use the user's stated choice or established project preference; otherwise draft in the user's voice. An explicitly chosen AI-assistant sender must identify itself as such and use the configured identity and reply-to details. Sender choice is not approval of the recipients or email body.
 
-What would you like to do?
-```
-Do NOT proceed unless the user explicitly chooses option 3.
+Show the complete proposed sender, To/Cc/Bcc, subject, body and any attachments. Use the meeting's actual date in the opener when it wasn't today or yesterday. Include a source reference appropriate for the recipients; a local file path is not automatically a link they can open. Don't change source sharing permissions to make it accessible.
 
-### Step 5: Summarize
+Create a Gmail or other mailbox draft only when the user has authorized that action for the displayed content and recipients. Reuse approval already given for an unchanged draft. Use the host's available mail connection and report its actual result. If unavailable or unsuccessful, leave copyable text and don't claim a draft was saved. **Draft by default; send only after an explicit user instruction to send the displayed email.** A request for a brief/summary, permission to create a mailbox draft, or praise for the wording is not an instruction to send. After the draft and complete sender/recipient addresses are shown, a clear “send” authorizes sending that message through a capable mail connection; do not ask again for unchanged content and recipients. Resolve missing addresses or ambiguity about which draft/account first. Do not expand the recipients or send a materially different message without authorization. A later explicit send request can supersede an earlier draft-only preference; `nosend` by itself never authorizes email preparation or transmission.
 
-Generate structured summary with:
-- 2-3 sentence overview of topics discussed
-- Numbered decisions with context
-- Bulleted action items with owner and deadline (if mentioned)
-- Next steps
+If sending is disabled for the account, keep the existing mailbox draft or save the prepared message as an unsent draft when draft creation is available. Tell the user to open their mail app's Drafts folder and send it there; provide the draft link when available. If draft creation is unavailable too, provide copyable sender/recipient details, subject and body, and say no mailbox draft was saved. Never bypass account restrictions. Report the actual send/draft result. If a send attempt has an uncertain outcome, check the message status before retrying to avoid duplicate delivery.
 
-**Minimum-content gate:** If no decisions AND no action items detected:
-```
-This was a brief meeting with no tracked decisions or action items. Send summary anyway? (y/n)
-```
+## Optional local save
 
-**Language check:** If non-English content detected in transcript:
-```
-Draft in [detected language] or English? (default: English)
-```
+Process `save` independently of email so that `nosend save` works. Save the summary alongside the transcripts or in the project's established summary location, using a filename such as `summary-YYYY-MM-DD-meeting-slug.md`. Include meeting identity, original source reference, relevant corrections and any source limitations. Distinct meetings on one day must not overwrite each other. Preserve existing human edits; revise an existing saved summary only when that update is requested or already authorized.
 
-If `nosend` argument: display summary and stop here.
+Do not save a separate corrections database or mandatory handoff file. Without a summary-save request, keep the summary in the session. The selected transcript may still be filed as described above. Don't create performance logs or processed-source state, and don't advance weekly-review checkpoints.
 
-### Step 5.5: Sender Choice
+## Optional handoff to weekly-review
 
-Before drafting the email, ask who should send it:
+When useful, offer weekly-review as the next step for refreshing the dashboard and dated history and proposing project-description changes. Don't run it unless requested; a follow-up email alone may be all the user wants. If the user requests both workflows, pass the original transcript reference and explicit corrections into the review and follow its update rules. Don't implement a second dashboard updater here.
 
-```
-Send as:
-  1. You — first person, signed with your name
-  2. AI executive assistant — third person, identifies clearly as an AI assistant
-  (default: 1)
-```
+Corrections in this chat or an email draft are not automatically visible to a later review in another chat. Explain the simple choices when a correction matters to the continuing record: include it in the next weekly-review request, or ask the agent to put it in a dashboard comment or the existing human-notes area. For example: “Friday was suggested, not agreed. Keep the deadline undecided.”
 
-If sender = **You**: Use a direct, professional tone. First person ("I'll clarify...", "we agreed..."). Sign with your name.
+If explicitly asked to record that correction, verify the exact project document and dashboard tab or local file. Use the available comment tool or the existing human-notes area as requested, identifying the meeting and source. Preserve generated dashboard content, prior notes, history and the project plan; do not resolve unrelated comments or change review checkpoints. If a safe comment/note write is unavailable, provide the text to paste and report that it was not saved. Do not silently substitute a plan edit, a new file or a different tab.
 
-If sender = **AI executive assistant**: Open with a sentence identifying clearly as an AI assistant ("This is [Assistant Name], [Your Name]'s AI assistant. They asked me to send a summary of [today's/yesterday's] meeting. I generated this from the transcript — please flag anything I got wrong or missed."). Refer to the user in third person throughout. Sign as the AI assistant identity. Set a clear reply-to address pointing back to the user, and never sign as the user.
-
-### Step 6: Draft Email + Confirm
-
-**Recipient rule (v1.7).** Default = **everyone on the team whose work the meeting affects**, not just attendees. Concretely: full team roster from `.claude/CLAUDE.md`, **minus** any `infrequent` and `stakeholders` categories. Field RAs and team members whose action items typically come up in meetings remain standing recipients even when they were not on the call — their tasks are routinely named.
-
-If the project's `.claude/CLAUDE.md` defines `meeting_summary_recipients` (a list of category names to include or `exclude:` list), honor it as an override.
-
-**Display ≠ confirmation.** Show the recipient list once for awareness in the Step 6 preview, but the only confirmation gate is on the *send action* in Step 7. Do not treat a "yes, send" reply as endorsement of the recipient list — that reply is about sender choice only.
-
-If a teammate is clearly central to the action items but not in the team roster, surface them as a confidence flag and add them by default unless the user removes them.
-
-**Sensitivity flag:** If the meeting appears to be funder-only or leadership-only (narrow attendee list, sensitive topics):
-```
-This appears to be a [funder/leadership-only] meeting. Review summary for sensitive content before sending.
-```
-
-Draft the email using a direct, professional tone. Avoid AI-sounding language ("delve," "leverage," "multifaceted," etc.).
-
-**Recency-aware opener:** Meeting today → "today's meeting"; yesterday → "yesterday's meeting"; older → "our meeting on [day]".
-
-```
---------------------
-POST-MEETING EMAIL
---------------------
-
-From: [selected sender]
-To: [name1] <email1>, [name2] <email2>
-Subject: Meeting summary: [title]
-
-[Full draft text]
-
-> Send as Gmail draft / Edit recipients / Edit draft / Skip
-```
-
-If `save` argument: also write summary to `[transcripts_folder]/summary-[date]-[title-slug].md`.
-
-### Step 7: Create Gmail Draft
-
-On approval, use Gmail MCP to create a draft:
-```
-mcp__google_workspace__draft_gmail_message
-  to: [recipients]
-  subject: Meeting summary: [title]
-  body: [email body]
-```
-
-Report: "Draft created in Gmail — open Gmail to review and send."
-
-### Step 8: Log Performance
-
-```bash
-echo "$(date +%Y-%m-%d),post-meeting,TOOL_CALLS,NOTES" >> ~/.claude-assistant/logs/skill-performance.csv
-```
-Replace `TOOL_CALLS` with exact count and `NOTES` with summary (e.g., `team-sync-5-actions`).
-
-## Email Format
-
-The email has two parts: a **summary body** (decisions, action items by person, next steps) and a **detailed meeting notes appendix** (full intellectual content as a searchable record).
-
-**Err on the side of more detail, not less.** A longer, thorough email is better than a brief one that misses things.
-
-```
-Hi [Name(s)],
-
-Good meeting [today/yesterday/on Monday]. Here's a summary:
-
-**What we discussed:**
-[3-5 sentence overview covering the main topics and how they connect]
-
-**Key decisions:**
-1. [Decision with enough context that someone who missed the meeting understands why]
-2. [Decision with context]
-3. [Decision with context]
-
-**Action items:**
-
-[Name 1]:
-- [Task] (by [date if mentioned])
-- [Task]
-
-[Name 2]:
-- [Task] (by [date if mentioned])
-
-[Name 3]:
-- [Task]
-
-**Next steps:**
-- [What happens next, including any follow-up meetings or deadlines]
-- [Second next step]
-
-Full transcript: [path to .txt file or Granola link]
-
-Let me know if I missed anything.
-
-[Sender]
-
----
-
-## Detailed Meeting Notes
-
-### [Topic Section 1]
-[Substantive discussion: key arguments, positions taken by each participant,
-analytical points, data or evidence cited. Include enough detail that someone
-who missed the meeting can follow the reasoning.]
-
-### [Topic Section 2]
-[Comparative examples discussed, theoretical debates, methodological considerations]
-
-### [Topic Section 3]
-[Timeline/historical context, administrative items, logistics, resource questions]
-
-### [Continue for all substantive topics — aim for 3-5 pages]
-```
-
-**Summary body:** Numbered lists for decisions (with context). Action items **grouped by person** so each team member can scan for their tasks.
-
-**Detailed appendix:** Structured by discussion topic (not chronological). Include participant positions and arguments, not just conclusions. Capture analytical reasoning, not just outcomes. This serves as the meeting record — **be thorough, not brief**. Aim for 3-5 pages for a substantive meeting.
-
-## Customization Points
-
-- **Transcript source:** Swap Granola for Otter, Fireflies, or any tool that exports `.txt` transcripts.
-- **Team roster location:** Move from `.claude/CLAUDE.md` to a shared config file if you prefer.
-- **Recipient categories:** The `infrequent`/`stakeholders` exclusion default is a convention — rename or remove the categories your team uses. The override field `meeting_summary_recipients` accepts whatever category names you define.
-- **Email sending:** If you have a send script configured, replace the Gmail draft step with direct sending.
-- **Language:** The language check detects non-English content; customize the default for your team.
-- **Transcript folder:** Change the convention in your project `.claude/CLAUDE.md`.
-
-## Error Handling
-
-| Condition | Action |
-|-----------|--------|
-| No `.claude/CLAUDE.md` | Offer Granola MCP fallback or ask for transcript path |
-| No transcripts in folder | "No recent transcripts. May still be processing if you just finished a call." |
-| Granola MCP unavailable | Fall back to local `.txt` files |
-| Gmail draft fails | Display the email text so you can copy-paste it |
-| No team roster | Ask user to type recipient emails manually |
+A saved summary is optional evidence, not a guarantee that weekly-review will discover it. When the user wants it included, point the review to the corrected summary and original transcript. Weekly-review remains responsible for reconciling those sources with existing project commitments and for handling plan changes separately.

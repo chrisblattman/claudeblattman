@@ -1139,11 +1139,13 @@ html[data-cb-sidebar="section"] .md-sidebar--primary
 
 /* Ticked-off steps. A glyph plus a colour change, never colour alone, and kept
    distinct from Material's own --passed class, which only means "scrolled by". */
-.md-sidebar--primary .md-nav--secondary .md-nav__link--done {
+.md-sidebar--primary .md-nav--secondary .md-nav__link--done,
+.md-sidebar--primary a.md-nav__link--page-done {
   color: var(--cb-done-fg);
 }
 
-.md-sidebar--primary .md-nav--secondary .md-nav__link--done::before {
+.md-sidebar--primary .md-nav--secondary .md-nav__link--done::before,
+.md-sidebar--primary a.md-nav__link--page-done::before {
   content: "\2713\00a0";
   font-weight: 700;
   color: var(--cb-accent-text);
@@ -1394,17 +1396,18 @@ html[data-cb-sidebar="section"] .md-sidebar--primary
    heading to the next one. CSS cannot express "every sibling until the next
    h3", and the sibling selectors that come closest have failed to invalidate
    in this stylesheet before. */
-.md-typeset .checklist h3.step--done {
+.md-typeset .step--done,
+.md-typeset .checklist .step--done {
   color: var(--cb-done-fg);
 }
 
-.md-typeset .checklist .step-body--done {
+.md-typeset .step-body--done {
   opacity: 0.55;
   transition: opacity 0.12s ease;
 }
 
-.md-typeset .checklist .step-body--done:hover,
-.md-typeset .checklist .step-body--done:focus-within {
+.md-typeset .step-body--done:hover,
+.md-typeset .step-body--done:focus-within {
   opacity: 1;
 }
 
@@ -2933,3 +2936,8 @@ html[data-cb-sidebar="page"] .md-sidebar--primary .md-nav.md-nav--secondary {
 .md-typeset .adobe-account-options table:not([class]) :is(th, td) {
   padding: .35rem .55rem; line-height: 1.45; font-size: .75rem;
 }
+
+/* Compact meeting figures retain readable council labels without expanding
+   boxes to fill a wide article. Overflow stays within each figure on phones. */
+.meeting-overview .council-horizontal svg { min-width: 520px; max-width: 600px; }
+.meeting-project-loop .council-horizontal svg { min-width: 800px; max-width: 800px; }

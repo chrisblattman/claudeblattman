@@ -1,59 +1,57 @@
 # Browser routes
 
-A **route** is how the agent operates the user's signed-in browser: an extension, native computer control, Apple Events JavaScript, or a handoff. Choose it per product (ChatGPT, Gemini) from what works on this computer, not from the plan name or the default browser alone. [Setup](setup.md) chooses it once at install time and saves it locally; runs reuse it without re-testing.
+A route is the tool used to operate the signed-in browser. **Start with the host's Chrome extension.** [Setup](setup.md) saves a working choice for each selected product. The user may explicitly choose a supported fallback when Chrome is blocked or unavailable. A saved, deliberately chosen fallback can be reused; do not silently choose one just because it was the default in an older skill version.
 
-Host route order lives in [adapters/claude-code.md](../adapters/claude-code.md) and [adapters/codex.md](../adapters/codex.md). Route recipes live in [routes/](../routes/). Product steps (Deep Research mode, plans, export) stay in [browser procedures](browser-procedures.md).
+Read the [Claude adapter](../adapters/claude-code.md) or [Codex adapter](../adapters/codex.md), the selected recipe in [routes](../routes/), and [browser procedures](browser-procedures.md). Host tool instructions take precedence over route hints.
 
 ## Saved settings (check first)
 
-Read `local/settings.json` in this skill's installed folder. If it exists, matches the current host, and its route still works for the product, use it without re-probing. If it is missing, run [setup](setup.md) first, then continue the run.
+Use `local/settings.json` in the installed skill folder. Version 2 separates access, filing and export capability. This is an example of a partially configured installation, not a result to copy as verified:
 
 ```json
 {
-  "version": 1,
-  "host": "claude-code-cli | claude-desktop | claude-vscode | codex-app | codex-cli",
-  "os": "macos | windows | linux",
-  "verified": "YYYY-MM-DD",
-  "claude_in_chrome": "available | not-set-up | blocked-by-org | unsupported-auth | declined | n/a",
-  "apple_events": { "Safari": "enabled | off | unknown", "Google Chrome": "enabled | off | unknown" },
-  "chatgpt": { "route": "<route>", "browser": "<app name>", "project_url": "<Deep Research project URL>", "account_seen": "<as displayed>" },
-  "gemini": { "route": "<route>", "browser": "<app name>", "notebook_url": "<Deep Research notebook URL>", "account_seen": "<as displayed>" },
+  "version": 2,
+  "host": "codex-app",
+  "os": "macos",
+  "checked_at": "YYYY-MM-DD",
+  "chrome": {"status": "available"},
+  "chatgpt": {
+    "status": "ready",
+    "route": "codex-chrome",
+    "browser": "Google Chrome",
+    "account_seen": "<as displayed>",
+    "mode_checked": true,
+    "text_entry_checked": true,
+    "filing": {"status": "verified", "container_url": "<project URL>"},
+    "capture": {"status": "tools-available", "live_export_verified": false}
+  },
+  "gemini": {"status": "not-selected"},
   "notes": []
 }
 ```
 
-- Write it only after a route has passed a live check: the product page shows the signed-in account and the Deep Research container, and the mode check in [setup](setup.md#3-verify-without-spending) passed.
-- Re-probe only when a saved route fails (tool missing, page signed out, container gone, account differs from `account_seen`), when the host or OS changed, or when the user asks to "recheck setup". Update the file afterward.
-- The file stays on this computer. It is not part of the published skill. Preserve `local/` when updating the skill folder.
-- Never store passwords, cookies, tokens or one-time codes. A displayed account name/email is enough to notice a switched account.
+- Product statuses include `ready`, `blocked`, `not-selected` and `not-tested`. Record the exact blocker and last successful step. Extension statuses include `available`, `not-connected`, `blocked-by-org`, `unsupported-auth` and `declined`. Persist partial setup and declines, not just successful checks.
+- `filing.status` is independently `verified`, `pending` or `blocked`; `container_url` can be null. Research can be ready while filing is blocked. Capture records distinguish tools available, blocked, and a genuinely tested full export.
+- A fallback records `fallback_reason` and `user_selected: true`. Never infer consent from a failed extension probe. Reuse compatible, working saved choices; recheck changed account/host, failed tools, missing mode or a user request. Ordinary runs need no repeated setup checklist.
+- On a version-1 upgrade, back up the settings, preserve known choices and unknown fields, and perform a bounded migration in the install session. Explain Chrome as the new normal path if the old route was merely auto-selected. Preserve explicit declines and fallback preferences. Do not interrupt or change the route of pending research jobs to migrate setup; those resume from their own `RUN.md`.
+- If a future/unknown schema cannot be interpreted safely, retain it and report the migration blocker. Do not erase it and guess. `local/` is private and excluded from the public package. Never store passwords, cookies, tokens or one-time codes.
 
 ## Detect what works
 
-Used by setup and by any re-probe. Check automatically; anything that needs the user goes into [setup's single checklist](setup.md#2-one-checklist).
+Identify the host and OS, discover its supported browser tools (including deferred tools), read their instructions and check the connection once. A tool name alone does not prove a working extension. Inspect only selected products in new research tabs. An ambiguous account needs the user's choice before submission.
 
-1. **Host and OS.** Identify Claude Code (CLI, desktop, VS Code) or Codex (app, CLI) and the operating system.
-2. **Callable tools.** Search deferred or lazily loaded tools before concluding a route is absent (for example, query "chrome", "browser", "tabs", "computer"). A tool missing from the first listing is not proof that it is unavailable. Probe with one harmless call (list tabs or contexts) and retry once.
-3. **Route-specific checks.** Run the checks in each adapter's route order. Record the precise state: not discovered, not installed, not connected, blocked by organization, unsupported sign-in, permission-blocked, or working.
-4. **Which browser is signed in.** Starting with the default browser and stopping at the first one signed in to both products, open a new tab or window the agent owns at `https://chatgpt.com/` and `https://gemini.google.com/app` and read the page:
-   - ChatGPT is signed in when the sidebar/profile controls appear and the page did not redirect to `/auth/login`.
-   - Gemini is signed in when a "Google Account: …" control is present and no "Sign in" prompt appears.
-   Prefer the browser signed in to both. The default browser is checked first, so it wins ties (macOS: an empty `https` handler in `defaults read com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers` means Safari; Windows: `HKCU\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\https\UserChoice`). If no browser is signed in, sign-in is a user step; name the browser and product.
-5. **Containers.** Find the "Deep Research" ChatGPT project and Gemini notebook and save their URLs.
+Chrome setup must be offered before attempting an alternative. If it is declined or blocked, use the adapter's supported fallback only after its requirements are understood and chosen. Do not activate remote debugging, change security settings, or substitute shell automation against host restrictions. A fresh automation profile without the user's sign-in is not a working research connection.
 
 ## Submission guard (autonomous)
 
-This guard needs no user interaction. It prevents a second paid job after an interruption, tool error or browser switch.
+1. Before Send, write `submitting` to `RUN.md`: product, time, route, browser, owned tab/window identity, current URL and exact brief identity.
+2. After Send, save the durable conversation/task URL immediately and record the visible product state: `awaiting-input` or `running` only when observed.
+3. An interruption at `submitting` becomes `submission-unknown`. Inspect the original tab/task first, then the selected product's recent chats and Deep Research container if available. Match the brief and submission time, not merely the title. A job started outside the container may not be filed there yet.
+4. Absence from the container, an unsent-looking composer, a timeout or a missing URL **does not prove submission failed**. If uncertainty remains, preserve it and request the smallest recovery step; do not resend. A retry is allowed only when non-submission is positively established (for example a confirmed pre-send tool failure and no Send action) or the user explicitly authorizes a new job after being told of the duplicate risk.
+5. Never switch browser/route to resend an unresolved submission. A supported alternative may inspect and recover the **same** identified task, with the route change recorded. It must not create another job.
 
-1. Before clicking Send, write `submitting` with the time, route, browser and product to `RUN.md`.
-2. After Send, record the chat URL and the product's visible research state, then `running` or `awaiting-input`.
-3. If the click's outcome is unknown, set `submission-unknown`. Open the product's Deep Research container and look for a chat created after the `submitting` time with this brief's opening words. Found means it was submitted: record it and continue. Not found, and the composer still holds the brief unsent, means it is safe to send once more on the **same** route.
-4. Never resubmit from a different browser or route while any submission for that product is `submitting` or `submission-unknown`. Resolve it in the same container first.
+## Historical limitations
 
-## Rejected or untested routes
+The 2026-11-06 tests found that Safari MCP opened a separate logged-out browser and interfered with Apple Events targeting. It is not an enabled route. Fresh WebDriver profiles likewise do not inherit sign-ins. Do not assume a built-in browser pane has the required accounts: verify supported access rather than transferring cookies or private credentials.
 
-- **Safari MCP (`safaridriver --mcp`, Safari 27):** rejected for this skill. Tested 2026-11-06 on Safari 27.2. It launches a separate automation Safari with no logins (ChatGPT redirected to login; Gemini showed Sign in), and while it runs, AppleScript to Safari targets the automation instance. Useful for developing your own sites, not for signed-in Deep Research.
-- **WebDriver / safaridriver / Playwright with a fresh profile:** no logins. Google may refuse sign-in in automation-controlled browsers. Not used.
-- **Claude desktop Browser pane:** clean profile without the user's logins. Not used.
-- **Claude computer use:** browsers are view-only, and it is not available on Team or Enterprise plans. Not used.
-- **Untested candidate:** `chrome-devtools-mcp --autoConnect` attaching to the user's running Chrome after they enable remote debugging at `chrome://inspect/#remote-debugging` (Chrome 144+). This might serve users whose organization disables Claude in Chrome, on macOS and Windows. Do not use it until it passes the acceptance checks.
-- **Windows and Linux:** only the extension routes (Claude in Chrome, Codex Chrome), Codex computer use, or the handoff. These are untested by the maintainers.
+Remote-debugging adapters are not packaged or validated here. Follow the supported host routes instead. See [acceptance](acceptance.md) for the dated route matrix; the instructions do not certify every browser or account.

@@ -1,6 +1,6 @@
 # Apple Events JavaScript (macOS, Safari or Chrome)
 
-Runs JavaScript in the user's own signed-in Safari or Chrome tabs through AppleScript, called from the shell with `osascript`. Works under Claude Code only; Codex excludes this route. The browser stays visible, and the agent cannot see the screen. Every check is a DOM read. Make **every** browser call through [scripts/browser-js.sh](../scripts/browser-js.sh) (`zsh <skill folder>/scripts/browser-js.sh <Safari|Chrome> <command> …`): `windows`, `new-window`, `front`, `urls`, `js`, `close`. One permission rule then covers the whole route; ad-hoc `osascript` calls would each prompt.
+Runs JavaScript in the user's own signed-in Safari or Chrome tabs through AppleScript, called from the shell with `osascript`. Works under Claude Code only; Codex excludes this route. The browser stays visible, and the agent cannot see the screen. Every check is a DOM read. Make **every** browser call through [scripts/browser-js.sh](../scripts/browser-js.sh) (`zsh <skill folder>/scripts/browser-js.sh <Safari|Chrome> <command> …`): `windows`, `new-window`, `front`, `urls`, `js`, `close`. Use this only as a deliberately selected fallback after Chrome setup is blocked or declined, and only when host instructions permit it. Follow the host's permission controls; the helper is not a browser isolation boundary.
 
 Observed 2026-11-06 on Safari 27.2 and Chrome 156. Selectors and labels below are hints to verify on the live page, not fixed contracts.
 
@@ -16,8 +16,9 @@ Security note for the user: while it is on, any app they have allowed to control
 
 ## Working rules
 
-- **Own the window.** Open each product with `new-window <url>`, which prints the new window's ID by comparing window lists before and after; never assume `front window` is the new one. A test on 2026-11-06 picked up the user's Gmail window that way. Before each step, confirm the window's tab URL is the product page this run opened; window IDs can also change when the user rearranges windows. Never type into, or read beyond the URL of, the user's existing tabs.
-- **Close only what you verified is yours.** Use `close <id> <url-prefix>` (for example `https://chatgpt.com/`); it refuses if any tab is outside that prefix. If in doubt, leave it open. A wrongly closed window can only be restored by the user (History → Reopen Last Closed Window), because menu control needs Accessibility permission.
+- **Ownership is an agent check, not a script guarantee.** The helper can target arbitrary window IDs. Its `close` command checks URL prefixes, not whether this run created the window. Never describe a shell allow rule as limiting access to research windows.
+- **Own the window.** Open each product with `new-window <url>`, which prints the new window's ID by comparing window lists before and after; never assume `front window` is the new one. A test on 2026-11-06 picked up the user's Gmail window that way. Record the created ID and expected task URL in `RUN.md`. Before each step, verify both identity and URL; window IDs can change when the user rearranges windows. Resume only the recorded research task. Do not inspect or alter unrelated user tabs; if ownership is uncertain, stop or leave the window open.
+- **Close only what you verified is yours.** Use `close <id> <url-prefix>` (for example `https://chatgpt.com/`); it refuses if any tab is outside that prefix, but a foreign window on the same website would pass. First verify the window was created by this run and contains no user-added tabs. If in doubt, leave it open. A wrongly closed window can only be restored by the user (History → Reopen Last Closed Window), because menu control needs Accessibility permission.
 - **Bring it to the front** with `front <id>` before focusing or typing. Focus and text entry fail in background windows.
 - **Return JSON from a try/catch** in every snippet. AppleScript returns `missing value` when the JavaScript throws; treat that as unknown, never as success.
 - **Click with a full event sequence.** Simple `.click()` does not open ChatGPT's tools menu. Dispatch `pointerdown`, `mousedown`, `pointerup`, `mouseup`, `click` (see `fire()` in the script's header).
@@ -27,7 +28,7 @@ Security note for the user: while it is on, any app they have allowed to control
 ## ChatGPT
 
 1. Open the saved Deep Research project URL. Confirm the signed-in sidebar and the "New chat in Deep Research" composer.
-2. Clear any leftover draft in the composer: focus it, then `execCommand('selectAll')` and `execCommand('delete')`.
+2. Use a fresh, empty composer. Never clear a user's leftover draft. If text is present, open another fresh chat; during setup, remove only the test text you inserted.
 3. Fire the composer's "Add files and more" (+) button, then the menu button whose text is "Deep research / Get a detailed report". Verify that an element with `app-mention-name="deep-research"` is now in the composer.
 4. **Enter text (verified in Chrome and Safari).** Move the selection to the end and insert one space. Then dispatch a `ClipboardEvent('paste')` carrying a `DataTransfer` with the brief as `text/plain`. Line breaks survive as `<br>`.
 5. Read back the length and a few key phrases, and check the chip is still present, before the [submission guard](../references/browser-routes.md#submission-guard-autonomous). Fire the form's "Send" button once.
