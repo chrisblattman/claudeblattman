@@ -14,6 +14,8 @@ a predictable place and turn it into something you use — answers to "what did 
 meeting log you can trust, follow-up drafts, a brief that stays current, and a check that your
 meetings haven't drifted from your own protocol.
 
+**Already transcribing?** The [meeting workflow](../workflows/meeting-workflow.md) shows how to use `/pre-meeting` to prepare a brief and agenda email draft, then `/post-meeting` to fetch and file a transcript and prepare a summary and follow-up draft. [Weekly review](../workflows/weekly-review.md) brings the decisions back into your project description and dashboard. The steps below also let you try the work through individual prompts.
+
 !!! warning "Decide which meetings to record before you record any"
     - **Routine team and project meetings** — fine, with notice. A line in the invitation or a
       sentence at the start of the call.
@@ -240,18 +242,19 @@ and it becomes one command.
 From the newest meeting-log entry, draft a short follow-up email to the attendees: what we decided, who's doing what by when, and the open questions. Put suggested and unattributed items under open questions, not commitments. Save it as a draft — do not send it.
 ```
 
-- **Drafts only, every time.** A sent email can't be unsent, and some meetings need a sentence that
-  should come from you. Read it, fix it, send it yourself.
+- **Start with a draft.** Read it and make corrections. Send it yourself, or explicitly ask the
+  agent to send it if your account allows that.
 - **Share the log entry, not the transcript.** If someone outside the project asks for the
   transcript itself, decide first whether they should have it. Ordinary share links from these
   apps don't show the full transcript anyway; send the file from `transcripts/` if they should.
 
-!!! tip "The packaged version, and how it differs"
-    My `/post-meeting` skill drafts a fuller summary email straight into Gmail — see the
-    [meeting workflow](../workflows/meeting-workflow.md). It isn't the same as steps 5 and 6: it
-    doesn't touch `meeting-log.md`, reads its settings from `.claude/CLAUDE.md`, and by default
-    addresses everyone the meeting affects rather than just the attendees. Check the recipients
-    on your first run.
+!!! tip "Use the meeting skills for the recurring workflow"
+    `/post-meeting` reads the transcript and your relevant dashboard comments, files a local
+    transcript copy when fetched from a connected app, and gives you a summary and email draft
+    in the chat. It reuses your project configuration and shows the proposed sender and recipients.
+    It sends only when you explicitly ask after seeing the draft; `nosend` skips the draft altogether.
+    The [meeting guide](../workflows/meeting-workflow.md) explains installation, options and mailbox drafts.
+    Use [weekly review](../workflows/weekly-review.md) to update the project description and dashboard.
 
 <label class="step-done"><input type="checkbox"> I've sent a follow-up that started as the agent's draft and was checked by me.</label>
 
@@ -334,8 +337,8 @@ Read ~/Transcripts/routing.md. Fetch the verbatim transcript of every Granola me
 
 ## What to try next
 
-- **[The meeting workflow](../workflows/meeting-workflow.md)** — my own version of steps 5, 6 and 9,
-  packaged as skills.
+- **[The meeting workflow](../workflows/meeting-workflow.md)** — prepare a brief before the meeting,
+  then a summary and follow-up draft afterward, using the project setup you already have.
 - **[Weekly review](../workflows/weekly-review.md)** — the same idea across a week: transcripts,
   email and messages rolled into one project dashboard.
 - **[Catch up on a project](../workflows/project-management.md)** — re-entering a project cold,

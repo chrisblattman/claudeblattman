@@ -2,13 +2,13 @@
 description: Choose between a research council and browser Deep Research, let your agent run the search, and put the findings to work.
 ---
 
-# Are you taking advantage of deep research?
+# Are you taking advantage of AI-driven research?
 
 [← Back to the next-steps checklist](../starter-kit/two-month-plan.md#research-a-question)
 
 Before I decide what to do, I often need to know what other people have tried. What worked? What didn’t? How much applies to my problem? I ask AI to investigate, then bring the findings to a council to help work out what to do with them.
 
-There are two ways I do this. **`/research-council` asks separate AI researchers to search and read sources. `/deep-research` asks ChatGPT and Gemini’s dedicated Deep Research tools to produce reports.** In either case, I make the request from my project and the agent brings the findings back there. You can choose one route; you don’t need to run both.
+There are two ways I do this. **`/research-council` is a council with a specific job: search the web, read original sources, and compare the evidence. `/deep-research` asks ChatGPT and Gemini’s dedicated Deep Research tools to produce reports.** In either case, I make the request from my project and the agent brings the findings back there. You can choose one route; you don’t need to run both.
 
 <div class="checklist" markdown>
 
@@ -25,9 +25,11 @@ There are two ways I do this. **`/research-council` asks separate AI researchers
 
 </div>
 
+**Which would I use?** I usually find browser Deep Research more thorough. I use Research Council for a narrower question, or when I want to save my limited Deep Research requests for a bigger investigation. Research Council still uses the allowances of the AIs doing the work.
+
 #### Multi-agent research { #multi-agent-research }
 
-`/research-council` works like a council, with a more specific job: search the web, read the original sources, and look for evidence that challenges the answer as well as supports it. A fresh agent brings the reports together. Your working council can then use that evidence to develop a proposal or plan.
+The researchers look for evidence that challenges the answer as well as supports it. A fresh agent brings their reports together. Your working council can then use that evidence to develop a proposal or plan.
 
 **`/research-council` uses the AIs you have connected:** one fresh researcher from each available Claude, Codex and Gemini. If you’ve [set up multiple AIs](council-models.md#connect-another-model) for `/council` or `/ask-agents`, it uses those same connections.
 
@@ -38,6 +40,8 @@ Grok joins when you ask for it. I find it especially useful for searching X/Twit
 **`/deep-research` uses ChatGPT and Gemini by default.** You can ask for just one. The agent operates their Deep Research tools in your browser, so you need access to those products. A Codex or Antigravity connection alone doesn’t provide it.
 
 Not every question needs Deep Research. Requests in both [ChatGPT](https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt) and [Gemini](https://support.google.com/gemini/answer/15719111) are limited. I’ve kept the skills separate because I don’t want to use that allowance every time I ask for a web search.
+
+As of November 2026, OpenAI has [announced a shared, token-based usage allowance for ChatGPT and Codex starting in December](https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits). That is a change to the overall allowance, not an announced price per Deep Research report. Check your account’s usage limits when choosing how much research to run.
 
 <details class="council-details" markdown="1">
 <summary>Be careful: Claude offers another skill with the same name</summary>

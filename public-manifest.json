@@ -36,9 +36,9 @@
       "sha256": "0415a54143c726645bf2a043348aaedc48c1be55fcd9e6baa671a525da7c29ee"
     },
     {
-      "bytes": 6456,
+      "bytes": 6522,
       "path": "docs/index.md",
-      "sha256": "bd8b98401d029f996483bef6860c74d7ac9e0a6e62d41034091daf4e23288e76"
+      "sha256": "808139432b20686f9aadf24bfe6b92affe28efa100d96dfbd33312b762ee81b2"
     },
     {
       "bytes": 4624,
@@ -49,6 +49,11 @@
       "bytes": 13903,
       "path": "docs/starter-kit/annotating.md",
       "sha256": "d1c3af11d29def48eb9dc76b563fd9d66d4189d79b5ba1e972bdcfc9b37dbe14"
+    },
+    {
+      "bytes": 2188,
+      "path": "docs/starter-kit/blattify.md",
+      "sha256": "117a7386452545f47744f8c626a90154844021e6ca8014c58087ef14ddbe71c4"
     },
     {
       "bytes": 14890,
@@ -76,9 +81,9 @@
       "sha256": "5be2ba6571b1ee877d439f489141036283fae70333a5e8db80dcf89398c2ebe3"
     },
     {
-      "bytes": 14516,
+      "bytes": 14521,
       "path": "mkdocs.yml",
-      "sha256": "b79acaea83708fb0a22455835e7511b0490d8acac5397962681ed5be51d265ed"
+      "sha256": "bfb4770ea0ac407573db89810c318a3631f57c738cf9079c47e3c3b1de65e6fe"
     },
     {
       "bytes": 17171,
@@ -681,9 +686,9 @@
       "sha256": "f1161944a2566fcd9a207c99b2da1e0e58f8a38b76f52b075eed6551bb9c3b76"
     },
     {
-      "bytes": 13139,
+      "bytes": 13429,
       "path": "skills/README.md",
-      "sha256": "6ed3f60d6d62d2825a66f8abed7910f0d09403bd7ae38b4ab4865b902247d3ba"
+      "sha256": "38ae8228edd3b646c61ac2fd7268c47365b1293f8474e9e8204873e1c6560fe3"
     },
     {
       "bytes": 2624,
@@ -704,6 +709,31 @@
       "bytes": 9154,
       "path": "skills/announcement-digest/SKILL.md",
       "sha256": "65a1368bc3f3e8b34de769e2fd0c053e7e56dc034e35c887a596a0b75b8cb894"
+    },
+    {
+      "bytes": 19314,
+      "path": "skills/blattify/SKILL.md",
+      "sha256": "d2168749f217415cb021007a8f08be3bc201a334b932dc0b4a77f4895dd9af86"
+    },
+    {
+      "bytes": 27788,
+      "path": "skills/blattify/references/assessment.md",
+      "sha256": "3832c30bf69aa9e350d7b53a05f74b43e947f6f247705633c509910f6fa896d8"
+    },
+    {
+      "bytes": 11663,
+      "path": "skills/blattify/references/practice-discovery.md",
+      "sha256": "6efb921853a6e8c3c680d5470bf8771cad38fc0ff0f3ee81c5df4d0874bc8a40"
+    },
+    {
+      "bytes": 10376,
+      "path": "skills/blattify/references/site-guide.md",
+      "sha256": "18a3a02fee811cda7c361506ed2b7603230cc8bc4c4637d23315d45b1dfc7e4e"
+    },
+    {
+      "bytes": 22165,
+      "path": "skills/blattify/references/walkthrough.md",
+      "sha256": "191cffd6b4cb7c5c9a4ca6a320948b32fada64e3f9e96f126aeec8cee1f7d7d7"
     },
     {
       "bytes": 9582,
