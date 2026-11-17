@@ -14,8 +14,12 @@ description: Mark up what your agent made—replies, plans, drafts, webpages and
 
 Typically, I'll leave a bunch of comments in annotation mode, then add a big-picture comment to the message box. Sending those together lets the agent address them all at once and make changes more holistically.
 
+New to the desktop apps? [The desktop-app guide](from-terminal.md) introduces working with the conversation and your draft in the same window.
+
 !!! note "Current as of November 2026"
     These features are changing quickly, and Codex and Claude handle them differently. If something here doesn't match what you see, ask your agent how it works in your version.
+
+    The interface illustrations below are reconstructed from screenshots supplied on November 16, 2026.
 
 ## 1. Built-in Codex
 
@@ -26,7 +30,7 @@ The basic process is the same whether you're looking at a webpage, a Markdown fi
 <!-- VERIFY (Shay, Nov 6 demo): comments queue below the chat box until sent. Confirm exact wording of the controls. -->
 Your comments collect with your next message until you send them. Add a general note alongside the specific ones if you like: “The whole thing is too formal.” Then send them together so the agent can work through the changes at once.
 
-**Webpages.** In Codex's browser, select **Annotate**, click something or draw a rectangle around it, and leave a comment. The [desktop-app guide](from-terminal.md#4-point-at-exactly-what-you-want-changed) has more. It's how we're editing this site.
+**Webpages.** In Codex's browser, select **Annotate**, click something or draw a rectangle around it, and leave a comment. It's how we're editing this site.
 
 ![Illustration of Codex browser annotation on the Claude Blattman homepage](../images/annotation-examples/codex-browser.png)
 

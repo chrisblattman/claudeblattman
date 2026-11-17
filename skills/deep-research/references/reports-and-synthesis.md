@@ -23,8 +23,9 @@ Formats are examples. Keep each native export unchanged; a Markdown conversion l
 - The **Deep Research** container's name, type and URL/identity, plus filing state (`pending`, `verified`, `blocked`). An unavailable folder must not be reported as created. Research completion and successful filing are separate facts.
 - Each observed research state and useful recovery history, including whether an export is complete, in progress, failed or unknown. Unresolved export details belong under `capture-incomplete`; no credentials or auth tokens.
 - Report location, original hash/size, capture format/method, conversion limitations and source checks.
-- For every temporary Gemini Google Doc, including duplicates: exact Doc URL/ID, creation context establishing this run's ownership, associated report/export, verified local capture of its content, and individual cleanup status (`pending`, `trashed`, `retained (host confirmation rule)`, `blocked`, or `not-applicable`). A trashed Doc is provenance, not the delivered report link.
-- Synthesis state and any explicitly skipped or failed arm.
+- For every temporary Gemini Google Doc, including duplicates: exact Doc URL/ID, creation context establishing this run's ownership, associated report/export, verified local capture of its content, and individual cleanup status (`pending`, `trashed`, `retained (Codex workflow)`, `blocked`, or `not-applicable`). A trashed Doc is provenance, not the delivered report link.
+- Browser tab/window identities created by this run, to distinguish them from pre-existing tabs on resume and close. A URL match alone does not establish ownership.
+- Synthesis capability, chosen reports-only delivery if applicable, synthesis state and any explicitly skipped or failed arm. For an explicitly combined research run, link to the parent record and final synthesis instead of launching a standalone synthesis here.
 
 Use these research states accurately:
 
@@ -32,7 +33,7 @@ Use these research states accurately:
 |---|---|
 | `planned` | Not submitted; inspect access, mode and folder first. |
 | `submitting` | Recorded just before Send. If the run is interrupted here, treat it as `submission-unknown`. |
-| `submission-unknown` | Submission may have succeeded; check the Deep Research container on the same route for a chat created after `submitting` before any retry. |
+| `submission-unknown` | Submission may have succeeded; inspect the original task/tab, recent chats and container for the matching brief/time. Absence from a container is not proof of non-submission; follow the submission guard before any retry. |
 | `awaiting-input` | Clarification, plan or user action pending. |
 | `running` | Product's own progress indicates active research. |
 | `capture-incomplete` | Report is complete in the product but the full export is not safely saved. |
@@ -57,7 +58,7 @@ Do not use report length, citation count or product identity as an accuracy scor
 
 ## Synthesis
 
-For two or more captured or supplied reports, use one fresh synthesis worker with the original brief, full reports and `RUN.md`. It may verify decisive sources but must not start another panel. If this capability is absent, return the reports and say fresh synthesis is blocked. With one report, return a single-product summary instead.
+For a standalone run with two or more captured or supplied reports, use one fresh synthesis worker with the original brief, full reports and `RUN.md`. It may verify decisive sources but must not start another panel. If this capability is absent, return the reports and say fresh synthesis is blocked. With one report, return a single-product summary instead.
 
 Ask the worker to create a separate `SYNTHESIS.md` containing:
 
@@ -76,3 +77,7 @@ When both products were requested, do not silently synthesize one while the othe
 Import only files the user identifies, copying originals into the chosen project archive without changing or deleting the supplied files. Record original location, date, product if known, hash and whether provenance is verified or user-described. Legacy frontmatter is optional; preserve it rather than requiring a particular folder layout. A supplied external report need not be rerun to obtain new metadata.
 
 If the user asks for ordinary agent reports to be synthesized, `/research-council` can do that without launching new research. Neither workflow needs the retired `/dr-synthesize` helper.
+
+## Explicit combined runs
+
+When the user requests both workflows, the host keeps `browser/` and `agents/` subfolders below one research run. Each has its own state and original reports; the parent holds the common `PROMPT.md`, coordinating `RUN.md` and one `SYNTHESIS.md`. Give that fresh synthesizer every individual report, not only provider summaries. Keep the same source-check and completion rules. Neither workflow starts another panel or a redundant standalone synthesis.

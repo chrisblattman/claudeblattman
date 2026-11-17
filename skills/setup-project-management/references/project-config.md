@@ -13,10 +13,13 @@ The example below is a skeleton, not a ready-to-run destination. Replace labels 
   "index_path": "PROJECT_INDEX.md",
   "ai_work_path": "AI_Collaboration",
   "sources": [
-    {"kind": "local", "location": "meetings", "required": true},
+    {"kind": "local", "location": "meetings", "role": "transcripts", "required": true},
     {"kind": "local", "location": "drafts/project-plan.md", "required": true}
   ],
   "excluded_sources": [],
+  "meetings": {
+    "transcript_path": "meetings"
+  },
   "dashboard": {
     "mode": "local-proposal",
     "account": null,
@@ -43,6 +46,14 @@ The example below is a skeleton, not a ready-to-run destination. Replace labels 
 `stage` may be `exploring`, `executing`, `finishing`, or `mixed`; describe differences in the overview. `dashboard.mode` is `local-proposal` until the Google Doc is verified, then `google-doc`. `review.write_mode` is `propose` or `apply-authorized`; the latter records standing scope and never overrides the current user's instructions. A cadence is a preference, not proof that a schedule exists.
 
 For optional connected sources, record only the selected project locations, relevant filters, and exclusions. A shared team member's name alone is not a sufficient project filter. Record summary-only versus transcript access in the review output. If a required source is unavailable, retain a proposal and report the gap; don't advance the successful-refresh checkpoint.
+
+## Optional meeting and correspondence settings
+
+`meetings.transcript_path` identifies the local destination for fetched meeting transcripts. It is optional for older configurations; reuse an existing transcript source, index entry or equivalent setting rather than creating a competing path. The post-meeting skill can save a text copy there using available tools. This field does not install a fetcher or configure a connection.
+
+Source entries may include a `role` (for example `transcripts`, `project-plan`, or `correspondence`) and `filters`. Store only verified project selections. For example, an email source can record its connected account in `location` and `filters.addresses`, `filters.keywords` and `filters.exclude_keywords`; a WhatsApp source can record the verified project chat name/ID in `location`; a Granola source can record a verified project folder name/ID. Keep any access limitations explicit. Account connections must be established separately, not by adding credentials to this file.
+
+Reuse correspondence selections from discovery, including relevant email addresses and WhatsApp chats, so meeting briefs and reviews can read the same sources. Email search addresses are not automatically email recipients. Keep the existing linked team roster and recipient policy authoritative rather than duplicating them here. Existing source entries without these optional fields remain valid.
 
 ## Tab 1: Overview & Meeting Log
 

@@ -130,21 +130,23 @@ nav:
       - Build a system: how-i-improve-the-work.md
     - Next steps for intermediate and advanced users: starter-kit/two-month-plan.md
   - Workflows:
-    - Projects and research:
+    - Project management:
       - workflows/projects-and-research.md
       - Set up a project: workflows/organize-projects.md
       - Clean up an existing project: workflows/clean-up-project.md
-      - Build a project dashboard: workflows/project-management.md
-      - Refresh a dashboard: workflows/weekly-review.md
+      - Create a project description and dashboard: workflows/project-management.md
+      - Refresh the dashboard and description: workflows/weekly-review.md
+      - Prepare for and follow up on meetings: workflows/meeting-workflow.md
+    - Research:
+      - workflows/research.md
       - Deep research: workflows/deep-research.md
-      - Find past work: workflows/recall.md
-      - "Example: project dashboard": workflows/examples/project-overview-example.md
-    - Work and personal life:
-      - workflows/executive-assistant.md
+    - Email management:
+      - workflows/building-an-assistant.md
       - Clean up your email backlog: workflows/email-cleanup.md
       - Recurring email workflows: workflows/manage-email.md
-      - Meeting follow-up: workflows/meeting-workflow.md
-      - Cut through inbox noise: workflows/school-digest.md
+      - Create your own email digests: workflows/school-digest.md
+    - Personal life:
+      - workflows/executive-assistant.md
       - Tax season: tax-workflow/index.md
       - Build a personal shopper: workflows/life/shopping.md
       - Vacation planning: workflows/life/vacation.md
@@ -158,6 +160,8 @@ nav:
       - Create a skill: build-your-own/building-skills.md
       - Fix and update your skills: workflows/maintain-skills.md
       - Scout and curate new AI tips: hyperlinks/continuous-improvement.md
+      - Useful outside skills: /workflows/best-practices/#useful-outside-skills
+      - Find past work: workflows/recall.md
   - About:
     - My AI principles: how-i-use-ai.md
     - Why Claude Blattman switched to Codex: why-i-use-codex.md

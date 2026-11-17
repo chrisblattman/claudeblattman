@@ -36,9 +36,9 @@
       "sha256": "0415a54143c726645bf2a043348aaedc48c1be55fcd9e6baa671a525da7c29ee"
     },
     {
-      "bytes": 6295,
+      "bytes": 6456,
       "path": "docs/index.md",
-      "sha256": "59de1782e8ad0245ef559ed9d1d502dbdcc1af0f3bb1aace6e2570935a71b68d"
+      "sha256": "bd8b98401d029f996483bef6860c74d7ac9e0a6e62d41034091daf4e23288e76"
     },
     {
       "bytes": 4624,
@@ -46,14 +46,14 @@
       "sha256": "c73599d039ba703b5d1949a598a1071ea8d6ed3da8b1978599d072e74118c97d"
     },
     {
-      "bytes": 13747,
+      "bytes": 13903,
       "path": "docs/starter-kit/annotating.md",
-      "sha256": "8ce13deede93c71975429b9046a21ea316c490baa1050975b6c43c029839ee29"
+      "sha256": "d1c3af11d29def48eb9dc76b563fd9d66d4189d79b5ba1e972bdcfc9b37dbe14"
     },
     {
-      "bytes": 14719,
+      "bytes": 14890,
       "path": "docs/starter-kit/from-terminal.md",
-      "sha256": "19de608ad3fe325a54795b60ed249dbfb9b370ab432a385b8bee29b996f210d2"
+      "sha256": "5b4e07461d550f958b5381a171d5e4c494549fb4c75bbefe75ce380b1c9ae5d8"
     },
     {
       "bytes": 11713,
@@ -66,19 +66,19 @@
       "sha256": "6e03f97b1585c0193dbd8363e3ec3efa9b8f6563355c10ad3dd12e026fe22408"
     },
     {
-      "bytes": 11402,
+      "bytes": 9777,
       "path": "docs/starter-kit/two-month-plan.md",
-      "sha256": "cecb58ebf74e0b167035ab3698bd73d820c90df88e96a8bc4d6550938e91a924"
+      "sha256": "781f0eb23f98f66a03b2bda402d32b85a7624b9891421ebefcc92878325f7db9"
     },
     {
-      "bytes": 103927,
+      "bytes": 104347,
       "path": "docs/stylesheets/extra.css",
-      "sha256": "7d6b4717c4c0d534e6fd95fa7227b9a57a82a443e626f9f9cb85b3257f31f8f0"
+      "sha256": "5be2ba6571b1ee877d439f489141036283fae70333a5e8db80dcf89398c2ebe3"
     },
     {
-      "bytes": 14359,
+      "bytes": 14516,
       "path": "mkdocs.yml",
-      "sha256": "c6491c25665e993c3519800e465fd11e8d99e5d212d0de2f0f9d6af526c638f3"
+      "sha256": "b79acaea83708fb0a22455835e7511b0490d8acac5397962681ed5be51d265ed"
     },
     {
       "bytes": 17171,
@@ -681,9 +681,9 @@
       "sha256": "f1161944a2566fcd9a207c99b2da1e0e58f8a38b76f52b075eed6551bb9c3b76"
     },
     {
-      "bytes": 12302,
+      "bytes": 13139,
       "path": "skills/README.md",
-      "sha256": "b1ae16358c68c610bcdd961d0c1f1c68bba37ed259e7c35e5ba75eeb7444ff91"
+      "sha256": "6ed3f60d6d62d2825a66f8abed7910f0d09403bd7ae38b4ab4865b902247d3ba"
     },
     {
       "bytes": 2624,
@@ -701,9 +701,9 @@
       "sha256": "9dfa2efe3afa80342604eaced93932d701adad53ef26119bfbcee555206f1f7e"
     },
     {
-      "bytes": 6493,
+      "bytes": 9154,
       "path": "skills/announcement-digest/SKILL.md",
-      "sha256": "ad0b57f89a9c64b08c60ec01762f48c0ff198b486e826b0f611871039da7776d"
+      "sha256": "65a1368bc3f3e8b34de769e2fd0c053e7e56dc034e35c887a596a0b75b8cb894"
     },
     {
       "bytes": 9582,
@@ -751,64 +751,69 @@
       "sha256": "05fe77c219bbeb44dcd9b81bec221fb6e96760ba7b35eea6593942b8f6be18aa"
     },
     {
-      "bytes": 11968,
+      "bytes": 14442,
       "path": "skills/deep-research/SKILL.md",
-      "sha256": "3ac9684a5df90763dafa30438839a6348e02a5eac6caa01969a7b84546a7a47e"
+      "sha256": "c27ce8defabcd834de35d206b311b274392759b4f0707e699681074d0d2d5cd5"
     },
     {
-      "bytes": 2894,
+      "bytes": 1579,
       "path": "skills/deep-research/adapters/claude-code.md",
-      "sha256": "a1cce2ac722f0ca2cf24fe99cad19f663f640647c17d5f9693c7e82d76768a3a"
+      "sha256": "e585d420197f8bdd0f900398dde6333973b536f5b481c51674261c81c93f7c03"
     },
     {
-      "bytes": 1356,
+      "bytes": 1505,
       "path": "skills/deep-research/adapters/codex.md",
-      "sha256": "368bd7080e0f3b7265ed926ace5aed471642ea58c53a5ee4c90863421dcb3c10"
+      "sha256": "73aa0f4ba12eca330577aa676b9d5873401cb4710c6430eea853bfe99a7512e1"
     },
     {
-      "bytes": 10014,
+      "bytes": 12479,
       "path": "skills/deep-research/references/acceptance.md",
-      "sha256": "0c1c626db57dcd435dcaf765dbed99df05075d1ede7c33d1d836f4b36bc8b774"
+      "sha256": "36527bdba1b3e0d2130e2358a920e4bee353af11f91ded963933c5b7a645b9ac"
     },
     {
-      "bytes": 11612,
+      "bytes": 11959,
       "path": "skills/deep-research/references/browser-procedures.md",
-      "sha256": "42fdd2489fd4f121cb9e03c70356c8bf7dfb34d950a9daa5d860545eb88e9f41"
+      "sha256": "024d248df0c430cca4922f6ed08c221be0f2bc56d811c66d9c79915bee15c080"
     },
     {
-      "bytes": 6261,
+      "bytes": 5550,
       "path": "skills/deep-research/references/browser-routes.md",
-      "sha256": "34a9d95c3e9d06fe2a49f252dd46f8cdb41f95806a0b458b6af4c1c12943836a"
+      "sha256": "76a896db24d116633691616522e7bd397ac4d1af8d63b114a1c303585fbf96d4"
     },
     {
-      "bytes": 6153,
+      "bytes": 7097,
       "path": "skills/deep-research/references/reports-and-synthesis.md",
-      "sha256": "2747d94030caa380fdb05bcaec912182e3e454dfee30bf7af733836cb5c168c6"
+      "sha256": "6d0a67dbb6bd46804d0ab4d2fc4c72510d40358463a77a8613378dfe7ef955fe"
     },
     {
-      "bytes": 5738,
+      "bytes": 6471,
       "path": "skills/deep-research/references/setup.md",
-      "sha256": "f0bb73740e424afc5f53849fc20ff25f8f1ba1f0f10ac0a73fdf7e76d526d2e3"
+      "sha256": "3798cf5ce9bd12ef51e46c6fd37972796f4c1aa55d75046ae2facf6643d5dc58"
     },
     {
-      "bytes": 5677,
+      "bytes": 6341,
       "path": "skills/deep-research/routes/apple-events-macos.md",
-      "sha256": "f500e7363ca7d6424b5535a8e9a3fd4d243a11e3551996e29e277cbdad0a1a9a"
+      "sha256": "30eb8166fb09de20aac335d3c4fd1602ade83bb9abf665ca02dd00427982c2ca"
     },
     {
-      "bytes": 1697,
+      "bytes": 1801,
       "path": "skills/deep-research/routes/claude-in-chrome.md",
-      "sha256": "8b95ec79d40b730df0e0c450c677c8b2d220fa917e26996273ce6b374e1845ba"
+      "sha256": "29e1e1f9801efe069f5a030f8cbd5ee257e3441e1bd3b1fbd565cc615dc49d1f"
     },
     {
-      "bytes": 1120,
+      "bytes": 1256,
       "path": "skills/deep-research/routes/codex-chrome.md",
-      "sha256": "6045ebcbbb1b80809aff766e8e82e44f46d0905bb8244f38852d11c16a52c681"
+      "sha256": "1c9f4e2bbe850a5080e5fb292487a3f959273503ac33575d34c460b9859b131c"
     },
     {
-      "bytes": 1172,
+      "bytes": 1308,
       "path": "skills/deep-research/routes/codex-computer-use.md",
-      "sha256": "e8b52ee8814a464cc7f3a674630bdd80160454e6ab268bc472e26c31eb24f49e"
+      "sha256": "612c956ce65ccc75363319d81120d746bb4507c3666c14de9792fa89add1e136"
+    },
+    {
+      "bytes": 1988,
+      "path": "skills/deep-research/routes/manual-handoff.md",
+      "sha256": "e4eddaf6536642dae52c2e01ce176f401c7e32274520e401c4ed9e9041436b46"
     },
     {
       "bytes": 5354,
@@ -836,14 +841,19 @@
       "sha256": "79c94b5b7d9bed8dd5210dc70b7bf6474852cf4894e9316a51272483514ad091"
     },
     {
-      "bytes": 12223,
+      "bytes": 17818,
       "path": "skills/post-meeting/SKILL.md",
-      "sha256": "2ef79e5e10ccfeb0f16e3b68bc5d980d06fc886a997e958246adfc81b3fafd26"
+      "sha256": "8f79ba6fbb5bdca92dc780c144da2559c4fa7cb29157818153116ba95117ab0d"
     },
     {
-      "bytes": 24072,
-      "path": "skills/pre-meeting-brief/SKILL.md",
-      "sha256": "7a8a29aa0286e88a05c524af0241267d22ed5e2a0e198c90dd7e85a8d8b4a581"
+      "bytes": 787,
+      "path": "skills/pre-meeting-brief/README.md",
+      "sha256": "8792bc9348034c81b1cccdbf7f52c5fd94e15f82e6b1d619d9bf16677dfe53f6"
+    },
+    {
+      "bytes": 15375,
+      "path": "skills/pre-meeting/SKILL.md",
+      "sha256": "de07302bc4c16832c57608965e3e7f7d32b8f2d6197c160e84895756ec5e966d"
     },
     {
       "bytes": 842,
@@ -871,19 +881,19 @@
       "sha256": "1d87f4cf3df31d885a78c66c285a171c311fbb0b3d0a76d783a85f934822ecab"
     },
     {
-      "bytes": 9099,
+      "bytes": 10862,
       "path": "skills/research-council/SKILL.md",
-      "sha256": "1f681b7fc24444330d3deb1848056f77ef086bd056171e3dd712ef4680d7a08c"
+      "sha256": "1a546f5e6e776f9cd8747a47fbe7d441702fdeba8952f45b293ed5b51e081a6f"
     },
     {
-      "bytes": 4041,
+      "bytes": 4984,
       "path": "skills/research-council/references/acceptance.md",
-      "sha256": "30f72aedbcb83c2bc1849f373c4861196369f02157e969abcb43edf9402e3122"
+      "sha256": "8ed26e234a9372ceecb9cec6789890eeede310ed855c1cdb5c85caeb0f557436"
     },
     {
-      "bytes": 8503,
+      "bytes": 10290,
       "path": "skills/research-council/references/execution.md",
-      "sha256": "761f7ed8543fdb2927f0f1721ffa11b4fd21c2d74b1bc0ef4e041a02ba73b17e"
+      "sha256": "c150c7ef8220c14c6d0d44b3d783a99ed3d554e3a055af727f865658459d8fdd"
     },
     {
       "bytes": 817,
@@ -896,9 +906,9 @@
       "sha256": "8f8aa11aafbd12ac34f122f5e871ad6204233a6d90ec22380201f34785caf42d"
     },
     {
-      "bytes": 11670,
+      "bytes": 12250,
       "path": "skills/setup-project-management/SKILL.md",
-      "sha256": "15aaa6a015659a1461a9e9c1abf422e0a3f778e60211de8f7f61fa42aeb0e891"
+      "sha256": "7fa2c0f77b5ba3c915ba25cd58a70bb8350adecb9f0f8cd50ec007688abe870b"
     },
     {
       "bytes": 6757,
@@ -911,9 +921,9 @@
       "sha256": "970304ce7a59a6c20cbcdfb108e01d0b0f8b0a91e4c485ae7a8508aff778c7e9"
     },
     {
-      "bytes": 4145,
+      "bytes": 5634,
       "path": "skills/setup-project-management/references/project-config.md",
-      "sha256": "fc4b5e0ad7deb90c7a28b4bd559e61236fdab632dca076b93cadbc0ea2c960bf"
+      "sha256": "fd1a98d2bd7896982c6312ceda865764de38341ecaa4ecc948ef7215007ea340"
     },
     {
       "bytes": 9964,

@@ -1,24 +1,25 @@
 ---
-description: Choose a one-time email cleanup or a recurring email routine, with links to related assistant workflows.
+description: Clear your email backlog, handle new mail, and turn repeated messages into useful digests.
 ---
 
-# Managing email with AI
+# Email management { #managing-email-with-ai }
 
-The email guide now has two starting points:
+I want to spend less time sorting email and more time on the messages that need me. Start by clearing the backlog and deciding what belongs where. Then use those choices to handle new mail, with a check-in when you want help working through it.
 
 | What you need | Start here |
 |---|---|
-| Recover important work from an overwhelming inbox | [Clean up your email backlog](email-cleanup.md) |
-| Handle new mail, replies, and follow-ups | [Recurring email workflows](manage-email.md) |
+| Recover unfinished work and decide what belongs in each bucket | [Clean up your email backlog](email-cleanup.md) |
+| Sort new mail and work through replies and decisions | [Recurring email workflows & a daily check-in](manage-email.md) |
+| Read the important parts of repeated messages together | [Create your own email digests](school-digest.md) |
 
-You can begin either workflow without installing the whole starter kit or building a complete executive assistant.
+These guides cover personal email as well as work email. You can use them without building a complete executive assistant.
 
 <span id="how-i-built-this"></span>
 <span id="the-one-time-cleanup"></span>
 
 ## The one-time cleanup
 
-The [email cleanup guide](email-cleanup.md) covers the backlog, outstanding obligations, and initial handling rules. For disk audits and storage spread across services, see [Organize cloud storage](cloud-storage-guide.md). For one messy work folder, see [Clean up an existing project](clean-up-project.md).
+The [cleanup guide](email-cleanup.md) helps you choose labels and rules while working through old mail. It also helps you move unfinished work into a task list you actually use.
 
 <span id="prerequisites"></span>
 <span id="step-1-install-config-templates"></span>
@@ -28,6 +29,10 @@ The [email cleanup guide](email-cleanup.md) covers the backlog, outstanding obli
 
 ## The recurring routine
 
-The [recurring guide](manage-email.md) explains filters, AI triage, interactive check-in, and scheduling. It links the relevant skill and policy files and distinguishes reference instructions from a configured service.
+The [recurring guide](manage-email.md) puts those rules to work. Gmail filters handle predictable messages, the agent sorts mail that needs more judgment, and an optional check-in helps you deal with what remains.
 
-For adjacent jobs, see [meeting preparation and follow-up](meeting-workflow.md), [category-specific email digests](school-digest.md), and [project dashboards](project-management.md). The broader [Work and personal life](executive-assistant.md) index remains the home for those workflows.
+## Email digests
+
+Some mail is worth reading together. The [digest guide](school-digest.md) uses school messages as an example, but the same approach can work for announcements and other repeated updates.
+
+For help around a team meeting, see [Prepare for and follow up on meetings](meeting-workflow.md). For taxes, shopping, travel, and health, see [Personal life](executive-assistant.md).

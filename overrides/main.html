@@ -56,7 +56,7 @@
   {{ super() }}
   {%- set nav_uris = nav.pages | map(attribute="file.src_uri") | list -%}
   {%- if page.toc and page.file.src_uri not in nav_uris
-        and 'class="checklist"' in page.content %}
+        and ('class="checklist"' in page.content or 'class="page-done"' in page.content) %}
     <div class="cb-lone-toc-holder" hidden>{% include "partials/toc.html" %}</div>
   {%- endif %}
 {% endblock %}
@@ -205,16 +205,14 @@
     /* ============================================================
        PROGRESS: step checklists, page-done marks, and the sidebar
        ============================================================
-       Two kinds of progress live on this site and they share one home in the
-       left column:
+       Guide progress shares one home in the left column:
 
          * the Start Here checklists, where each STEP has a checkbox
-         * Build Your Own, where each PAGE has one at its foot
+         * whole-guide completion, with a checkbox at the foot of the page
 
-       Shay asked for the reset to sit at the bottom of the left column in both
-       cases, so the controls are injected into the sidebar rather than the
-       content column. The step COUNT stays in the content column on the
-       checklists, where it sits beside the thing it counts.
+       The count and reset sit at the bottom of the left column in both cases.
+       Homepage rows use the same saved-progress convention with controls
+       beneath their table, because that page has no left navigation.
 
        Re-bound on every instant-navigation swap via document$. ------------- */
 
@@ -228,11 +226,6 @@
        the checklist's own contents, not links to the other two checklists. */
     var CB_PAGE_LIST_SECTIONS = ['Workflows'];
 
-    /* Of those, the ones where each page carries an "I did this" checkbox and
-       the column shows a tally. Build Your Own is a path you work through;
-       Workflows is a reference library you dip into, so it is not tracked. */
-    var CB_TRACKED_SECTIONS = [];
-
     function cbStore(key) {
       return {
         read: function () {
@@ -243,6 +236,14 @@
           try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) {}
         }
       };
+    }
+
+    /* Shared completed appearance for steps and whole-guide controls. Keep
+       the controls themselves readable so completion is easy to undo. */
+    function cbMarkCompleted(heads, body, links, complete) {
+      heads.forEach(function (el) { el.classList.toggle('step--done', complete); });
+      body.forEach(function (el) { el.classList.toggle('step-body--done', complete); });
+      links.forEach(function (el) { el.classList.toggle('md-nav__link--done', complete); });
     }
 
     /* Appends a count line and a reset button to the foot of the left column.
@@ -327,18 +328,13 @@
       var activeSection = document.querySelector(
         '.md-sidebar--primary .md-nav__item--active.md-nav__item--section > .md-nav__link');
       var sectionName = activeSection ? activeSection.textContent.trim() : '';
-      /* A page that IS a step checklist gets the Start Here column wherever it
-         sits — its own steps, tickable, with the step tally and "Reset
-         checklist" beneath — rather than its section's page list. Shay, 19 Oct,
-         on "Teaching AI your voice": the left column should be the checklist
-         "the way that it is on the newcomers page". The page still counts toward
-         its section's tally seen from the other pages — branch B writes its
-         completion into branch A's store once every step is ticked. Branch A
-         just doesn't draw that tally here. */
+      /* Every guide with progress controls gets its own contents in the left
+         column, with the task count and reset beneath, like the starter pages. */
       var isChecklistPage = !!document.querySelector('.md-content .checklist .step-done');
+      var pageBoxes = [].slice.call(
+        document.querySelectorAll('.md-content .page-done input'));
       var showsPageList = CB_PAGE_LIST_SECTIONS.indexOf(sectionName) !== -1 &&
-                          !isChecklistPage;
-      var isTracked = CB_TRACKED_SECTIONS.indexOf(sectionName) !== -1;
+                          !isChecklistPage && !pageBoxes.length;
       document.documentElement.setAttribute(
         'data-cb-sidebar', showsPageList ? 'section' : 'page');
 
@@ -381,7 +377,7 @@
       }
       cbCategoryLinks();
 
-      /* ---- A. Tracked sections: checkbox(es) per page ------------------
+      /* ---- A. Whole-guide completion, independent of menu placement ---
          A page may carry MORE THAN ONE control — "Connect your apps" has two,
          the second an explicit "nothing more to connect for now" opt-out, so
          the page can be completed without wiring up every service. Such a page
@@ -392,27 +388,32 @@
          written by the page itself, which is how the sidebar tells a
          half-finished page from a complete one without knowing how many
          controls any other page has. */
-      var pageBoxes = [].slice.call(
-        document.querySelectorAll('.md-content .page-done input'));
-      if (isTracked) {
-        var store = cbStore('cb-pagedone:v2');
-        var done = store.read();
+      var store = cbStore('cb-pagedone:v2');
+      var done = store.read();
 
-        var pageComplete = function (path) {
-          var v = done[path];
-          return Array.isArray(v) && v.length > 0 && v.every(Boolean);
-        };
+      function pageComplete(path) {
+        var v = done[path];
+        return Array.isArray(v) && v.length > 0 && v.every(Boolean);
+      }
 
-        /* Every page row in the active section, keyed by its own pathname. */
-        var rows = [];
-        var holder = document.querySelector(
-          '.md-sidebar--primary .md-nav__item--active.md-nav__item--section > .md-nav');
-        if (holder) {
-          [].slice.call(holder.querySelectorAll('a.md-nav__link')).forEach(function (a) {
-            if (a.hash) return;                     /* skip the integrated TOC */
-            rows.push({ link: a, path: a.pathname });
-          });
-        }
+      function syncPageLinks() {
+        document.querySelectorAll('.md-sidebar--primary a.md-nav__link').forEach(function (a) {
+          if (a.hash || a.origin !== location.origin) return;
+          a.classList.toggle('md-nav__link--page-done', pageComplete(a.pathname));
+        });
+      }
+      syncPageLinks();
+
+      if (pageBoxes.length) {
+        var article = document.querySelector('.md-content__inner');
+        var pageHeads = [];
+        var pageBody = [];
+        [].slice.call(article.children).forEach(function (el) {
+          if (el.matches('.page-done, .feedback-line, .md-content__button') ||
+              el.querySelector('.page-done')) return;
+          if (/^H[1-6]$/.test(el.tagName)) { pageHeads.push(el); }
+          else { pageBody.push(el); }
+        });
 
         var writeThisPage = function () {
           if (!pageBoxes.length) return;
@@ -421,12 +422,10 @@
         };
 
         var sync = function () {
-          var n = 0;
-          rows.forEach(function (r) {
-            var on = pageComplete(r.path);
-            if (on) n++;
-            r.link.classList.toggle('md-nav__link--page-done', on);
-          });
+          syncPageLinks();
+          var toc = [].slice.call(document.querySelectorAll(
+            '.md-sidebar--primary .md-nav--secondary a.md-nav__link'));
+          cbMarkCompleted(pageHeads, pageBody, toc, pageBoxes.every(function (b) { return b.checked; }));
           /* Each label marks itself as soon as its own box is ticked, even if
              the page as a whole is not finished. */
           pageBoxes.forEach(function (b) {
@@ -435,15 +434,16 @@
           });
           if (isChecklistPage) return;   /* branch B owns the column here */
           var c = cbSidebarControls(function () {
-            rows.forEach(function (r) { delete done[r.path]; });
+            delete done[location.pathname];
             pageBoxes.forEach(function (b) { b.checked = false; });
             store.write(done);
             sync();
           });
           if (c) {
-            c.count.textContent = n + ' of ' + rows.length + ' done';
+            c.count.textContent = pageBoxes.filter(function (b) { return b.checked; }).length +
+              ' of ' + pageBoxes.length + ' done';
             c.count.hidden = false;
-            c.reset.textContent = 'Reset progress';
+            c.reset.textContent = 'Reset checklist';
             c.reset.hidden = false;
           }
         };
@@ -471,15 +471,9 @@
       var store2 = cbStore('cb-checklist:v4:' + location.pathname);
       var state = store2.read();
 
-      /* The two-month plan wraps each week in a `.week-card` div, so its H3 and
-         its control sit one level down. Flatten that level before the walk
-         rather than teaching the walk about cards: a card is a presentational
-         wrapper, not a new kind of step, and the walk below should keep working
-         on the three guides that have no cards at all.
-
-         Without this the walk finds no H3 among root.children, `steps` comes
-         back empty, and the function returns early — tracking dies silently on
-         the whole page. */
+      /* Flatten the longer checklist's cards so their headings and controls
+         bind like ordinary steps. Dim their contents rather than both the
+         wrapper and its children, which would compound the opacity. */
       var blocks = [];
       [].slice.call(root.children).forEach(function (el) {
         if (el.classList && el.classList.contains('week-card')) {
@@ -489,12 +483,14 @@
         }
       });
 
-      /* Walk the checklist's blocks in order, assigning each to the heading
-         above it. Forward is what makes multi-control steps work. */
+      /* Starter guides group H3 steps under H2 headings; other guides use H2
+         steps directly. Keep the existing heading IDs and saved keys in both. */
+      var stepTag = blocks.some(function (el) { return el.tagName === 'H3'; }) ? 'H3' : 'H2';
+      /* Walk forward so every checkbox belongs to its preceding step. */
       var steps = [];
       var cur = null;
       blocks.forEach(function (el) {
-        if (el.tagName === 'H3') {
+        if (el.tagName === stepTag) {
           cur = { head: el, id: el.id, inputs: [], labels: [], body: [] };
           steps.push(cur);
           return;
@@ -514,15 +510,6 @@
         }
       });
       steps = steps.filter(function (st) { return st.inputs.length; });
-
-      /* A carded week dims as a whole, so the card joins its own body list.
-         Harmless on the uncarded guides — parentElement is the checklist. */
-      steps.forEach(function (st) {
-        var card = st.head.parentElement;
-        if (card && card.classList && card.classList.contains('week-card')) {
-          st.body.push(card);
-        }
-      });
 
       var paired = steps.reduce(function (n, st) { return n + st.inputs.length; }, 0);
       if (paired !== allControls.length) {
@@ -561,21 +548,15 @@
       function keyFor(st, i) { return st.inputs[i].dataset.progressKey || st.id + '#' + i; }
 
       function sync2() {
-        var n = 0;
         var links = tocLinks();
         steps.forEach(function (st) {
           var complete = st.inputs.every(function (input) { return input.checked; });
-          if (complete) n++;
           st.labels.forEach(function (l) {
             var input = l.querySelector('input');
             l.classList.toggle('step-done--done', !!(input && input.checked));
           });
-          st.head.classList.toggle('step--done', complete);
-          st.body.forEach(function (el) {
-            el.classList.toggle('step-body--done', complete);
-          });
           var link = links[st.id];
-          if (link) { link.classList.toggle('md-nav__link--done', complete); }
+          cbMarkCompleted([st.head], st.body, link ? [link] : [], complete);
         });
         var c = cbSidebarControls(function () {
           allControls.forEach(function (input) { input.checked = false; });
@@ -586,25 +567,19 @@
         if (c) {
           /* Counts TASKS, not steps — Shay, 7 Oct: "I want the checklist number
              to be the number of tasks, not one for each week." The tally should
-             match the number of boxes a reader can see. `n` above stays
-             step-level because that is what ticks a TOC row: a heading is done
+             match the number of boxes a reader can see. A heading is done
              when everything under it is. */
           var ticked = allControls.filter(function (i) { return i.checked; }).length;
-          /* A checklist page inside a tracked section has no page-done box of
-             its own (Shay cut the voice page's on 19 Oct), so its steps stand in
-             for one: the page counts as done in the section tally once every
-             step box is ticked. Same store and shape branch A writes. */
-          if (isTracked) {
-            var pageStore = cbStore('cb-pagedone:v2');
-            var pd = pageStore.read();
-            pd[location.pathname] = [ticked === allControls.length];
-            pageStore.write(pd);
-          }
           c.count.textContent = ticked + ' of ' + allControls.length + ' done';
           c.count.hidden = false;
           c.reset.textContent = 'Reset checklist';
           c.reset.hidden = false;
         }
+        /* Keep the page label consistent wherever it appears in navigation. */
+        done = store.read();
+        done[location.pathname] = [allControls.every(function (input) { return input.checked; })];
+        store.write(done);
+        syncPageLinks();
       }
 
       steps.forEach(function (st) {

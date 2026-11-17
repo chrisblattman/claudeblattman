@@ -1,5 +1,13 @@
 # Execution and evidence
 
+## Setup without launching research
+
+For installation or `/research-council setup`, discover the host's fresh native workers and the installed Ask Agents skill. Read its documented preflight and run only checks that inspect configuration or existing connection status without submitting a model request. Use the same configured connections as Council/Ask Agents; Gemini uses Antigravity, and Grok remains request-only. Never start a dummy panel to establish readiness.
+
+Report each provider as configured, missing or blocked, with authentication and research/source access separately marked verified or not tested. A launcher on disk does not establish a signed-in, research-capable provider. Check local artifact access and fresh synthesis availability. During an authorized research run, the real arm can establish capabilities that setup cannot verify without a model request.
+
+If connection help is needed, discover the installed Kit Setup or Ask Agents setup instructions and follow them within the user's scope. Kit Setup is optional; do not require it for a working native provider or reset existing connections. A separate request is needed for a model-based smoke test during setup-only work. Summarize missing steps and stop after setup; do not proceed into research until requested.
+
 ## Prerequisites and transport discovery
 
 The host needs file access, fresh research workers with search/source access, and native subagents for fresh synthesis of multiple reports. External providers require the installed starter kit's Ask Agents skill and its configured connections. Read that installed skill's `references/host.md` and `references/transport.md`; resolve references from its own directory. This folder does not bundle external launchers. If Ask Agents is absent, use available native research workers and explain how to add connections later.
@@ -64,3 +72,7 @@ Give the worker the original question, report paths, recorded limitations and au
 5. **Next steps:** what this research supports doing and what still needs checking.
 
 Do not assign equal numeric weights or a fixed ranking to models. A well-supported minority finding can outweigh agreement elsewhere. Preserve raw reports. An explicit request for reports only skips synthesis and should be recorded.
+
+## Explicit combined runs
+
+If the host is coordinating both named research workflows at the user's request, save this panel's original reports and `RUN.md` under `agents/` and return them to that host. Defer this panel's standalone synthesis. The host waits for both workflows under their recovery rules and supplies all individual originals to one fresh combined synthesizer. Link the parent run and synthesis from this panel's record; never start the browser workflow from a research arm.

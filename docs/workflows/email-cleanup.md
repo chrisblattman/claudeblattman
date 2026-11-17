@@ -18,7 +18,7 @@ A **filter** is a rule Gmail follows when mail arrives. For example, messages fr
 
 The agent helps you choose these rules and handles messages that need more judgment. “Newsletters from this address go into reading” can be a filter. “This looks like an announcement, but contains a personal request I need to answer” calls for the agent to read the message.
 
-My setup uses a Google Workspace MCP connection to read Gmail and Gmail API helpers to apply labels. With the right permissions, the mail connection gives the agent access to your account and control of Gmail's labels and filters.
+Your agent needs a connection to Gmail that lets it read messages, apply labels, and create filters. Ask it to help you set that up before starting.
 
 ## 1. Decide where unfinished work will go { #1-decide-what-belongs-where }
 
@@ -127,7 +127,7 @@ exec-assistant/
     └── triage-run-state.json  Record of mail already processed
 ```
 
-The filters themselves live in Gmail. The policy tells the agent how to handle mail, and the configuration gives it the details it needs to do that. The state file is maintained by the recurring workflow. You shouldn't need to edit label IDs or processing records yourself.
+Gmail keeps the filters. Your email project folder keeps the instructions the agent follows. Ask it to save what you've decided so the next session can pick up where you left off. The agent maintains the settings and processing records for you.
 
 Ask your agent to adapt this structure to your own setup:
 
@@ -144,4 +144,4 @@ Include our important senders, filters and exceptions, the instruction to preser
 
 <span id="5-move-into-a-recurring-routine"></span>
 
-Once you've worked through the backlog, use [Recurring email workflows](manage-email.md) to handle new mail with the labels, filters, and instructions you've just built. That page introduces `/triage-inbox` and a regular `/checkin` for decisions and replies. These workflows make up my “AI executive assistant” and help me manage my day.
+Next, put those rules to work on new mail. [Recurring email workflows](manage-email.md) explains how to automate the sorting and, if you want, work through replies and decisions with your agent. These workflows make up my “AI executive assistant” and help me manage my day.

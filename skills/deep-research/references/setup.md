@@ -1,69 +1,50 @@
 # Install and setup
 
-Setup gets browser access working **once, at install time**, so later `/deep-research` runs go straight through. It launches no research and spends no Deep Research allowance.
+Setup prepares browser access without launching research or spending Deep Research allowance. **Chrome is the normal path.** The user can keep another browser for everyday work and use Chrome just for research.
 
-Run setup:
+Run setup in the same session as installation or an update, on `/deep-research setup`, or before research when saved settings are missing or incompatible. A setup-only request ends with a readiness report, never a research job. On a compatible update, check the saved configuration and changed requirements; do not repeat sign-ins or text-entry tests that remain valid. After installation, tell the user to open a new session in their project so the host can load the installed skill.
 
-- **Right after installing or updating the skill, in the same session.** The installing agent does this without being asked again.
-- When the user asks: `/deep-research setup`, "set up deep research", or "recheck setup".
-- As a fallback, when a research run starts and `local/settings.json` is missing. Then continue the run.
+## Install or update the whole folder
 
-## Install (for the installing agent)
+Install `SKILL.md` and all of `references/`, `adapters/`, `routes/` and `scripts/` in the host's supported skills location. Discover that location from the installed host instructions rather than assuming a particular app's path works everywhere.
 
-1. Copy the **whole** `skills/deep-research/` folder (`SKILL.md`, `references/`, `adapters/`, `routes/`, `scripts/`) to the host's skills folder:
-   - **Claude Code:** `~/.claude/skills/deep-research/`, or `<project>/.claude/skills/deep-research/` for one project.
-   - **Codex:** `~/.codex/skills/deep-research/`.
-2. **On update,** replace everything except `local/`, which holds this computer's saved settings.
-3. Call the script as `zsh <skill folder>/scripts/browser-js.sh …`. Don't rely on its executable bit, which a raw download can drop.
-4. Run the setup steps below now. If the host hasn't loaded the new skill yet, read this file from the installed folder and follow it directly.
+Before an update, inspect the existing copy. Preserve `local/`, personal preferences, added files and edits to distributed files. Back up the existing copy outside the replacement folder, compare it with the incoming version, and merge nonconflicting changes. If a customization conflicts with new behavior, show the specific conflict and ask which behavior to keep. Do not replace the entire customized folder blindly. Preserve existing research archives and pending job identities; updating this skill never authorizes restarting research.
 
-## 1. Detect (no questions yet)
+Check for duplicate installed copies or another skill called deep-research, including Anthropic's agent-research skill. Confirm the selected entry file is this browser workflow and report its installed location. Do not delete or overwrite an unrelated same-name skill to fix a collision. Read the installed files directly if the host has not loaded the new skill yet. The optional Mac helper is invoked as `zsh <skill folder>/scripts/browser-js.sh …`; it is not required for Chrome setup.
 
-Follow [browser routes → Detect what works](browser-routes.md#detect-what-works) and the host adapter's route order. Also check:
+## 1. Discover capabilities
 
-- **Installed browsers** (`/Applications/Safari.app`, `/Applications/Google Chrome.app`, other Chromium browsers; on Windows, the usual install folders) and the **default browser**.
-- **Browser order:** probe the default browser first. Stop at the first browser where a working route reaches both products signed in.
-- **Apple Events (Claude on macOS):** for each browser being probed, `new-window https://chatgpt.com/` then a harmless `js` call such as returning `document.title`. That call also brings up the macOS Automation prompt the first time; the checklist tells the user to expect it. Keep every browser action in the script, so one permission rule covers the route.
-- **Downloads access:** list `~/Downloads` once. On macOS this may raise a one-time Files & Folders prompt. Better now than mid-export.
+Read the host adapter: [Claude](../adapters/claude-code.md) or [Codex](../adapters/codex.md). Discover callable browser tools and their instructions, including deferred tools, before declaring a connection missing. Use a harmless supported status check. Do not install an extension, change permissions or trigger Apple Events permission prompts as a silent probe.
+
+Select products using the request and saved preferences; the default is ChatGPT and Gemini. **“Only Gemini” setup checks only Gemini**, and records ChatGPT as not selected rather than requiring another login. Check that the host can save and reopen files in the project and retrieve native downloads. For Gemini, a supported browser export of a Google Doc is sufficient; a separate Drive connector is optional. Check fresh synthesis capability for multiple reports before research starts. Distinguish available tools from an export tested end to end.
+
+If an essential capture capability is known to be absent, report it before consuming allowance. If fresh synthesis is unavailable, disclose that before launch and resolve whether the user wants reports only, unless their request already permits that outcome.
 
 ## 2. One checklist
 
-Put everything that needs the user into **one** message, in this order, and leave out items that are already fine. Ask the single choice with the host's question tool if it has one. The rest are steps to do, then reply "done".
+Group only missing steps into one message:
 
-1. **Claude in Chrome** (Claude Code; a Chromium browser is installed; no block or unsupported sign-in detected):
-   > Deep Research works best through the Claude in Chrome extension. Anthropic's and OpenAI's browser tools are both built around Chrome. You can keep Safari for everything else and use Chrome just for ChatGPT and Gemini. To set it up: install the extension from the Chrome Web Store, sign it in to the same Claude account, then run `claude --chrome` once in a terminal and check `/chrome`.
+1. Connect the host's Chrome extension using its current setup instructions. For Claude, use the [Claude in Chrome guide](https://code.claude.com/docs/en/chrome); for Codex, follow the installed browser tool's instructions. Do not invent menu paths or launcher flags for a different host.
+2. Sign in to the selected ChatGPT and/or Gemini products in that browser. A working Codex or Antigravity connection does not establish product access.
+3. Complete any necessary browser or download permission prompt yourself.
 
-   Offer three choices: **Set it up now**, **My organization blocks it**, **Skip (use the Mac fallback)**. Record `available` once it connects, otherwise `blocked-by-org` or `declined`. The agent can open the Web Store page but cannot install the extension.
-2. **Apple Events setting**, for each browser that will be used and is off: the exact menu path from [the route](../routes/apple-events-macos.md#one-time-enablement-user-steps).
-3. **macOS prompts:** "Allow" when asked whether the agent's app may control Safari/Chrome, and to access Downloads.
-4. **Sign in** to ChatGPT or Gemini in the chosen browser, if either is signed out.
-5. **One permission rule** (Claude Code, Apple Events route, when Claude Code isn't already in auto or bypass mode). Without it, Claude Code asks before every browser step of every run. Propose adding this to `permissions.allow` in the user's `~/.claude/settings.json`, using the installed absolute path:
+Record a blocked or declined extension setup, and do not repeatedly offer it. If Chrome is unavailable or the user chooses another route, explain the supported alternative and its requirements before using it: [Apple Events on Claude/macOS](../routes/apple-events-macos.md), [Codex computer use](../routes/codex-computer-use.md), or [handoff](../routes/manual-handoff.md). Never silently enable a fallback or bypass host restrictions. Reuse an explicitly chosen working fallback on later runs.
 
-   ```text
-   Bash(zsh /Users/<name>/.claude/skills/deep-research/scripts/browser-js.sh:*)
-   ```
+Apple Events access is broader than this research run: the helper does **not** enforce window ownership. Do not describe a persistent shell permission as restricting access to research windows or add a broad allow rule as part of ordinary setup. Follow the host's existing permission controls and the fallback's ownership checks.
 
-   Add it only with the user's approval. Show the exact line first. The rule covers only this script, which acts on browser windows the run opens and refuses to close any other window. Record `added`, `declined` or `not-needed`.
-
-Codex: items 1, 2 and 5 don't apply. Point to the Codex Chrome extension or computer-use setup from Codex's own instructions, with the same "Chrome just for these sites" suggestion.
-
-After the user replies, re-probe each item. Repeat the checklist only for what still fails.
+After the user completes the checklist, check only the remaining blockers. Preserve a decline until they ask to reconsider it.
 
 ## 3. Verify without spending
 
-For each product, on its chosen route and browser:
+For each selected product:
 
-1. Open the product and find the **Deep Research** project or notebook, creating it if absent. Record its URL and the account shown.
-2. Turn on Deep research and confirm it is active (ChatGPT's mode chip; Gemini's "Deselect Deep research" and its research placeholder).
-3. Enter the word `test` with the route's text-entry method and confirm it registers. Then clear the composer, turn the mode off, and confirm the composer is empty. **Never press Send.**
-4. Close only the windows or tabs setup opened (Apple Events: `close <id> <url-prefix>`).
+1. Open a new tab owned by setup. Confirm the intended signed-in account and visible Deep Research access. Find or create the **Deep Research** ChatGPT Project or Gemini Notebook where supported. Record filing separately from research readiness; a missing container is not the same as missing research access.
+2. In a new, empty composer, turn on Deep Research and verify visible activation. **Never overwrite or clear an existing user draft.** If the composer contains text, use another fresh chat or report the blocker.
+3. Enter `test`, confirm it registers, then remove only that test text. Confirm the composer is empty. Never press Send or approve a research plan during setup. Restore the mode state you changed where possible.
+4. Close only tabs setup created and whose identity is still verified. Leave existing tabs, ambiguous windows and anything needed for recovery open.
 
 ## 4. Save and report
 
-Write `local/settings.json` ([schema](browser-routes.md#saved-settings-check-first)), including:
+Save per-product readiness, partial progress, extension declines and precise blockers in `local/settings.json` using [the settings schema](browser-routes.md#saved-settings-check-first). Preserve unknown fields when migrating an older file. Do not label an untested product ready or overwrite a working unselected product's settings.
 
-```json
-"setup": { "completed": "YYYY-MM-DD", "default_browser": "<app>", "permission_rule": "added | declined | not-needed", "downloads": "ok | blocked" }
-```
-
-Then give the user a short table with, for each product: route, browser, account shown, container, and anything still blocked. If no route works for a product, record `handoff` and say what would enable automation. A product that is not verified is never reported as ready.
+Return a short table: selected product, browser route, mode/text-entry check, container filing, capture capability and remaining user step. Identify checks as passed, blocked or not tested. Setup verifies access and entry, **not completed research or export**. A research request may continue with verified selected products under the selection rules; a setup-only request stops here.

@@ -29,7 +29,6 @@ I appreciated the help from colleagues, and so I built this site to help others.
 <ul class="home-featured__links">
 <li><a href="how-i-use-ai/">My AI principles</a></li>
 <li><a href="why-i-use-codex/">Why Claude Blattman switched to Codex</a></li>
-<li><a href="workflows/maintain-skills/">Refreshing your existing skills</a></li>
 <li>Find this helpful? Please <a href="https://github.com/chrisblattman/claudeblattman">star it on GitHub</a>.</li>
 </ul>
 
@@ -100,6 +99,8 @@ An optional checklist of workflows, skills and setup improvements to try next. S
 
 ## What would you like help with?
 
-- **[Projects and research](workflows/projects-and-research.md).** Keep a project moving by bringing its history, decisions and next actions together.
-- **[Work and personal life](workflows/executive-assistant.md).** Get help with messages, meetings, household decisions and travel.
+- **[Project management](workflows/projects-and-research.md).** Keep a project moving by bringing its history, decisions and next actions together.
+- **[Research](workflows/research.md).** Investigate a question, compare sources, and put the findings to work.
+- **[Email management](workflows/building-an-assistant.md).** Clear the backlog, sort incoming mail, and make time for the messages that need you.
+- **[Personal life](workflows/executive-assistant.md).** Get help with taxes, household decisions, travel, and health.
 - **[Improve your AI setup](workflows/best-practices.md).** Organize your files and projects, connect your apps, and build useful routines.

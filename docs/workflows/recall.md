@@ -1,139 +1,47 @@
 ---
-description: Search every past Claude Code and Codex session on your machine with full-text search. Fast BM25-ranked lookups over local transcripts.
+description: Find past decisions, useful answers, and unfinished work in the AI conversations saved on your computer.
 ---
 
-# `/recall` — Search Every Past Session
+# Find past work with `/recall`
 
 I kept solving the same problem twice. First because I'd forgotten I'd solved it, second because I couldn't find the session where I did. `/recall` fixed that.
 
-`/recall` is a skill that indexes every past Claude Code and Codex transcript on your machine and lets you search them with full-text queries. The skill is by [arjunkmrm](https://github.com/arjunkmrm) and is MIT-licensed — I didn't build it. I installed it and use it every few days.
+[Recall](https://github.com/arjunkmrm/recall) searches past Claude Code and Codex conversations saved on your computer. You can use it to recover a decision, find a useful answer, or pick up work from an earlier session. It was created by [arjunkmrm](https://github.com/arjunkmrm); I didn't build it.
 
-!!! warning "Privacy first"
-    Your session transcripts contain the full content of past tool outputs — anything you pasted into Claude Code, any file it read, any environment value it echoed. Treat the `/recall` index as sensitive data. Don't share `~/.claude/projects/` or its search index with anyone you wouldn't share the underlying files with.
+## 1. Install the skill { #install }
 
----
+Ask your agent:
 
-## What it does
-
-`/recall` uses **SQLite FTS5 full-text search with BM25 ranking** over the JSONL transcript files Claude Code and Codex write as they run. It supports keyword search, exact-phrase queries, boolean operators, and prefix matching.
-
-It's **same-machine only**. Sessions from another Mac aren't visible unless you explicitly sync the transcript directories.
-
----
-
-## Install
-
-The skill ships as a folder that drops into `~/.claude/skills/`. Find the source at [arjunkmrm's GitHub](https://github.com/arjunkmrm) (the repo name has shifted once; check the pinned skills list there). Once installed:
-
-```bash
-# First search builds the index (may take a minute for a large transcript history)
-python3 ~/.claude/skills/recall/scripts/recall.py "hello"
+```text
+Find and install Recall from https://github.com/arjunkmrm/recall. Follow its setup instructions and include the supporting files it needs. Put it where I keep my other skills, then check that it can find my past conversations.
 ```
 
-After install, `/recall` is available as a slash command in Claude Code. The skill directory can live anywhere Claude Code looks for skills — `~/.claude/skills/recall` is the path I use.
+The first search builds a searchable record of your past conversations. If the skill doesn't appear after installation, start a new session.
 
----
+## 2. Ask for something you remember working on
 
-## Query syntax
+You don't need to remember the exact words or which session you used. Give the agent the project name, an approximate date, or a phrase you remember. For example:
 
-FTS5 supports four kinds of query:
-
-```bash
-# Keyword — matches stemmed variants ("discussing" matches "discuss")
-python3 ~/.claude/skills/recall/scripts/recall.py "buffer"
-
-# Exact phrase
-python3 ~/.claude/skills/recall/scripts/recall.py '"ACP protocol"'
-
-# Boolean
-python3 ~/.claude/skills/recall/scripts/recall.py "rust AND async"
-python3 ~/.claude/skills/recall/scripts/recall.py "tauri OR electron"
-python3 ~/.claude/skills/recall/scripts/recall.py "auth NOT deprecated"
-
-# Prefix
-python3 ~/.claude/skills/recall/scripts/recall.py "buffer*"
+```text
+Use Recall to find the conversation where we decided which outcomes to measure in [project]. Read the relevant discussion and tell me what we agreed, why, and what we left unresolved.
 ```
 
-You can combine them: `"state machine" AND test` matches sessions where both appear.
+You can also ask it to find a draft you liked, an approach you tried in another project, or an explanation you want to read again. If the first search misses it, give the agent another clue or ask it to try different terms.
 
----
+## 3. Bring the useful work into your project
 
-## Common filters
+Once you've found the conversation, ask the agent to compare it with what you're working on now:
 
-```bash
-# Only sessions from a specific project
-python3 ~/.claude/skills/recall/scripts/recall.py "regression" --project ~/Dropbox/research/paper-X
-
-# Only recent sessions
-python3 ~/.claude/skills/recall/scripts/recall.py "compaction" --days 14
-
-# Only Claude Code (not Codex)
-python3 ~/.claude/skills/recall/scripts/recall.py "hook" --source claude
-
-# Only Codex
-python3 ~/.claude/skills/recall/scripts/recall.py "hook" --source codex
-
-# Force reindex after you've moved transcripts around
-python3 ~/.claude/skills/recall/scripts/recall.py --reindex "anything"
+```text
+Compare what you found with our current project notes. Show me any decisions or useful context we're missing, and flag anything that conflicts with what [Person] and I decided in our meeting this morning.
 ```
 
----
+Give it the meeting transcript or notes so it has that discussion to compare against. Once you've worked through any differences, have it save the decisions you want to keep in the project's documents.
 
-## Reading a match
+## 4. Know what it can find
 
-Each result returns a `File:` path to the raw JSONL transcript. Two ways to use it:
+Recall searches conversation files available on the computer running it. If you did the work on another device, you may need to search there. It can't recover a conversation file that is no longer available.
 
-```bash
-# Read the session
-python3 ~/.claude/skills/recall/scripts/read_session.py <File-path-from-result>
+If you've moved your conversation files and searches seem incomplete, ask the agent to refresh Recall's search index and check which files it can see.
 
-# Resume the session in Claude Code
-cd /path/to/project
-claude --resume SESSION_ID
-```
-
-The `SESSION_ID` is in the match output; copy and paste.
-
----
-
-## `/recall` vs `/conversation-search`
-
-Both skills search local JSONL transcripts. Both are same-machine only. The differences are worth knowing:
-
-| Feature | `/recall` | `/conversation-search` |
-|---------|-----------|------------------------|
-| Indexes | Claude Code + Codex | Claude Code only |
-| Query engine | SQLite FTS5, BM25 ranking | Keyword + date filter |
-| Advanced queries | Phrase, boolean, prefix | Keyword only |
-| Daily digest | — | Yes (`--digest today`) |
-| Install | External skill (MIT) | Personal |
-
-The quick rule: use `/conversation-search` for "what did we do last week" style questions that want a summary. Use `/recall` for "find the session where we talked about X" style questions that want a specific match.
-
-!!! note "`/conversation-search` not yet published"
-    `/conversation-search` is a thin Claude Code wrapper over the local JSONL transcript files — sanitization pending. `/recall` (the third-party tool above) ships today; the conversation-search side of the comparison is what I run locally and isn't yet in the [skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills).
-
----
-
-## When it earns its keep
-
-Three patterns where I reach for it:
-
-1. **"I've solved this before."** A weird dependency issue, a regex that took me an hour to get right, a shell incantation I can't remember. `/recall "specific error text"` usually finds the fix.
-2. **Cross-project learning.** When I've figured out a pattern in one project and want to apply it elsewhere, I search the pattern across all projects with no `--project` filter.
-3. **Recovering from a bad compaction.** When `/compact` summarized away something I needed, the original detail is still in the transcript. `/recall` finds it; I paste it back into the current session.
-
----
-
-## Limitations, stated honestly
-
-- **Same-machine only.** If you work across a laptop and a desktop, sessions from one aren't visible from the other unless you sync `~/.claude/projects/` explicitly. For cross-machine continuity I use `/done` + `HANDOFF.md` via Dropbox — different pattern, covered elsewhere.
-- **Index staleness.** If you've moved transcripts or deleted old ones, use `--reindex` to refresh. The skill is good about this but not perfect.
-- **Not a replacement for memory.** The index holds session content; it doesn't remember semantic context. For persistent context across conversations, use Claude Code's memory tool or a `MEMORY.md` file — `/recall` is for retrieval, not memory.
-
----
-
-## Related
-
-- **Claude's memory tool** — persistent context across conversations. Complement, not substitute.
-- **[What's new in April 2026](../changelog.md)** — the context for why this update shipped.
+Keep important decisions in your project documents even when you use Recall. Finding the old discussion is useful; having the agreed decision ready for the next session is better. [Clean up an existing project](clean-up-project.md) shows how to bring that scattered work together.

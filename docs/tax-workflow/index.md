@@ -6,6 +6,9 @@ hide:
 
 *Claude Blattman — not quite a CPA.*
 
+!!! note ""
+    Refresh coming February 2027.
+
 In a former life — for about six to twelve months during and after college — I was an auditor and then a tax accountant. I was not particularly good at it, and I hated every minute. But I learned enough to be dangerous: enough to do my own taxes, and enough, I think, to teach Claude Code how to take the painful pieces away.
 
 This year I decided to use Claude Code for as much of my tax preparation as I could. I used it to assemble my charitable contributions from a sprawling Google Sheet, compile my itemized deductions from scattered receipts across email and credit card statements, and build a Schedule C for my consulting income. Some of it was still manual. I had to eyeball credit card statements to flag which charges were medical and which were childcare. But Claude Code is surprisingly good at the grunt work: sorting transactions, filtering by category, downloading and parsing CSV exports, and assembling it all into spreadsheets ready for tax software.
