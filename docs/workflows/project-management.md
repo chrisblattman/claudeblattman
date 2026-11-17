@@ -4,6 +4,10 @@ description: Write a project description you can reuse in proposals and reports,
 
 # Create your project description and dashboard { #build-and-maintain-a-project-dashboard }
 
+!!! note "Project management skills are being updated"
+
+    We’re updating the project setup skill to work with the project description and dashboard described on this site. You can use the prompts below now; the reusable skill is being refreshed.
+
 Every project should have a document that says what you're trying to do, how you plan to do it, and why. I think of this as its ground truth: the account you've agreed on and keep updating as the work changes. Alongside it, I want a dashboard that tells me where things stand and what needs my attention.
 
 I use these documents for three jobs:
