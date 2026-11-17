@@ -4,6 +4,10 @@ description: Keep project progress current after meetings, and review changes to
 
 # Refresh your dashboard and project description { #refresh-your-project-dashboard }
 
+!!! note "Project management skills are being updated"
+
+    We’re updating the weekly-review skill to work with the project description and dashboard described on this site. You can use the prompts below now; the reusable skill is being refreshed.
+
 After a meeting, I want a current account of what we agreed to do. What's on my plate, what's on my collaborators' plates, and am I the bottleneck for anything? Then, before the next meeting, I want to read that same dashboard and arrive with the right strategic agenda.
 
 I use `/weekly-review` to keep this cycle going across all my projects. It reads the comments I've left in the Google Doc and the meeting transcript, updates the dashboard, and suggests changes to the underlying project description. That keeps the account we use for proposals and reports in step with the work we're actually doing.
