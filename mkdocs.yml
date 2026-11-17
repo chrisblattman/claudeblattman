@@ -73,7 +73,8 @@ theme:
   # any rule wanting 500 or 600 snapped to a neighbour. Both faces are loaded
   # from docs/stylesheets/extra.css instead, as variable 400..700.
   font: false
-  favicon: images/favicon.svg
+  # ICO fallback; the typed SVG is declared in overrides/main.html.
+  favicon: images/favicon.ico?v=cb-20261116
   features:
     - navigation.tabs
     - navigation.tabs.sticky

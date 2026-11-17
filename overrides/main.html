@@ -6,10 +6,10 @@
 
 {% block extrahead %}
   {{ super() }}
-  {#- Material emits one <link rel="icon"> from theme.favicon (the SVG). These
-     add the .ico fallback for Safari/older browsers and the iOS home-screen icon. #}
-  <link rel="alternate icon" href="{{ 'images/favicon.ico' | url }}" sizes="48x48">
-  <link rel="apple-touch-icon" href="{{ 'images/apple-touch-icon.png' | url }}">
+  {#- Material emits the ICO fallback from theme.favicon. Prefer the outlined
+     SVG where supported; version all links when the artwork changes. #}
+  <link rel="icon" type="image/svg+xml" sizes="any" href="{{ 'images/favicon.svg?v=cb-20261116' | url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'images/apple-touch-icon.png?v=cb-20261116' | url }}">
   {#- The left column shows only the current page's contents on every page —
      see docs/stylesheets/extra.css. The old per-page `toc_only` hook is gone. #}
   <style>
