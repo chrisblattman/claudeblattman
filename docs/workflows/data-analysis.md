@@ -1,15 +1,17 @@
 ---
-description: Using an agent to clean data, write and run analysis code, and check the results. Not written yet.
+description: "Worked examples of exploring administrative data and developing a research figure."
 ---
 
-# The data analysis workflow
+# Data analysis
 
-!!! warning "Not written yet"
-    We plan to add a guide to using an agent for data work: cleaning and documenting a dataset, writing and running analysis code, and checking what comes out. Until then, the [AI resources for economists](../resources.md#ai-for-economists) collect tools and guides from other researchers.
+These walkthroughs follow specific research tasks from the initial assignment through the output and revisions. Each has its own page.
 
-If your data come from people, check your data agreement and ethics approval before you give an agent access. [When work restricts AI agents](../starter-kit/agents-at-work.md) has options for learning with approved tools.
+| Task | What the walkthrough shows |
+| --- | --- |
+| [Explore a large dataset with an agent](exploratory-data-report.md) | The CDMX instructions for autonomous exploration, visual review, and refinement, and how they became `/vibecode`. |
+| [Develop a research figure](develop-research-figures.md) | Compare rendered alternatives for the same question, revise a long-tailed distribution, and inspect the final export. |
 
-## Related
+The first walkthrough follows a documented research workflow and its development into a reusable skill. The figure walkthrough uses synthetic data to demonstrate display choices encountered in analysis work. The examples assume the agent can use your project's permitted data and statistical software; see [working within institutional restrictions](../starter-kit/agents-at-work.md) for access and setup options.
 
-- [Coding rules](coding-rules.md), also not written yet
-- [Deep research](deep-research.md), part of the [research checklist](../starter-kit/two-month-plan.md#research-a-question)
+<span id="build-a-report"></span>
+<span id="develop-a-figure"></span>

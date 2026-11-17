@@ -140,6 +140,8 @@ nav:
     - Research:
       - workflows/research.md
       - Deep research: workflows/deep-research.md
+      - Explore administrative data: workflows/exploratory-data-report.md
+      - Develop a figure: workflows/develop-research-figures.md
     - Email management:
       - workflows/building-an-assistant.md
       - Clean up your email backlog: workflows/email-cleanup.md

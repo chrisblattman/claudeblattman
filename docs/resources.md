@@ -105,7 +105,7 @@ The framework this site is built with. If you want to build something similar �
 
 ## AI for Economists
 
-This site focuses on project management, communication, and workflow automation. But the biggest wave of AI adoption in economics is around **data analysis, statistical coding, and empirical methods** — areas I haven't covered yet (coming soon). These are the essential resources for that side of the work.
+For a practical starting point, follow [the data analysis workflow](workflows/data-analysis.md): inspect the inputs, write and run code, and check the results. The resources below cover data analysis, statistical coding, and empirical methods in more depth.
 
 <h3 id="anton-korinek-generative-ai-for-economic-research">Anton Korinek — Generative AI for Economic Research</h3>
 

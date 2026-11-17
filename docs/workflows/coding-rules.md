@@ -9,5 +9,5 @@ description: Standing instructions for when the agent writes code. Not written y
 
 ## Related
 
-- [The data analysis workflow](data-analysis.md), also not written yet
+- [The data analysis workflow](data-analysis.md)
 - [Write persistent instructions](../build-your-own/agents-md.md)

@@ -16,3 +16,9 @@ There are two ways I do this:
 Both links lead into the same [research guide](deep-research.md), which explains the choices, setup, and how to ask a useful question. Choose the route that fits the work; you don't need to run both.
 
 Save the findings with the project they inform. The [project-management guides](projects-and-research.md) explain how to keep that evidence alongside the project's description, decisions, and next steps.
+
+## Worked examples
+
+The [data-analysis walkthroughs](data-analysis.md) cover building an exploratory report and developing a research figure.
+
+A further walkthrough is planned: [build a paper and slide deck outline from project notes](paper-and-slide-outline.md), using the Bogotá project as the proposed example.
