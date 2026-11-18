@@ -6,6 +6,8 @@ description: Ask your AI to diagnose a failing skill, update an outdated workflo
 
 A skill saves a way of working. That way of working may need to change. A connection can stop responding, a model name can change, or the agent can start interpreting an instruction differently. Sometimes nothing is broken: the agent has improved, and a procedure that once helped is now unnecessary work.
 
+I built `/skill-refresh` for this part of my own setup. I give it the skill and an example of what went wrong. It helps me work out what to fix, keep the parts that still help, and test the change. You can follow the same process with the agent you already use.
+
 **Ask your AI to help diagnose it.** Start in the project where you noticed the problem, with the failed attempt or a useful example close at hand:
 
 ```text
