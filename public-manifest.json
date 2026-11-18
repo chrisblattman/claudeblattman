@@ -36,9 +36,9 @@
       "sha256": "0415a54143c726645bf2a043348aaedc48c1be55fcd9e6baa671a525da7c29ee"
     },
     {
-      "bytes": 6366,
+      "bytes": 6523,
       "path": "docs/index.md",
-      "sha256": "1b96b59924c609dc1f7e12e4d462ce26f32fdfadf605bd06e61727c4abaa00b7"
+      "sha256": "7b8ee239f94663bc26edfacaaa9358b7bb82d038d2aeb46671e3ec9a50950fa4"
     },
     {
       "bytes": 4624,
@@ -66,9 +66,9 @@
       "sha256": "78dbdd966f206d3cbfcfa88cc3672b7f468cedd2a0232e1bbb22b23a90df48f9"
     },
     {
-      "bytes": 24477,
+      "bytes": 24651,
       "path": "docs/starter-kit/occasional.md",
-      "sha256": "6e03f97b1585c0193dbd8363e3ec3efa9b8f6563355c10ad3dd12e026fe22408"
+      "sha256": "d5353611bd569e3dd9db66cb1905da088724a3b53ba083a72c26e358ae781945"
     },
     {
       "bytes": 9777,
@@ -686,9 +686,9 @@
       "sha256": "f1161944a2566fcd9a207c99b2da1e0e58f8a38b76f52b075eed6551bb9c3b76"
     },
     {
-      "bytes": 13429,
+      "bytes": 13840,
       "path": "skills/README.md",
-      "sha256": "38ae8228edd3b646c61ac2fd7268c47365b1293f8474e9e8204873e1c6560fe3"
+      "sha256": "954f73a6b5877f740904e6400ac836ac78bd91cb96869c55bf511c4e0f5676ea"
     },
     {
       "bytes": 2624,
@@ -954,6 +954,26 @@
       "bytes": 5634,
       "path": "skills/setup-project-management/references/project-config.md",
       "sha256": "fd1a98d2bd7896982c6312ceda865764de38341ecaa4ecc948ef7215007ea340"
+    },
+    {
+      "bytes": 1458,
+      "path": "skills/skill-build/README.md",
+      "sha256": "93ddc228aaea7b4f6a15831e5c3b5ef7472925b4cd2c2284ddc7e895eebcf8e0"
+    },
+    {
+      "bytes": 3115,
+      "path": "skills/skill-build/SKILL.md",
+      "sha256": "0c40f0526022da14e4ab573a475fb12bbd999cd3195f832bfa2943a8240bfdc2"
+    },
+    {
+      "bytes": 1408,
+      "path": "skills/skill-refresh/README.md",
+      "sha256": "1af85662a9ab255fc70421cc4b3d6710df5e230b1c833783d41ac6dc1e35643a"
+    },
+    {
+      "bytes": 2589,
+      "path": "skills/skill-refresh/SKILL.md",
+      "sha256": "24efe0ae49460a5e6bb7d6d5f8ebe7365e34d1167bdafd64bcb51a65b39f4374"
     },
     {
       "bytes": 9964,

@@ -87,6 +87,8 @@ In a formatted preview, you'll see the headings and bold text the same way you w
 
 </div>
 
+If a step didn’t work as described, [tell me where you got stuck](mailto:claudeblattman+feedback@gmail.com?subject=Feedback%3A%20Essentials%20checklist).
+
 If this guide has been useful, [give the toolkit a star on GitHub](https://github.com/chrisblattman/claudeblattman). It helps other people find it.
 
 On a computer, click **Star** at the top right of the GitHub page. On a phone, look for **Star** or **☆** near the repository name. You'll need to be signed in to GitHub.

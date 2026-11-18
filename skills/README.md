@@ -53,6 +53,8 @@ Start a fresh session, check which copy loads, and try the workflow on a suitabl
 | Skill | Command | Dependencies | Description |
 |-------|---------|-------------|-------------|
 | [**Blattify (beta)**](blattify/SKILL.md) | `/blattify` or `$blattify` | An existing AI agent and access to this site | Assesses how you work, guides you through useful practices on real tasks, and saves your progress. [Getting started](https://claudeblattman.com/starter-kit/blattify/) |
+| [**Skill Build (beta)**](skill-build/README.md) | `/skill-build` or `$skill-build` | An example or routine worth saving | Turns a recurring task and your corrections into a reusable skill. |
+| [**Skill Refresh (beta)**](skill-refresh/README.md) | `/skill-refresh` or `$skill-refresh` | An existing skill and an example or reason to revisit it | Diagnoses what needs to change and helps you test the repair. |
 | [**Aniket Me**](aniket-me/README.md) | `/aniket-me` or `$aniket-me` | Bundled public source notes | Applies Aniket Panjwani's public advice to help improve how you work with AI |
 | [**Check-In Session**](checkin/SKILL.md) | `/checkin` | Mail connection, `/triage-inbox`, Python 3.9+; optional calendar/task tools | Email-first check-in: FYIs, decisions, approved replies, saved batches, and configurable extra reviews |
 | [**Session Capture (starter kit)**](../starter-kit-source/skills/done/SKILL.md) | `/done` | Starter kit; Python 3 | Saves a project session log, current handoff and useful artifacts; preserves unrelated unfinished work. |

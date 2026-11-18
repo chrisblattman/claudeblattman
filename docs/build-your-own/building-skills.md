@@ -2,6 +2,14 @@
 
 Skills save a repeatable way of working in Claude Code or Codex. Each maintained skill lives in its own folder, with instructions in `SKILL.md` and any references or scripts beside it. This page shows how to build one from work you already do.
 
+I built [`skill-build`](https://github.com/chrisblattman/claudeblattman/tree/main/skills/skill-build) for this. Once I've worked out a routine with my agent, it helps me save the instructions I'd otherwise have to give it again. I use [`skill-refresh`](https://github.com/chrisblattman/claudeblattman/tree/main/skills/skill-refresh) when that routine stops working or needs to change. You can install either one on its own in Claude Code or Codex. Both are in beta.
+
+You can start with the agent you already use. Say it's helped you prepare for a team meeting and you've edited the brief until it has the decisions you actually need to make. Ask it to save what you taught it while the corrections are still in the conversation.
+
+```text
+Look at what I changed in this meeting brief. Turn the instructions worth keeping into a skill for preparing future briefs in this project. Keep the details of this particular meeting in the project notes. Give me a second example to try in a fresh session.
+```
+
 ---
 
 ## The Development Lifecycle
@@ -179,6 +187,7 @@ See [Patterns](../hyperlinks/patterns.md) for the full catalog.
 
 ## Next Steps
 
+- **[Fix and update your skills](../workflows/maintain-skills.md)** — Diagnose a problem with an existing skill and check the repair on real work
 - **[Agents vs Skills](../hyperlinks/agents-vs-skills.md)** — When to use a subagent instead
 - **[Patterns](../hyperlinks/patterns.md)** — Reusable design patterns and quality checklist
 - **[skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills)** — Study existing skills as examples

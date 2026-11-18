@@ -122,6 +122,8 @@ Your request goes into `/council`, which prepares the shared brief, sends it to 
 
 You’ll want a council skill to follow the rest of this workflow. You can ask for a council manually each time, but it’s not practical to keep rebuilding the instructions. A repeatable skill gives the agents a consistent process to follow.
 
+Andrej Karpathy’s [LLM Council](https://github.com/karpathy/llm-council) inspired my council setup. I also bring in fresh reviewers after I’ve had a chance to weigh in.
+
 I’m not the only one doing this, and you do not have to use my skills. The advantage of mine is that the workflows and guides on this website refer to them, so the examples should be easier to follow. The tradeoff is upkeep: I get bogged down by other tasks and I might forget to update the skill bundle online. Other authors may maintain theirs more actively. Here’s a [list of other council and adversarial review skills others have published](../hyperlinks/council-skills.md).
 
 **What the starter kit adds**
