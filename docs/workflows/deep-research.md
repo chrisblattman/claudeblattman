@@ -70,6 +70,8 @@ You can start with the AI you already use. If you already run a council with mul
 
 **For browser Deep Research:**
 
+The setup below uses your agent’s Chrome extension. If your workplace blocks it, you can run Deep Research yourself in an approved browser if your account allows it. Research Council is another option if your workplace allows agent-based research.
+
 ```text
 Find and install the deep-research skill from the chrisblattman/claudeblattman GitHub repository. I mean the browser workflow that uses ChatGPT and Gemini's Deep Research tools. Install the entire folder, including its supporting files and SKILL.md, where I keep my other skills. If I already have it, preserve my customizations.
 

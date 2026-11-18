@@ -6,12 +6,12 @@ description: Ask your AI to diagnose a failing skill, update an outdated workflo
 
 A skill saves a way of working. That way of working may need to change. A connection can stop responding, a model name can change, or the agent can start interpreting an instruction differently. Sometimes nothing is broken: the agent has improved, and a procedure that once helped is now unnecessary work.
 
-I built `/skill-refresh` for this part of my own setup. I give it the skill and an example of what went wrong. It helps me work out what to fix, keep the parts that still help, and test the change. You can follow the same process with the agent you already use.
+I built [`skill-refresh`](https://github.com/chrisblattman/claudeblattman/tree/main/skills/skill-refresh) for this. I give it the skill and an example of what went wrong. It helps me work out what to fix, keep the parts that still help, and test the change. You can try it as a standalone beta in Claude Code or Codex. You can also start with the prompt below.
 
 **Ask your AI to help diagnose it.** Start in the project where you noticed the problem, with the failed attempt or a useful example close at hand:
 
 ```text
-Use a council to look at this skill and how it worked on my last task. What needs fixing or updating? Check the instructions, supporting files, and connections. Tell me what you would change and why.
+Look at this skill and how it worked on my last task. Check the instructions, supporting files, and connections. Tell me what you would change and why.
 ```
 
 You can use the same approach when you suspect a skill has become overcomplicated. Give the agent the result you want, rather than asking it to preserve every step of the old procedure.

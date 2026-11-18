@@ -2,7 +2,7 @@
 
 Skills save a repeatable way of working in Claude Code or Codex. Each maintained skill lives in its own folder, with instructions in `SKILL.md` and any references or scripts beside it. This page shows how to build one from work you already do.
 
-I built a skill called `/skill-build` for this. Once I've worked out a routine with my agent, it helps me save the instructions I'd otherwise have to give it again. I use a second skill, `/skill-refresh`, when that routine stops working or needs to change. Both are part of my own setup.
+I built [`skill-build`](https://github.com/chrisblattman/claudeblattman/tree/main/skills/skill-build) for this. Once I've worked out a routine with my agent, it helps me save the instructions I'd otherwise have to give it again. I use [`skill-refresh`](https://github.com/chrisblattman/claudeblattman/tree/main/skills/skill-refresh) when that routine stops working or needs to change. You can install either one on its own in Claude Code or Codex. Both are in beta.
 
 You can start with the agent you already use. Say it's helped you prepare for a team meeting and you've edited the brief until it has the decisions you actually need to make. Ask it to save what you taught it while the corrections are still in the conversation.
 
