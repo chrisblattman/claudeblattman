@@ -157,8 +157,7 @@ nav:
       - Connect your apps: build-your-own/mcp-setup.md
       - Write persistent instructions: build-your-own/agents-md.md
       - Set rules and guidelines: build-your-own/rules.md
-      - Create a skill: build-your-own/building-skills.md
-      - Fix and update your skills: workflows/maintain-skills.md
+      - Build and improve your skills: build-your-own/building-skills.md
       - Scout and curate new AI tips: hyperlinks/continuous-improvement.md
       - Useful outside skills: /workflows/best-practices/#useful-outside-skills
       - Find past work: workflows/recall.md
@@ -255,6 +254,7 @@ plugins:
         essentials/voice.md: build-your-own/voice.md
         system/ai-integration.md: workflows/council-models.md
         system/building-skills.md: build-your-own/building-skills.md
+        workflows/maintain-skills.md: build-your-own/building-skills.md
         toolkit/claude-md.md: build-your-own/agents-md.md
         toolkit/mcp-setup.md: build-your-own/mcp-setup.md
         workflows/council.md: starter-kit/occasional.md

@@ -1,196 +1,33 @@
-# Turn repeatable workflows into skills
-
-Skills save a repeatable way of working in Claude Code or Codex. Each maintained skill lives in its own folder, with instructions in `SKILL.md` and any references or scripts beside it. This page shows how to build one from work you already do.
-
-I built [`skill-build`](https://github.com/chrisblattman/claudeblattman/tree/main/skills/skill-build) for this. Once I've worked out a routine with my agent, it helps me save the instructions I'd otherwise have to give it again. I use [`skill-refresh`](https://github.com/chrisblattman/claudeblattman/tree/main/skills/skill-refresh) when that routine stops working or needs to change. You can install either one on its own in Claude Code or Codex. Both are in beta.
-
-You can start with the agent you already use. Say it's helped you prepare for a team meeting and you've edited the brief until it has the decisions you actually need to make. Ask it to save what you taught it while the corrections are still in the conversation.
-
-```text
-Look at what I changed in this meeting brief. Turn the instructions worth keeping into a skill for preparing future briefs in this project. Keep the details of this particular meeting in the project notes. Give me a second example to try in a fresh session.
-```
-
+---
+description: Save the instructions for a routine with Skill Build, update them with Skill Refresh, and review the skills you use.
 ---
 
-## The Development Lifecycle
+# Build and improve your skills { #turn-repeatable-workflows-into-skills }
 
-### 1. Notice the Pattern
+I get my AI to do something the way I want, then find myself explaining it again a week later. A skill saves those instructions for next time.
 
-The best skills come from noticing what you do repeatedly. Pay attention to:
+[Install Skill Build](https://github.com/chrisblattman/claudeblattman/blob/main/skills/skill-build/README.md) · [Install Skill Refresh](https://github.com/chrisblattman/claudeblattman/blob/main/skills/skill-refresh/README.md). Both are betas for Claude Code and Codex.
 
-- Prompts you type out more than twice
-- Multi-step workflows you walk Claude through manually
-- Tasks where you always provide the same context or constraints
+## Build a skill { #the-development-lifecycle }
 
-### 2. Do It Manually First
+I'm training a skill to help me plan applications to the Institutional Review Board (IRB), look up requirements, flag issues, and write first drafts. The skill saves how I want to work through an application. Each study's details stay in its project.
 
-Before formalizing anything, do the task through normal conversation. Repeat it enough to see which instructions help. Each time, notice:
+Another example is [Aniket Me](https://github.com/chrisblattman/claudeblattman/blob/main/skills/aniket-me/README.md), which applies Aniket's AI advice to my work. I gave Skill Build the advice I'd collected and the decisions I'd already made about how to use it.
 
-- What instructions you give
-- What the agent gets right and wrong
-- What you have to correct or clarify
-- What context you always have to re-provide
-
-### 3. Write the Skill
-
-Create a folder named after the skill, with a `SKILL.md` file inside. Start the file with metadata that says what it does and when to use it:
-
-```markdown
----
-name: your-skill
-description: Describe the task this skill handles and when to use it.
----
-
-# Your skill
-
-[1-2 sentence description of what this skill does and when to use it]
-
-## Inputs
-
-Read the user's accompanying request for:
-- [The details the user can provide]
-
-## Instructions
-
-### Step 1: [First action]
-[What the agent should do]
-
-### Step 2: [Second action]
-[What the agent should do]
-
-### Step 3: [Output]
-[What the agent should show the user]
-```
-
-For a project-specific skill, use the folder for your app:
-
-| App | File inside your project |
-| --- | --- |
-| Claude Code | `.claude/skills/your-skill/SKILL.md` |
-| Codex | `.agents/skills/your-skill/SKILL.md` |
-
-The name in the metadata should match the folder name. A simple skill needs only `SKILL.md`. Add `references/`, `scripts/` or `assets/` only when it needs supporting material, and keep paths relative to the skill folder. See the [Agent Skills specification](https://agentskills.io/specification).
-
-Open a fresh session in that project. Check that the app lists the intended skill. Invoke `/your-skill` in Claude Code or select `$your-skill` in Codex, and try a real task. If the skill uses a reference, check that the agent actually reads it.
-
-Older Claude Code commands in `.claude/commands/` still work in that app. For new skills, use the folder format. Before replacing an existing command, back it up and preserve its customizations. Check for a same-named installed skill or plugin rather than assuming the new file will be the one that runs.
-
-### 4. Test and Iterate
-
-Run the skill. It won't be right the first time. Common issues:
-
-- **Too verbose** — Add constraints: "Keep output under 200 words"
-- **Missing context** — Add more instructions or `@` references
-- **Wrong format** — Specify exact output structure
-- **Doesn't handle edge cases** — Add error handling sections
-
-### 5. Stabilize
-
-Once the skill works reliably:
-
-- Add a version header (`*v1.0 — date — description*`)
-- Add argument documentation
-- Add error handling for common failures
-- Test with different inputs
-
----
-
-## Skill Anatomy — Key Elements
-
-### Arguments (`$ARGUMENTS`)
-
-Explain which inputs the skill accepts. Claude Code can substitute the text after a slash command through `$ARGUMENTS`. In Codex, describe how to read the user's accompanying request rather than relying on that Claude-specific substitution.
-
-Common patterns:
-```markdown
-## Arguments
-`$ARGUMENTS` can include:
-- *(none)* — default behavior
-- `quick` — abbreviated output
-- `file:path` — specify a file
-- `depth:light/standard/deep` — control thoroughness
-```
-
-### Supporting references
-
-Keep reference material beside the instructions and tell the agent when to read it:
-
-```markdown
-## Reference Files
-Before drafting, read `references/style-guide.md` and
-`references/voice-rules.md` relative to this skill folder.
-```
-
-Use for:
-- Shared rules across multiple skills
-- Style guides or voice preferences — see [Teaching AI your voice](voice.md) for a complete example
-- Configuration that changes independently
-
-### Error Handling
-
-Anticipate what goes wrong:
-
-```markdown
-## Error Handling
-- **No input provided:** Show usage example and exit
-- **File not found:** Report the missing path and suggest alternatives
-- **MCP not available:** Explain what's missing and offer to proceed without it
-```
-
-### Output Format
-
-Be explicit about what the user sees:
-
-```markdown
-### Output
-
-Display:
-| Column 1 | Column 2 |
-|----------|----------|
-| [data]   | [data]   |
-
-Then ask: "Apply these changes? Or provide feedback to adjust."
-```
-
----
-
-## Design Principles
-
-**One skill, one job.** A skill that tries to do three things will be fragile and hard to improve. Three focused skills are better.
-
-**Match complexity to task.** A 5-line skill for formatting a quick note is fine. A 200-line skill for comprehensive plan review is also fine. Don't over-engineer simple tasks or under-specify complex ones.
-
-**Default to action.** Skills should do something useful with no arguments. Make the zero-argument case the most common workflow.
-
-**Fail gracefully.** When something goes wrong (missing file, MCP not connected), the skill should explain what happened and suggest a fix — not crash silently.
-
-**Version and document.** Add a version header and argument documentation. Future-you will thank present-you.
-
----
-
-## Patterns to Steal
-
-These patterns appear in well-designed skills:
-
-| Pattern | What It Does | Example |
-|---------|-------------|---------|
-| **Flags parsing** | Parse `$ARGUMENTS` for named flags | `depth:deep`, `file:path`, `quick` |
-| **Phased execution** | Multi-step with user checkpoints | Discover → Plan → Implement |
-| **Depth calibration** | Adjust thoroughness based on context | Light / Standard / Deep |
-| **Critic stance** | Explicitly shift Claude's role | "You are now the critic, not the planner" |
-| **Output templates** | Fixed format for consistent results | Status dashboard, review format |
-| **Iteration gates** | Pause for user feedback before continuing | "Apply these changes? Or adjust?" |
-
-See [Patterns](../hyperlinks/patterns.md) for the full catalog.
-
----
-
-## Next Steps
-
-- **[Fix and update your skills](../workflows/maintain-skills.md)** — Diagnose a problem with an existing skill and check the repair on real work
-- **[Agents vs Skills](../hyperlinks/agents-vs-skills.md)** — When to use a subagent instead
-- **[Patterns](../hyperlinks/patterns.md)** — Reusable design patterns and quality checklist
-- **[skills on GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills)** — Study existing skills as examples
-- **[Skill Design Patterns](../hyperlinks/downloads/skill-patterns.md)** — Downloadable reference with archetypes, quality checklist, and performance logging conventions (February 2026)
+Show Skill Build an example and any corrections you made. Then try the skill on a second task in a fresh session.
 
 <label class="page-done"><input type="checkbox"> I built a skill!</label>
+
+## Refresh a skill { #refresh-a-skill }
+
+I use [Check-in](../workflows/manage-email.md#4-sit-down-for-your-check-in) to manage email. I've changed how it handles older newsletters. Over time, I'd like it to help me create new filters and handle mail from more than one inbox.
+
+I run Skill Refresh on a specific skill when I have a mistake to fix or something new I want it to do. It helps me work out what to change and test the result. It checks the docs when tools change, and I can ask it to look for better ways to design the skill.
+
+## Review your skills periodically { #audit-your-skills }
+
+Every so often I ask my agent which skills need attention.
+
+```text
+Look through my skills and give me a short list of what's worth fixing, combining, or retiring. Give me an example for each suggestion before you change anything.
+```

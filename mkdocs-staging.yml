@@ -78,6 +78,7 @@ plugins:
         essentials/voice.md: build-your-own/voice.md
         system/ai-integration.md: workflows/council-models.md
         system/building-skills.md: build-your-own/building-skills.md
+        workflows/maintain-skills.md: build-your-own/building-skills.md
         toolkit/claude-md.md: build-your-own/agents-md.md
         toolkit/mcp-setup.md: build-your-own/mcp-setup.md
         workflows/council.md: starter-kit/occasional.md
