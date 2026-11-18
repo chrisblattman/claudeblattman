@@ -86,9 +86,9 @@ This page keeps its own checkmarks in your browser, separate from the homepage.
 <label class="step-done"><input type="checkbox" data-progress-key="week-3-get-your-files-in-order#1"> Read about [outside skills I've installed](../workflows/best-practices.md#useful-outside-skills) that help with daily work, including [Recall](../workflows/recall.md) for finding past conversations.</label>
 
 <label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#0"> [Set rules and guidelines](../build-your-own/rules.md) for the work you do regularly.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#1"> Once a task works well and you keep repeating it, [turn it into a skill](../build-your-own/building-skills.md).</label>
-<label class="step-done"><input type="checkbox" data-progress-key="maintain-skills"> [Fix or update a skill](../workflows/maintain-skills.md) when it stops working well.</label>
-<label class="step-done"><input type="checkbox" data-progress-key="audit-skills"> [Review your skills periodically](../workflows/maintain-skills.md#audit-your-skills) to decide what to fix, combine, or retire as agent models change.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="week-4-set-your-rules-your-voice-and-your-first-skill#1"> Once a task works well and you keep repeating it, [turn it into a skill](../build-your-own/building-skills.md#the-development-lifecycle).</label>
+<label class="step-done"><input type="checkbox" data-progress-key="maintain-skills"> [Fix or update a skill](../build-your-own/building-skills.md#refresh-a-skill) when it stops working well or your needs change.</label>
+<label class="step-done"><input type="checkbox" data-progress-key="audit-skills"> [Review your skills periodically](../build-your-own/building-skills.md#audit-your-skills) to decide what to fix, combine, or retire as agent models change.</label>
 <label class="step-done"><input type="checkbox" data-progress-key="scout-tips"> [Scout and curate new AI tips](../hyperlinks/continuous-improvement.md) to add to your workflow.</label>
 
 </div>

@@ -15,9 +15,8 @@ If you are getting started, follow the [essentials checklist](../index.md#my-abs
 | [Connect your apps](../build-your-own/mcp-setup.md) | Give the agent access to the tools and sources the work needs |
 | [Write persistent instructions](../build-your-own/agents-md.md) | Save context and preferences for future sessions |
 | [Set rules and guidelines](../build-your-own/rules.md) | Make recurring expectations explicit |
-| [Create a skill](../build-your-own/building-skills.md) | Turn a repeated task into reusable instructions |
+| [Build and improve your skills](../build-your-own/building-skills.md) | Save a routine, update it, or review the skills you use |
 | [Connect different agents](council-models.md) | Set up outside opinions across AI services |
-| [Fix and update your skills](maintain-skills.md) | Repair failures and adapt workflows as agents improve |
 | [Scout and curate new AI tips](../hyperlinks/continuous-improvement.md) | Collect useful ideas and decide which to adopt in your workflow |
 
 For the walkthroughs, start with [Council and review](../starter-kit/occasional.md), then [Different AI models](council-models.md) and [Deep research](deep-research.md).
