@@ -39,6 +39,24 @@ On a university or company account, an administrator may need to enable the conn
 
 <label class="step-done"><input type="checkbox"> I've connected an app my work needs.</label>
 
+#### Choose what a connected app can do { #tool-permissions }
+
+Once you've connected email, review its tool permissions. Where your app provides these controls, you can make different choices for searching messages, sending them, and changing your inbox.
+
+=== "Claude and Gmail"
+
+    Open **Claude → Settings → Connectors → Gmail** if your app uses that layout, then open the individual tool permissions. In the current documentation, the entry point is **Customize → Connectors → Gmail**. Look for **Tool permissions**, where the available tools can be allowed, require approval, or be blocked. Your organization's settings may limit the choices. See the [Claude connector guide](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
+
+    For example, you might allow searches while keeping approval for sending or changing mail. Claude's Gmail connector [asks before sending, replying or forwarding by default](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors). Choose settings that match how you want to work.
+
+=== "Codex"
+
+    Codex's [configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference) documents controls for individual app tools, including whether a tool is enabled and how approval works. An equivalent Gmail settings screen has not been verified here. Ask your agent to check the supported controls in your version before walking you through a change.
+
+```text
+Help me review what my connected email tools can do. Show me the current controls for reading, sending and changing mail, and explain which actions ask first. Don't change the settings yet.
+```
+
 ### 2. Try it on something you can recognize
 
 Ask for a specific email, event, or document so you can tell whether the connection works:

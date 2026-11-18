@@ -73,7 +73,6 @@ In a formatted preview, you'll see the headings and bold text the same way you w
 | <label><input type="checkbox"><span>Are you using the Claude or Codex app on your computer?</span></label> | [Stop using the terminal](starter-kit/from-terminal.md) |
 | <label><input type="checkbox"><span>Have you given it an agentic task?</span></label> | [Try your first task](starter-kit/newcomers.md#run-the-loop) |
 | <label><input type="checkbox"><span>Are you annotating?</span></label> | [Point and comment](starter-kit/annotating.md) |
-| <label><input type="checkbox"><span>Are you not allowed to use agents at work?</span></label> | [Get ahead of the curve](starter-kit/agents-at-work.md) |
 | **2. Use councils** | |
 | <label><input type="checkbox"><span>Are you asking multiple subagents to tackle the task?</span></label> | [You must use councils!](starter-kit/occasional.md) |
 | <label><input type="checkbox"><span>Are you using 2–4 different AI models?</span></label> | [Why it's worth the price](workflows/council-models.md) |
